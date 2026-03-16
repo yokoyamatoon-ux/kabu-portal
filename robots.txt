@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kabu-portal.streamlit.app/sitemap.xml # Adjust if the URL is different

@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Streamlit
+.streamlit/
+static/
+
+# Git
+.git/
+
+# Environment variables
+.env
+.venv
+venv/
+ENV/
+
+# Data
+*.csv
+*.json
+!x_news_posts.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local development shortcuts and logs
+*.vbs
+*.lnk
+*.log
+*.bat
+*.ps1
+
+# redundant scripts (kept in local, excluded from repo for clarity)
+# split_*.py
+# solve_icons.py
+# remove_bg.py
+# check_dim.py
+# debug_img.py

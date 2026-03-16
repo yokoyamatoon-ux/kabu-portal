@@ -1,0 +1,496 @@
+/* =========================================
+   Kabu Insight - Rakumo Portal Theme
+   Dark sidebar + Clean white main area
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ---- VARIABLES ---- */
+:root {
+    --sidebar-bg: #1c1c28;
+    --sidebar-text: #e0e0e0;
+    --sidebar-accent: #a5b4fc;
+    --main-bg: #f5f6fa;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --accent: #6366f1;
+    --accent-light: #eef2ff;
+    --accent-dark: #4f46e5;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+}
+
+/* ---- BASE APP ---- */
+.stApp {
+    background-color: var(--main-bg) !important;
+    font-family: 'Noto Sans JP', 'Inter', -apple-system, sans-serif !important;
+    color: var(--text-primary) !important;
+}
+
+/* ---- SIDEBAR ---- */
+section[data-testid="stSidebar"] {
+    background: var(--sidebar-bg) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+section[data-testid="stSidebar"] * {
+    color: var(--sidebar-text) !important;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3 {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em;
+    border-left: none !important;
+    padding-left: 0 !important;
+    margin-top: 1rem !important;
+}
+
+section[data-testid="stSidebar"] .stAlert {
+    background-color: rgba(99, 102, 241, 0.15) !important;
+    border: 1px solid rgba(165, 180, 252, 0.3) !important;
+    border-radius: 10px !important;
+}
+
+section[data-testid="stSidebar"] .stAlert p {
+    color: var(--sidebar-text) !important;
+    font-size: 0.88rem !important;
+}
+
+section[data-testid="stSidebar"] hr {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ---- MAIN HEADER ---- */
+h1 {
+    font-size: 1.8rem !important;
+    font-weight: 900 !important;
+    color: var(--text-primary) !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 0.25rem !important;
+    border-left: none !important;
+    padding-left: 0 !important;
+}
+
+h2,
+h3 {
+    color: var(--text-primary) !important;
+    font-weight: 700 !important;
+    border-left: 4px solid var(--accent) !important;
+    padding-left: 12px !important;
+    margin-top: 2rem !important;
+    background: none !important;
+}
+
+h2 {
+    font-size: 1.3rem !important;
+}
+
+h3 {
+    font-size: 1.1rem !important;
+}
+
+p,
+span,
+label,
+div {
+    color: var(--text-primary);
+}
+
+/* ---- TABS ---- */
+.stTabs [data-baseweb="tab-list"] {
+    background: var(--surface) !important;
+    gap: 0 !important;
+    border-bottom: 2px solid var(--border) !important;
+    border-radius: 12px 12px 0 0 !important;
+    padding: 0 12px !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+    color: var(--text-secondary) !important;
+    background: none !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    padding: 14px 20px !important;
+    border-bottom: 3px solid transparent !important;
+    transition: all 0.2s ease !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    color: var(--accent) !important;
+    background: var(--accent-light) !important;
+}
+
+.stTabs [aria-selected="true"] {
+    color: var(--accent) !important;
+    border-bottom: 3px solid var(--accent) !important;
+    font-weight: 700 !important;
+    background: none !important;
+}
+
+/* Tab panel background */
+.stTabs [data-baseweb="tab-panel"] {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-top: none !important;
+    border-radius: 0 0 12px 12px !important;
+    padding: 24px !important;
+}
+
+/* ---- METRIC CARDS ---- */
+[data-testid="metric-container"] {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    padding: 20px 24px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    transition: box-shadow 0.2s ease !important;
+}
+
+[data-testid="metric-container"]:hover {
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.12) !important;
+}
+
+[data-testid="stMetricValue"] {
+    color: var(--text-primary) !important;
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+}
+
+[data-testid="stMetricLabel"] {
+    color: var(--text-secondary) !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+}
+
+[data-testid="stMetricDelta"] {
+    font-weight: 700 !important;
+}
+
+/* ---- INPUTS ---- */
+.stTextInput>div>div>input,
+.stSelectbox>div>div,
+.stNumberInput>div>div>input {
+    background-color: var(--surface) !important;
+    color: var(--text-primary) !important;
+    border: 1.5px solid var(--border) !important;
+    border-radius: 8px !important;
+    font-size: 1rem !important;
+}
+
+.stTextInput>div>div>input:focus,
+.stSelectbox>div>div:focus-within,
+.stNumberInput>div>div>input:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+}
+
+/* SelectBox text */
+.stSelectbox>div>div>div {
+    color: var(--text-primary) !important;
+}
+
+/* ---- BUTTONS ---- */
+button[kind="primary"] {
+    background-color: var(--accent) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    padding: 0 20px !important;
+    transition: all 0.2s ease !important;
+}
+
+button[kind="primary"] * {
+    color: #ffffff !important;
+}
+
+button[kind="primary"]:hover {
+    background-color: var(--accent-dark) !important;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35) !important;
+    transform: translateY(-1px) !important;
+}
+
+button[kind="secondary"] {
+    background-color: var(--surface) !important;
+    color: var(--accent) !important;
+    border: 1.5px solid var(--accent) !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+}
+
+button[kind="secondary"] * {
+    color: var(--accent) !important;
+}
+
+button[kind="secondary"]:hover {
+    background-color: var(--accent-light) !important;
+    color: var(--accent-dark) !important;
+}
+
+button[kind="secondary"]:hover * {
+    color: var(--accent-dark) !important;
+}
+
+/* ---- ALERTS ---- */
+.stAlert {
+    background-color: var(--accent-light) !important;
+    border: 1px solid rgba(99, 102, 241, 0.25) !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+}
+
+.stAlert p,
+.stAlert div,
+.stAlert span,
+.stAlert li,
+.stAlert label {
+    color: var(--text-primary) !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+}
+
+/* Success / Warning / Error alerts */
+div[data-testid="stAlertContainer-success"] {
+    background: #f0fdf4 !important;
+    border-color: #86efac !important;
+}
+
+div[data-testid="stAlertContainer-warning"] {
+    background: #fffbeb !important;
+    border-color: #fcd34d !important;
+}
+
+div[data-testid="stAlertContainer-error"] {
+    background: #fef2f2 !important;
+    border-color: #fca5a5 !important;
+}
+
+/* ---- EXPANDER ---- */
+.streamlit-expanderHeader {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+}
+
+.streamlit-expanderContent {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-top: none !important;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+}
+
+/* ---- MARKDOWN CONTENT ---- */
+div[data-testid="stMarkdownContainer"] p,
+div[data-testid="stMarkdownContainer"] h1,
+div[data-testid="stMarkdownContainer"] h2,
+div[data-testid="stMarkdownContainer"] h3,
+div[data-testid="stMarkdownContainer"] li {
+    color: var(--text-primary) !important;
+}
+
+/* ---- DATAFRAME / TABLE ---- */
+.stDataFrame {
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--main-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c7d2fe;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* ---- PAGE LAYOUT CLEANUP ---- */
+.main .block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 3rem !important;
+}
+
+
+/* ---- NAV SECTION STYLE (for sidebar) ---- */
+.nav-item {
+    display: block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: var(--sidebar-text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.nav-item:hover {
+    background: rgba(165, 180, 252, 0.15);
+    color: #ffffff;
+}
+
+.nav-item.active {
+    background: rgba(99, 102, 241, 0.35);
+    color: #ffffff;
+}
+
+/* ---- NUMBER INPUT arrows ---- */
+button[data-testid="stNumberInputStepUp"],
+button[data-testid="stNumberInputStepDown"] {
+    background-color: var(--accent-light) !important;
+    color: var(--accent) !important;
+    border: none !important;
+}
+
+/* ---- CUSTOM COMPONENT CSS ---- */
+.rank-card {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.rank-card-medal {
+    font-size: 1.4rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+.rank-card-info {
+    flex: 1;
+}
+
+.rank-card-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.rank-card-subtitle {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+.rank-card-bar-container {
+    margin-top: 6px;
+    background: #f1f5f9;
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.rank-card-bar {
+    height: 100%;
+    border-radius: 44px;
+}
+
+.rank-card-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    min-width: 70px;
+    text-align: right;
+}
+
+/* ---- RESPONSIVE DESIGN (MOBILE & TABLET) ---- */
+@media (max-width: 768px) {
+
+    /* Typographic adjustments */
+    h1 {
+        font-size: 1.4rem !important;
+    }
+
+    h2 {
+        font-size: 1.2rem !important;
+        margin-top: 1.5rem !important;
+    }
+
+    h3 {
+        font-size: 1.05rem !important;
+    }
+
+    /* Global layout */
+    .stApp {
+        overflow-x: hidden !important;
+    }
+
+    .main .block-container {
+        padding-top: 1rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Tabs adjustments */
+    .stTabs [data-baseweb="tab-list"] {
+        padding: 0 4px !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+    }
+
+    .stTabs [data-baseweb="tab"] {
+        padding: 10px 12px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .stTabs [data-baseweb="tab-panel"] {
+        padding: 16px 12px !important;
+    }
+
+    /* Custom Rank Card adjustments for mobile */
+    .rank-card {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .rank-card-medal {
+        font-size: 1.2rem;
+        min-width: 30px;
+    }
+
+    .rank-card-value {
+        font-size: 1.1rem;
+        min-width: 60px;
+    }
+
+    .rank-card-title {
+        font-size: 0.85rem;
+    }
+
+    .rank-card-subtitle {
+        font-size: 0.7rem;
+    }
+
+    /* Metrics adjustments */
+    [data-testid="metric-container"] {
+        padding: 16px !important;
+    }
+
+    [data-testid="stMetricValue"] {
+        font-size: 1.6rem !important;
+    }
+}
