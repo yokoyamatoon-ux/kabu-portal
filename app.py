@@ -181,7 +181,10 @@ def render_navigation():
             arrow = "▲" if change >= 0 else "▼"
             
             # ドル円の場合は桁数を調整
-            price_str = f"{price:,.0f}" if name != "ドル円" and isinstance(price, (int, float)) else f"{price:.2f}"
+            if isinstance(price, (int, float)):
+                price_str = f"{price:,.0f}" if name != "ドル円" else f"{price:.2f}"
+            else:
+                price_str = str(price)
             
             idx_html += f"""
 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0;">
