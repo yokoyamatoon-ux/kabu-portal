@@ -25,10 +25,17 @@ def run_diagnosis_unit():
         
         st.markdown(f"""
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
-          <img src="data:image/png;base64,{hakase_b64}" style="width:65px;">
-          <div class="kabu-card" style="margin-bottom:0; flex:1; border-left: 6px solid var(--primary); padding: 18px 20px;">
-            <div style="font-size:0.85rem; color:var(--primary); font-weight:800; margin-bottom:6px;">Q{step+1}. {step+1}/{len(questions)}</div>
-            <div style="font-size:1.2rem; font-weight:800; color:#2D3436 !important; line-height:1.4;">{q['q']}</div>
+          <img src="data:image/png;base64,{hakase_b64}" style="width:65px; flex-shrink:0;">
+          <div style="
+            background: white;
+            border-radius: 16px;
+            padding: 18px 20px;
+            flex: 1;
+            border-left: 6px solid #FF6B6B;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+          ">
+            <div style="font-size:0.85rem; color:#FF6B6B; -webkit-text-fill-color:#FF6B6B; font-weight:800; margin-bottom:6px;">Q{step+1}. {step+1}/{len(questions)}</div>
+            <div style="font-size:1.2rem; font-weight:800; color:#2D3436; -webkit-text-fill-color:#2D3436; line-height:1.4;">{q['q']}</div>
           </div>
         </div>
         """, unsafe_allow_html=True)

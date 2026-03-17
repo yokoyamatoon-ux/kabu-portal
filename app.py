@@ -205,7 +205,14 @@ def run_app():
     
     page = st.session_state.current_page
     
-    if page == "home":
+    if page == "diagnosis_start":
+        # バナーの「AI投資診断をスタート」ボタン押下時の処理
+        st.session_state.show_diagnosis = True
+        st.session_state.diagnosis_step = 0
+        st.session_state.diagnosis_answers = []
+        st.session_state.current_page = "home"
+        st.rerun()
+    elif page == "home":
         from modules import home_unit
         home_unit.render_home_page()
     elif page == "news":

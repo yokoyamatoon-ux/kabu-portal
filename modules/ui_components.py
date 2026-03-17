@@ -93,6 +93,7 @@ def render_navbar():
         ("news",    "📰 ニュース"),
         ("money_secret", "⚠️ 裏事情"),
         ("maneta_diary", "📔 投資日記"),
+        ("diagnosis_start", ""),  # hidden: banner AI診断ボタン用ルート
     ]
     
     nav_items = ""
@@ -128,17 +129,17 @@ def render_navbar():
   min-height: 50px !important;
 }}
 @media (max-width: 768px) {{
+  /* Mobile: .navbar-wrapper handles fixed position now */
   .kabu-navbar {{
-    position: fixed;
-    top: 60px !important;
-    bottom: auto;
-    left: 0;
-    right: 0;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
     margin-bottom: 0;
     border-radius: 0 0 16px 16px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     padding: 8px 8px;
-    z-index: 999999 !important;
+    z-index: auto !important;
     min-height: 50px !important;
   }}
 }}
@@ -187,16 +188,17 @@ def render_navbar():
 }}
 @media (max-width: 768px) {{
   .navbar-wrapper {{
-    position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
-    z-index: 999999;
+    position: fixed !important;
+    top: 60px !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999999 !important;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     border-radius: 0 0 16px 16px;
     overflow: hidden;
   }}
-  .navbar-wrapper .kabu-navbar {{
+  /* Reset .kabu-navbar fixed inside wrapper so wrapper controls positioning */
+  .navbar-wrapper > .kabu-navbar {{
     position: relative !important;
     top: auto !important;
     left: auto !important;
@@ -204,6 +206,7 @@ def render_navbar():
     border-radius: 0 !important;
     box-shadow: none !important;
     margin-bottom: 0 !important;
+    z-index: auto !important;
   }}
   .navbar-scroll-hint {{
     display: flex;
@@ -213,13 +216,13 @@ def render_navbar():
     right: 0;
     top: 0;
     bottom: 0;
-    width: 44px;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.95) 55%);
+    width: 50px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.96) 50%);
     pointer-events: none;
     z-index: 10;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: #FF6B6B;
-    font-weight: 800;
+    font-weight: 900;
     transition: opacity 0.3s;
   }}
   .navbar-scroll-hint.hidden {{
@@ -273,7 +276,7 @@ def render_hero_slider():
             "title": "投資って、楽しいかも！",
             "subtitle": "AIがぜんぶ教えてくれるから、むずかしくないよ✨",
             "btn_text": "AI投資診断をスタート →",
-            "btn_page": "home&diagnosis=1",
+            "btn_page": "diagnosis_start",
             "accent": "#FF6B6B",
         },
         {
