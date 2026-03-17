@@ -451,10 +451,10 @@ button[data-testid="stNumberInputStepDown"] {
     }
 
     .main .block-container {
-        padding-top: 1rem !important;
+        padding-top: 80px !important; /* Make room for top navbar */
         padding-left: 1rem !important;
         padding-right: 1rem !important;
-        padding-bottom: 80px !important; /* Make room for bottom navbar */
+        padding-bottom: 1rem !important;
     }
 
     /* Tabs adjustments */

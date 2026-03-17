@@ -145,8 +145,11 @@ h3 {
     margin: 2px;
 }
 
-/* スマホ対応 */
 @media (max-width: 480px) {
+    .stApp .main .block-container {
+        padding-top: 80px !important;
+    }
+
     .kabu-card {
         padding: 14px;
         border-radius: 14px;
