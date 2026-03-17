@@ -126,6 +126,20 @@ def render_navbar():
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }}
+@media (max-width: 640px) {{
+  .kabu-navbar {{
+    position: fixed;
+    top: auto;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin-bottom: 0;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+    padding: 4px 8px 12px; /* Bottom padding for safe area */
+    z-index: 9999;
+  }}
+}}
 .kabu-navbar::-webkit-scrollbar {{
   display: none;
 }}

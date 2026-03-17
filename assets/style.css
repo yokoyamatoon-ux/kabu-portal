@@ -182,7 +182,7 @@ div {
     color: var(--text-primary) !important;
     border: 1.5px solid var(--border) !important;
     border-radius: 8px !important;
-    font-size: 1rem !important;
+    font-size: 16px !important; /* Force 16px to prevent iOS auto-zoom */
 }
 
 .stTextInput>div>div>input:focus,
@@ -210,6 +210,7 @@ button[kind="primary"] {
 
 button[kind="primary"] * {
     color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important; /* Safari override */
 }
 
 button[kind="primary"]:hover {
@@ -229,6 +230,7 @@ button[kind="secondary"] {
 
 button[kind="secondary"] * {
     color: var(--accent) !important;
+    -webkit-text-fill-color: var(--accent) !important;
 }
 
 button[kind="secondary"]:hover {
@@ -238,6 +240,7 @@ button[kind="secondary"]:hover {
 
 button[kind="secondary"]:hover * {
     color: var(--accent-dark) !important;
+    -webkit-text-fill-color: var(--accent-dark) !important;
 }
 
 /* ---- ALERTS ---- */
@@ -296,8 +299,15 @@ div[data-testid="stMarkdownContainer"] p,
 div[data-testid="stMarkdownContainer"] h1,
 div[data-testid="stMarkdownContainer"] h2,
 div[data-testid="stMarkdownContainer"] h3,
-div[data-testid="stMarkdownContainer"] li {
+div[data-testid="stMarkdownContainer"] li,
+div[data-testid="stMarkdownContainer"] a {
     color: var(--text-primary) !important;
+}
+
+div[data-testid="stMarkdownContainer"] a[style*="background: #FF6B6B"],
+div[data-testid="stMarkdownContainer"] a[style*="background: #FF6B6B"] span {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
 }
 
 /* ---- DATAFRAME / TABLE ---- */
@@ -444,6 +454,7 @@ button[data-testid="stNumberInputStepDown"] {
         padding-top: 1rem !important;
         padding-left: 1rem !important;
         padding-right: 1rem !important;
+        padding-bottom: 80px !important; /* Make room for bottom navbar */
     }
 
     /* Tabs adjustments */
@@ -493,5 +504,15 @@ button[data-testid="stNumberInputStepDown"] {
 
     [data-testid="stMetricValue"] {
         font-size: 1.6rem !important;
+    }
+
+    /* Fix radio button layout wrapping on mobile (Quiz page fix) */
+    div[role="radiogroup"] > label {
+        white-space: normal !important;
+        height: auto !important;
+        padding: 8px 0 !important;
+    }
+    div[role="radiogroup"] > label > div:last-child {
+        white-space: normal !important;
     }
 }
