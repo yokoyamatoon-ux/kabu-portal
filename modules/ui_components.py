@@ -107,32 +107,48 @@ def render_navbar():
   background: white;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   border-radius: 16px;
-  padding: 0 20px;
+  padding: 0 12px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
-  gap: 4px;
   position: sticky;
   top: 0;
   z-index: 1000;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}}
+.kabu-navbar::-webkit-scrollbar {{
+  display: none;
 }}
 .nav-logo {{
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #FF6B6B;
-  padding: 14px 20px 14px 8px;
+  padding: 14px 12px;
   border-right: 1px solid #eee;
-  margin-right: 8px;
+  margin-right: 4px;
   white-space: nowrap;
+  flex-shrink: 0;
 }}
 .nav-link {{
   text-decoration: none;
-  padding: 14px 20px;
-  font-size: 0.95rem;
+  padding: 14px 15px;
+  font-size: 0.9rem;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   transition: all 0.2s;
   white-space: nowrap;
+  flex-shrink: 0;
+}}
+@media (max-width: 480px) {{
+  .kabu-navbar {{
+    border-radius: 0;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 0 10px;
+  }}
+  .nav-logo {{ font-size: 0.9rem; padding: 12px 8px; }}
+  .nav-link {{ padding: 12px 10px; font-size: 0.85rem; }}
 }}
 .nav-link:hover {{
   color: #FF6B6B !important;
@@ -140,8 +156,8 @@ def render_navbar():
 }}
 </style>
 <div class="kabu-navbar">
-  <div class="nav-logo" style="display: flex; align-items: center; gap: 8px;">
-    {chara_img("hakase", 32)} カブ先生のお金の学校
+  <div class="nav-logo" style="display: flex; align-items: center; gap: 4px;">
+    {chara_img("hakase", 24)} お金の学校
   </div>
   {nav_items}
 </div>
