@@ -75,13 +75,21 @@ def run_diagnosis_unit():
         exp = st.session_state.diagnosis_answers[0]
         if exp == "まったくないよ":
             result_type = "安定・配当型"
-            st.success("あなたにおすすめなのは「分散投資」！まずは配当金やNISAから学んでみよう🐾")
+            result_msg = "あなたにおすすめなのは「分散投資」！まずは配当金やNISAから学んでみよう🐾"
         elif exp == "少しだけある":
             result_type = "バランス型"
-            st.success("次は「個別株」に挑戦！身近な好きな会社の株を探してみよう🔍")
+            result_msg = "次は「個別株」に挑戦！身近な好きな会社の株を探してみよう🔍"
         else:
             result_type = "成長・積極型"
-            st.success("あなたはもう投資のプロ！？「米国株」や「成長株」で更なる高みを目指そう🚀")
+            result_msg = "あなたはもう投資のプロ！？「米国株」や「成長株」で更なる高みを目指そう🚀"
+
+        st.markdown(f"""
+        <div style="background:#E1F5FE; border-radius:16px; padding:18px 20px; border-left:6px solid #03A9F4; margin-bottom:20px;">
+           <div style="color:#01579B; -webkit-text-fill-color:#01579B; font-weight:800; font-size:1.05rem; line-height:1.6;">
+            {result_msg}
+           </div>
+        </div>
+        """, unsafe_allow_html=True)
         
         st.session_state.diagnosis_result_type = result_type
         
@@ -117,7 +125,9 @@ def run_diagnosis_unit():
         ">
           <img src="data:image/png;base64,{mirai_b64}" style="width:60px; flex-shrink:0;">
           <div>
-            <div style="font-size:0.9rem; line-height:1.7;">{learn_info['message']}</div>
+            <div style="font-size:1rem; line-height:1.7; color:#2D3436 !important; -webkit-text-fill-color:#2D3436 !important; font-weight:700;">
+              {learn_info['message']}
+            </div>
           </div>
         </div>
         """, unsafe_allow_html=True)

@@ -216,17 +216,24 @@ def render_navbar():
     right: 0;
     top: 0;
     bottom: 0;
-    width: 50px;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.96) 50%);
+    width: 60px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.98) 50%);
     pointer-events: none;
-    z-index: 10;
-    font-size: 1.4rem;
+    z-index: 1000;
+    font-size: 1.8rem;
     color: #FF6B6B;
     font-weight: 900;
     transition: opacity 0.3s;
+    animation: bounceRight 1.5s infinite;
+    text-shadow: 0 0 8px rgba(255,107,107,0.4);
+  }}
+  @keyframes bounceRight {{
+    0%, 100% {{ transform: translateX(0); }}
+    50% {{ transform: translateX(8px); }}
   }}
   .navbar-scroll-hint.hidden {{
     opacity: 0;
+    pointer-events: none;
   }}
 }}
 </style>
@@ -238,7 +245,7 @@ def render_navbar():
     </div>
     {nav_items}
   </div>
-  <div class="navbar-scroll-hint" id="navScrollHint">›</div>
+  <div class="navbar-scroll-hint" id="navScrollHint">»</div>
 </div>
 
 <script>

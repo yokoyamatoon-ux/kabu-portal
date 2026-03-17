@@ -211,6 +211,10 @@ def run_app():
         st.session_state.diagnosis_step = 0
         st.session_state.diagnosis_answers = []
         st.session_state.current_page = "home"
+        try:
+            st.query_params.clear()  # URLパラメータをクリア
+        except:
+            pass
         st.rerun()
     elif page == "home":
         from modules import home_unit
