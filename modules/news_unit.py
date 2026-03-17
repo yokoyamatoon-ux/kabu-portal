@@ -220,15 +220,15 @@ def render_news_section():
     <a href="?page=news" target="_self" style="
         text-decoration: none;
         background: #FF6B6B;
-        color: white !important;
         padding: 8px 20px;
         border-radius: 50px;
         font-size: 0.85rem;
         font-weight: 800;
         box-shadow: 0 4px 12px rgba(255,107,107,0.25);
         transition: all 0.2s;
+        display: inline-block;
     " onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='translateY(0)';">
-        ニュース一覧へ →
+        <span style="color: #ffffff !important;">ニュース一覧へ →</span>
     </a>
 </div>
 """, unsafe_allow_html=True)
