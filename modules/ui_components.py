@@ -121,10 +121,11 @@ def render_navbar():
   display: flex;
   align-items: center;
   position: sticky;
-  top: 0px;
+  top: 60px !important;
   z-index: 999999 !important;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  min-height: 50px !important;
 }}
 @media (max-width: 768px) {{
   .kabu-navbar {{
@@ -138,6 +139,7 @@ def render_navbar():
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     padding: 8px 8px;
     z-index: 999999 !important;
+    min-height: 50px !important;
   }}
 }}
 .kabu-navbar::-webkit-scrollbar {{
