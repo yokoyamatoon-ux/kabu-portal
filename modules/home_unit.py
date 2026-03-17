@@ -114,7 +114,7 @@ def render_home_page():
         render_hero_slider()
 
         # 2. ウェルカムバナーの改善（バナー画像版）
-        BANNER_PATH = os.path.join(IMAGE_DIR, "banner01.png")
+        BANNER_PATH = os.path.join(IMAGE_DIR, "banner01.jpg")
         banner_b64 = get_image_base64(BANNER_PATH)
         banner_html = (
             f'<img src="data:image/png;base64,{banner_b64}" '
@@ -216,10 +216,10 @@ max-width: 100% !important;
     # 🌟 メインコンテンツ・ナビゲーション
     # =====================
     # 画像アセットの読み込み
-    img_manga     = get_image_base64(os.path.join(IMAGE_DIR, "manga.png"))
-    img_quiz      = get_image_base64(os.path.join(IMAGE_DIR, "Quiz.png"))
-    img_explore   = get_image_base64(os.path.join(IMAGE_DIR, "sagasu.png"))
-    img_qa        = get_image_base64(os.path.join(IMAGE_DIR, "shitsumon.png"))
+    img_manga     = get_image_base64(os.path.join(IMAGE_DIR, "manga.jpg"))
+    img_quiz      = get_image_base64(os.path.join(IMAGE_DIR, "Quiz.jpg"))
+    img_explore   = get_image_base64(os.path.join(IMAGE_DIR, "sagasu.jpg"))
+    img_qa        = get_image_base64(os.path.join(IMAGE_DIR, "shitsumon.jpg"))
 
     # カードデザイン全体の定義 (HTMLグリッド版)
     st.markdown("""
@@ -369,8 +369,8 @@ max-width: 100% !important;
     # -------------------------------------------------------------
     # 追加：2カラムプロットフォーム (ウラ金さん & マネ太の投資日記)
     # -------------------------------------------------------------
-    ura_banner_b64 = get_image_base64(os.path.join(IMAGE_DIR, "Ura.png"))
-    maneta_banner_b64 = get_image_base64(os.path.join(IMAGE_DIR, "hajimete.png"))
+    ura_banner_b64 = get_image_base64(os.path.join(IMAGE_DIR, "Ura.jpg"))
+    maneta_banner_b64 = get_image_base64(os.path.join(IMAGE_DIR, "hajimete.jpg"))
     
     st.markdown(f"""
 <style>
