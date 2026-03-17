@@ -9,22 +9,22 @@ manga_episodes = [
         "ep": 1,
         "title": "株ってなに？",
         "summary": "会社の「オーナーの一部」になることを学ぼう！",
-        "image_path": os.path.join(MANGA_DIR, "Manga01.png"),
-        "thumbnail": os.path.join(MANGA_DIR, "Manga01.png"),
+        "image_path": os.path.join(MANGA_DIR, "Manga01.jpg"),
+        "thumbnail": os.path.join(MANGA_DIR, "Manga01.jpg"),
     },
     {
         "ep": 2,
         "title": "株価はなぜ動くの？",
         "summary": "需要と供給のしくみをマンガで理解しよう",
-        "image_path": os.path.join(MANGA_DIR, "Manga02.png"),
-        "thumbnail": os.path.join(MANGA_DIR, "Manga02.png"),
+        "image_path": os.path.join(MANGA_DIR, "Manga02.jpg"),
+        "thumbnail": os.path.join(MANGA_DIR, "Manga02.jpg"),
     },
     {
         "ep": 3,
         "title": "配当金ってなに？",
         "summary": "持ってるだけでもらえるお小遣い！",
-        "image_path": os.path.join(MANGA_DIR, "Manga03.png"),
-        "thumbnail": os.path.join(MANGA_DIR, "Manga03.png"),
+        "image_path": os.path.join(MANGA_DIR, "Manga03.jpg"),
+        "thumbnail": os.path.join(MANGA_DIR, "Manga03.jpg"),
     },
 ]
 
