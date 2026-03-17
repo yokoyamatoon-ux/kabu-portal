@@ -13,14 +13,22 @@ CHARA = {
     "urakane": os.path.join(IMAGE_DIR, "urakane_new.png"),
 }
 TOP_BANNERS = [
+    os.path.join(IMAGE_DIR, "Top01.jpg"),
     os.path.join(IMAGE_DIR, "Top02.jpg"),
     os.path.join(IMAGE_DIR, "Top03.jpg"),
 ]
 
 @st.cache_data(show_spinner=False)
 def get_image_base64(path: str) -> str:
-    """画像ファイルをbase64文字列に変換。キャッシュして高速化。"""
-    if not path: return ""
+    """画像ファイルをbase64文字列に変換。ファイルの更新日時をチェックしてキャッシュを更新。"""
+    if not path or not os.path.exists(path): return ""
+    
+    # ファイルの更新日時を取得してハッシュの代わりに使うことで、ファイル変更時にキャッシュを無効化する
+    mtime = os.path.getmtime(path)
+    return _get_image_base64_cached(path, mtime)
+
+@st.cache_data(show_spinner=False)
+def _get_image_base64_cached(path: str, mtime: float) -> str:
     try:
         with open(path, "rb") as f:
             return base64.b64encode(f.read()).decode()
