@@ -217,13 +217,18 @@ def render_news_section():
     """ホームに固定4カテゴリの最新ニュースを表示（旧名維持）"""
 
     st.markdown(f"""
+<style>
+.force-white-link, .force-white-link span {{
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}}
+</style>
 <div style="margin-bottom: 24px;">
     <div class="section-title">📰 今日のお金のニュース</div>
     <div style="margin-top: 4px; margin-bottom: 12px;">
-        <a href="?page=news" target="_self" style="
+        <a href="?page=news" target="_self" class="force-white-link" style="
             text-decoration: none;
             background: #FF6B6B;
-            color: #ffffff !important;
             padding: 8px 24px;
             border-radius: 50px;
             font-size: 0.85rem;
@@ -232,7 +237,7 @@ def render_news_section():
             transition: all 0.2s;
             display: inline-block;
         " onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='translateY(0)';">
-            <span style="color: #ffffff !important;">ニュース一覧へ →</span>
+            <span>ニュース一覧へ →</span>
         </a>
     </div>
 </div>
