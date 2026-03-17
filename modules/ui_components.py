@@ -175,12 +175,80 @@ def render_navbar():
   border-bottom-color: #FF6B6B !important;
 }}
 </style>
-<div class="kabu-navbar">
-  <div class="nav-logo" style="display: flex; align-items: center; gap: 4px;">
-    {chara_img("hakase", 24)} お金の学校
+
+<!-- スクロールヒント -->
+<style>
+.navbar-wrapper {{
+  position: relative;
+  width: 100%;
+}}
+.navbar-scroll-hint {{
+  display: none;
+}}
+@media (max-width: 768px) {{
+  .navbar-wrapper {{
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+  }}
+  .navbar-wrapper .kabu-navbar {{
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin-bottom: 0 !important;
+  }}
+  .navbar-scroll-hint {{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 44px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.95) 55%);
+    pointer-events: none;
+    z-index: 10;
+    font-size: 1.3rem;
+    color: #FF6B6B;
+    font-weight: 800;
+    transition: opacity 0.3s;
+  }}
+  .navbar-scroll-hint.hidden {{
+    opacity: 0;
+  }}
+}}
+</style>
+
+<div class="navbar-wrapper">
+  <div class="kabu-navbar" id="kabuNavbar">
+    <div class="nav-logo" style="display: flex; align-items: center; gap: 4px;">
+      {chara_img("hakase", 24)} お金の学校
+    </div>
+    {nav_items}
   </div>
-  {nav_items}
+  <div class="navbar-scroll-hint" id="navScrollHint">›</div>
 </div>
+
+<script>
+(function() {{
+  var nav = document.getElementById('kabuNavbar');
+  var hint = document.getElementById('navScrollHint');
+  if (!nav || !hint) return;
+  nav.addEventListener('scroll', function() {{
+    if (nav.scrollLeft > 20) {{ hint.classList.add('hidden'); }}
+    else {{ hint.classList.remove('hidden'); }}
+  }});
+}})();
+</script>
 """, unsafe_allow_html=True)
     
     # URLのクエリパラメータでページを切り替える

@@ -102,25 +102,27 @@ def render_home_page():
     
     # 1. ヒーローエリア / AI診断
     is_diagnosis_param = st.query_params.get("diagnosis") == "1"
-    if is_diagnosis_param:
-        st.session_state.diagnosis_step = 0
+    if is_diagnosis_param and "show_diagnosis" not in st.session_state:
         st.session_state.show_diagnosis = True
-        # パラメータをクリア（リロード時の挙動安定化のため、必要なら）
-        # st.query_params.diagnosis = None 
+        if "diagnosis_step" not in st.session_state:
+            st.session_state.diagnosis_step = 0
+        if "diagnosis_answers" not in st.session_state:
+            st.session_state.diagnosis_answers = []
     
-    is_active_diagnosis = st.session_state.get("diagnosis_step", 0) > 0 or st.session_state.get("show_diagnosis")
+    is_active_diagnosis = (
+        st.session_state.get("show_diagnosis") or
+        st.session_state.get("diagnosis_step", 0) > 0
+    )
     
     if is_active_diagnosis:
         from modules import diagnosis_unit
-        st.markdown('<div class="section-title">🔍 AI株診断中...</div>', unsafe_allow_html=True)
         diagnosis_unit.run_diagnosis_unit()
-        if st.button("キャンセルして戻る", use_container_width=True):
+        if st.button("← ホームに戻る", use_container_width=False):
             st.session_state.diagnosis_step = 0
+            st.session_state.diagnosis_answers = []
             if "show_diagnosis" in st.session_state: del st.session_state.show_diagnosis
             st.rerun()
-        
-        # 診断中は以下のスライダーやニュースを非表示にする（スマホでのフォーカス改善）
-        st.markdown('</div>', unsafe_allow_html=True) # close page-content
+        st.markdown('</div>', unsafe_allow_html=True)  # close page-content
         return
     else:
         # 1. 自動切り替えヒーローバナー
