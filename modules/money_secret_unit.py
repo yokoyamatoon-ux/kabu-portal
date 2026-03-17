@@ -8,22 +8,22 @@ ura_episodes = [
         "ep": 1,
         "title": "インサイダー取引",
         "summary": "秘密の情報で株を買うのは立派な犯罪じゃ！",
-        "image_path": os.path.join("manga", "urakane01.png"),
-        "thumbnail": os.path.join("manga", "urakane01.png"),
+        "image_path": os.path.join("manga", "urakane01.jpg"),
+        "thumbnail": os.path.join("manga", "urakane01.jpg"),
     },
     {
         "ep": 2,
         "title": "SNSの甘い誘惑：ポンジ・スキーム",
         "summary": "「必ず儲かる」は詐欺の合言葉！？",
-        "image_path": os.path.join("manga", "urakane02.png"),
-        "thumbnail": os.path.join("manga", "urakane02.png"),
+        "image_path": os.path.join("manga", "urakane02.jpg"),
+        "thumbnail": os.path.join("manga", "urakane02.jpg"),
     },
     {
         "ep": 3,
         "title": "レバレッジと追証：身の丈を超えた投資の末路",
         "summary": "借金をしてまで株を買うことの本当の怖さとは？",
-        "image_path": os.path.join("manga", "urakane03.png"),
-        "thumbnail": os.path.join("manga", "urakane03.png"),
+        "image_path": os.path.join("manga", "urakane03.jpg"),
+        "thumbnail": os.path.join("manga", "urakane03.jpg"),
     },
 ]
 

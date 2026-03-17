@@ -13,17 +13,19 @@ CHARA = {
     "urakane": os.path.join(IMAGE_DIR, "urakane_new.png"),
 }
 TOP_BANNERS = [
-    os.path.join(IMAGE_DIR, "Top.png"),
-    os.path.join(IMAGE_DIR, "Top02.png"),
-    os.path.join(IMAGE_DIR, "Top03.png"),
+    os.path.join(IMAGE_DIR, "Top.jpg"),
+    os.path.join(IMAGE_DIR, "Top02.jpg"),
+    os.path.join(IMAGE_DIR, "Top03.jpg"),
 ]
 
+@st.cache_data(show_spinner=False)
 def get_image_base64(path: str) -> str:
-    """画像ファイルをbase64文字列に変換。ファイルが存在しない場合は空文字を返す"""
+    """画像ファイルをbase64文字列に変換。キャッシュして高速化。"""
+    if not path: return ""
     try:
         with open(path, "rb") as f:
             return base64.b64encode(f.read()).decode()
-    except FileNotFoundError:
+    except:
         return ""
 
 def chara_img(key: str, width: int = 70) -> str:

@@ -80,25 +80,25 @@ CATEGORY_CONFIG = {
         "icon": "🇯🇵",
         "color": "#FF6B6B",
         "bg": "linear-gradient(135deg, #FFE8E8, #FFF0F0)",
-        "banner_path": os.path.join(IMAGE_DIR, "kabuka_J.png")
+        "banner_path": os.path.join(IMAGE_DIR, "kabuka_J.jpg")
     },
     "注目の銘柄": {
         "icon": "🔥",
         "color": "#FF9F43",
         "bg": "linear-gradient(135deg, #FFF0E0, #FFF8E8)",
-        "banner_path": os.path.join(IMAGE_DIR, "meigara.png")
+        "banner_path": os.path.join(IMAGE_DIR, "meigara.jpg")
     },
     "初心者・NISA": {
         "icon": "🌱",
         "color": "#00B894",
         "bg": "linear-gradient(135deg, #E8FFF0, #F0FFF8)",
-        "banner_path": os.path.join(IMAGE_DIR, "NISA.png")
+        "banner_path": os.path.join(IMAGE_DIR, "NISA.jpg")
     },
     "海外の株価": {
         "icon": "🌍",
         "color": "#4ECDC4",
         "bg": "linear-gradient(135deg, #E8FFFF, #F0FFFF)",
-        "banner_path": os.path.join(IMAGE_DIR, "kaigai.png")
+        "banner_path": os.path.join(IMAGE_DIR, "kaigai.jpg")
     },
 }
 
