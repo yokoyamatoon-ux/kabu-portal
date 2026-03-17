@@ -86,10 +86,16 @@ def run_diagnosis_unit():
             result_msg = "あなたはもう投資のプロ！？「米国株」や「成長株」で更なる高みを目指そう🚀"
 
         st.markdown(f"""
-        <div style="background:#E1F5FE; border-radius:16px; padding:18px 20px; border-left:6px solid #03A9F4; margin-bottom:20px;">
-           <div style="color:#01579B; -webkit-text-fill-color:#01579B; font-weight:800; font-size:1.05rem; line-height:1.6;">
+        <div style="font-size: 1.8rem !important; font-weight: 800 !important; color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important; margin-bottom: 12px; font-family: 'M PLUS Rounded 1c', sans-serif !important;">
+            🏠 診断結果！ 🌟
+        </div>
+        <div style="font-size: 40px; margin-bottom: 20px;">💰</div>
+
+        <div style="background:#E1F5FE !important; border-radius:16px !important; padding:18px 20px !important; border-left:6px solid #03A9F4 !important; margin-bottom:20px !important;">
+           <div style="color:#01579B !important; -webkit-text-fill-color:#01579B !important; font-weight:800 !important; font-size:1.1rem !important; line-height:1.6 !important;">
             {result_msg}
            </div>
+           <div style="text-align:right; font-size:0.7rem !important; color:#03A9F4 !important; -webkit-text-fill-color:#03A9F4 !important; opacity:0.8 !important;">(Ver.3)</div>
         </div>
         """, unsafe_allow_html=True)
         
@@ -121,13 +127,13 @@ def run_diagnosis_unit():
         mirai_b64 = get_image_base64(CHARA["mirai"])
         st.markdown(f"""
         <div style="
-          display:flex; align-items:center; gap:16px;
-          background: #F0FFF8; border-radius:20px; padding:16px 20px;
-          border: 2px solid #4ECDC4; margin-top: 16px; margin-bottom: 20px;
+          display:flex !important; align-items:center !important; gap:16px !important;
+          background: #F0FFF8 !important; border-radius:20px !important; padding:16px 20px !important;
+          border: 2px solid #4ECDC4 !important; margin-top: 16px !important; margin-bottom: 20px !important;
         ">
-          <img src="data:image/png;base64,{mirai_b64}" style="width:60px; flex-shrink:0;">
-          <div style="flex: 1;">
-            <div style="font-size:1.05rem; line-height:1.7; color:#2D3436 !important; -webkit-text-fill-color:#2D3436 !important; font-weight:700;">
+          <img src="data:image/png;base64,{mirai_b64}" style="width:60px !important; flex-shrink:0 !important;">
+          <div style="flex: 1 !important;">
+            <div style="font-size:1.1rem !important; line-height:1.7 !important; color:#2D3436 !important; -webkit-text-fill-color:#2D3436 !important; font-weight:800 !important;">
               {learn_info['message']}
             </div>
           </div>
