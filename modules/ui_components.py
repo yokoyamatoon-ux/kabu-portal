@@ -99,9 +99,9 @@ def render_navbar():
     for key, label in pages:
         is_active = current == key
         active_style = (
-            "border-bottom: 3px solid #FF6B6B; color: #FF6B6B; font-weight: 800;"
+            "border-bottom: 3px solid #FF6B6B; color: #FF6B6B !important; font-weight: 800;"
             if is_active else
-            "border-bottom: 3px solid transparent; color: #2D3436;"
+            "border-bottom: 3px solid transparent; color: #2D3436 !important;"
         )
         # hover効果のためのCSSはコンテナ側に記述
         nav_items += f"""
@@ -159,11 +159,12 @@ def render_navbar():
 .nav-link {{
   text-decoration: none;
   padding: 14px 15px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   transition: all 0.2s;
   white-space: nowrap;
   flex-shrink: 0;
+  color: #2D3436 !important;
 }}
 @media (max-width: 480px) {{
   .nav-logo {{ font-size: 0.9rem; padding: 12px 8px; }}

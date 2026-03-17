@@ -96,9 +96,9 @@ def render_manga_viewer(ep_num):
         st.rerun()
 
     st.markdown(f"""
-<div style="text-align: center; margin: 20px 0;">
+<div style="text-align: center; margin: 40px 0 20px;">
   <div style="font-size: 0.9rem; color: #FF6B6B; font-weight: 800;">第{ep['ep']}話</div>
-  <h2 style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:800;margin-top:0;">{ep['title']}</h2>
+  <h2 style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:800;margin-top:4px;line-height:1.4;">{ep['title']}</h2>
 </div>
 """, unsafe_allow_html=True)
 
