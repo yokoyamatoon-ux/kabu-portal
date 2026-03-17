@@ -217,21 +217,24 @@ def render_news_section():
     """ホームに固定4カテゴリの最新ニュースを表示（旧名維持）"""
 
     st.markdown(f"""
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-    <div class="section-title" style="margin-bottom: 0;">📰 今日のお金のニュース</div>
-    <a href="?page=news" target="_self" style="
-        text-decoration: none;
-        background: #FF6B6B;
-        padding: 8px 20px;
-        border-radius: 50px;
-        font-size: 0.85rem;
-        font-weight: 800;
-        box-shadow: 0 4px 12px rgba(255,107,107,0.25);
-        transition: all 0.2s;
-        display: inline-block;
-    " onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='translateY(0)';">
-        <span style="color: #ffffff !important;">ニュース一覧へ →</span>
-    </a>
+<div style="margin-bottom: 24px;">
+    <div class="section-title">📰 今日のお金のニュース</div>
+    <div style="margin-top: 4px; margin-bottom: 12px;">
+        <a href="?page=news" target="_self" style="
+            text-decoration: none;
+            background: #FF6B6B;
+            color: #ffffff !important;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            box-shadow: 0 4px 12px rgba(255,107,107,0.25);
+            transition: all 0.2s;
+            display: inline-block;
+        " onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='translateY(0)';">
+            <span style="color: #ffffff !important;">ニュース一覧へ →</span>
+        </a>
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
