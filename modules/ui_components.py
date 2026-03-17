@@ -403,9 +403,9 @@ def render_hero_slider():
   opacity: 0.3;
 }}
 
-@keyframes slide0 {{ 0%, 25% {{ opacity: 1; }} 33.33%, 100% {{ opacity: 0; }} }}
-@keyframes slide1 {{ 0%, 25% {{ opacity: 0; }} 33.33%, 58.33% {{ opacity: 1; }} 66.67%, 100% {{ opacity: 0; }} }}
-@keyframes slide2 {{ 0%, 58.33% {{ opacity: 0; }} 66.67%, 91.67% {{ opacity: 1; }} 100% {{ opacity: 0; }} }}
+@keyframes slide0 {{ 0%, 25% {{ opacity: 1; visibility: visible; }} 33.33%, 100% {{ opacity: 0; visibility: hidden; }} }}
+@keyframes slide1 {{ 0%, 25% {{ opacity: 0; visibility: hidden; }} 33.33%, 58.33% {{ opacity: 1; visibility: visible; }} 66.67%, 100% {{ opacity: 0; visibility: hidden; }} }}
+@keyframes slide2 {{ 0%, 58.33% {{ opacity: 0; visibility: hidden; }} 66.67%, 91.67% {{ opacity: 1; visibility: visible; }} 100% {{ opacity: 0; visibility: hidden; }} }}
 @keyframes dot0 {{ 0%, 25% {{ opacity: 1; }} 33.33%, 100% {{ opacity: 0.3; }} }}
 @keyframes dot1 {{ 0%, 25% {{ opacity: 0.3; }} 33.33%, 58.33% {{ opacity: 1; }} 66.67%, 100% {{ opacity: 0.3; }} }}
 @keyframes dot2 {{ 0%, 58.33% {{ opacity: 0.3; }} 66.67%, 91.67% {{ opacity: 1; }} 100% {{ opacity: 0.3; }} }}
