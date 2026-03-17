@@ -24,16 +24,35 @@ def run_diagnosis_unit():
         hakase_b64 = get_image_base64(CHARA["hakase"])
         
         st.markdown(f"""
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
-          <img src="data:image/png;base64,{hakase_b64}" style="width:60px;">
-          <div class="kabu-card" style="margin-bottom:0; flex:1; border-left: 5px solid var(--primary);">
-            <div style="font-size:0.8rem; color:var(--primary); font-weight:800; margin-bottom:4px;">Q{step+1}. {step+1}/{len(questions)}</div>
-            <div style="font-size:1.1rem; font-weight:800; color:var(--text-main); line-height:1.4;">{q['q']}</div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
+          <img src="data:image/png;base64,{hakase_b64}" style="width:65px;">
+          <div class="kabu-card" style="margin-bottom:0; flex:1; border-left: 6px solid var(--primary); padding: 18px 20px;">
+            <div style="font-size:0.85rem; color:var(--primary); font-weight:800; margin-bottom:6px;">Q{step+1}. {step+1}/{len(questions)}</div>
+            <div style="font-size:1.2rem; font-weight:800; color:#2D3436 !important; line-height:1.4;">{q['q']}</div>
           </div>
         </div>
         """, unsafe_allow_html=True)
         
         # 選択肢ボタン
+        st.markdown("""
+        <style>
+        div.stButton > button {
+            border: 2px solid #eee !important;
+            color: #2D3436 !important;
+            font-weight: 800 !important;
+            font-size: 1.05rem !important;
+            padding: 12px 10px !important;
+            background: white !important;
+            transition: all 0.2s !important;
+        }
+        div.stButton > button:hover {
+            border-color: #FF6B6B !important;
+            color: #FF6B6B !important;
+            background: #FFF0F0 !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+        
         for option in q['a']:
             if st.button(option, key=f"diag_{step}_{option}", use_container_width=True):
                 st.session_state.diagnosis_answers.append(option)

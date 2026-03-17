@@ -205,7 +205,7 @@ def render_hero_slider():
             "title": "投資って、楽しいかも！",
             "subtitle": "AIがぜんぶ教えてくれるから、むずかしくないよ✨",
             "btn_text": "AI投資診断をスタート →",
-            "btn_page": "home",
+            "btn_page": "home&diagnosis=1",
             "accent": "#FF6B6B",
         },
         {
