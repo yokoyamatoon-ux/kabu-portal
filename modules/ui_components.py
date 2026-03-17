@@ -13,7 +13,6 @@ CHARA = {
     "urakane": os.path.join(IMAGE_DIR, "urakane_new.png"),
 }
 TOP_BANNERS = [
-    os.path.join(IMAGE_DIR, "Top01.jpg"),
     os.path.join(IMAGE_DIR, "Top02.jpg"),
     os.path.join(IMAGE_DIR, "Top03.jpg"),
 ]
