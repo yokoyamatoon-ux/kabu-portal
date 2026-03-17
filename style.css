@@ -145,7 +145,7 @@ h3 {
     margin: 2px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
     .stApp .main .block-container {
         padding-top: 80px !important;
     }
