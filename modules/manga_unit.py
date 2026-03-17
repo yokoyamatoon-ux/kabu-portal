@@ -14,17 +14,17 @@ manga_episodes = [
     },
     {
         "ep": 2,
-        "title": "株価はなぜ動くの？",
-        "summary": "需要と供給のしくみをマンガで理解しよう",
-        "image_path": os.path.join(MANGA_DIR, "Manga02.jpg"),
-        "thumbnail": os.path.join(MANGA_DIR, "Manga02.jpg"),
-    },
-    {
-        "ep": 3,
         "title": "配当金ってなに？",
         "summary": "持ってるだけでもらえるお小遣い！",
         "image_path": os.path.join(MANGA_DIR, "Manga03.jpg"),
         "thumbnail": os.path.join(MANGA_DIR, "Manga03.jpg"),
+    },
+    {
+        "ep": 3,
+        "title": "株価はなぜ動くの？",
+        "summary": "需要と供給のしくみをマンガで理解しよう",
+        "image_path": os.path.join(MANGA_DIR, "Manga02.jpg"),
+        "thumbnail": os.path.join(MANGA_DIR, "Manga02.jpg"),
     },
 ]
 
@@ -128,8 +128,25 @@ def render_manga_viewer(ep_num):
 </div>
 """, unsafe_allow_html=True)
 
-    # 下部にも戻るボタン
-    st.markdown("<br>", unsafe_allow_html=True)
-    if st.button("マンガ一覧へ戻る", key="back_bottom", use_container_width=True):
-        st.session_state.selected_manga_ep = None
-        st.rerun()
+    # ナビゲーションボタン（前へ・次へ・一覧へ）
+    st.markdown("<br><hr style='border:none;border-top:1px dashed #ddd;margin:20px 0;'>", unsafe_allow_html=True)
+    
+    col1, col2, col3 = st.columns([1, 1, 1])
+    
+    with col1:
+        if ep_num > 1:
+            if st.button(f"← 第{ep_num - 1}話を読む", use_container_width=True):
+                st.session_state.selected_manga_ep = ep_num - 1
+                st.rerun()
+                
+    with col2:
+        if st.button("📖 一覧へ戻る", key="back_bottom", use_container_width=True):
+            st.session_state.selected_manga_ep = None
+            st.rerun()
+            
+    with col3:
+        if ep_num < len(manga_episodes):
+            if st.button(f"第{ep_num + 1}話を読む →", use_container_width=True, type="primary"):
+                st.session_state.selected_manga_ep = ep_num + 1
+                st.rerun()
+
