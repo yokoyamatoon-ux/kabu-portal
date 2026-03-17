@@ -113,7 +113,7 @@ def render_navbar():
     st.markdown(f"""
 <style>
 .kabu-navbar {{
-  background: white;
+  background: white !important;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   border-radius: 16px;
   padding: 0 12px;
@@ -121,23 +121,23 @@ def render_navbar():
   display: flex;
   align-items: center;
   position: sticky;
-  top: 0;
-  z-index: 1000;
+  top: 0px;
+  z-index: 999999 !important;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }}
-@media (max-width: 640px) {{
+@media (max-width: 768px) {{
   .kabu-navbar {{
     position: fixed;
-    top: 0px;
+    top: 60px !important;
     bottom: auto;
     left: 0;
     right: 0;
     margin-bottom: 0;
     border-radius: 0 0 16px 16px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    padding: 12px 8px 4px; /* Top padding for safe area */
-    z-index: 9999;
+    padding: 8px 8px;
+    z-index: 999999 !important;
   }}
 }}
 .kabu-navbar::-webkit-scrollbar {{
@@ -164,12 +164,6 @@ def render_navbar():
   flex-shrink: 0;
 }}
 @media (max-width: 480px) {{
-  .kabu-navbar {{
-    border-radius: 0;
-    margin-left: -20px;
-    margin-right: -20px;
-    padding: 0 10px;
-  }}
   .nav-logo {{ font-size: 0.9rem; padding: 12px 8px; }}
   .nav-link {{ padding: 12px 10px; font-size: 0.85rem; }}
 }}

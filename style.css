@@ -145,9 +145,9 @@ h3 {
     margin: 2px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     .stApp .main .block-container {
-        padding-top: 80px !important;
+        padding-top: 140px !important;
     }
 
     .kabu-card {
