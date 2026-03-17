@@ -93,7 +93,6 @@ def render_navbar():
         ("news",    "📰 ニュース"),
         ("money_secret", "⚠️ 裏事情"),
         ("maneta_diary", "📔 投資日記"),
-        ("diagnosis_start", ""),  # hidden: banner AI診断ボタン用ルート
     ]
     
     nav_items = ""
@@ -283,7 +282,7 @@ def render_hero_slider():
             "title": "投資って、楽しいかも！",
             "subtitle": "AIがぜんぶ教えてくれるから、むずかしくないよ✨",
             "btn_text": "AI投資診断をスタート →",
-            "btn_page": "diagnosis_start",
+            "btn_page": "home&amp;diagnosis=1",
             "accent": "#FF6B6B",
         },
         {
