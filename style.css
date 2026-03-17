@@ -49,6 +49,8 @@ h3 {
     font-weight: 700;
     font-size: 1.1rem;
     margin-bottom: 16px;
+    color: var(--text-main) !important;
+    -webkit-text-fill-color: var(--text-main) !important;
 }
 
 /* かぶるんふわふわ */
