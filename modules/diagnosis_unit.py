@@ -1,8 +1,13 @@
 import streamlit as st
 
 def run_diagnosis_unit():
-    # 既存の diagnosis_unit.py をリニューアル
-    st.markdown('<div class="kabu-card" style="border-left: 6px solid var(--primary);">', unsafe_allow_html=True)
+    # 状態管理（st.session_state）の初期化
+    if "diagnosis_step" not in st.session_state:
+        st.session_state.diagnosis_step = 0
+    if "diagnosis_answers" not in st.session_state:
+        st.session_state.diagnosis_answers = []
+
+    step = st.session_state.diagnosis_step
     
     questions = [
         {"q": "投資の経験はあるかな？", "a": ["まったくないよ", "少しだけある", "バリバリ投資中！"]},
@@ -10,12 +15,25 @@ def run_diagnosis_unit():
         {"q": "どれくらいの金額から始めたい？", "a": ["1,000円くらい", "1万円くらい", "10万円以上！"]},
     ]
     
-    step = st.session_state.diagnosis_step
-    
+    # 質問中
     if step < len(questions):
         q = questions[step]
-        st.markdown(f"### Q{step+1}. {q['q']}")
         
+        # カブ先生のメッセージ
+        from app import CHARA, get_image_base64
+        hakase_b64 = get_image_base64(CHARA["hakase"])
+        
+        st.markdown(f"""
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <img src="data:image/png;base64,{hakase_b64}" style="width:60px;">
+          <div class="kabu-card" style="margin-bottom:0; flex:1; border-left: 5px solid var(--primary);">
+            <div style="font-size:0.8rem; color:var(--primary); font-weight:800; margin-bottom:4px;">Q{step+1}. {step+1}/{len(questions)}</div>
+            <div style="font-size:1.1rem; font-weight:800; color:var(--text-main); line-height:1.4;">{q['q']}</div>
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # 選択肢ボタン
         for option in q['a']:
             if st.button(option, key=f"diag_{step}_{option}", use_container_width=True):
                 st.session_state.diagnosis_answers.append(option)
@@ -89,7 +107,6 @@ def run_diagnosis_unit():
             st.session_state.diagnosis_answers = []
             st.rerun()
             
-    st.markdown('</div>', unsafe_allow_html=True)
 
 def render_diagnosis_page():
     st.markdown('<div class="section-title">🔍 AI投資診断</div>', unsafe_allow_html=True)
