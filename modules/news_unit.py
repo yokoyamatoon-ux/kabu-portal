@@ -45,32 +45,34 @@ RSS_SOURCES = {
 }
 
 # RSSが取得できない場合のモックデータ（フォールバック用）
-MOCK_NEWS = {
-    "日本の株価": {
-        "title": "日経平均、半導体関連が牽引し続伸",
-        "url": "https://www.nikkei.com",
-        "date": "2026/03/12 00:00",
-        "summary": "東京株式市場で日経平均株価が上昇。半導体関連銘柄が相場を牽引した。",
-    },
-    "注目の銘柄": {
-        "title": "AI銘柄への資金流入が加速、専門家は「第3波」と指摘",
-        "url": "https://jp.reuters.com",
-        "date": "2026/03/11 00:00",
-        "summary": "生成AIブームが第3フェーズに突入し、関連銘柄への機関投資家の買いが加速している。",
-    },
-    "初心者・NISA": {
-        "title": "新NISA活用術：初心者が最初に買うべき3つのETF",
-        "url": "https://www.nikkei.com",
-        "date": "2026/03/10 00:00",
-        "summary": "新NISAを始めたばかりの初心者が最初に検討すべきETFを専門家が解説。",
-    },
-    "海外の株価": {
-        "title": "米S&P500が最高値更新、利下げ期待で買い優勢",
-        "url": "https://www.bloomberg.co.jp",
-        "date": "2026/03/12 00:00",
-        "summary": "ニューヨーク株式市場でS&P500指数が最高値を更新。FRB of 利下げ観測が追い風となった。",
-    },
-}
+def get_mock_news():
+    now_str = datetime.now().strftime('%Y/%m/%d')
+    return {
+        "日本の株価": {
+            "title": "日経平均、今後の相場展望と注目ポイント",
+            "url": "https://www.nikkei.com",
+            "date": f"{now_str} 09:00",
+            "summary": "現在の市場環境における日経平均の推移と、投資家が注目すべき経済指標について解説します。",
+        },
+        "注目の銘柄": {
+            "title": "最新の注目銘柄レポート：成長が期待されるセクター",
+            "url": "https://kabutan.jp",
+            "date": f"{now_str} 10:00",
+            "summary": "独自の分析に基づき、今週特に注目したい成長期待銘柄と市場の動向をピックアップ。",
+        },
+        "初心者・NISA": {
+            "title": "新NISAで始める資産形成：最初の一歩ガイド",
+            "url": "https://media.rakuten-sec.net",
+            "date": f"{now_str} 08:30",
+            "summary": "新NISA制度を最大限に活用するための基本的な考え方と、初心者におすすめの運用方法を紹介。",
+        },
+        "海外の株価": {
+            "title": "米国市場・海外指標の動向と日本市場への影響",
+            "url": "https://www.bloomberg.co.jp",
+            "date": f"{now_str} 07:00",
+            "summary": "昨晩の米株式市場の結果と、それが本日の日本市場にどのような影響を与える可能性があるか分析します。",
+        },
+    }
 
 # カテゴリ設定（バナー画像・絵文字・色）
 CATEGORY_CONFIG = {
@@ -121,7 +123,7 @@ def get_image_base64(path: str) -> str:
         return ""
 
 
-@st.cache_data(ttl=86400)  # 24時間キャッシュ（period_keyが変わるたびに再取得）
+@st.cache_data(ttl=3600)  # 1時間キャッシュ（頻繁に更新）
 def fetch_latest_news_by_category(period_key: str) -> dict:
     """
     各カテゴリのRSSから最新1件を取得して返す。
@@ -157,12 +159,12 @@ def fetch_latest_news_by_category(period_key: str) -> dict:
             except:
                 continue
 
-        result[category] = fetched if fetched else MOCK_NEWS.get(category, {})
+        result[category] = fetched if fetched else get_mock_news().get(category, {})
 
     return result
 
 
-@st.cache_data(ttl=86400)
+@st.cache_data(ttl=3600)
 def fetch_all_news(period_key: str) -> dict:
     """
     ニュース一覧ページ用：各カテゴリから最大10件取得
@@ -199,7 +201,7 @@ def fetch_all_news(period_key: str) -> dict:
 
         # フォールバック
         if not articles:
-            mock = MOCK_NEWS.get(category)
+            mock = get_mock_news().get(category)
             if mock:
                 articles = [{**mock, "category": category}]
 
