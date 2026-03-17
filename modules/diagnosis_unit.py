@@ -66,9 +66,11 @@ def run_diagnosis_unit():
                 st.session_state.diagnosis_step += 1
                 st.rerun()
     else:
-        st.markdown("### 診断結果！🌟")
-        st.markdown("""
-        <div class="coin-celebrate" style="font-size: 40px;">💰</div>
+        st.markdown(f"""
+        <div style="font-size: 1.8rem; font-weight: 800; color: #2D3436; -webkit-text-fill-color: #2D3436; margin-bottom: 12px; font-family: 'M PLUS Rounded 1c', sans-serif;">
+            診断結果！ 🌟
+        </div>
+        <div style="font-size: 40px; margin-bottom: 20px;">💰</div>
         """, unsafe_allow_html=True)
         
         # 簡易的なロジック
@@ -121,11 +123,11 @@ def run_diagnosis_unit():
         <div style="
           display:flex; align-items:center; gap:16px;
           background: #F0FFF8; border-radius:20px; padding:16px 20px;
-          border: 2px solid #4ECDC4; margin-top: 16px;
+          border: 2px solid #4ECDC4; margin-top: 16px; margin-bottom: 20px;
         ">
           <img src="data:image/png;base64,{mirai_b64}" style="width:60px; flex-shrink:0;">
-          <div>
-            <div style="font-size:1rem; line-height:1.7; color:#2D3436 !important; -webkit-text-fill-color:#2D3436 !important; font-weight:700;">
+          <div style="flex: 1;">
+            <div style="font-size:1.05rem; line-height:1.7; color:#2D3436 !important; -webkit-text-fill-color:#2D3436 !important; font-weight:700;">
               {learn_info['message']}
             </div>
           </div>
