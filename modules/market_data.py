@@ -93,14 +93,20 @@ def get_indices():
     tickers = {"日経225": "^N225", "S&P500": "^GSPC", "ドル円": "JPY=X"}
     result = {}
     for name, ticker in tickers.items():
+        # デフォルト値を先にセット
+        result[name] = {"price": "---", "change_pct": 0}
         try:
-            data = yf.Ticker(ticker).fast_info
-            result[name] = {
-                "price": round(data.last_price, 2),
-                "change_pct": round((data.last_price - data.previous_close) / data.previous_close * 100, 2)
-            }
-        except:
-            result[name] = {"price": "---", "change_pct": 0}
+            t = yf.Ticker(ticker)
+            info = t.fast_info
+            if hasattr(info, "last_price") and info.last_price is not None:
+                price = info.last_price
+                prev = info.previous_close if hasattr(info, "previous_close") and info.previous_close else price
+                result[name] = {
+                    "price": round(price, 2),
+                    "change_pct": round((price - prev) / prev * 100, 2) if prev else 0
+                }
+        except Exception:
+            pass # デフォルト値が既にセットされているので何もしない
     return result
 
 @st.cache_data(ttl=300)

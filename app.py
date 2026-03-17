@@ -6,6 +6,7 @@ from datetime import datetime
 from modules.ui_components import (
     get_image_base64, chara_img, icon_img, CHARA, TOP_BANNERS, render_navbar
 )
+from modules.market_data import get_indices
 
 # 2. ページ設定
 st.set_page_config(
@@ -157,7 +158,6 @@ def render_navigation():
 """, unsafe_allow_html=True)
 
         # 7. 市場概況 (日経平均, S&P, ドル円)
-        from modules.market_data import get_indices
         indices = get_indices()
         
         st.markdown(f"""
