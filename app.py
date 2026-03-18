@@ -1,21 +1,21 @@
 import streamlit as st
-# Last Update: 2026-03-18 09:55 (Ver.4.2 High Contrast)
-st.toast("最新版 Ver.4.2 に更新されました！🚀")
 import os
 import base64
 from datetime import datetime
+
+# 2. ページ設定 (絶対一番上に配置)
+st.set_page_config(
+    page_title="カブ先生のだれでもわかるお金の学校 | 投資教育ポータル",
+    page_icon="🎓",
+    layout="wide",
+)
+
+# Last Update: 2026-03-18 10:11 (Ver.4.3 Icon Resize & Config Fix)
 
 from modules.ui_components import (
     get_image_base64, chara_img, icon_img, CHARA, TOP_BANNERS, render_navbar
 )
 from modules.market_data import get_indices
-
-# 2. ページ設定
-st.set_page_config(
-    page_title="カブ先生のだれでもわかるお金の学校 | 投資教育ポータル",
-    page_icon=CHARA["hakase"] if "hakase" in CHARA else "🎓",
-    layout="wide",
-)
 
 # SEO & Meta Tags
 st.markdown("""

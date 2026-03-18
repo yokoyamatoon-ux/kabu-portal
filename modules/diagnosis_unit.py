@@ -25,7 +25,7 @@ def run_diagnosis_unit():
         
         st.markdown(f"""
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
-          <img src="data:image/png;base64,{hakase_b64}" style="width:65px; flex-shrink:0;">
+          <img src="data:image/png;base64,{hakase_b64}" style="width:50px; flex-shrink:0;">
           <div style="
             background: white;
             border-radius: 16px;
@@ -180,7 +180,7 @@ def run_diagnosis_unit():
         mirai_b64 = get_image_base64(CHARA["mirai"])
         st.markdown(f"""
         <div class="mirai-card-white">
-          <img src="data:image/png;base64,{mirai_b64}" style="width:65px !important; flex-shrink:0 !important; border-radius:50%;">
+          <img src="data:image/png;base64,{mirai_b64}" style="width:50px !important; flex-shrink:0 !important; border-radius:50%;">
           <div class="mirai-card-text">{learn_info['message']}</div>
         </div>
         """, unsafe_allow_html=True)
