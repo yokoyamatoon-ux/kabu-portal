@@ -118,12 +118,23 @@ def run_diagnosis_unit():
             line-height: 1.6 !important;
             flex: 1;
         }
-        .ver-sticker {
-            text-align: right;
-            font-size: 0.75rem !important;
-            color: #AAAAAA !important;
-            -webkit-text-fill-color: #AAAAAA !important;
-            margin-top: 8px;
+        /* プレミアムボタンのスタイリング */
+        div[data-testid="stButton"] button[key="diagnosis_learn_btn"] {
+            background: linear-gradient(135deg, #03A9F4 0%, #0288D1 100%) !important;
+            border: none !important;
+            color: white !important;
+            padding: 14px 24px !important;
+            border-radius: 50px !important;
+            font-weight: 800 !important;
+            font-size: 1.1rem !important;
+            box-shadow: 0 4px 15px rgba(3, 169, 244, 0.3) !important;
+            transition: all 0.3s ease !important;
+            height: auto !important;
+        }
+        div[data-testid="stButton"] button[key="diagnosis_learn_btn"]:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(3, 169, 244, 0.45) !important;
+            background: linear-gradient(135deg, #29B6F6 0%, #039BE5 100%) !important;
         }
         </style>
         """, unsafe_allow_html=True)
@@ -152,7 +163,6 @@ def run_diagnosis_unit():
             
             <div class="diagnosis-card-white">
                 <div class="diagnosis-card-text">{result_msg}</div>
-                <div class="ver-sticker">[最終版 Ver.4.4]</div>
             </div>
         </div>
         """)
