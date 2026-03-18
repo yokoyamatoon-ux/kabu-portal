@@ -66,13 +66,68 @@ def run_diagnosis_unit():
                 st.session_state.diagnosis_step += 1
                 st.rerun()
     else:
-        st.markdown(f"""
-        <div style="font-size: 1.8rem; font-weight: 800; color: #2D3436; -webkit-text-fill-color: #2D3436; margin-bottom: 12px; font-family: 'M PLUS Rounded 1c', sans-serif;">
-            診断結果！ 🌟
-        </div>
-        <div style="font-size: 40px; margin-bottom: 20px;">💰</div>
+        # スタイル定義
+        st.markdown("""
+        <style>
+        .diagnosis-result-wrapper {
+            margin-top: 10px;
+            text-align: left;
+        }
+        .diagnosis-title-main {
+            font-size: 1.8rem !important;
+            font-weight: 800 !important;
+            color: #2D3436 !important;
+            -webkit-text-fill-color: #2D3436 !important;
+            margin-bottom: 12px !important;
+            font-family: 'M PLUS Rounded 1c', sans-serif !important;
+        }
+        .diagnosis-card-white {
+            background-color: #FFFFFF !important;
+            border: 4px solid #03A9F4 !important;
+            border-radius: 20px !important;
+            padding: 24px 20px !important;
+            margin-bottom: 24px !important;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12) !important;
+            display: block !important;
+            width: 100% !important;
+        }
+        .diagnosis-card-text {
+            color: #2D3436 !important;
+            -webkit-text-fill-color: #2D3436 !important;
+            font-weight: 800 !important;
+            font-size: 1.15rem !important;
+            line-height: 1.7 !important;
+        }
+        .mirai-card-white {
+            background-color: #FFFFFF !important;
+            border: 4px solid #4ECDC4 !important;
+            border-radius: 24px !important;
+            padding: 20px !important;
+            margin: 20px 0 30px 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 16px !important;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1) !important;
+            width: 100% !important;
+        }
+        .mirai-card-text {
+            color: #2D3436 !important;
+            -webkit-text-fill-color: #2D3436 !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            line-height: 1.6 !important;
+            flex: 1;
+        }
+        .ver-sticker {
+            text-align: right;
+            font-size: 0.75rem !important;
+            color: #AAAAAA !important;
+            -webkit-text-fill-color: #AAAAAA !important;
+            margin-top: 8px;
+        }
+        </style>
         """, unsafe_allow_html=True)
-        
+
         # 簡易的なロジック
         exp = st.session_state.diagnosis_answers[0]
         if exp == "まったくないよ":
@@ -86,16 +141,14 @@ def run_diagnosis_unit():
             result_msg = "あなたはもう投資のプロ！？「米国株」や「成長株」で更なる高みを目指そう🚀"
 
         st.markdown(f"""
-        <div style="font-size: 1.8rem !important; font-weight: 800 !important; color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important; margin-bottom: 12px; font-family: 'M PLUS Rounded 1c', sans-serif !important;">
-            🏠 診断結果！ 🌟
-        </div>
-        <div style="font-size: 40px; margin-bottom: 20px;">💰</div>
-
-        <div style="background:#FFFFFF !important; border-radius:16px !important; padding:18px 20px !important; border:3px solid #03A9F4 !important; margin-bottom:20px !important; box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;">
-           <div style="color:#2D3436 !important; -webkit-text-fill-color:#2D3436 !important; font-weight:800 !important; font-size:1.1rem !important; line-height:1.6 !important;">
-            {result_msg}
-           </div>
-           <div style="text-align:right; font-size:0.7rem !important; color:#03A9F4 !important; -webkit-text-fill-color:#03A9F4 !important; font-weight:bold !important; margin-top:8px !important;">[最新版 Ver.4]</div>
+        <div class="diagnosis-result-wrapper">
+            <div class="diagnosis-title-main">📊 診断結果！ 🌟</div>
+            <div style="font-size: 44px; margin: 10px 0 20px 0;">💰</div>
+            
+            <div class="diagnosis-card-white">
+                <div class="diagnosis-card-text">{result_msg}</div>
+                <div class="ver-sticker">[最終版 Ver.4.2]</div>
+            </div>
         </div>
         """, unsafe_allow_html=True)
         
@@ -126,28 +179,19 @@ def run_diagnosis_unit():
         # ミライのメッセージ
         mirai_b64 = get_image_base64(CHARA["mirai"])
         st.markdown(f"""
-        <div style="
-          display:flex !important; align-items:center !important; gap:16px !important;
-          background: #FFFFFF !important; border-radius:20px !important; padding:16px 20px !important;
-          border: 3px solid #4ECDC4 !important; margin-top: 16px !important; margin-bottom: 24px !important;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
-        ">
-          <img src="data:image/png;base64,{mirai_b64}" style="width:60px !important; flex-shrink:0 !important;">
-          <div style="flex: 1 !important;">
-            <div style="font-size:1.1rem !important; line-height:1.7 !important; color:#2D3436 !important; -webkit-text-fill-color:#2D3436 !important; font-weight:800 !important;">
-              {learn_info['message']}
-            </div>
-          </div>
+        <div class="mirai-card-white">
+          <img src="data:image/png;base64,{mirai_b64}" style="width:65px !important; flex-shrink:0 !important; border-radius:50%;">
+          <div class="mirai-card-text">{learn_info['message']}</div>
         </div>
         """, unsafe_allow_html=True)
         
         # 学習ページへ遷移ボタン
-        if st.button(learn_info["label"], use_container_width=True, type="primary"):
+        if st.button(learn_info["label"], key="diagnosis_learn_btn", use_container_width=True, type="primary"):
             st.session_state.current_page = "learn"
             st.session_state.learn_topic = learn_info["topic"]
             st.rerun()
 
-        if st.button("もう一度診断する", use_container_width=True):
+        if st.button("もう一度診断する", key="diagnosis_retry_btn", use_container_width=True):
             st.session_state.diagnosis_step = 0
             st.session_state.diagnosis_answers = []
             st.rerun()
