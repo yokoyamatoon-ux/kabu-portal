@@ -142,6 +142,10 @@ def run_diagnosis_unit():
 
         # 診断結果の表示
         st.html(f"""
+        <script>
+            // iPhoneなどのスクロール位置調整
+            window.parent.window.scrollTo(0, 0);
+        </script>
         <div class="diagnosis-result-wrapper">
             <div class="diagnosis-title-main">📊 診断結果！ 🌟</div>
             <div style="font-size: 44px; margin: 10px 0 20px 0;">💰</div>
@@ -161,17 +165,20 @@ def run_diagnosis_unit():
             "安定・配当型": {
                 "label": "📚 配当投資について学ぶ",
                 "topic": "dividend",
-                "message": "配当投資にむいてるね！まずは「配当金」ってなに？から学んでみよう✨"
+                "message": "配当投資にむいてるね！まずは「配当金」ってなに？から学んでみよう✨",
+                "ready": True
             },
             "バランス型": {
-                "label": "📚 NISAについて学ぶ",
+                "label": "📚 NISAについて学ぶ (準備中)",
                 "topic": "nisa",
-                "message": "バランス型にはNISAがぴったり！非課税で投資できるお得な制度だよ📗"
+                "message": "バランス型にはNISAがぴったり！非課税で投資できるお得な制度だよ📗",
+                "ready": False
             },
             "成長・積極型": {
                 "label": "📚 成長株投資について学ぶ",
                 "topic": "growth",
-                "message": "積極型だね！成長株のリスクとリターンを学んでから始めよう🚀"
+                "message": "積極型だね！成長株のリスクとリターンを学んでから始めよう🚀",
+                "ready": True
             },
         }
         
@@ -188,9 +195,12 @@ def run_diagnosis_unit():
         
         # 学習ページへ遷移ボタン
         if st.button(learn_info["label"], key="diagnosis_learn_btn", use_container_width=True, type="primary"):
-            st.session_state.current_page = "learn"
-            st.session_state.learn_topic = learn_info["topic"]
-            st.rerun()
+            if learn_info.get("ready"):
+                st.session_state.current_page = "learn"
+                st.session_state.learn_topic = learn_info["topic"]
+                st.rerun()
+            else:
+                st.toast("このコンテンツは現在準備中です！お楽しみに✨", icon="🚧")
 
         if st.button("もう一度診断する", key="diagnosis_retry_btn", use_container_width=True):
             st.session_state.diagnosis_step = 0

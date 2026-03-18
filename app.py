@@ -11,8 +11,6 @@ st.set_page_config(
 )
 
 # Last Update: 2026-03-18 10:11 (Ver.4.3 Icon Resize & Config Fix)
-st.sidebar.warning("DEBUG: CURRENT DIR IS D:\\Antigravity\\Kabu")
-st.sidebar.write(f"DEBUG: File path is {__file__}")
 
 from modules.ui_components import (
     get_image_base64, chara_img, icon_img, CHARA, TOP_BANNERS, render_navbar
