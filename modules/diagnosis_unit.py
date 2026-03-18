@@ -91,11 +91,11 @@ def run_diagnosis_unit():
         </div>
         <div style="font-size: 40px; margin-bottom: 20px;">💰</div>
 
-        <div style="background:#E1F5FE !important; border-radius:16px !important; padding:18px 20px !important; border-left:6px solid #03A9F4 !important; margin-bottom:20px !important;">
-           <div style="color:#01579B !important; -webkit-text-fill-color:#01579B !important; font-weight:800 !important; font-size:1.1rem !important; line-height:1.6 !important;">
+        <div style="background:#FFFFFF !important; border-radius:16px !important; padding:18px 20px !important; border:3px solid #03A9F4 !important; margin-bottom:20px !important; box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;">
+           <div style="color:#2D3436 !important; -webkit-text-fill-color:#2D3436 !important; font-weight:800 !important; font-size:1.1rem !important; line-height:1.6 !important;">
             {result_msg}
            </div>
-           <div style="text-align:right; font-size:0.7rem !important; color:#03A9F4 !important; -webkit-text-fill-color:#03A9F4 !important; opacity:0.8 !important;">(Ver.3)</div>
+           <div style="text-align:right; font-size:0.7rem !important; color:#03A9F4 !important; -webkit-text-fill-color:#03A9F4 !important; font-weight:bold !important; margin-top:8px !important;">[最新版 Ver.4]</div>
         </div>
         """, unsafe_allow_html=True)
         
@@ -128,8 +128,9 @@ def run_diagnosis_unit():
         st.markdown(f"""
         <div style="
           display:flex !important; align-items:center !important; gap:16px !important;
-          background: #F0FFF8 !important; border-radius:20px !important; padding:16px 20px !important;
-          border: 2px solid #4ECDC4 !important; margin-top: 16px !important; margin-bottom: 20px !important;
+          background: #FFFFFF !important; border-radius:20px !important; padding:16px 20px !important;
+          border: 3px solid #4ECDC4 !important; margin-top: 16px !important; margin-bottom: 24px !important;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
         ">
           <img src="data:image/png;base64,{mirai_b64}" style="width:60px !important; flex-shrink:0 !important;">
           <div style="flex: 1 !important;">
