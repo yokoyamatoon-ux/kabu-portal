@@ -118,8 +118,8 @@ def run_diagnosis_unit():
             line-height: 1.6 !important;
             flex: 1;
         }
-        /* プレミアムボタンのスタイリング */
-        div[data-testid="stButton"] button[key="diagnosis_learn_btn"] {
+        /* プレミアムボタンのスタイリング (ページ全体に影響しないよう詳細に) */
+        .main div[data-testid="stButton"] > button[kind="primary"] {
             background: linear-gradient(135deg, #03A9F4 0%, #0288D1 100%) !important;
             border: none !important;
             color: white !important;
@@ -131,7 +131,7 @@ def run_diagnosis_unit():
             transition: all 0.3s ease !important;
             height: auto !important;
         }
-        div[data-testid="stButton"] button[key="diagnosis_learn_btn"]:hover {
+        .main div[data-testid="stButton"] > button[kind="primary"]:hover {
             transform: translateY(-2px) !important;
             box-shadow: 0 6px 20px rgba(3, 169, 244, 0.45) !important;
             background: linear-gradient(135deg, #29B6F6 0%, #039BE5 100%) !important;
