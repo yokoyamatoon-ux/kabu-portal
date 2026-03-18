@@ -527,25 +527,45 @@ def run_stock_data_unit():
                         }
                         risk_level = "high" if info.get('beta', 1) > 1.3 else "low" if info.get('beta', 1) < 0.8 else "med"
 
+                        # 4. 概要とアドバイスの準備
+                        summary = info.get('longBusinessSummary', "詳細情報は準備中だよ。")
+                        found_desc = summary[:120] + "..." if len(summary) > 120 else summary
+                        
+                        buying_time = "様子見（おすすめ度：★）"
+                        if stars >= 5: buying_time = "今がチャンス！（おすすめ度：★★★★★）"
+                        elif stars >= 4: buying_time = "前向きに検討！（おすすめ度：★★★★）"
+                        elif stars >= 3: buying_time = "悪くないね（おすすめ度：★★★）"
+                        elif stars >= 2: buying_time = "あせらず待とう（おすすめ度：★★）"
+
                         st.balloons()
-                        st.success(f"### 🤖 AIのしんだん結果：{'⭐' * stars}")
-                        
-                        eval_col1, eval_col2 = st.columns(2)
-                        with eval_col1:
-                            st.markdown(f"**📈 最近のうごき**\n\n{trend_str}（5日間で {trend_pct:+.1f}%）")
-                            st.markdown("**🏢 どんな会社？**")
-                            # 概要を自分で用意したリストから優先的に出す
-                            found_desc = "この業界でとっても有名な、みんなに頼りにされている会社だよ。"
-                            # domestic_recs や sector_data から説明を探すロジック（簡易版）
-                            st.write(found_desc)
-                        
-                        with eval_col2:
-                            st.markdown("**⚖️ 買いどき判定**")
-                            buying_time = "「いまがチャンス！」かも" if stars >= 4 else "「いまはガマン」かも" if stars <= 2 else "「すこしずつ買う」のがいいかも"
-                            st.info(buying_time)
-                            
-                            st.markdown("**⚠️ きをつけること**")
-                            st.warning(risk_comments[risk_level])
+                        st.balloons()
+                        # カスタムデザインのAI診断カード (従来のst.successはダークモードで黒くなるため)
+                        st.html(f"""
+                        <div style="background: white; border: 4px solid var(--success); border-radius: 20px; 
+                                    padding: 24px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                            <h3 style="margin-top:0; color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important;">
+                                🤖 AIのしんだん結果：{'⭐' * stars}
+                            </h3>
+                            <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+                                <div style="flex: 1; min-width: 250px;">
+                                    <div style="font-weight: 800; color: var(--primary); margin-bottom: 8px;">📈 最近のうごき</div>
+                                    <div style="color: #444; line-height: 1.6;">{trend_str}（5日間で {trend_pct:+.1f}%）</div>
+                                    <div style="font-weight: 800; color: var(--primary); margin-top: 15px; margin-bottom: 8px;">🏢 どんな会社？</div>
+                                    <div style="color: #444; line-height: 1.6;">{found_desc}</div>
+                                </div>
+                                <div style="flex: 1; min-width: 250px;">
+                                    <div style="font-weight: 800; color: var(--accent); margin-bottom: 8px;">⚖️ 買いどき判定</div>
+                                    <div style="background: #E8F8FF; padding: 12px; border-radius: 12px; color: #2D3436; font-weight: 700; border: 1px solid #B0E0E6;">
+                                        {buying_time}
+                                    </div>
+                                    <div style="font-weight: 800; color: #ff9f43; margin-top: 15px; margin-bottom: 8px;">⚠️ きをつけること</div>
+                                    <div style="background: #FFF8E8; padding: 12px; border-radius: 12px; color: #2D3436; border: 1px solid #FFE082;">
+                                        {risk_comments[risk_level]}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        """)
 
                         st.markdown("---")
                         advice = {

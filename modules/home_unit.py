@@ -462,7 +462,7 @@ max-width: 100% !important;
     display: block;
 }}
 .promo-text {{
-    background: rgba(0,0,0,0.75);
+    background: rgba(45, 52, 54, 0.9);
     color: white;
     padding: 12px 16px;
     font-size: 0.85rem;
@@ -470,6 +470,7 @@ max-width: 100% !important;
     margin-top: 15px;
     border-radius: 8px;
     flex: 1;
+    border: 1px solid rgba(255,255,255,0.1);
 }}
 .promo-text.bright {{
     background: rgba(255,255,255,0.9);

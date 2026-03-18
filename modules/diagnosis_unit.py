@@ -23,7 +23,7 @@ def run_diagnosis_unit():
         from modules.ui_components import CHARA, get_image_base64
         hakase_b64 = get_image_base64(CHARA["hakase"])
         
-        st.markdown(f"""
+        st.html(f"""
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
           <img src="data:image/png;base64,{hakase_b64}" style="width:50px; flex-shrink:0;">
           <div style="
@@ -38,7 +38,7 @@ def run_diagnosis_unit():
             <div style="font-size:1.2rem; font-weight:800; color:#2D3436; -webkit-text-fill-color:#2D3436; line-height:1.4;">{q['q']}</div>
           </div>
         </div>
-        """, unsafe_allow_html=True)
+        """)
         
         # 選択肢ボタン
         st.markdown("""
@@ -140,17 +140,18 @@ def run_diagnosis_unit():
             result_type = "成長・積極型"
             result_msg = "あなたはもう投資のプロ！？「米国株」や「成長株」で更なる高みを目指そう🚀"
 
-        st.markdown(f"""
+        # 診断結果の表示
+        st.html(f"""
         <div class="diagnosis-result-wrapper">
             <div class="diagnosis-title-main">📊 診断結果！ 🌟</div>
             <div style="font-size: 44px; margin: 10px 0 20px 0;">💰</div>
             
             <div class="diagnosis-card-white">
                 <div class="diagnosis-card-text">{result_msg}</div>
-                <div class="ver-sticker">[最終版 Ver.4.2]</div>
+                <div class="ver-sticker">[最終版 Ver.4.4]</div>
             </div>
         </div>
-        """, unsafe_allow_html=True)
+        """)
         
         st.session_state.diagnosis_result_type = result_type
         
@@ -178,12 +179,12 @@ def run_diagnosis_unit():
         
         # ミライのメッセージ
         mirai_b64 = get_image_base64(CHARA["mirai"])
-        st.markdown(f"""
+        st.html(f"""
         <div class="mirai-card-white">
           <img src="data:image/png;base64,{mirai_b64}" style="width:50px !important; flex-shrink:0 !important; border-radius:50%;">
           <div class="mirai-card-text">{learn_info['message']}</div>
         </div>
-        """, unsafe_allow_html=True)
+        """)
         
         # 学習ページへ遷移ボタン
         if st.button(learn_info["label"], key="diagnosis_learn_btn", use_container_width=True, type="primary"):
