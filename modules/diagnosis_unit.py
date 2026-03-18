@@ -119,7 +119,7 @@ def run_diagnosis_unit():
             flex: 1;
         }
         /* プレミアムボタンのスタイリング (ページ全体に影響しないよう詳細に) */
-        .main div[data-testid="stButton"] > button[kind="primary"] {
+        .stApp [data-testid="stButton"] button[kind="primary"] {
             background: linear-gradient(135deg, #03A9F4 0%, #0288D1 100%) !important;
             border: none !important;
             color: white !important;
@@ -131,10 +131,15 @@ def run_diagnosis_unit():
             transition: all 0.3s ease !important;
             height: auto !important;
         }
-        .main div[data-testid="stButton"] > button[kind="primary"]:hover {
+        .stApp [data-testid="stButton"] button[kind="primary"]:hover {
             transform: translateY(-2px) !important;
             box-shadow: 0 6px 20px rgba(3, 169, 244, 0.45) !important;
             background: linear-gradient(135deg, #29B6F6 0%, #039BE5 100%) !important;
+        }
+        /* ボタン内の文字も白に固定 */
+        .stApp [data-testid="stButton"] button[kind="primary"] * {
+            color: white !important;
+            -webkit-text-fill-color: white !important;
         }
         </style>
         """, unsafe_allow_html=True)
@@ -154,8 +159,22 @@ def run_diagnosis_unit():
         # 診断結果の表示
         st.html(f"""
         <script>
-            // iPhoneなどのスクロール位置調整
-            window.parent.window.scrollTo(0, 0);
+            // より確実にトップにスクロールするための共通処理
+            function scrollToTop() {{
+                try {{
+                    // 親ウィンドウ（Streamlit App全体）をトップへ
+                    window.parent.window.scrollTo({{ top: 0, behavior: 'instant' }});
+                    // 現在のiframe内のトップへ
+                    window.scrollTo(0, 0);
+                    // bodyをトップへ
+                    document.body.scrollTop = 0; 
+                    document.documentElement.scrollTop = 0;
+                }} catch (e) {{ console.log(e); }}
+            }}
+            // 即時実行とロード後実行
+            scrollToTop();
+            setTimeout(scrollToTop, 100);
+            setTimeout(scrollToTop, 500);
         </script>
         <div class="diagnosis-result-wrapper">
             <div class="diagnosis-title-main">📊 診断結果！ 🌟</div>
@@ -163,6 +182,7 @@ def run_diagnosis_unit():
             
             <div class="diagnosis-card-white">
                 <div class="diagnosis-card-text">{result_msg}</div>
+                <div style="text-align:right; font-size:10px; color:#eee;">Update: Ver.4.5</div>
             </div>
         </div>
         """)
