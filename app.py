@@ -1,5 +1,6 @@
 import streamlit as st
-# Last Update: 2026-03-18 08:53 (Force Rebuild Ver.4)
+# Last Update: 2026-03-18 09:47 (Ver.4.1 Toast)
+st.toast("最新版 Ver.4.1 に更新されました！🚀")
 import os
 import base64
 from datetime import datetime

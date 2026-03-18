@@ -20,7 +20,7 @@ def run_diagnosis_unit():
         q = questions[step]
         
         # カブ先生のメッセージ
-        from app import CHARA, get_image_base64
+        from modules.ui_components import CHARA, get_image_base64
         hakase_b64 = get_image_base64(CHARA["hakase"])
         
         st.markdown(f"""
@@ -102,7 +102,7 @@ def run_diagnosis_unit():
         st.session_state.diagnosis_result_type = result_type
         
         # 診断タイプ別の遷移先コンテンツ定義
-        from app import CHARA, get_image_base64
+        from modules.ui_components import CHARA, get_image_base64
         DIAGNOSIS_LEARN_MAP = {
             "安定・配当型": {
                 "label": "📚 配当投資について学ぶ",
