@@ -362,19 +362,7 @@ max-width: 100% !important;
         # 3. AI診断ボタン（マーケットヒーロー内でレンダーされるが、スライダー直下に置くならここで呼ぶ）
         render_market_hero()
 
-        st.markdown("<br>", unsafe_allow_html=True)
 
-        # --- コンパクトヒーロー (Ver. 5.4: 旧①②統合版) ---
-        render_compact_hero()
-
-        st.markdown("<br>", unsafe_allow_html=True)
-        if st.button("🔍 AI株診断をスタート →", key="diagnosis_btn_main", use_container_width=True, type="primary"):
-            st.session_state.show_diagnosis = True
-            st.session_state.diagnosis_step = 0
-            st.rerun()
-        st.markdown("<br>", unsafe_allow_html=True)
-
-        render_site_intro_nav()
 
     st.markdown("<br>", unsafe_allow_html=True)
 
