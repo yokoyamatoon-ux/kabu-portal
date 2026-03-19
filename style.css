@@ -21,7 +21,32 @@ h2,
 h3 {
     font-family: 'M PLUS Rounded 1c', sans-serif !important;
     font-weight: 700 !important;
-    color: var(--text-main);
+    color: var(--text-main) !important;
+    -webkit-text-fill-color: var(--text-main) !important;
+}
+
+/* メインコンテンツ内のテキスト視認性強制 (iOS/Safari対応) */
+.stApp section.main,
+.stApp section.main p,
+.stApp section.main span,
+.stApp section.main label,
+.stApp section.main li,
+.stApp section.main div:not([data-testid="stSidebar"]),
+.stApp section.main .streamlit-expanderHeader,
+.stApp section.main .streamlit-expanderContent,
+.stApp section.main [data-testid="stMetricValue"],
+.stApp section.main [data-testid="stMetricLabel"] {
+    color: var(--text-main) !important;
+    -webkit-text-fill-color: var(--text-main) !important;
+}
+
+/* 例外: プライマリボタンや特定のアクセントテキストは白 */
+.stApp section.main button[kind="primary"],
+.stApp section.main button[kind="primary"] *,
+.stApp section.main .force-white-text,
+.stApp section.main .force-white-text * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
 }
 
 /* カード */
@@ -165,4 +190,15 @@ h3 {
     h2 {
         font-size: 1.1rem !important;
     }
+}
+
+/* ユーティリティ */
+.force-dark-text {
+    color: var(--text-main) !important;
+    -webkit-text-fill-color: var(--text-main) !important;
+}
+
+.force-white-text {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
 }

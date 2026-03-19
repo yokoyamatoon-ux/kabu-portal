@@ -26,7 +26,7 @@
 .stApp {
     background-color: var(--main-bg) !important;
     font-family: 'Noto Sans JP', 'Inter', -apple-system, sans-serif !important;
-    color: var(--text-primary) !important;
+    /* color: var(--text-primary) !important; */
     overflow-x: hidden !important;
 }
 

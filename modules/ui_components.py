@@ -53,20 +53,19 @@ def icon_img(filename: str, width: int = 32) -> str:
 
 def character_explain(character_path: str, message: str, bg_color: str = "#FFF9F0"):
     """キャラクターの吹き出し説明カード"""
-    char_b64 = get_image_base64(character_path)
+    img_b64 = get_image_base64(character_path)
     st.markdown(f"""
-<div style="
+<div class="character-card" style="
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 15px;
   background: {bg_color};
   border-radius: 20px;
   padding: 16px 20px;
   margin-bottom: 20px;
-  border: 2px solid #FFE082;
+  border: 1px solid #ebebeb;
 ">
-  <img src="data:image/png;base64,{char_b64}" 
-       style="width: 70px; flex-shrink: 0;">
+  <img src="data:image/png;base64,{img_b64}" style="width: 70px; flex-shrink: 0; border-radius: 50%;">
   <div style="
     background: white;
     border-radius: 12px 12px 12px 4px;
@@ -75,8 +74,6 @@ def character_explain(character_path: str, message: str, bg_color: str = "#FFF9F
     line-height: 1.7;
     border: 1px solid #eee;
     flex: 1;
-    color: #2D3436 !important;
-    -webkit-text-fill-color: #2D3436 !important;
   ">{message}</div>
 </div>
 """, unsafe_allow_html=True)

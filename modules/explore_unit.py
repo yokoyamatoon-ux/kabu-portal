@@ -39,9 +39,9 @@ def render_explore_page():
             currency_symbol = "¥" if is_jp else "$"
             
             st.markdown(f"""
-            <div class="kabu-card" style="color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important;">
-                <div style="font-size: 1.2rem; font-weight: 700; color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important;">{info['name']} ({info['ticker']})</div>
-                <div style="font-size: 2rem; font-weight: 800; margin: 8px 0; color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important;">{currency_symbol}{info['price']:,}</div>
+            <div class="kabu-card">
+                <div style="font-size: 1.2rem; font-weight: 700;">{info['name']} ({info['ticker']})</div>
+                <div style="font-size: 2rem; font-weight: 800; margin: 8px 0;">{currency_symbol}{info['price']:,}</div>
                 <div style="color: {'var(--success)' if info['change_pct'] >= 0 else 'var(--danger)'}; font-weight: 700;">
                     {'▲' if info['change_pct'] >= 0 else '▼'} {abs(info['change_pct'])}%
                 </div>
