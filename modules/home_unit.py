@@ -9,80 +9,79 @@ from datetime import datetime
 import os
 from modules import news_unit
 
-def render_beginner_check():
-    """セクション①：あなたは大丈夫？チェック（共感フック）"""
+def render_compact_hero():
+    """コンパクトヒーロー（旧セクション①②を統合）"""
+    # カブ先生の画像を取得
+    hakase_b64 = get_image_base64(CHARA.get("hakase", ""))
+    if hakase_b64:
+        img_html = f'<img src="data:image/png;base64,{hakase_b64}" style="width:100%; max-width:220px; display:block; margin:0 auto;">'
+    else:
+        img_html = '<div style="background:linear-gradient(135deg,#FFE8E8,#E8FFF8);border-radius:16px;height:200px;display:flex;align-items:center;justify-content:center;font-size:4rem;">🥬</div>'
+
+    col_img, col_text = st.columns([1, 1.6])
+
+    with col_img:
+        st.markdown(img_html, unsafe_allow_html=True)
+
+    with col_text:
+        st.markdown(f"""
+<div style="padding: 12px 0;">
+  <div style="font-family:'M PLUS Rounded 1c',sans-serif; font-size:1.5rem;
+              font-weight:900; line-height:1.4; margin-bottom:14px; color:#2D3436;">
+    投資って難しい？<br>
+    <span style="color:#E85555;">むずかしくないじゃ！</span>
+  </div>
+  <div style="font-size:0.95rem; color:#555; margin-bottom:16px; line-height:1.9;">
+    ☑ NISAってよく聞くけど、何をすればいいかわからない<br>
+    ☑ 投資って自分には無理そう…<br>
+    ☑ お金のことをわかりやすく教えてほしい
+  </div>
+  <div style="font-size:0.85rem; color:#888; margin-bottom:18px;">
+    1つでも当てはまったら、このサイトはあなたのためにあるじゃ！
+  </div>
+</div>
+        """, unsafe_allow_html=True)
+        if st.button("📖 マンガではじめる →", key="hero_cta_manga", type="primary", use_container_width=True):
+            st.session_state.current_page = "manga"
+            st.rerun()
+
+    # 下段：数字比較インフォグラフィックバー
     st.markdown("""
-    <div style="background: linear-gradient(135deg, #FFF9F0 0%, #FFEFCF 100%); border-radius: 20px; padding: 28px; margin-bottom: 20px; border: 1px solid #FFE082; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-      <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 1.5rem; font-weight: 800; color: #2D3436; margin-bottom: 20px; text-align: center;">
-        🤔 こんなこと、思ったことない？
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 540px; margin: 0 auto;">
-        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.05rem; color: #2D3436; font-weight: 500;">
-          <span style="color: #FF6B6B; font-size: 1.4rem; flex-shrink:0;">☑</span> 貯金はしてるけど、このままでいいのか不安…
-        </div>
-        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.05rem; color: #2D3436; font-weight: 500;">
-          <span style="color: #FF6B6B; font-size: 1.4rem; flex-shrink:0;">☑</span> NISAってよく聞くけど、何をすればいいかわからない
-        </div>
-        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.05rem; color: #2D3436; font-weight: 500;">
-          <span style="color: #FF6B6B; font-size: 1.4rem; flex-shrink:0;">☑</span> 投資って難しそうで、自分には無理そう
-        </div>
-        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.05rem; color: #2D3436; font-weight: 500;">
-          <span style="color: #FF6B6B; font-size: 1.4rem; flex-shrink:0;">☑</span> お金のことを誰かにわかりやすく教えてほしい
-        </div>
-      </div>
-      <div style="margin-top: 24px; background: white; border-radius: 16px; padding: 14px 18px; border: 1px solid #eee; font-size: 1rem; color: #2D3436; line-height: 1.7;">
-        🎓 1つでも当てはまったら、このサイトはあなたのためにあるじゃ！🌟
-      </div>
+<div style="background:#F7F3EC; border-radius:12px; padding:16px 24px; margin-top:8px; margin-bottom:8px;">
+  <div style="font-size:0.75rem; color:#999; margin-bottom:10px;">
+    💡 なぜ「預けるだけ」じゃもったいないの？
+  </div>
+  <div style="display:flex; gap:12px; align-items:stretch; flex-wrap:wrap;">
+    <div style="flex:1; min-width:100px; background:white; border-radius:8px;
+                padding:12px; text-align:center; border:2px solid #E0E0E0;">
+      <div style="font-size:1.4rem;">💴</div>
+      <div style="font-size:0.75rem; color:#888; margin:4px 0;">銀行に預けると</div>
+      <div style="font-size:1.3rem; font-weight:900; color:#333;">+100円</div>
+      <div style="font-size:0.7rem; color:#aaa;">100万円 / 1年</div>
     </div>
-    <br>
+    <div style="display:flex; align-items:center; font-size:1.2rem; color:#ccc; padding:0 4px;">→</div>
+    <div style="flex:1; min-width:100px; background:white; border-radius:8px;
+                padding:12px; text-align:center; border:2px solid #FFD700;">
+      <div style="font-size:1.4rem;">📈</div>
+      <div style="font-size:0.75rem; color:#888; margin:4px 0;">でも物価は</div>
+      <div style="font-size:1.3rem; font-weight:900; color:#E8A000;">+10〜20%</div>
+      <div style="font-size:0.7rem; color:#aaa;">ここ数年の値上がり幅</div>
+    </div>
+    <div style="display:flex; align-items:center; font-size:1.2rem; color:#ccc; padding:0 4px;">→</div>
+    <div style="flex:1; min-width:100px; background:white; border-radius:8px;
+                padding:12px; text-align:center; border:2px solid #4ECDC4;">
+      <div style="font-size:1.4rem;">🌱</div>
+      <div style="font-size:0.75rem; color:#888; margin:4px 0;">投資で運用すると</div>
+      <div style="font-size:1.3rem; font-weight:900; color:#009688;">+80〜165万円</div>
+      <div style="font-size:0.7rem; color:#aaa;">100万円 年3〜5% / 20年 (参考値)</div>
+    </div>
+  </div>
+  <div style="font-size:0.68rem; color:#bbb; margin-top:8px; text-align:right;">
+    ※投資にはリスクがあります。上記はあくまで参考値です。
+  </div>
+</div>
     """, unsafe_allow_html=True)
 
-def render_why_invest():
-    """セクション②：なぜ今、投資が必要なの？（危機感→納得）"""
-    st.markdown('<div class="section-title">📉 なぜ、銀行に預けるだけじゃダメなの？</div>', unsafe_allow_html=True)
-    
-    cols = st.columns(3)
-    
-    with cols[0]:
-        st.markdown("""
-        <div class="kabu-card" style="height: 100%; border-top: 5px solid #FF7675; display: flex; flex-direction: column;">
-          <div style="font-size: 2.8rem; margin-bottom: 12px; text-align: center;">💴</div>
-          <div style="font-weight: 800; font-size: 1.15rem; color: #2D3436; margin-bottom: 10px; text-align: center;">銀行の金利</div>
-          <div style="font-size: 0.95rem; line-height: 1.7; color: #444; flex: 1;">
-            <b>100万円預けると…</b><br>
-            1年後に増えるのは100円ほど。
-            物価が上がる分、実質的にはお金が減っています。
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-    with cols[1]:
-        st.markdown("""
-        <div class="kabu-card" style="height: 100%; border-top: 5px solid #FFE66D; display: flex; flex-direction: column;">
-          <div style="font-size: 2.8rem; margin-bottom: 12px; text-align: center;">📈</div>
-          <div style="font-weight: 800; font-size: 1.15rem; color: #2D3436; margin-bottom: 10px; text-align: center;">インフレの現実</div>
-          <div style="font-size: 0.95rem; line-height: 1.7; color: #444; flex: 1;">
-            <b>物価は毎年上がっている</b><br>
-            2年で10〜20%以上値上がりした商品も。
-            同じお金で買えるものが少なくなっています。
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-    with cols[2]:
-        st.markdown("""
-        <div class="kabu-card" style="height: 100%; border-top: 5px solid #00B894; display: flex; flex-direction: column;">
-          <div style="font-size: 2.8rem; margin-bottom: 12px; text-align: center;">🌱</div>
-          <div style="font-weight: 800; font-size: 1.15rem; color: #2D3436; margin-bottom: 10px; text-align: center;">投資との違い</div>
-          <div style="font-size: 0.95rem; line-height: 1.7; color: #444; flex: 1;">
-            <b>お金を"働かせる"と？</b><br>
-            年3〜5%で運用できれば、20年後には100万円が180万〜265万円になる計算に。
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-    st.markdown('<p style="font-size: 0.8rem; color: #888; text-align: right; margin-top: -12px; font-weight: 500;">※投資にはリスクがあります。上記はあくまで参考値です。</p>', unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
 
 def render_site_intro_nav():
     """セクション③：このサイトで何ができるの？（サイト紹介） - 純HTML版"""
@@ -372,9 +371,8 @@ max-width: 100% !important;
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        # --- 新規導入セクション (Ver. 5.2) ---
-        render_beginner_check()
-        render_why_invest()
+        # --- コンパクトヒーロー (Ver. 5.4: 旧①②統合版) ---
+        render_compact_hero()
         render_site_intro_nav()
 
     st.markdown("<br>", unsafe_allow_html=True)
