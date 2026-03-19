@@ -144,45 +144,40 @@ align-items: center;
 gap: 28px;
 flex-wrap: wrap;
 ">
+
 <!-- テキストエリア（左） -->
 <div style="flex: 1; min-width: 260px;">
 
-<!-- メインタイトル -->
-<div style="
-font-family: 'M PLUS Rounded 1c', sans-serif;
-font-size: 1.8rem;
-font-weight: 800;
-color: #2D3436;
-margin-bottom: 10px;
-line-height: 1.3;
-">
-カブ先生の<br><span style="color:#FF6B6B;">だれでもわかるお金の学校</span>へようこそ！🎓
-</div>
+  <!-- メインタイトル -->
+  <div style="
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #2D3436;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  ">
+    カブ先生の<br><span style="color:#FF6B6B;">だれでもわかるお金の学校</span>へようこそ！🎓
+  </div>
 
-<!-- サブコピー -->
-<div style="
-font-size: 1.0rem;
-color: #444;
-line-height: 1.8;
-margin-bottom: 14px;
-">
-むずかしい言葉は一切なし。<br>
-<b>AIとキャラクターがやさしく・たのしく</b>教えてくれるぞ！
-</div>
+  <!-- サイト概要（3行） -->
+  <div style="font-size:0.92rem; color:#444; line-height:1.9; margin-bottom:16px;">
+    むずかしい言葉ゼロ。株・NISA・投資のキホンを<b>マンガ</b>でたのしく学べるぞ！<br>
+    <b>カブ先生・マネ太・ミライ</b>たちキャラクターが案内してくれるから安心じゃ。<br>
+    <b>投資シミュレーション</b>や<b>AI株診断</b>など、体験しながら学べるコンテンツも充実！
+  </div>
 
-<!-- CTA -->
-<div style="font-size: 0.95rem; color: #636E72;">
-まずは
-<span style="
-color: #FF6B6B;
-font-weight: 800;
-font-size: 1.05rem;
-background: #FFF0F0;
-border-radius: 6px;
-padding: 2px 8px;
-">「AI投資診断」</span>
-でキミにぴったりの投資先を見つけてみよう！ 👇
-</div>
+  <!-- 特徴タグ -->
+  <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:4px;">
+    <span style="background:#FFF0F0; color:#FF6B6B; border-radius:20px;
+                 padding:4px 12px; font-size:0.8rem; font-weight:700;">📖 マンガで学ぶ</span>
+    <span style="background:#FFF8E0; color:#E8A000; border-radius:20px;
+                 padding:4px 12px; font-size:0.8rem; font-weight:700;">❓ 投資クイズ</span>
+    <span style="background:#E8FFF8; color:#009688; border-radius:20px;
+                 padding:4px 12px; font-size:0.8rem; font-weight:700;">💹 シミュレーション</span>
+    <span style="background:#F0F0FF; color:#6C63FF; border-radius:20px;
+                 padding:4px 12px; font-size:0.8rem; font-weight:700;">🤖 AI株診断</span>
+  </div>
 
 </div>
 
@@ -193,30 +188,39 @@ padding: 2px 8px;
 
 </div>
 
-<!-- スマホ用レスポンシブ調整 -->
 <style>
 @media (max-width: 640px) {{
-/* ウェルカムカードを縦積みに */
-div[style*="flex-wrap: wrap"] {{
-flex-direction: column !important;
-padding: 20px 18px !important;
-}}
-/* タイトルを少し小さく */
-div[style*="font-size: 2rem"] {{
-font-size: 1.4rem !important;
-}}
-/* バナー画像を全幅に */
-div[style*="max-width: 420px"] {{
-max-width: 100% !important;
-}}
+  div[style*="flex-wrap: wrap"] {{
+    flex-direction: column !important;
+    padding: 20px 18px !important;
+  }}
+  div[style*="max-width: 420px"] {{
+    max-width: 100% !important;
+  }}
 }}
 </style>
 """, unsafe_allow_html=True)
         
-        # 入学ページへのリンク
-        if st.button("🎓 このサイトについて・はじめての方はこちら →", key="btn_about", use_container_width=False):
-            st.session_state.current_page = "about"
-            st.rerun()
+        # 入学バナー（クリックでaboutページへ）
+        NYUGAKU_PATH = r"D:\Antigravity\Kabu\image\入学.jpg"
+        nyugaku_b64 = get_image_base64(NYUGAKU_PATH)
+        if nyugaku_b64:
+            st.markdown(f"""
+<a href="?page=about" target="_self" style="display:block; cursor:pointer; text-decoration:none;">
+  <img src="data:image/jpeg;base64,{nyugaku_b64}"
+       style="width:100%; border-radius:16px; margin-bottom:16px;
+              box-shadow:0 4px 16px rgba(0,0,0,0.10);
+              transition:opacity 0.2s;"
+       onmouseover="this.style.opacity='0.85'"
+       onmouseout="this.style.opacity='1'"
+       alt="カブ先生の学校に入学する">
+</a>
+""", unsafe_allow_html=True)
+        else:
+            # 画像がない場合のフォールバック
+            if st.button("🎓 このサイトについて・はじめての方はこちら →", key="btn_about", use_container_width=True):
+                st.session_state.current_page = "about"
+                st.rerun()
 
         # 3. AI診断ボタン（マーケットヒーロー内でレンダーされるが、スライダー直下に置くならここで呼ぶ）
         render_market_hero()

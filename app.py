@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide",
 )
 
-# Last Update: 2026-03-19 14:55 (Ver.5.9 About Page & Home Purge)
+# Last Update: 2026-03-19 15:30 (Ver.6.0 Welcome Banner)
 
 from modules.ui_components import (
     get_image_base64, chara_img, icon_img, CHARA, TOP_BANNERS, render_navbar
@@ -70,7 +70,7 @@ def render_navigation():
             font-size:1.2rem; color:#FF6B6B; padding:8px 0 4px;">
   🎓 カブ先生のお金の学校
 </div>
-<div style="font-size: 0.65rem; color: #888; margin-bottom: 12px;">Ver. 5.9 (Home Purge)</div>
+<div style="font-size: 0.65rem; color: #888; margin-bottom: 12px;">Ver. 6.0 (Welcome Banner)</div>
 """, unsafe_allow_html=True)
         
         pages = [
