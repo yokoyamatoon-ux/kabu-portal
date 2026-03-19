@@ -34,8 +34,8 @@ def run_diagnosis_unit():
             border-left: 6px solid #FF6B6B;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
           ">
-            <div style="font-size:0.85rem; color:#FF6B6B; -webkit-text-fill-color:#FF6B6B; font-weight:800; margin-bottom:6px;">Q{step+1}. {step+1}/{len(questions)}</div>
-            <div style="font-size:1.2rem; font-weight:800; color:#2D3436; -webkit-text-fill-color:#2D3436; line-height:1.4;">{q['q']}</div>
+            <div style="font-size:0.85rem; color:#FF6B6B; font-weight:800; margin-bottom:6px;">Q{step+1}. {step+1}/{len(questions)}</div>
+            <div style="font-size:1.2rem; font-weight:800; color:#2D3436; line-height:1.4;">{q['q']}</div>
           </div>
         </div>
         """)
@@ -77,7 +77,6 @@ def run_diagnosis_unit():
             font-size: 1.8rem !important;
             font-weight: 800 !important;
             color: #2D3436 !important;
-            -webkit-text-fill-color: #2D3436 !important;
             margin-bottom: 12px !important;
             font-family: 'M PLUS Rounded 1c', sans-serif !important;
         }
@@ -93,7 +92,6 @@ def run_diagnosis_unit():
         }
         .diagnosis-card-text {
             color: #2D3436 !important;
-            -webkit-text-fill-color: #2D3436 !important;
             font-weight: 800 !important;
             font-size: 1.15rem !important;
             line-height: 1.7 !important;
@@ -112,7 +110,6 @@ def run_diagnosis_unit():
         }
         .mirai-card-text {
             color: #2D3436 !important;
-            -webkit-text-fill-color: #2D3436 !important;
             font-weight: 700 !important;
             font-size: 1.1rem !important;
             line-height: 1.6 !important;
@@ -139,7 +136,6 @@ def run_diagnosis_unit():
         /* ボタン内の文字も白に固定 */
         .stApp [data-testid="stButton"] button[kind="primary"] * {
             color: white !important;
-            -webkit-text-fill-color: white !important;
         }
         </style>
         """, unsafe_allow_html=True)
