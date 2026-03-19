@@ -17,27 +17,25 @@ def render_beginner_check():
         🤔 こんなこと、思ったことない？
       </div>
       <div style="display: flex; flex-direction: column; gap: 12px; max-width: 540px; margin: 0 auto;">
-        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem; color: #2D3436; font-weight: 500;">
-          <span style="color: #FF6B6B; font-size: 1.4rem;">☑</span> 貯金はしてるけど、このままでいいのか不安…
+        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.05rem; color: #2D3436; font-weight: 500;">
+          <span style="color: #FF6B6B; font-size: 1.4rem; flex-shrink:0;">☑</span> 貯金はしてるけど、このままでいいのか不安…
         </div>
-        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem; color: #2D3436; font-weight: 500;">
-          <span style="color: #FF6B6B; font-size: 1.4rem;">☑</span> NISAってよく聞くけど、何をすればいいかわからない
+        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.05rem; color: #2D3436; font-weight: 500;">
+          <span style="color: #FF6B6B; font-size: 1.4rem; flex-shrink:0;">☑</span> NISAってよく聞くけど、何をすればいいかわからない
         </div>
-        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem; color: #2D3436; font-weight: 500;">
-          <span style="color: #FF6B6B; font-size: 1.4rem;">☑</span> 投資って難しそうで、自分には無理そう
+        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.05rem; color: #2D3436; font-weight: 500;">
+          <span style="color: #FF6B6B; font-size: 1.4rem; flex-shrink:0;">☑</span> 投資って難しそうで、自分には無理そう
         </div>
-        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem; color: #2D3436; font-weight: 500;">
-          <span style="color: #FF6B6B; font-size: 1.4rem;">☑</span> お金のことを誰かにわかりやすく教えてほしい
+        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.05rem; color: #2D3436; font-weight: 500;">
+          <span style="color: #FF6B6B; font-size: 1.4rem; flex-shrink:0;">☑</span> お金のことを誰かにわかりやすく教えてほしい
         </div>
       </div>
+      <div style="margin-top: 24px; background: white; border-radius: 16px; padding: 14px 18px; border: 1px solid #eee; font-size: 1rem; color: #2D3436; line-height: 1.7;">
+        🎓 1つでも当てはまったら、このサイトはあなたのためにあるじゃ！🌟
+      </div>
     </div>
+    <br>
     """, unsafe_allow_html=True)
-    character_explain(
-        CHARA["hakase"],
-        "1つでも当てはまったら、このサイトはあなたのためにあるじゃ！🌟",
-        bg_color="#FFF9F0"
-    )
-    st.markdown("<br>", unsafe_allow_html=True)
 
 def render_why_invest():
     """セクション②：なぜ今、投資が必要なの？（危機感→納得）"""
@@ -87,66 +85,77 @@ def render_why_invest():
     st.markdown("<br>", unsafe_allow_html=True)
 
 def render_site_intro_nav():
-    """セクション③：このサイトで何ができるの？（サイト紹介）"""
-    st.markdown('<div class="section-title">🏫 カブ先生の学校でできること</div>', unsafe_allow_html=True)
-    
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        st.markdown("""
-        <div class="kabu-card" style="margin-bottom: 0px;">
-          <div style="font-weight: 800; font-size: 1.2rem; color: #2D3436; margin-bottom: 8px;">📖 マンガで学ぶ</div>
-          <div style="font-size: 0.95rem; line-height: 1.6; color: #444; margin-bottom: 15px;">
-            むずかしい言葉ゼロ。カブ先生とキャラクターたちのマンガで株・NISA・配当金がサクッとわかる。
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-        if st.button("📖 マンガを読む", key="intro_nav_manga", use_container_width=True, type="primary"):
-            st.session_state.current_page = "manga"
-            st.rerun()
-            
-        st.markdown("<br>", unsafe_allow_html=True)
-
-        st.markdown("""
-        <div class="kabu-card" style="margin-bottom: 0px;">
-          <div style="font-weight: 800; font-size: 1.2rem; color: #2D3436; margin-bottom: 8px;">🔍 銘柄を探す</div>
-          <div style="font-size: 0.95rem; line-height: 1.6; color: #444; margin-bottom: 15px;">
-            実際にどんな会社があるの？テーマや条件から気になる銘柄を探して仮想投資体験もできる。
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-        if st.button("🔍 銘柄を探す", key="intro_nav_explore", use_container_width=True, type="primary"):
-            st.session_state.current_page = "explore"
-            st.rerun()
-
-    with col2:
-        st.markdown("""
-        <div class="kabu-card" style="margin-bottom: 0px;">
-          <div style="font-weight: 800; font-size: 1.2rem; color: #2D3436; margin-bottom: 8px;">❓ クイズで試す</div>
-          <div style="font-size: 0.95rem; line-height: 1.6; color: #444; margin-bottom: 15px;">
-            読んだら試してみよう。全問正解できたらあなたも立派な"投資初心者卒業生"じゃ！
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-        if st.button("❓ クイズをやってみる", key="intro_nav_quiz", use_container_width=True, type="primary"):
-            st.session_state.current_page = "quiz"
-            st.rerun()
-
-        st.markdown("<br>", unsafe_allow_html=True)
-
-        st.markdown("""
-        <div class="kabu-card" style="margin-bottom: 0px;">
-          <div style="font-weight: 800; font-size: 1.2rem; color: #2D3436; margin-bottom: 8px;">🕵️ 裏事情を知る</div>
-          <div style="font-size: 0.95rem; line-height: 1.6; color: #444; margin-bottom: 15px;">
-            投資の"やってはいけない"も学べる。詐欺・インサイダー取引…知らないと損する話も解説。
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-        if st.button("🕵️ 裏事情を見る", key="intro_nav_secret", use_container_width=True, type="primary"):
-            st.session_state.current_page = "money_secret"
-            st.rerun()
-
-    st.markdown("<br><br>", unsafe_allow_html=True)
+    """セクション③：このサイトで何ができるの？（サイト紹介） - 純HTML版"""
+    st.markdown("""
+    <div class="section-title">🏫 カブ先生の学校でできること</div>
+    <style>
+    .intro-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+    @media (max-width: 640px) {
+        .intro-grid { grid-template-columns: 1fr; }
+    }
+    .intro-card {
+        background: white;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+        border: 1px solid #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .intro-card-title {
+        font-weight: 800;
+        font-size: 1.1rem;
+        color: #2D3436;
+    }
+    .intro-card-desc {
+        font-size: 0.9rem;
+        color: #444;
+        line-height: 1.6;
+        flex: 1;
+    }
+    .intro-card-btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+        color: white !important;
+        font-weight: 700;
+        font-size: 0.9rem;
+        padding: 9px 16px;
+        border-radius: 50px;
+        text-decoration: none !important;
+        text-align: center;
+        transition: opacity 0.2s;
+    }
+    .intro-card-btn:hover { opacity: 0.85; }
+    </style>
+    <div class="intro-grid">
+      <div class="intro-card">
+        <div class="intro-card-title">📖 マンガで学ぶ</div>
+        <div class="intro-card-desc">むずかしい言葉ゼロ。カブ先生とキャラクターたちのマンガで株・NISA・配当金がサクッとわかる。</div>
+        <a href="?page=manga" target="_self" class="intro-card-btn">📖 マンガを読む</a>
+      </div>
+      <div class="intro-card">
+        <div class="intro-card-title">❓ クイズで試す</div>
+        <div class="intro-card-desc">読んだら試してみよう。全問正解できたらあなたも立派な「投資初心者卒業生」じゃ！</div>
+        <a href="?page=quiz" target="_self" class="intro-card-btn">❓ クイズをやってみる</a>
+      </div>
+      <div class="intro-card">
+        <div class="intro-card-title">🔍 銘柄を探す</div>
+        <div class="intro-card-desc">実際にどんな会社があるの？テーマや条件から気になる銘柄を探して仮想投資体験もできる。</div>
+        <a href="?page=explore" target="_self" class="intro-card-btn">🔍 銘柄を探す</a>
+      </div>
+      <div class="intro-card">
+        <div class="intro-card-title">🕵️ 裏事情を知る</div>
+        <div class="intro-card-desc">投資の「やってはいけない」も学べる。詐欺・インサイダー取引…知らないと損する話も解諬。</div>
+        <a href="?page=money_secret" target="_self" class="intro-card-btn">🕵️ 裏事情を見る</a>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 def render_market_hero():
     """ホームのヒーローエリア + ミニグラフ"""
