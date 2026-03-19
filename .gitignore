@@ -21,8 +21,8 @@ wheels/
 .installed.cfg
 *.egg
 
-# Streamlit
-.streamlit/
+# Streamlit (allow config.toml for deployment settings)
+.streamlit/secrets.toml
 static/
 
 # Git
