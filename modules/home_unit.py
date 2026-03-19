@@ -669,15 +669,28 @@ flex-wrap: wrap;
 
 def render_about_page():
     """入学ページ：初訪問者向けサイト紹介"""
-    st.markdown("""
-    <h1 style="font-family:'M PLUS Rounded 1c',sans-serif;
-               font-size:1.8rem; font-weight:900; margin-bottom:4px;">
-      🎓 カブ先生の学校に入学しよう！
-    </h1>
-    <p style="color:#888; font-size:0.9rem; margin-bottom:28px;">
-      むずかしい言葉ゼロ。あなたのペースで、お金のことを学べる場所じゃ。
-    </p>
-    """, unsafe_allow_html=True)
+    nyugaku_b64 = get_image_base64(os.path.join(IMAGE_DIR, "入学.jpg"))
+    if nyugaku_b64:
+        st.markdown(f"""
+        <div style="margin-bottom: 16px;">
+          <img src="data:image/jpeg;base64,{nyugaku_b64}"
+               style="width:100%; max-width: 800px; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.10); display:block; margin: 0 auto;"
+               alt="カブ先生の学校に入学しよう！">
+        </div>
+        <p style="color:#888; font-size:0.9rem; margin-bottom:28px; text-align:center;">
+          むずかしい言葉ゼロ。あなたのペースで、お金のことを学べる場所じゃ。
+        </p>
+        """, unsafe_allow_html=True)
+    else:
+        st.markdown("""
+        <h1 style="font-family:'M PLUS Rounded 1c',sans-serif;
+                   font-size:1.8rem; font-weight:900; margin-bottom:4px; text-align:center;">
+          🎓 カブ先生の学校に入学しよう！
+        </h1>
+        <p style="color:#888; font-size:0.9rem; margin-bottom:28px; text-align:center;">
+          むずかしい言葉ゼロ。あなたのペースで、お金のことを学べる場所じゃ。
+        </p>
+        """, unsafe_allow_html=True)
 
     # セクション①：銀行比較インフォグラフィック
     st.markdown("""
