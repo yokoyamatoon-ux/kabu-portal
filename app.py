@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide",
 )
 
-# Last Update: 2026-03-19 14:00 (Ver.5.5 Move Diagnosis Btn)
+# Last Update: 2026-03-19 14:10 (Ver.5.6 Home Cleanup & About)
 
 from modules.ui_components import (
     get_image_base64, chara_img, icon_img, CHARA, TOP_BANNERS, render_navbar
@@ -70,7 +70,7 @@ def render_navigation():
             font-size:1.2rem; color:#FF6B6B; padding:8px 0 4px;">
   🎓 カブ先生のお金の学校
 </div>
-<div style="font-size: 0.65rem; color: #888; margin-bottom: 12px;">Ver. 5.5 (Diagnosis Moved)</div>
+<div style="font-size: 0.65rem; color: #888; margin-bottom: 12px;">Ver. 5.6 (Home Cleanup)</div>
 """, unsafe_allow_html=True)
         
         pages = [
@@ -211,6 +211,9 @@ def run_app():
     if page == "home":
         from modules import home_unit
         home_unit.render_home_page()
+    elif page == "about":
+        from modules import home_unit
+        home_unit.render_about_page()
     elif page == "news":
         from modules.news_unit import render_news_list_page
         render_news_list_page()
