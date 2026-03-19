@@ -101,7 +101,7 @@ p,
 span,
 label,
 div {
-    color: var(--text-primary);
+    color: var(--text-primary) !important;
 }
 
 /* ---- TABS ---- */

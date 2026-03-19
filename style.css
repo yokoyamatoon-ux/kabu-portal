@@ -60,8 +60,7 @@ body .stApp section.main .force-white-text * {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     margin-bottom: 16px;
     transition: transform 0.2s, box-shadow 0.2s;
-    color: var(--text-main) !important;
-    -webkit-text-fill-color: var(--text-main) !important;
+    color: #2D3436 !important;
 }
 
 .kabu-card:hover {
@@ -81,7 +80,6 @@ body .stApp section.main .force-white-text * {
     font-size: 1.1rem;
     margin-bottom: 16px;
     color: var(--text-main) !important;
-    -webkit-text-fill-color: var(--text-main) !important;
 }
 
 /* かぶるんふわふわ */
@@ -197,11 +195,9 @@ body .stApp section.main .force-white-text * {
 
 /* ユーティリティ */
 .force-dark-text {
-    color: var(--text-main) !important;
-    -webkit-text-fill-color: var(--text-main) !important;
+    color: #2D3436 !important;
 }
 
 .force-white-text {
     color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
 }
