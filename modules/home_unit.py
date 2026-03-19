@@ -692,45 +692,195 @@ def render_about_page():
         </p>
         """, unsafe_allow_html=True)
 
-    # セクション①：銀行比較インフォグラフィック
+    # =========================================
+    # セクション①：共感チェックリスト
+    # =========================================
+    st.markdown("""
+<div style="background:linear-gradient(135deg,#FFF9F0,#FFF0F0);
+            border-radius:16px; padding:24px 28px; margin-bottom:20px;
+            border:1px solid #FFE0D0;">
+  <div style="font-size:1.05rem; font-weight:900; margin-bottom:16px; color:#2D3436;">
+    🤔 こんなこと、思ったことない？
+  </div>
+  <div style="font-size:0.95rem; color:#444; line-height:2.1;">
+    <span style="color:#E85555; font-weight:700;">☑</span>　貯金はしてるけど、このままでいいのか不安…<br>
+    <span style="color:#E85555; font-weight:700;">☑</span>　NISAってよく聞くけど、何をすればいいかわからない<br>
+    <span style="color:#E85555; font-weight:700;">☑</span>　投資って難しそうで、自分には無理そう<br>
+    <span style="color:#E85555; font-weight:700;">☑</span>　お金のことを誰かにわかりやすく教えてほしい
+  </div>
+  <div style="margin-top:16px; background:white; border-radius:10px;
+              padding:12px 16px; font-size:0.9rem; color:#636E72; display:flex;
+              align-items:center; gap:10px; border:1px solid #f0f0f0;">
+    <span style="font-size:1.5rem;">🥬</span>
+    <span>1つでも当てはまったら、このサイトはあなたのためにあるじゃ！</span>
+  </div>
+</div>
+""", unsafe_allow_html=True)
+
+    # =========================================
+    # セクション②：なぜ今、投資が必要なのか
+    # =========================================
+    st.markdown("""
+<div style="background:white; border-radius:16px; padding:24px 28px;
+            margin-bottom:20px; box-shadow:0 2px 12px rgba(0,0,0,0.06);
+            border-left:5px solid #FF6B6B;">
+  <div style="font-size:1.05rem; font-weight:900; margin-bottom:16px; color:#2D3436;">
+    ⚠️ 実は、「貯めるだけ」では間に合わない時代になっています
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:16px;">
+
+    <div style="background:#FFF5F5; border-radius:12px; padding:16px; text-align:center; border:2px solid #FFD0D0;">
+      <div style="font-size:1.6rem; margin-bottom:6px;">👴</div>
+      <div style="font-size:0.8rem; font-weight:800; color:#E85555; margin-bottom:6px;">年金だけでは不足</div>
+      <div style="font-size:0.78rem; color:#666; line-height:1.6;">
+        老後2,000万円問題が話題に。公的年金だけでは生活費が足りない可能性が高まっています。
+      </div>
+    </div>
+
+    <div style="background:#FFFAF0; border-radius:12px; padding:16px; text-align:center; border:2px solid #FFE0A0;">
+      <div style="font-size:1.6rem; margin-bottom:6px;">📈</div>
+      <div style="font-size:0.8rem; font-weight:800; color:#E8A000; margin-bottom:6px;">物価は上がり続けている</div>
+      <div style="font-size:0.78rem; color:#666; line-height:1.6;">
+        食料品・光熱費・日用品…ここ数年で10〜20%以上値上がり。同じお金で買えるものが減っています。
+      </div>
+    </div>
+
+    <div style="background:#F0FFF8; border-radius:12px; padding:16px; text-align:center; border:2px solid #A0E8C8;">
+      <div style="font-size:1.6rem; margin-bottom:6px;">🏦</div>
+      <div style="font-size:0.8rem; font-weight:800; color:#009688; margin-bottom:6px;">銀行の金利はほぼゼロ</div>
+      <div style="font-size:0.78rem; color:#666; line-height:1.6;">
+        100万円を1年預けても増えるのは100円ほど。物価上昇を考えると、実質的にお金が減っています。
+      </div>
+    </div>
+
+  </div>
+
+  <div style="background:#F7F3EC; border-radius:10px; padding:14px 18px;
+              font-size:0.88rem; color:#555; line-height:1.8;">
+    💡 だからといって、いきなり難しい株取引をする必要はありません。<br>
+    <b>まずは「お金の仕組み」を知るだけで、選択肢がぐっと広がります。</b>
+    それがこのサイトの目的じゃ！
+  </div>
+</div>
+""", unsafe_allow_html=True)
+
+    # =========================================
+    # セクション③：銀行 vs 投資 比較バー
+    # =========================================
     st.markdown("""
 <div style="background:#F7F3EC; border-radius:12px; padding:16px 24px; margin-bottom:20px;">
-  <div style="font-size:0.85rem; font-weight:800; color:#555; margin-bottom:10px;">
-    💡 なぜ「預けるだけ」じゃもったいないの？
+  <div style="font-size:0.85rem; font-weight:800; color:#555; margin-bottom:12px;">
+    📊 100万円を20年運用したら？
   </div>
   <div style="display:flex; gap:12px; align-items:stretch; flex-wrap:wrap;">
     <div style="flex:1; min-width:100px; background:white; border-radius:8px;
-                padding:12px; text-align:center; border:2px solid #E0E0E0;">
-      <div style="font-size:1.4rem;">💴</div>
+                padding:14px; text-align:center; border:2px solid #E0E0E0;">
+      <div style="font-size:1.3rem;">🏦</div>
       <div style="font-size:0.75rem; color:#888; margin:4px 0;">銀行に預けると</div>
-      <div style="font-size:1.3rem; font-weight:900; color:#333;">+100円</div>
-      <div style="font-size:0.7rem; color:#aaa;">100万円 / 1年</div>
+      <div style="font-size:1.3rem; font-weight:900; color:#333;">約100万円</div>
+      <div style="font-size:0.7rem; color:#aaa;">ほぼ変わらず</div>
     </div>
-    <div style="display:flex; align-items:center; font-size:1.2rem; color:#ccc; padding:0 4px;">→</div>
+    <div style="display:flex; align-items:center; font-size:1.4rem; color:#ccc;">→</div>
     <div style="flex:1; min-width:100px; background:white; border-radius:8px;
-                padding:12px; text-align:center; border:2px solid #FFD700;">
-      <div style="font-size:1.4rem;">📈</div>
-      <div style="font-size:0.75rem; color:#888; margin:4px 0;">でも物価は</div>
-      <div style="font-size:1.3rem; font-weight:900; color:#E8A000;">+10〜20%</div>
-      <div style="font-size:0.7rem; color:#aaa;">ここ数年の値上がり幅</div>
+                padding:14px; text-align:center; border:2px solid #FFD700;">
+      <div style="font-size:1.3rem;">📈</div>
+      <div style="font-size:0.75rem; color:#888; margin:4px 0;">年3%で運用すると</div>
+      <div style="font-size:1.3rem; font-weight:900; color:#E8A000;">約180万円</div>
+      <div style="font-size:0.7rem; color:#aaa;">+80万円</div>
     </div>
-    <div style="display:flex; align-items:center; font-size:1.2rem; color:#ccc; padding:0 4px;">→</div>
+    <div style="display:flex; align-items:center; font-size:1.4rem; color:#ccc;">→</div>
     <div style="flex:1; min-width:100px; background:white; border-radius:8px;
-                padding:12px; text-align:center; border:2px solid #4ECDC4;">
-      <div style="font-size:1.4rem;">🌱</div>
-      <div style="font-size:0.75rem; color:#888; margin:4px 0;">投資で運用すると</div>
-      <div style="font-size:1.3rem; font-weight:900; color:#009688;">+80〜165万円</div>
-      <div style="font-size:0.7rem; color:#aaa;">100万円 年3〜5% / 20年 (参考値)</div>
+                padding:14px; text-align:center; border:2px solid #4ECDC4;">
+      <div style="font-size:1.3rem;">🌱</div>
+      <div style="font-size:0.75rem; color:#888; margin:4px 0;">年5%で運用すると</div>
+      <div style="font-size:1.3rem; font-weight:900; color:#009688;">約265万円</div>
+      <div style="font-size:0.7rem; color:#aaa;">+165万円</div>
     </div>
   </div>
   <div style="font-size:0.68rem; color:#bbb; margin-top:8px; text-align:right;">
-    ※投資にはリスクがあります。上記はあくまで参考値です。
+    ※投資にはリスクがあります。上記はあくまで参考値です。元本割れの可能性もあります。
   </div>
 </div>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
-    # セクション②：AI診断ボタン
-    if st.button("🔍 AI株診断をスタート →", key="about_diagnosis_btn", use_container_width=True, type="primary"):
+    # =========================================
+    # セクション④：このサイトでできること
+    # =========================================
+    st.markdown("""
+<div style="font-size:1.05rem; font-weight:900; margin-bottom:14px; color:#2D3436;">
+  📚 このサイトでできること
+</div>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:20px;">
+
+  <div style="background:white; border-radius:14px; padding:18px;
+              box-shadow:0 2px 8px rgba(0,0,0,0.06); border-top:4px solid #FF6B6B;">
+    <div style="font-size:1.1rem; font-weight:800; margin-bottom:8px;">📖 マンガで学ぶ</div>
+    <div style="font-size:0.85rem; color:#555; line-height:1.7;">
+      カブ先生・マネ太・ミライが登場するオリジナルマンガで、株・NISA・配当金などの基礎知識をゼロから学べます。むずかしい用語は一切なし！
+    </div>
+  </div>
+
+  <div style="background:white; border-radius:14px; padding:18px;
+              box-shadow:0 2px 8px rgba(0,0,0,0.06); border-top:4px solid #FFB300;">
+    <div style="font-size:1.1rem; font-weight:800; margin-bottom:8px;">❓ 投資クイズ</div>
+    <div style="font-size:0.85rem; color:#555; line-height:1.7;">
+      マンガで学んだ内容をクイズ形式で確認！全問正解を目指して、投資の基礎知識がしっかり身につきます。
+    </div>
+  </div>
+
+  <div style="background:white; border-radius:14px; padding:18px;
+              box-shadow:0 2px 8px rgba(0,0,0,0.06); border-top:4px solid #4ECDC4;">
+    <div style="font-size:1.1rem; font-weight:800; margin-bottom:8px;">💹 投資シミュレーション</div>
+    <div style="font-size:0.85rem; color:#555; line-height:1.7;">
+      仮想の100万円で実際の株を「買って」みよう。リスクゼロで投資の感覚をリアルに体験できます。
+    </div>
+  </div>
+
+  <div style="background:white; border-radius:14px; padding:18px;
+              box-shadow:0 2px 8px rgba(0,0,0,0.06); border-top:4px solid #6C63FF;">
+    <div style="font-size:1.1rem; font-weight:800; margin-bottom:8px;">🤖 AI株診断</div>
+    <div style="font-size:0.85rem; color:#555; line-height:1.7;">
+      いくつかの質問に答えるだけで、あなたに合った投資スタイルをAIが診断！まず何をすればいいかがわかります。
+    </div>
+  </div>
+
+  <div style="background:white; border-radius:14px; padding:18px;
+              box-shadow:0 2px 8px rgba(0,0,0,0.06); border-top:4px solid #E85555;">
+    <div style="font-size:1.1rem; font-weight:800; margin-bottom:8px;">⚠️ お金の裏事情ファイル</div>
+    <div style="font-size:0.85rem; color:#555; line-height:1.7;">
+      詐欺・インサイダー取引など、投資初心者が陥りやすいワナを解説。知っておくだけで大きな損失を防げます。
+    </div>
+  </div>
+
+  <div style="background:white; border-radius:14px; padding:18px;
+              box-shadow:0 2px 8px rgba(0,0,0,0.06); border-top:4px solid #FF8E53;">
+    <div style="font-size:1.1rem; font-weight:800; margin-bottom:8px;">📈 マネ太の投資日記</div>
+    <div style="font-size:0.85rem; color:#555; line-height:1.7;">
+      初心者キャラのマネ太が実際に投資に挑戦するドキュメンタリー形式の日記。リアルな葛藤も含めて追体験できます。
+    </div>
+  </div>
+
+</div>
+""", unsafe_allow_html=True)
+
+    # =========================================
+    # セクション⑤：AI診断CTA
+    # =========================================
+    st.markdown("""
+<div style="background:linear-gradient(135deg,#FF6B6B,#FF8E53);
+            border-radius:16px; padding:24px; text-align:center; margin-bottom:20px;">
+  <div style="font-size:1.1rem; font-weight:900; color:white; margin-bottom:8px;">
+    🤖 まず何から始めればいい？
+  </div>
+  <div style="font-size:0.88rem; color:rgba(255,255,255,0.9); margin-bottom:0;">
+    AI診断なら3分で「あなたにぴったりの投資スタイル」がわかるじゃ！
+  </div>
+</div>
+""", unsafe_allow_html=True)
+
+    if st.button("🔍 AI株診断をスタート →", key="about_diagnosis_btn",
+                 use_container_width=True, type="primary"):
         st.session_state.show_diagnosis = True
         st.session_state.diagnosis_step = 0
         st.session_state.current_page = "home"
@@ -738,27 +888,13 @@ def render_about_page():
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # セクション③：マンガ誘導
-    st.markdown("""
-<div style="background:white; border-radius:16px; padding:24px;
-            box-shadow:0 2px 8px rgba(0,0,0,0.06); text-align:center; margin-bottom:20px;">
-  <div style="font-size:1rem; font-weight:800; margin-bottom:8px;">
-    📖 まずはマンガで読んでみよう
-  </div>
-  <p style="font-size:0.85rem; color:#666; margin-bottom:0;">
-    「株ってなに？」「NISAって何をすればいいの？」<br>
-    キャラクターたちのマンガでサクッとわかるじゃ！
-  </p>
-</div>
-    """, unsafe_allow_html=True)
-
-    if st.button("📖 マンガで学びはじめる →", key="about_manga_btn", use_container_width=True, type="primary"):
+    if st.button("📖 マンガで学びはじめる →", key="about_manga_btn",
+                 use_container_width=True):
         st.session_state.current_page = "manga"
         st.rerun()
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # 戻るボタン
     if st.button("← ホームにもどる", key="about_back_btn"):
         st.session_state.current_page = "home"
         st.rerun()
