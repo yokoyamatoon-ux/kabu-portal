@@ -202,7 +202,7 @@ flex-wrap: wrap;
 """, unsafe_allow_html=True)
         
         # 入学バナー（クリックでaboutページへ）
-        NYUGAKU_PATH = r"D:\Antigravity\Kabu\image\入学.jpg"
+        NYUGAKU_PATH = os.path.join(IMAGE_DIR, "入学.jpg")
         nyugaku_b64 = get_image_base64(NYUGAKU_PATH)
         if nyugaku_b64:
             st.markdown(f"""
