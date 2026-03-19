@@ -9,6 +9,145 @@ from datetime import datetime
 import os
 from modules import news_unit
 
+def render_beginner_check():
+    """セクション①：あなたは大丈夫？チェック（共感フック）"""
+    st.markdown("""
+    <div style="background: linear-gradient(135deg, #FFF9F0 0%, #FFEFCF 100%); border-radius: 20px; padding: 28px; margin-bottom: 20px; border: 1px solid #FFE082; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+      <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 1.5rem; font-weight: 800; color: #2D3436; margin-bottom: 20px; text-align: center;">
+        🤔 こんなこと、思ったことない？
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 540px; margin: 0 auto;">
+        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem; color: #2D3436; font-weight: 500;">
+          <span style="color: #FF6B6B; font-size: 1.4rem;">☑</span> 貯金はしてるけど、このままでいいのか不安…
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem; color: #2D3436; font-weight: 500;">
+          <span style="color: #FF6B6B; font-size: 1.4rem;">☑</span> NISAってよく聞くけど、何をすればいいかわからない
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem; color: #2D3436; font-weight: 500;">
+          <span style="color: #FF6B6B; font-size: 1.4rem;">☑</span> 投資って難しそうで、自分には無理そう
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem; color: #2D3436; font-weight: 500;">
+          <span style="color: #FF6B6B; font-size: 1.4rem;">☑</span> お金のことを誰かにわかりやすく教えてほしい
+        </div>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
+    character_explain(
+        CHARA["hakase"],
+        "1つでも当てはまったら、このサイトはあなたのためにあるじゃ！🌟",
+        bg_color="#FFF9F0"
+    )
+    st.markdown("<br>", unsafe_allow_html=True)
+
+def render_why_invest():
+    """セクション②：なぜ今、投資が必要なの？（危機感→納得）"""
+    st.markdown('<div class="section-title">📉 なぜ、銀行に預けるだけじゃダメなの？</div>', unsafe_allow_html=True)
+    
+    cols = st.columns(3)
+    
+    with cols[0]:
+        st.markdown("""
+        <div class="kabu-card" style="height: 100%; border-top: 5px solid #FF7675; display: flex; flex-direction: column;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px; text-align: center;">💴</div>
+          <div style="font-weight: 800; font-size: 1.15rem; color: #2D3436; margin-bottom: 10px; text-align: center;">銀行の金利</div>
+          <div style="font-size: 0.95rem; line-height: 1.7; color: #444; flex: 1;">
+            <b>100万円預けると…</b><br>
+            1年後に増えるのは100円ほど。
+            物価が上がる分、実質的にはお金が減っています。
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with cols[1]:
+        st.markdown("""
+        <div class="kabu-card" style="height: 100%; border-top: 5px solid #FFE66D; display: flex; flex-direction: column;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px; text-align: center;">📈</div>
+          <div style="font-weight: 800; font-size: 1.15rem; color: #2D3436; margin-bottom: 10px; text-align: center;">インフレの現実</div>
+          <div style="font-size: 0.95rem; line-height: 1.7; color: #444; flex: 1;">
+            <b>物価は毎年上がっている</b><br>
+            2年で10〜20%以上値上がりした商品も。
+            同じお金で買えるものが少なくなっています。
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with cols[2]:
+        st.markdown("""
+        <div class="kabu-card" style="height: 100%; border-top: 5px solid #00B894; display: flex; flex-direction: column;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px; text-align: center;">🌱</div>
+          <div style="font-weight: 800; font-size: 1.15rem; color: #2D3436; margin-bottom: 10px; text-align: center;">投資との違い</div>
+          <div style="font-size: 0.95rem; line-height: 1.7; color: #444; flex: 1;">
+            <b>お金を"働かせる"と？</b><br>
+            年3〜5%で運用できれば、20年後には100万円が180万〜265万円になる計算に。
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown('<p style="font-size: 0.8rem; color: #888; text-align: right; margin-top: -12px; font-weight: 500;">※投資にはリスクがあります。上記はあくまで参考値です。</p>', unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+
+def render_site_intro_nav():
+    """セクション③：このサイトで何ができるの？（サイト紹介）"""
+    st.markdown('<div class="section-title">🏫 カブ先生の学校でできること</div>', unsafe_allow_html=True)
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("""
+        <div class="kabu-card" style="margin-bottom: 0px;">
+          <div style="font-weight: 800; font-size: 1.2rem; color: #2D3436; margin-bottom: 8px;">📖 マンガで学ぶ</div>
+          <div style="font-size: 0.95rem; line-height: 1.6; color: #444; margin-bottom: 15px;">
+            むずかしい言葉ゼロ。カブ先生とキャラクターたちのマンガで株・NISA・配当金がサクッとわかる。
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
+        if st.button("📖 マンガを読む", key="intro_nav_manga", use_container_width=True, type="primary"):
+            st.session_state.current_page = "manga"
+            st.rerun()
+            
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class="kabu-card" style="margin-bottom: 0px;">
+          <div style="font-weight: 800; font-size: 1.2rem; color: #2D3436; margin-bottom: 8px;">🔍 銘柄を探す</div>
+          <div style="font-size: 0.95rem; line-height: 1.6; color: #444; margin-bottom: 15px;">
+            実際にどんな会社があるの？テーマや条件から気になる銘柄を探して仮想投資体験もできる。
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
+        if st.button("🔍 銘柄を探す", key="intro_nav_explore", use_container_width=True, type="primary"):
+            st.session_state.current_page = "explore"
+            st.rerun()
+
+    with col2:
+        st.markdown("""
+        <div class="kabu-card" style="margin-bottom: 0px;">
+          <div style="font-weight: 800; font-size: 1.2rem; color: #2D3436; margin-bottom: 8px;">❓ クイズで試す</div>
+          <div style="font-size: 0.95rem; line-height: 1.6; color: #444; margin-bottom: 15px;">
+            読んだら試してみよう。全問正解できたらあなたも立派な"投資初心者卒業生"じゃ！
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
+        if st.button("❓ クイズをやってみる", key="intro_nav_quiz", use_container_width=True, type="primary"):
+            st.session_state.current_page = "quiz"
+            st.rerun()
+
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class="kabu-card" style="margin-bottom: 0px;">
+          <div style="font-weight: 800; font-size: 1.2rem; color: #2D3436; margin-bottom: 8px;">🕵️ 裏事情を知る</div>
+          <div style="font-size: 0.95rem; line-height: 1.6; color: #444; margin-bottom: 15px;">
+            投資の"やってはいけない"も学べる。詐欺・インサイダー取引…知らないと損する話も解説。
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
+        if st.button("🕵️ 裏事情を見る", key="intro_nav_secret", use_container_width=True, type="primary"):
+            st.session_state.current_page = "money_secret"
+            st.rerun()
+
+    st.markdown("<br><br>", unsafe_allow_html=True)
+
 def render_market_hero():
     """ホームのヒーローエリア + ミニグラフ"""
     
@@ -221,6 +360,13 @@ max-width: 100% !important;
         
         # 3. AI診断ボタン（マーケットヒーロー内でレンダーされるが、スライダー直下に置くならここで呼ぶ）
         render_market_hero()
+
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        # --- 新規導入セクション (Ver. 5.2) ---
+        render_beginner_check()
+        render_why_invest()
+        render_site_intro_nav()
 
     st.markdown("<br>", unsafe_allow_html=True)
 
