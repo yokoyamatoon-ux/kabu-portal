@@ -80,12 +80,12 @@ def render_portfolio():
             currency_symbol = "¥" if is_jp else "$"
             
             st.markdown(f"""
-            <div class="kabu-card" style="border-left: 4px solid {color};">
+            <div class="kabu-card" style="border-left: 4px solid {color}; color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important;">
               <div style="display:flex; justify-content:space-between; align-items:center;">
-                <strong>{item['name']}</strong>
+                <strong style="color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important;">{item['name']}</strong>
                 <span style="color:{color}; font-weight:bold;">{gain_pct:+.1f}% {icon}</span>
               </div>
-              <div style="font-size:0.85rem; color:#636E72; margin-top:4px;">
+              <div style="font-size:0.85rem; color:#636E72; -webkit-text-fill-color: #636E72; margin-top:4px;">
                 購入額: {currency_symbol}{item['amount']:,.0f} → 現在: {currency_symbol}{current_value:,.0f}<br>
                 損益: {'+' if gain >= 0 else ''}{gain:,.0f}{'円' if is_jp else ''}
               </div>
@@ -105,8 +105,8 @@ def render_summary(label, cost, current, symbol):
     pct = (gain / cost) * 100 if cost > 0 else 0
     color = "#00B894" if gain >= 0 else "#FF7675"
     st.markdown(f"""
-    <div class="kabu-card" style="background: #F8F9FA; text-align:center; border: 1px solid #eee;">
-      <div style="font-size:0.8rem; color:#888;">{label}</div>
+    <div class="kabu-card" style="background: #F8F9FA; text-align:center; border: 1px solid #eee; color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important;">
+      <div style="font-size:0.8rem; color:#888; -webkit-text-fill-color: #888;">{label}</div>
       <div style="font-size:1.4rem; font-weight:bold; color:{color};">
         {symbol}{current:,.0f} <span style="font-size:0.9rem;">({pct:+.1f}%)</span>
       </div>
@@ -140,12 +140,12 @@ def render_watchlist():
         if info:
             color = "var(--success)" if info['change_pct'] >= 0 else "var(--danger)"
             st.markdown(f"""
-            <div class="kabu-card">
+            <div class="kabu-card" style="color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important;">
                 <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <strong>{item['name']} ({item['ticker']})</strong>
+                  <strong style="color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important;">{item['name']} ({item['ticker']})</strong>
                   <span style="color:{color}; font-weight:700;">{info['change_pct']:+.2f}%</span>
                 </div>
-                <div style="font-size: 1.1rem; margin-top:4px;">
+                <div style="font-size: 1.1rem; margin-top:4px; color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important;">
                   {'¥' if '.T' in item['ticker'] else '$'}{info['price']:,}
                 </div>
             </div>

@@ -71,10 +71,12 @@ def character_explain(character_path: str, message: str, bg_color: str = "#FFF9F
     background: white;
     border-radius: 12px 12px 12px 4px;
     padding: 12px 16px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.7;
     border: 1px solid #eee;
     flex: 1;
+    color: #2D3436 !important;
+    -webkit-text-fill-color: #2D3436 !important;
   ">{message}</div>
 </div>
 """, unsafe_allow_html=True)

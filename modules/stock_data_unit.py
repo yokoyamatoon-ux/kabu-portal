@@ -542,24 +542,25 @@ def run_stock_data_unit():
                         # カスタムデザインのAI診断カード (従来のst.successはダークモードで黒くなるため)
                         st.html(f"""
                         <div style="background: white; border: 4px solid var(--success); border-radius: 20px; 
-                                    padding: 24px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                                    padding: 24px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                                    color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important;">
                             <h3 style="margin-top:0; color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important;">
                                 🤖 AIのしんだん結果：{'⭐' * stars}
                             </h3>
                             <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
                                 <div style="flex: 1; min-width: 250px;">
                                     <div style="font-weight: 800; color: var(--primary); margin-bottom: 8px;">📈 最近のうごき</div>
-                                    <div style="color: #444; line-height: 1.6;">{trend_str}（5日間で {trend_pct:+.1f}%）</div>
+                                    <div style="color: #444; -webkit-text-fill-color: #444; line-height: 1.6;">{trend_str}（5日間で {trend_pct:+.1f}%）</div>
                                     <div style="font-weight: 800; color: var(--primary); margin-top: 15px; margin-bottom: 8px;">🏢 どんな会社？</div>
-                                    <div style="color: #444; line-height: 1.6;">{found_desc}</div>
+                                    <div style="color: #444; -webkit-text-fill-color: #444; line-height: 1.6;">{found_desc}</div>
                                 </div>
                                 <div style="flex: 1; min-width: 250px;">
                                     <div style="font-weight: 800; color: var(--accent); margin-bottom: 8px;">⚖️ 買いどき判定</div>
-                                    <div style="background: #E8F8FF; padding: 12px; border-radius: 12px; color: #2D3436; font-weight: 700; border: 1px solid #B0E0E6;">
+                                    <div style="background: #E8F8FF; padding: 12px; border-radius: 12px; color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important; font-weight: 700; border: 1px solid #B0E0E6;">
                                         {buying_time}
                                     </div>
                                     <div style="font-weight: 800; color: #ff9f43; margin-top: 15px; margin-bottom: 8px;">⚠️ きをつけること</div>
-                                    <div style="background: #FFF8E8; padding: 12px; border-radius: 12px; color: #2D3436; border: 1px solid #FFE082;">
+                                    <div style="background: #FFF8E8; padding: 12px; border-radius: 12px; color: #2D3436 !important; -webkit-text-fill-color: #2D3436 !important; border: 1px solid #FFE082;">
                                         {risk_comments[risk_level]}
                                     </div>
                                 </div>

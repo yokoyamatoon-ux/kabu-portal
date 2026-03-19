@@ -14,6 +14,8 @@ body,
 .stApp {
     font-family: 'Zen Maru Gothic', sans-serif !important;
     background-color: var(--bg-main) !important;
+    color: var(--text-main) !important;
+    -webkit-text-fill-color: var(--text-main) !important;
 }
 
 h1,
@@ -31,6 +33,8 @@ h3 {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     margin-bottom: 16px;
     transition: transform 0.2s, box-shadow 0.2s;
+    color: var(--text-main) !important;
+    -webkit-text-fill-color: var(--text-main) !important;
 }
 
 .kabu-card:hover {
