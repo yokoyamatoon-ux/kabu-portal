@@ -8,6 +8,10 @@
     --text-main: #2D3436;
     --success: #00B894;
     --danger: #FF7675;
+
+    /* Streamlit内部変数の上書き強制 */
+    --text-color: #2D3436 !important;
+    --body-color: #2D3436 !important;
 }
 
 body,
@@ -25,26 +29,28 @@ h3 {
     -webkit-text-fill-color: var(--text-main) !important;
 }
 
-/* メインコンテンツ内のテキスト視認性強制 (iOS/Safari対応) */
-.stApp section.main,
-.stApp section.main p,
-.stApp section.main span,
-.stApp section.main label,
-.stApp section.main li,
-.stApp section.main div:not([data-testid="stSidebar"]),
-.stApp section.main .streamlit-expanderHeader,
-.stApp section.main .streamlit-expanderContent,
-.stApp section.main [data-testid="stMetricValue"],
-.stApp section.main [data-testid="stMetricLabel"] {
-    color: var(--text-main) !important;
-    -webkit-text-fill-color: var(--text-main) !important;
+/* メインコンテンツ内のテキスト視認性強制 (iOS/Safari対応・極限まで具体的に) */
+body .stApp section.main,
+body .stApp section.main p,
+body .stApp section.main span,
+body .stApp section.main label,
+body .stApp section.main li,
+body .stApp section.main a:not(.mnav-card-link):not(.broker-btn),
+body .stApp section.main div:not([data-testid="stSidebar"]),
+body .stApp section.main .streamlit-expanderHeader,
+body .stApp section.main .streamlit-expanderContent,
+body .stApp section.main [data-testid="stMetricValue"],
+body .stApp section.main [data-testid="stMetricLabel"],
+body .stApp section.main [data-testid="stMarkdownContainer"] * {
+    color: #2D3436 !important;
+    -webkit-text-fill-color: #2D3436 !important;
 }
 
-/* 例外: プライマリボタンや特定のアクセントテキストは白 */
-.stApp section.main button[kind="primary"],
-.stApp section.main button[kind="primary"] *,
-.stApp section.main .force-white-text,
-.stApp section.main .force-white-text * {
+/* 例外: プライマリボタンや特定のアクセントエリアは白 */
+body .stApp section.main button[kind="primary"],
+body .stApp section.main button[kind="primary"] *,
+body .stApp section.main .force-white-text,
+body .stApp section.main .force-white-text * {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
 }

@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide",
 )
 
-# Last Update: 2026-03-18 10:11 (Ver.4.3 Icon Resize & Config Fix)
+# Last Update: 2026-03-19 10:00 (Ver.4.9 Visibility Emergency Fix)
 
 from modules.ui_components import (
     get_image_base64, chara_img, icon_img, CHARA, TOP_BANNERS, render_navbar
@@ -67,9 +67,10 @@ def render_navigation():
     with st.sidebar:
         st.markdown(f"""
 <div style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800;
-            font-size:1.2rem; color:#FF6B6B; padding:8px 0 16px;">
+            font-size:1.2rem; color:#FF6B6B; padding:8px 0 4px;">
   🎓 カブ先生のお金の学校
 </div>
+<div style="font-size: 0.65rem; color: #888; margin-bottom: 12px;">Ver. 4.9 (High Contrast Mode)</div>
 """, unsafe_allow_html=True)
         
         pages = [

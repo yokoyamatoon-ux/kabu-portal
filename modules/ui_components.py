@@ -66,7 +66,7 @@ def character_explain(character_path: str, message: str, bg_color: str = "#FFF9F
   border: 1px solid #ebebeb;
 ">
   <img src="data:image/png;base64,{img_b64}" style="width: 70px; flex-shrink: 0; border-radius: 50%;">
-  <div style="
+    <div style="
     background: white;
     border-radius: 12px 12px 12px 4px;
     padding: 12px 16px;
@@ -74,6 +74,8 @@ def character_explain(character_path: str, message: str, bg_color: str = "#FFF9F
     line-height: 1.7;
     border: 1px solid #eee;
     flex: 1;
+    color: #2D3436 !important;
+    -webkit-text-fill-color: #2D3436 !important;
   ">{message}</div>
 </div>
 """, unsafe_allow_html=True)
