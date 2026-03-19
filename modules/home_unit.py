@@ -9,152 +9,6 @@ from datetime import datetime
 import os
 from modules import news_unit
 
-def render_compact_hero():
-    """コンパクトヒーロー（旧セクション①②を統合）"""
-    # カブ先生の画像を取得
-    hakase_b64 = get_image_base64(CHARA.get("hakase", ""))
-    if hakase_b64:
-        img_html = f'<img src="data:image/png;base64,{hakase_b64}" style="width:100%; max-width:220px; display:block; margin:0 auto;">'
-    else:
-        img_html = '<div style="background:linear-gradient(135deg,#FFE8E8,#E8FFF8);border-radius:16px;height:200px;display:flex;align-items:center;justify-content:center;font-size:4rem;">🥬</div>'
-
-    col_img, col_text = st.columns([1, 1.6])
-
-    with col_img:
-        st.markdown(img_html, unsafe_allow_html=True)
-
-    with col_text:
-        st.markdown(f"""
-<div style="padding: 12px 0;">
-  <div style="font-family:'M PLUS Rounded 1c',sans-serif; font-size:1.5rem;
-              font-weight:900; line-height:1.4; margin-bottom:14px; color:#2D3436;">
-    投資って難しい？<br>
-    <span style="color:#E85555;">むずかしくないじゃ！</span>
-  </div>
-  <div style="font-size:0.95rem; color:#555; margin-bottom:16px; line-height:1.9;">
-    ☑ NISAってよく聞くけど、何をすればいいかわからない<br>
-    ☑ 投資って自分には無理そう…<br>
-    ☑ お金のことをわかりやすく教えてほしい
-  </div>
-  <div style="font-size:0.85rem; color:#888; margin-bottom:18px;">
-    1つでも当てはまったら、このサイトはあなたのためにあるじゃ！
-  </div>
-</div>
-        """, unsafe_allow_html=True)
-        if st.button("📖 マンガではじめる →", key="hero_cta_manga", type="primary", use_container_width=True):
-            st.session_state.current_page = "manga"
-            st.rerun()
-
-    # 下段：数字比較インフォグラフィックバー
-    st.markdown("""
-<div style="background:#F7F3EC; border-radius:12px; padding:16px 24px; margin-top:8px; margin-bottom:8px;">
-  <div style="font-size:0.75rem; color:#999; margin-bottom:10px;">
-    💡 なぜ「預けるだけ」じゃもったいないの？
-  </div>
-  <div style="display:flex; gap:12px; align-items:stretch; flex-wrap:wrap;">
-    <div style="flex:1; min-width:100px; background:white; border-radius:8px;
-                padding:12px; text-align:center; border:2px solid #E0E0E0;">
-      <div style="font-size:1.4rem;">💴</div>
-      <div style="font-size:0.75rem; color:#888; margin:4px 0;">銀行に預けると</div>
-      <div style="font-size:1.3rem; font-weight:900; color:#333;">+100円</div>
-      <div style="font-size:0.7rem; color:#aaa;">100万円 / 1年</div>
-    </div>
-    <div style="display:flex; align-items:center; font-size:1.2rem; color:#ccc; padding:0 4px;">→</div>
-    <div style="flex:1; min-width:100px; background:white; border-radius:8px;
-                padding:12px; text-align:center; border:2px solid #FFD700;">
-      <div style="font-size:1.4rem;">📈</div>
-      <div style="font-size:0.75rem; color:#888; margin:4px 0;">でも物価は</div>
-      <div style="font-size:1.3rem; font-weight:900; color:#E8A000;">+10〜20%</div>
-      <div style="font-size:0.7rem; color:#aaa;">ここ数年の値上がり幅</div>
-    </div>
-    <div style="display:flex; align-items:center; font-size:1.2rem; color:#ccc; padding:0 4px;">→</div>
-    <div style="flex:1; min-width:100px; background:white; border-radius:8px;
-                padding:12px; text-align:center; border:2px solid #4ECDC4;">
-      <div style="font-size:1.4rem;">🌱</div>
-      <div style="font-size:0.75rem; color:#888; margin:4px 0;">投資で運用すると</div>
-      <div style="font-size:1.3rem; font-weight:900; color:#009688;">+80〜165万円</div>
-      <div style="font-size:0.7rem; color:#aaa;">100万円 年3〜5% / 20年 (参考値)</div>
-    </div>
-  </div>
-  <div style="font-size:0.68rem; color:#bbb; margin-top:8px; text-align:right;">
-    ※投資にはリスクがあります。上記はあくまで参考値です。
-  </div>
-</div>
-    """, unsafe_allow_html=True)
-
-
-def render_site_intro_nav():
-    """セクション③：このサイトで何ができるの？（サイト紹介） - 純HTML版"""
-    st.markdown("""
-    <div class="section-title">🏫 カブ先生の学校でできること</div>
-    <style>
-    .intro-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-bottom: 32px;
-    }
-    @media (max-width: 640px) {
-        .intro-grid { grid-template-columns: 1fr; }
-    }
-    .intro-card {
-        background: white;
-        border-radius: 16px;
-        padding: 20px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-        border: 1px solid #f0f0f0;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    .intro-card-title {
-        font-weight: 800;
-        font-size: 1.1rem;
-        color: #2D3436;
-    }
-    .intro-card-desc {
-        font-size: 0.9rem;
-        color: #444;
-        line-height: 1.6;
-        flex: 1;
-    }
-    .intro-card-btn {
-        display: inline-block;
-        background: linear-gradient(135deg, #FF6B6B, #FF8E53);
-        color: white !important;
-        font-weight: 700;
-        font-size: 0.9rem;
-        padding: 9px 16px;
-        border-radius: 50px;
-        text-decoration: none !important;
-        text-align: center;
-        transition: opacity 0.2s;
-    }
-    .intro-card-btn:hover { opacity: 0.85; }
-    </style>
-    <div class="intro-grid">
-      <div class="intro-card">
-        <div class="intro-card-title">📖 マンガで学ぶ</div>
-        <div class="intro-card-desc">むずかしい言葉ゼロ。カブ先生とキャラクターたちのマンガで株・NISA・配当金がサクッとわかる。</div>
-        <a href="?page=manga" target="_self" class="intro-card-btn">📖 マンガを読む</a>
-      </div>
-      <div class="intro-card">
-        <div class="intro-card-title">❓ クイズで試す</div>
-        <div class="intro-card-desc">読んだら試してみよう。全問正解できたらあなたも立派な「投資初心者卒業生」じゃ！</div>
-        <a href="?page=quiz" target="_self" class="intro-card-btn">❓ クイズをやってみる</a>
-      </div>
-      <div class="intro-card">
-        <div class="intro-card-title">🔍 銘柄を探す</div>
-        <div class="intro-card-desc">実際にどんな会社があるの？テーマや条件から気になる銘柄を探して仮想投資体験もできる。</div>
-        <a href="?page=explore" target="_self" class="intro-card-btn">🔍 銘柄を探す</a>
-      </div>
-      <div class="intro-card">
-        <div class="intro-card-title">🕵️ 裏事情を知る</div>
-        <div class="intro-card-desc">投資の「やってはいけない」も学べる。詐欺・インサイダー取引…知らないと損する話も解諬。</div>
-        <a href="?page=money_secret" target="_self" class="intro-card-btn">🕵️ 裏事情を見る</a>
-      </div>
-    </div>
-    """, unsafe_allow_html=True)
 
 def render_market_hero():
     """ホームのヒーローエリア + ミニグラフ"""
@@ -359,6 +213,11 @@ max-width: 100% !important;
 </style>
 """, unsafe_allow_html=True)
         
+        # 入学ページへのリンク
+        if st.button("🎓 このサイトについて・はじめての方はこちら →", key="btn_about", use_container_width=False):
+            st.session_state.current_page = "about"
+            st.rerun()
+
         # 3. AI診断ボタン（マーケットヒーロー内でレンダーされるが、スライダー直下に置くならここで呼ぶ）
         render_market_hero()
 
@@ -802,3 +661,87 @@ max-width: 100% !important;
 """, unsafe_allow_html=True)
     
     st.markdown('</div>', unsafe_allow_html=True)
+
+
+def render_about_page():
+    """入学ページ：初訪問者向けサイト紹介"""
+    st.markdown("""
+    <h1 style="font-family:'M PLUS Rounded 1c',sans-serif;
+               font-size:1.8rem; font-weight:900; margin-bottom:4px;">
+      🎓 カブ先生の学校に入学しよう！
+    </h1>
+    <p style="color:#888; font-size:0.9rem; margin-bottom:28px;">
+      むずかしい言葉ゼロ。あなたのペースで、お金のことを学べる場所じゃ。
+    </p>
+    """, unsafe_allow_html=True)
+
+    # セクション①：銀行比較インフォグラフィック
+    st.markdown("""
+<div style="background:#F7F3EC; border-radius:12px; padding:16px 24px; margin-bottom:20px;">
+  <div style="font-size:0.85rem; font-weight:800; color:#555; margin-bottom:10px;">
+    💡 なぜ「預けるだけ」じゃもったいないの？
+  </div>
+  <div style="display:flex; gap:12px; align-items:stretch; flex-wrap:wrap;">
+    <div style="flex:1; min-width:100px; background:white; border-radius:8px;
+                padding:12px; text-align:center; border:2px solid #E0E0E0;">
+      <div style="font-size:1.4rem;">💴</div>
+      <div style="font-size:0.75rem; color:#888; margin:4px 0;">銀行に預けると</div>
+      <div style="font-size:1.3rem; font-weight:900; color:#333;">+100円</div>
+      <div style="font-size:0.7rem; color:#aaa;">100万円 / 1年</div>
+    </div>
+    <div style="display:flex; align-items:center; font-size:1.2rem; color:#ccc; padding:0 4px;">→</div>
+    <div style="flex:1; min-width:100px; background:white; border-radius:8px;
+                padding:12px; text-align:center; border:2px solid #FFD700;">
+      <div style="font-size:1.4rem;">📈</div>
+      <div style="font-size:0.75rem; color:#888; margin:4px 0;">でも物価は</div>
+      <div style="font-size:1.3rem; font-weight:900; color:#E8A000;">+10〜20%</div>
+      <div style="font-size:0.7rem; color:#aaa;">ここ数年の値上がり幅</div>
+    </div>
+    <div style="display:flex; align-items:center; font-size:1.2rem; color:#ccc; padding:0 4px;">→</div>
+    <div style="flex:1; min-width:100px; background:white; border-radius:8px;
+                padding:12px; text-align:center; border:2px solid #4ECDC4;">
+      <div style="font-size:1.4rem;">🌱</div>
+      <div style="font-size:0.75rem; color:#888; margin:4px 0;">投資で運用すると</div>
+      <div style="font-size:1.3rem; font-weight:900; color:#009688;">+80〜165万円</div>
+      <div style="font-size:0.7rem; color:#aaa;">100万円 年3〜5% / 20年 (参考値)</div>
+    </div>
+  </div>
+  <div style="font-size:0.68rem; color:#bbb; margin-top:8px; text-align:right;">
+    ※投資にはリスクがあります。上記はあくまで参考値です。
+  </div>
+</div>
+    """, unsafe_allow_html=True)
+
+    # セクション②：AI診断ボタン
+    if st.button("🔍 AI株診断をスタート →", key="about_diagnosis_btn", use_container_width=True, type="primary"):
+        st.session_state.show_diagnosis = True
+        st.session_state.diagnosis_step = 0
+        st.session_state.current_page = "home"
+        st.rerun()
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # セクション③：マンガ誘導
+    st.markdown("""
+<div style="background:white; border-radius:16px; padding:24px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.06); text-align:center; margin-bottom:20px;">
+  <div style="font-size:1rem; font-weight:800; margin-bottom:8px;">
+    📖 まずはマンガで読んでみよう
+  </div>
+  <p style="font-size:0.85rem; color:#666; margin-bottom:0;">
+    「株ってなに？」「NISAって何をすればいいの？」<br>
+    キャラクターたちのマンガでサクッとわかるじゃ！
+  </p>
+</div>
+    """, unsafe_allow_html=True)
+
+    if st.button("📖 マンガで学びはじめる →", key="about_manga_btn", use_container_width=True, type="primary"):
+        st.session_state.current_page = "manga"
+        st.rerun()
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # 戻るボタン
+    if st.button("← ホームにもどる", key="about_back_btn"):
+        st.session_state.current_page = "home"
+        st.rerun()
