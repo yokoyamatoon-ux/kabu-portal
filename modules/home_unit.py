@@ -162,14 +162,7 @@ def render_market_hero():
     # (以前のヘッダーはスライダーに置き換えるため、ここでは何も表示しないかシンプルにする)
     pass
     
-    # AI診断ボタン
-    if st.button("🔍 AI株診断をスタート →", use_container_width=True, type="primary"):
-        st.session_state.show_diagnosis = True
-        st.session_state.diagnosis_step = 0
-        st.rerun()
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    
+
     # 今日のマーケットミニグラフ（3列）
     st.markdown(f'<div class="section-title">📊 今日のマーケット <span style="font-size: 0.8rem; font-weight: 400; color: #636E72;">({datetime.now().strftime("%Y/%m/%d %H:%M")} 現在)</span></div>', 
                 unsafe_allow_html=True)
@@ -373,6 +366,14 @@ max-width: 100% !important;
 
         # --- コンパクトヒーロー (Ver. 5.4: 旧①②統合版) ---
         render_compact_hero()
+
+        st.markdown("<br>", unsafe_allow_html=True)
+        if st.button("🔍 AI株診断をスタート →", key="diagnosis_btn_main", use_container_width=True, type="primary"):
+            st.session_state.show_diagnosis = True
+            st.session_state.diagnosis_step = 0
+            st.rerun()
+        st.markdown("<br>", unsafe_allow_html=True)
+
         render_site_intro_nav()
 
     st.markdown("<br>", unsafe_allow_html=True)
