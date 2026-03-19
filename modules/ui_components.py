@@ -18,7 +18,6 @@ TOP_BANNERS = [
     os.path.join(IMAGE_DIR, "Top03.jpg"),
 ]
 
-@st.cache_data(show_spinner=False)
 def get_image_base64(path: str) -> str:
     """画像ファイルをbase64文字列に変換。ファイルの更新日時をチェックしてキャッシュを更新。"""
     if not path or not os.path.exists(path): return ""
