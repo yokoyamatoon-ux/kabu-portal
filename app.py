@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide",
 )
 
-# Last Update: 2026-03-19 15:30 (Ver.6.0 Welcome Banner)
+# Last Update: 2026-03-21 00:10 (Ver.6.3 Live Site Fixes)
 
 from modules.ui_components import (
     get_image_base64, chara_img, icon_img, CHARA, TOP_BANNERS, render_navbar
