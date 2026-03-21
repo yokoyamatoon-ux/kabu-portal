@@ -202,7 +202,7 @@ flex-wrap: wrap;
 """, unsafe_allow_html=True)
         
         # 入学バナー（クリックでaboutページへ）
-        NYUGAKU_PATH = os.path.join(IMAGE_DIR, "nyugaku.jpg")
+        NYUGAKU_PATH = os.path.join(IMAGE_DIR, "banner_new_v63.jpg")
         nyugaku_b64 = get_image_base64(NYUGAKU_PATH)
         if nyugaku_b64:
             st.markdown(f"""
@@ -669,7 +669,7 @@ flex-wrap: wrap;
 
 def render_about_page():
     """入学ページ：初訪問者向けサイト紹介"""
-    nyugaku_b64 = get_image_base64(os.path.join(IMAGE_DIR, "nyugaku.jpg"))
+    nyugaku_b64 = get_image_base64(os.path.join(IMAGE_DIR, "banner_new_v63.jpg"))
     if nyugaku_b64:
         st.markdown(f"""
 <div style="margin-bottom: 16px;">
