@@ -123,13 +123,14 @@ def get_image_base64(path: str) -> str:
         return ""
 
 
-@st.cache_data(ttl=3600)  # 1時間キャッシュ（頻繁に更新）
+@st.cache_data(ttl=21600)  # 6時間キャッシュ (21600秒)
 def fetch_latest_news_by_category(period_key: str) -> dict:
     """
     各カテゴリのRSSから最新1件を取得して返す。
     取得失敗した場合はMOCK_NEWSを返す。
     """
     result = {}
+    fetch_time = datetime.now().strftime("%m/%d %H:%M")
 
     for category, rss_urls in RSS_SOURCES.items():
         fetched = None
@@ -161,15 +162,16 @@ def fetch_latest_news_by_category(period_key: str) -> dict:
 
         result[category] = fetched if fetched else get_mock_news().get(category, {})
 
-    return result
+    return {"news": result, "updated_at": fetch_time}
 
 
-@st.cache_data(ttl=3600)
+@st.cache_data(ttl=21600)  # 6時間キャッシュ
 def fetch_all_news(period_key: str) -> dict:
     """
     ニュース一覧ページ用：各カテゴリから最大10件取得
     """
     result = {}
+    fetch_time = datetime.now().strftime("%m/%d %H:%M")
 
     for category, rss_urls in RSS_SOURCES.items():
         articles = []
@@ -207,7 +209,7 @@ def fetch_all_news(period_key: str) -> dict:
 
         result[category] = articles
 
-    return result
+    return {"news": result, "updated_at": fetch_time}
 
 
 # -----------------------------------------------
@@ -216,6 +218,11 @@ def fetch_all_news(period_key: str) -> dict:
 def render_news_section():
     """ホームに固定4カテゴリの最新ニュースを表示（旧名維持）"""
 
+    period_key = get_news_fetch_period()
+    news_res   = fetch_latest_news_by_category(period_key)
+    news_data  = news_res["news"]
+    updated_at = news_res["updated_at"]
+
     st.markdown(f"""
 <style>
 .force-white-link, .force-white-link span {{
@@ -223,9 +230,12 @@ def render_news_section():
     -webkit-text-fill-color: #ffffff !important;
 }}
 </style>
-<div style="margin-bottom: 24px;">
-    <div class="section-title">📰 今日のお金のニュース</div>
-    <div style="margin-top: 4px; margin-bottom: 12px;">
+<div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: flex-end;">
+    <div>
+        <div class="section-title">📰 今日のお金のニュース</div>
+        <div style="font-size: 0.75rem; color: #888; margin-top: -4px;">取得時刻: {updated_at}</div>
+    </div>
+    <div style="margin-bottom: 2px;">
         <a href="?page=news" target="_self" class="force-white-link" style="
             text-decoration: none;
             background: #FF6B6B;
@@ -243,8 +253,11 @@ def render_news_section():
 </div>
 """, unsafe_allow_html=True)
 
-    period_key = get_news_fetch_period()
-    news_data = fetch_latest_news_by_category(period_key)
+    col_btn, _ = st.columns([1, 4])
+    with col_btn:
+        if st.button("🔄 ニュースを更新", key="home_news_refresh", use_container_width=True):
+            st.cache_data.clear()
+            st.rerun()
 
     st.markdown("""
 <style>
@@ -504,8 +517,25 @@ def render_news_list_page():
 """, unsafe_allow_html=True)
 
     period_key = get_news_fetch_period()
-    all_news   = fetch_all_news(period_key)
+    news_res   = fetch_all_news(period_key)
+    all_news   = news_res["news"]
+    updated_at = news_res["updated_at"]
     categories = list(all_news.keys())
+
+    st.markdown(f"""
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: #fff; padding: 16px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+    <div>
+        <div style="font-size: 1.2rem; font-weight: 900; color: #2D3436;">📰 ニュース一覧</div>
+        <div style="font-size: 0.8rem; color: #888;">最終取得: {updated_at} (6時間ごとに自動更新)</div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+    col_btn, _ = st.columns([1, 4])
+    with col_btn:
+        if st.button("🔄 最新のニュースに更新", key="page_news_refresh", use_container_width=True, type="primary"):
+            st.cache_data.clear()
+            st.rerun()
 
     BANNER_PATHS = {
         "日本の株価":   os.path.join(IMAGE_DIR, "kabuka_J.png"),
