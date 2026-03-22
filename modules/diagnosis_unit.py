@@ -192,41 +192,30 @@ def run_diagnosis_unit():
                 "label": "📚 配当投資について学ぶ",
                 "topic": "dividend",
                 "message": "配当投資にむいてるね！まずは「配当金」ってなに？から学んでみよう✨",
-                "ready": True
             },
             "バランス型": {
-                "label": "📚 NISAについて学ぶ (準備中)",
+                "label": "📚 NISAについて学ぶ",
                 "topic": "nisa",
                 "message": "バランス型にはNISAがぴったり！非課税で投資できるお得な制度だよ📗",
-                "ready": False
             },
             "成長・積極型": {
                 "label": "📚 成長株投資について学ぶ",
                 "topic": "growth",
                 "message": "積極型だね！成長株のリスクとリターンを学んでから始めよう🚀",
-                "ready": True
             },
         }
         
         learn_info = DIAGNOSIS_LEARN_MAP.get(result_type, DIAGNOSIS_LEARN_MAP["バランス型"])
         
-        # ミライのメッセージ
-        mirai_b64 = get_image_base64(CHARA["mirai"])
-        st.html(f"""
-        <div class="mirai-card-white">
-          <img src="data:image/png;base64,{mirai_b64}" style="width:50px !important; flex-shrink:0 !important; border-radius:50%;">
-          <div class="mirai-card-text">{learn_info['message']}</div>
-        </div>
-        """)
+        # ヒカリのメッセージ
+        from modules.ui_components import character_explain
+        character_explain(CHARA["mirai"], learn_info['message'], bg_color="#F0FFF8")
         
         # 学習ページへ遷移ボタン
         if st.button(learn_info["label"], key="diagnosis_learn_btn", use_container_width=True, type="primary"):
-            if learn_info.get("ready"):
-                st.session_state.current_page = "learn"
-                st.session_state.learn_topic = learn_info["topic"]
-                st.rerun()
-            else:
-                st.toast("このコンテンツは現在準備中です！お楽しみに✨", icon="🚧")
+            st.session_state.current_page = "manga"
+            st.session_state.learn_topic = learn_info["topic"]  # マンガページで該当エピソードを開く
+            st.rerun()
 
         if st.button("もう一度診断する", key="diagnosis_retry_btn", use_container_width=True):
             st.session_state.diagnosis_step = 0

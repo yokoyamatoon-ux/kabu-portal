@@ -58,6 +58,15 @@ def render_ura_list():
 
     st.markdown('<h2 style="font-family:\'M PLUS Rounded 1c\',sans-serif;font-weight:800;margin-bottom:24px;">🕵️ お金の裏事情ファイル</h2>', unsafe_allow_html=True)
     
+    # ウラ金さんの説明
+    from modules.ui_components import character_explain, CHARA
+    character_explain(
+        CHARA["urakane"],
+        "ヒッヒッ……。表の世界だけ見てちゃ、本当の成功は掴めねぇぜ。<br>"
+        "投資に潜む『罠』や『裏のルール』を教えてやるから、しっかり耳をかっぽじって聞きな！",
+        bg_color="#FFF9E6"
+    )
+    
     cols = st.columns(2)
     for i, ep in enumerate(ura_episodes):
         col = cols[i % 2]

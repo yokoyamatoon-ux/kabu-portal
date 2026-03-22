@@ -7,17 +7,57 @@ from modules.ui_components import (
 )
 from datetime import datetime
 import os
-from modules import news_unit
+from modules import column_unit
 
 
 def render_market_hero():
-    """ホームのヒーローエリア + ミニグラフ"""
+    """ホームのヒーローエリア + ミニグラフ (UX改善版)"""
     
-    # (以前のヘッダーはスライダーに置き換えるため、ここでは何も表示しないかシンプルにする)
-    pass
+    # 1. ヒーローエリア（キャラクター＋キャッチコピー）
+    hakase_b64 = get_image_base64(CHARA["hakase"])
+    maneta_b64 = get_image_base64(CHARA["maneta"])
     
+    st.markdown(f"""
+    <div style="
+      background: linear-gradient(135deg, #FFE8E8 0%, #E8FFF8 100%);
+      border-radius: 24px;
+      padding: 28px 24px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    ">
+      <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px;">
+        <img src="data:image/png;base64,{hakase_b64}" 
+             style="width:80px; flex-shrink:0;">
+        <div>
+          <h1 style="font-size:1.6rem; margin:0 0 6px; color:#2D3436; font-family:'M PLUS Rounded 1c', sans-serif;">株って、楽しいかも！🌟</h1>
+          <p style="color:#636E72; margin:0; font-size:0.95rem; font-weight:500;">
+            AIがぜんぶ教えてくれるから、むずかしくないよ
+          </p>
+        </div>
+        <img src="data:image/png;base64,{maneta_b64}" 
+             style="width:60px; flex-shrink:0; margin-left:auto;">
+      </div>
+      
+      <!-- AI診断ボタン (ヒーロー内配置) -->
+      <a href="?page=home&diagnosis=1" target="_self" style="text-decoration:none;">
+        <div style="
+          background: #FF6B6B;
+          color: white;
+          text-align: center;
+          padding: 12px;
+          border-radius: 12px;
+          font-weight: 800;
+          font-size: 1rem;
+          box-shadow: 0 4px 12px rgba(255,107,107,0.3);
+          transition: transform 0.2s;
+        " onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='translateY(0)';">
+          🔍 AI株診断をスタート →
+        </div>
+      </a>
+    </div>
+    """, unsafe_allow_html=True)
 
-    # 今日のマーケットミニグラフ（3列）
+    # 2. 今日のマーケットミニグラフ（3列）
     st.markdown(f'<div class="section-title">📊 今日のマーケット <span style="font-size: 0.8rem; font-weight: 400; color: #636E72;">({datetime.now().strftime("%Y/%m/%d %H:%M")} 現在)</span></div>', 
                 unsafe_allow_html=True)
     
@@ -31,7 +71,6 @@ def render_market_hero():
     for col, (label, ticker) in zip(cols, indices.items()):
         with col:
             try:
-                # 1ヶ月のデータ取得
                 hist_data = yf.Ticker(ticker).history(period="1mo")
                 if not hist_data.empty:
                     hist = hist_data["Close"]
@@ -41,54 +80,39 @@ def render_market_hero():
                     color  = "#00B894" if change >= 0 else "#FF7675"
                     arrow  = "▲" if change >= 0 else "▼"
                     
-                    # Plotlyチャート（改善版：目盛りと最新値の強調）
+                    # Plotlyチャート
                     fig = go.Figure()
                     fig.add_trace(go.Scatter(
                         y=hist.values,
-                        mode="lines+markers",
-                        marker=dict(size=4, color=color, opacity=0), # 線を主役に
+                        mode="lines",
                         line=dict(color=color, width=3),
                         fill="tozeroy",
                         fillcolor=f"rgba{'(0,184,148,0.1)' if change >= 0 else '(255,118,117,0.1)'}",
-                        hoverinfo="y+text",
-                    ))
-                    # 最新の値にマーカーを置く
-                    fig.add_trace(go.Scatter(
-                        x=[len(hist)-1],
-                        y=[hist.iloc[-1]],
-                        mode="markers",
-                        marker=dict(size=8, color=color),
                         hoverinfo="skip"
                     ))
                     fig.update_layout(
-                        height=100,
-                        margin=dict(l=5, r=5, t=5, b=5),
+                        height=80,
+                        margin=dict(l=0, r=0, t=0, b=0),
                         showlegend=False,
                         xaxis=dict(visible=False),
-                        yaxis=dict(
-                            showgrid=True, 
-                            gridcolor="#f0f0f0", 
-                            gridwidth=1,
-                            tickfont=dict(size=8, color="#ccc"),
-                            side="right" # 左側をスッキリ
-                        ),
+                        yaxis=dict(visible=False),
                         plot_bgcolor="rgba(0,0,0,0)",
                         paper_bgcolor="rgba(0,0,0,0)",
                     )
                     
                     st.markdown(f"""
 <div class="kabu-card" style="text-align:center; padding:12px 8px 4px;">
-<div style="font-size:0.75rem; color:#888; margin-bottom:4px;">{label}</div>
-<div style="font-size:1.4rem; font-weight:800; color:{color};">{price:,.0f}</div>
-<div style="font-size:0.85rem; color:{color}; font-weight:700; margin-bottom:4px;">
-{arrow} {change:+.2f}%
-</div>
+  <div style="font-size:0.75rem; color:#888; margin-bottom:4px;">{label}</div>
+  <div style="font-size:1.2rem; font-weight:800; color:{color};">{price:,.1f}</div>
+  <div style="font-size:0.8rem; color:{color}; font-weight:700;">
+    {arrow} {change:+.2f}%
+  </div>
 """, unsafe_allow_html=True)
                     st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False}, key=f"chart_{ticker}")
                     st.markdown("</div>", unsafe_allow_html=True)
                 else:
                     st.error("No data")
-            except Exception as e:
+            except Exception:
                 col.markdown(f"**{label}**\n\nデータ取得中...")
 
 def render_home_page():
@@ -229,8 +253,8 @@ flex-wrap: wrap;
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # 2. 今日のニュース (3件)
-    news_unit.render_news_section()
+    # 2. 今日のコラム
+    column_unit.render_column_preview()
 
     # =====================
     # 🌟 メインコンテンツ・ナビゲーション

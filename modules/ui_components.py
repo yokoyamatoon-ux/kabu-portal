@@ -51,32 +51,34 @@ def icon_img(filename: str, width: int = 32) -> str:
     return ""
 
 def character_explain(character_path: str, message: str, bg_color: str = "#FFF9F0"):
-    """キャラクターの吹き出し説明カード"""
+    """キャラクターの吹き出し説明カード (UX改善版)"""
     img_b64 = get_image_base64(character_path)
     st.markdown(f"""
-<div class="character-card" style="
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  background: {bg_color};
-  border-radius: 20px;
-  padding: 16px 20px;
-  margin-bottom: 20px;
-  border: 1px solid #ebebeb;
-">
-  <img src="data:image/png;base64,{img_b64}" style="width: 70px; flex-shrink: 0; border-radius: 50%;">
     <div style="
-    background: white;
-    border-radius: 12px 12px 12px 4px;
-    padding: 12px 16px;
-    font-size: 1rem;
-    line-height: 1.7;
-    border: 1px solid #eee;
-    flex: 1;
-    color: #2D3436 !important;
-  ">{message}</div>
-</div>
-""", unsafe_allow_html=True)
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: {bg_color};
+      border-radius: 20px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      border: 2px solid #FFE082;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    ">
+      <img src="data:image/png;base64,{img_b64}" 
+           style="width: 70px; flex-shrink: 0; border-radius: 50%;">
+      <div style="
+        background: white;
+        border-radius: 12px 12px 12px 4px;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        border: 1px solid #eee;
+        flex: 1;
+        color: #2D3436;
+      ">{message}</div>
+    </div>
+    """, unsafe_allow_html=True)
 
 def render_navbar():
     """サイトらしいナビゲーションバーを描画"""
@@ -89,7 +91,7 @@ def render_navbar():
         ("quiz",    "❓ クイズ"),
         ("explore", "🔍 探す"),
         ("qa",      "🎓 質問箱"),
-        ("news",    "📰 ニュース"),
+        ("column",  "🥬 今日のコラム"),
         ("money_secret", "⚠️ 裏事情"),
         ("maneta_diary", "📔 投資日記"),
     ]

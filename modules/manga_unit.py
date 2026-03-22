@@ -11,6 +11,7 @@ manga_episodes = [
         "summary": "会社の「オーナーの一部」になることを学ぼう！",
         "image_path": os.path.join(MANGA_DIR, "Manga01.jpg"),
         "thumbnail": os.path.join(MANGA_DIR, "Manga01.jpg"),
+        "topic": "basic"
     },
     {
         "ep": 2,
@@ -18,6 +19,7 @@ manga_episodes = [
         "summary": "持ってるだけでもらえるお小遣い！",
         "image_path": os.path.join(MANGA_DIR, "Manga03.jpg"),
         "thumbnail": os.path.join(MANGA_DIR, "Manga03.jpg"),
+        "topic": "dividend"
     },
     {
         "ep": 3,
@@ -25,11 +27,37 @@ manga_episodes = [
         "summary": "需要と供給のしくみをマンガで理解しよう",
         "image_path": os.path.join(MANGA_DIR, "Manga02.jpg"),
         "thumbnail": os.path.join(MANGA_DIR, "Manga02.jpg"),
+        "topic": "market"
+    },
+    {
+        "ep": 4,
+        "title": "NISAってなに？",
+        "summary": "税金がかからない！？おトクな制度のひみつ",
+        "image_path": os.path.join(MANGA_DIR, "Manga04.jpg"), # もし画像がない場合は制作中表示がでる
+        "thumbnail": os.path.join(MANGA_DIR, "Manga04.jpg"),
+        "topic": "nisa"
+    },
+    {
+        "ep": 5,
+        "title": "成長株ってなに？",
+        "summary": "グングン増えるチャンス！でもリスクには注意？",
+        "image_path": os.path.join(MANGA_DIR, "Manga05.jpg"),
+        "thumbnail": os.path.join(MANGA_DIR, "Manga05.jpg"),
+        "topic": "growth"
     },
 ]
 
 def render_manga_page():
     """マンガ学習ページのエントリポイント"""
+    # learn_topicからの遷移対応
+    if "learn_topic" in st.session_state:
+        topic = st.session_state.pop("learn_topic")
+        ep = next((e["ep"] for e in manga_episodes if e.get("topic") == topic), None)
+        if ep:
+            st.session_state.selected_manga_ep = ep
+            # スクロールを促すなどのメッセージ
+            st.toast(f"「{topic}」に関連するマンガを開いたよ！✨")
+
     if "selected_manga_ep" not in st.session_state:
         st.session_state.selected_manga_ep = None
 
@@ -58,6 +86,15 @@ def render_manga_list():
 """, unsafe_allow_html=True)
 
     st.markdown('<h2 style="font-family:\'M PLUS Rounded 1c\',sans-serif;font-weight:800;margin-bottom:24px;">📖 マンガで学ぶ</h2>', unsafe_allow_html=True)
+    
+    # ヒカリの説明
+    from modules.ui_components import character_explain, CHARA
+    character_explain(
+        CHARA["mirai"],
+        "投資の基本から最新の制度まで、マンガで楽しく学ぼう！🌸<br>"
+        "難しい言葉もキャラクターたちが分かりやすく解説してくれるよ。",
+        bg_color="#FFF5F5"
+    )
     
     # 2列グリッド（Streamlitのcolumnsを使用）
     cols = st.columns(2)

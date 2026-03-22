@@ -79,7 +79,7 @@ def render_navigation():
             ("quiz",    "❓ 投資クイズ"),
             ("explore", "🔍 探す・体験"),
             ("qa",      "🎓 質問箱"),
-            ("news",    "📰 ニュース"),
+            ("column",  "🥬 今日のコラム"),
             ("money_secret", "⚠️ お金の裏事情ファイル 🆕"),
             ("maneta_diary", "📈 マネ太のはじめての投資 🆕"),
         ]
@@ -120,8 +120,9 @@ def render_navigation():
   padding: 16px;
   text-align: center;
   border: 2px solid #FFE082;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 ">
-  <div style="font-size: 2rem;">{icon_img("piggy_bank.png", 60) if icon_img("piggy_bank.png") else "🏦"}</div>
+  <div style="font-size: 2rem; margin-bottom: 8px;">🏦</div>
   <div style="font-size: 0.75rem; color: #888; margin-bottom: 4px;">
     あなたの仮想おさいふ
   </div>
@@ -131,7 +132,7 @@ def render_navigation():
   <div style="font-size: 0.8rem; color: {gain_color}; font-weight: 700; margin-top: 4px;">
     {gain_icon} 運用損益: {gain_sign}¥{total_gain:,.0f}
   </div>
-  <div style="font-size: 0.7rem; color: #aaa; margin-top: 6px;">
+  <div style="font-size: 0.7rem; color: #aaa; margin-top: 8px;">
     ※仮想のお金です。実際の投資ではありません
   </div>
 </div>
@@ -156,6 +157,8 @@ def render_navigation():
     font-size: 0.78rem;
     border: 1px solid #eee;
     line-height: 1.5;
+    color: #2D3436;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   ">{msg}</div>
 </div>
 """, unsafe_allow_html=True)
@@ -214,9 +217,9 @@ def run_app():
     elif page == "about":
         from modules.home_unit import render_about_page
         render_about_page()
-    elif page == "news":
-        from modules.news_unit import render_news_list_page
-        render_news_list_page()
+    elif page == "column":
+        from modules import column_unit
+        column_unit.render_column_page()
     elif page == "explore":
         from modules import explore_unit
         explore_unit.render_explore_page()
