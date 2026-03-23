@@ -76,9 +76,12 @@ def render_column_home_section():
     box-shadow:0 4px 15px rgba(0,0,0,0.06); height:100%; border:1px solid #f0f0f0;">
   {img_html}
   <div style="padding:12px;">
-    <div style="display:inline-block; background:{article['category_color']}; color:white;
-        font-size:0.65rem; padding:2px 8px; border-radius:10px; margin-bottom:8px; font-weight:800;">
-      {article['category']}
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+      <div style="background:{article['category_color']}; color:white;
+          font-size:0.65rem; padding:2px 8px; border-radius:10px; font-weight:800;">
+        {article['category']}
+      </div>
+      <div style="font-size:0.65rem; color:#888;">{article['date']}</div>
     </div>
     <div style="font-weight:800; font-size:0.9rem; color:#2D3436;
         line-height:1.4; margin-bottom:6px;">{article['title']}</div>
@@ -148,9 +151,12 @@ def render_column_list_page():
     box-shadow:0 4px 15px rgba(0,0,0,0.07); margin-bottom:8px; border:1px solid #f0f0f0;">
   {img_html}
   <div style="padding:20px;">
-    <div style="display:inline-block; background:{article['category_color']}; color:white;
-        font-size:0.75rem; padding:3px 10px; border-radius:12px; margin-bottom:10px; font-weight:800;">
-      {article['category']}
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+      <div style="background:{article['category_color']}; color:white;
+          font-size:0.75rem; padding:3px 10px; border-radius:12px; font-weight:800;">
+        {article['category']}
+      </div>
+      <div style="font-size:0.75rem; color:#888;">{article['date']}</div>
     </div>
     <div style="font-weight:800; font-size:1.1rem; color:#2D3436; line-height:1.4; margin-bottom:8px;">
       {article['title']}
@@ -208,7 +214,10 @@ def render_column_detail_page(column_id: str):
       font-size:2rem; margin-bottom:12px; line-height:1.35;">
     {article['title']}
   </h1>
-  <div style="color:#888; font-size:0.9rem;">⏱️ 読了目安: 約{article['reading_time']}分</div>
+  <div style="color:#888; font-size:0.9rem; display:flex; justify-content:center; gap:20px;">
+    <span>📅 更新日: {article['date']}</span>
+    <span>⏱️ 読了目安: 約{article['reading_time']}分</span>
+  </div>
 </div>
 """, unsafe_allow_html=True)
 
