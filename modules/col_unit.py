@@ -160,47 +160,137 @@ def render_column_detail_page(column_id: str):
             st.rerun()
         return
 
+    # 戻るボタン
+    if st.button("← 記事一覧にもどる", type="secondary"):
+        st.session_state.current_page = "column"
+        st.rerun()
+
+    # チャット・コラム用スタイル (ウラ金さんリスペクト)
+    st.markdown("""<style>
+.column-section {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 40px;
+    color: #2D3436;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.column-body {
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+.column-body h3 {
+    color: #2D3436;
+    font-weight: 800;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-left: 6px solid #FF6B6B;
+    padding-left: 15px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+.column-body p {
+    margin-bottom: 20px;
+}
+.ura-chat-flex {
+    display: flex;
+    gap: 12px;
+    margin: 24px 0;
+}
+.ura-bubble {
+    padding: 12px 18px;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 85%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.ura-bubble-teacher {
+    background: #E8F8FF;
+    border-bottom-left-radius: 2px;
+    border: 2px solid #0984E3;
+}
+.ura-bubble-evil {
+    background: #FFEAA7;
+    border-bottom-left-radius: 2px;
+    border: 2px solid #D63031;
+}
+</style>""", unsafe_allow_html=True)
+
     # ① ヘッダー画像
     img_name = article.get('image', f"{article['id']}.jpg")
     img_path = os.path.join(IMAGE_DIR, "column", img_name)
     img_b64 = get_image_base64(img_path)
-    if img_b64:
-        st.markdown(f"""
-        <div style="width:100%; max-height:400px; overflow:hidden; border-radius:24px; margin-bottom:30px; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
-            <img src="data:image/jpeg;base64,{img_b64}" style="width:100%; height:auto; display:block;">
-        </div>
-        """, unsafe_allow_html=True)
     
+    # キャラクターアイコン
+    hakase_icon = chara_img('hakase', width=50)
+    urakane_icon = chara_img('urakane', width=50)
+
     # ② タイトル・メタ情報
     st.markdown(f"""
-    <div style="margin-bottom:30px; border-bottom:2px solid #f0f0f0; padding-bottom:20px;">
+    <div style="margin-bottom:30px; text-align:center;">
         <div style="display:inline-block; background:{article['category_color']}; color:white; 
-                    font-size:0.8rem; padding:4px 12px; border-radius:12px; margin-bottom:12px; font-weight:800;">
+                    font-size:0.85rem; padding:4px 16px; border-radius:20px; margin-bottom:15px; font-weight:800;">
           {article['category']}
         </div>
-        <h1 style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800; color:#2D3436; font-size:2.2rem; margin-bottom:16px; line-height:1.3;">
+        <h1 style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800; color:#2D3436; font-size:2.4rem; margin-bottom:16px; line-height:1.3;">
             {article['title']}
         </h1>
-        <div style="display:flex; justify-content:space-between; align-items:center; color:#888; font-size:1rem;">
+        <div style="display:flex; justify-content:center; gap:30px; color:#888; font-size:0.95rem;">
             <span>⏱️ 読了目安: 約{article['reading_time']}分</span>
             <span>📅 公開日: {article['date']}</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-    # ③ 本文 (Markdown)
-    st.markdown(article["body"])
+    if img_b64:
+        st.markdown(f"""
+        <div style="width:100%; max-height:450px; overflow:hidden; border-radius:24px; margin-bottom:40px; box-shadow:0 15px 40px rgba(0,0,0,0.1);">
+            <img src="data:image/jpeg;base64,{img_b64}" style="width:100%; height:auto; display:block;">
+        </div>
+        """, unsafe_allow_html=True)
 
-    st.markdown("<br><br>", unsafe_allow_html=True)
+    # ③ 本文コンテナ
+    st.markdown('<div class="column-section"><div class="column-body">', unsafe_allow_html=True)
+    
+    # 導入の博士コメント
+    st.markdown(f"""
+    <div class="ura-chat-flex">
+        <div style="flex-shrink:0;">{hakase_icon}</div>
+        <div class="ura-bubble ura-bubble-teacher">
+            <b>カブ先生：</b><br>
+            今日は「{article['title']}」について、じっくり解説していくぞ！<br>
+            この記事を読み終わる頃には、君も一つ「賢い投資家」に近づいているはずじゃ。
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # 本文レンダリング
+    st.markdown(article["body"])
+    
+    # 終わりのまとめメッセージ
+    st.markdown(f"""
+    <div style="background:#F8F9FA; border-radius:12px; padding:20px; margin-top:40px; border-left:8px solid {article['category_color']};">
+        <div style="font-weight:800; color:#2D3436; margin-bottom:10px;">💡 今回の重要ポイント！</div>
+        <div style="font-size:0.95rem; line-height:1.6; color:#636E72;">
+            投資の知識は一生の宝物じゃ。毎日少しずつでも良いから、わしと一緒に学んでいこう。
+            わからないことがあれば、いつでも質問箱へおいで！
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('</div></div>', unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
     
     # 戻るボタン
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("🏠 ホームに戻る", use_container_width=True):
+        if st.button("🏠 ホームに戻る", key="detail_back_home", use_container_width=True):
             st.session_state.current_page = "home"
             st.rerun()
     with col2:
-        if st.button("📰 一覧に戻る", use_container_width=True):
+        if st.button("📰 一覧に戻る", key="detail_back_list", use_container_width=True):
             st.session_state.current_page = "column"
             st.rerun()
 
@@ -208,5 +298,5 @@ def render_column_detail_page(column_id: str):
     
     # タグ
     if article.get("tags"):
-        tag_html = " ".join([f'<span style="background:#f0f0f0; color:#666; padding:4px 10px; border-radius:15px; font-size:0.8rem; margin-right:8px;">#{t}</span>' for t in article["tags"]])
-        st.markdown(f"<div style='margin-bottom:40px;'>{tag_html}</div>", unsafe_allow_html=True)
+        tag_html = " ".join([f'<span style="background:#f0f0f0; color:#666; padding:6px 14px; border-radius:20px; font-size:0.85rem; margin-right:10px;">#{t}</span>' for t in article["tags"]])
+        st.markdown(f"<div style='margin-bottom:60px;'>{tag_html}</div>", unsafe_allow_html=True)
