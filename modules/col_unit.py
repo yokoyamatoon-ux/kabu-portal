@@ -65,7 +65,6 @@ def render_column_home_section():
                 font-size:0.65rem; padding:2px 8px; border-radius:10px; margin-bottom:8px; font-weight:800;">
       {article['category']}
     </div>
-    <div style="font-size:0.75rem; color:#888; margin-bottom:4px;">{article['date']}</div>
     <div style="font-weight:800; font-size:0.9rem; color:#2D3436; 
                 line-height:1.4; margin-bottom:6px; min-height:2.8em;">
       {article['title']}
@@ -145,7 +144,6 @@ def render_column_list_page():
                 font-size:0.75rem; padding:3px 10px; border-radius:12px; margin-bottom:10px; font-weight:800;">
       {article['category']}
     </div>
-    <div style="font-size:0.85rem; color:#888; margin-bottom:8px;">{article['date']}</div>
     <h3 style="font-weight:800; margin-bottom:12px; color:#2D3436; line-height:1.4;">{article['title']}</h3>
     <p style="font-size:0.92rem; color:#636E72; line-height:1.6; margin-bottom:0;">{article['lead']}</p>
   </div>
@@ -255,7 +253,6 @@ def render_column_detail_page(column_id: str):
         </h1>
         <div style="display:flex; justify-content:center; gap:30px; color:#888; font-size:0.95rem;">
             <span>⏱️ 読了目安: 約{article['reading_time']}分</span>
-            <span>📅 公開日: {article['date']}</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
