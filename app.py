@@ -50,6 +50,10 @@ if "page" in st.query_params:
     qp = st.query_params.get("page")
     if qp != st.session_state.current_page:
         st.session_state.current_page = qp
+        
+    # Column IDの同期
+    if "id" in st.query_params:
+        st.session_state.column_id = st.query_params.get("id")
 
 # 4. スタイリング（style.css）の読み込み
 def load_css():

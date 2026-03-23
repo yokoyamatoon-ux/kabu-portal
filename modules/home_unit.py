@@ -31,7 +31,6 @@ def render_market_hero(show_hero=True):
             <img src="data:image/png;base64,{hakase_b64}" 
                  style="width:80px; flex-shrink:0;">
             <div>
-              <div style="font-size: 0.8rem; color: #FF6B6B; font-weight: 800; margin-bottom: 4px;">Update: {update_date}</div>
               <h1 style="font-size:1.6rem; margin:0 0 6px; color:#2D3436; font-family:'M PLUS Rounded 1c', sans-serif;">カブ先生のお金のコラム</h1>
               <p style="color:#636E72; margin:0; font-size:0.95rem; font-weight:500;">
                 投資の「キホンのキ」から裏話まで、毎日更新中じゃ！

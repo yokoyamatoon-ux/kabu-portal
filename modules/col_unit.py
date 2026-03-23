@@ -30,7 +30,7 @@ def render_column_home_section():
     st.markdown(f"""
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
         <h2 style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800; margin:0;">
-            🥬 カブ先生のお金のコラム ({datetime.now().strftime('%Y/%m/%d')} 更新)
+            🥬 カブ先生のお金のコラム
         </h2>
     </div>
     """, unsafe_allow_html=True)
@@ -74,15 +74,22 @@ def render_column_home_section():
   </div>
 </div>
 """, unsafe_allow_html=True)
-            if st.button("続きを読む →", key=f"home_col_{article['id']}", use_container_width=True):
-                st.session_state.current_page = "column_detail"
-                st.session_state.column_id = article["id"]
-                st.rerun()
+            st.markdown(f"""
+            <a href="?page=column_detail&id={article['id']}" target="_self" style="text-decoration:none;">
+                <button style="width:100%; padding:8px; border-radius:8px; border:1px solid #ddd; background:white; color:#2D3436; cursor:pointer; font-weight:800;">
+                    コラムを読む →
+                </button>
+            </a>
+            """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
-    if st.button("📰 全てのコラムを見る →", key="btn_all_columns", use_container_width=True):
-        st.session_state.current_page = "column"
-        st.rerun()
+    st.markdown(f"""
+    <a href="?page=column" target="_self" style="text-decoration:none;">
+        <button style="width:100%; padding:12px; border-radius:12px; border:none; background:#FF6B6B; color:white; cursor:pointer; font-weight:800; font-size:1rem;">
+            📰 全てのコラムを見る →
+        </button>
+    </a>
+    """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
 # 一覧ページ：マンガページ風レイアウト（2カラム）
@@ -142,10 +149,13 @@ def render_column_list_page():
   </div>
 </div>
 """, unsafe_allow_html=True)
-            if st.button(f"コラムを読む →", key=f"list_col_{article['id']}", use_container_width=True):
-                st.session_state.current_page = "column_detail"
-                st.session_state.column_id = article["id"]
-                st.rerun()
+            st.markdown(f"""
+            <a href="?page=column_detail&id={article['id']}" target="_self" style="text-decoration:none;">
+                <button style="width:100%; padding:10px; border-radius:10px; border:1px solid #ddd; background:white; color:#2D3436; cursor:pointer; font-weight:800;">
+                    コラムを読む →
+                </button>
+            </a>
+            """, unsafe_allow_html=True)
             st.markdown("<br>", unsafe_allow_html=True)
 
 # ---------------------------------------------------------
