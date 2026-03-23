@@ -16,6 +16,7 @@ def render_market_hero():
     # 1. ヒーローエリア（キャラクター＋キャッチコピー）
     hakase_b64 = get_image_base64(CHARA["hakase"])
     maneta_b64 = get_image_base64(CHARA["maneta"])
+    update_date = datetime.now().strftime("%Y/%m/%d")
     
     st.markdown(f"""
     <div style="
@@ -25,35 +26,19 @@ def render_market_hero():
       margin-bottom: 20px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     ">
-      <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px;">
+      <div style="display:flex; align-items:center; gap:16px;">
         <img src="data:image/png;base64,{hakase_b64}" 
              style="width:80px; flex-shrink:0;">
         <div>
-          <h1 style="font-size:1.6rem; margin:0 0 6px; color:#2D3436; font-family:'M PLUS Rounded 1c', sans-serif;">株って、楽しいかも！🌟</h1>
+          <div style="font-size: 0.8rem; color: #FF6B6B; font-weight: 800; margin-bottom: 4px;">Update: {update_date}</div>
+          <h1 style="font-size:1.6rem; margin:0 0 6px; color:#2D3436; font-family:'M PLUS Rounded 1c', sans-serif;">カブ先生のお金のコラム</h1>
           <p style="color:#636E72; margin:0; font-size:0.95rem; font-weight:500;">
-            AIがぜんぶ教えてくれるから、むずかしくないよ
+            投資の「キホンのキ」から裏話まで、毎日更新中じゃ！
           </p>
         </div>
         <img src="data:image/png;base64,{maneta_b64}" 
              style="width:60px; flex-shrink:0; margin-left:auto;">
       </div>
-      
-      <!-- AI診断ボタン (ヒーロー内配置) -->
-      <a href="?page=home&diagnosis=1" target="_self" style="text-decoration:none;">
-        <div style="
-          background: #FF6B6B;
-          color: white;
-          text-align: center;
-          padding: 12px;
-          border-radius: 12px;
-          font-weight: 800;
-          font-size: 1rem;
-          box-shadow: 0 4px 12px rgba(255,107,107,0.3);
-          transition: transform 0.2s;
-        " onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='translateY(0)';">
-          🔍 AI株診断をスタート →
-        </div>
-      </a>
     </div>
     """, unsafe_allow_html=True)
 
