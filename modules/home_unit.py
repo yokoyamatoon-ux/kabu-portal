@@ -8,7 +8,7 @@ from modules.ui_components import (
 from datetime import datetime
 import os
 import textwrap
-from modules import col_unit as column_unit
+from modules import column_v3 as column_unit
 
 
 def render_market_hero(show_hero=True):

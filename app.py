@@ -17,6 +17,7 @@ from modules.ui_components import (
     get_image_base64, chara_img, icon_img, CHARA, TOP_BANNERS, render_navbar
 )
 from modules.market_data import get_indices
+from modules import column_v3 as col_unit # v3 forced update
 
 # SEO & Meta Tags
 st.markdown("""
@@ -74,6 +75,9 @@ def render_navigation():
 <div style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800;
             font-size:1.2rem; color:#FF6B6B; padding:8px 0 4px;">
   🎓 カブ先生のお金の学校
+</div>
+<div style="font-size: 0.65rem; color: #FF6B6B; font-weight: 800; margin-bottom: 12px;">
+    Update: 2026-03-23 v3 (Force Reloaded)
 </div>
         """).strip(), unsafe_allow_html=True)
         
@@ -222,10 +226,10 @@ def run_app():
         from modules.home_unit import render_about_page
         render_about_page()
     elif page == "column":
-        from modules.col_unit import render_column_list_page
+        from modules.column_v3 import render_column_list_page
         render_column_list_page()
     elif page == "column_detail":
-        from modules.col_unit import render_column_detail_page
+        from modules.column_v3 import render_column_detail_page
         col_id = st.session_state.get("column_id", "col_001")
         render_column_detail_page(col_id)
     elif page == "explore":
