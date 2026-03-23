@@ -1,7 +1,6 @@
 import streamlit as st
 import os
 import json
-import textwrap
 from datetime import datetime
 from modules.ui_components import (
     get_image_base64, chara_img, icon_img, CHARA, IMAGE_DIR, character_explain
@@ -18,19 +17,8 @@ COMMON_CSS = """
     text-decoration: none !important;
 }
 .column-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
-}
-/* Hide streamlit header anchors very aggressively */
-.stApp a.header-anchor, 
-.stApp .header-anchor,
-.stApp a[href^="#"],
-[data-testid="stHeaderActionElements"] {
-    display: none !important;
-    visibility: hidden !important;
-    width: 0 !important;
-    height: 0 !important;
-    pointer-events: none !important;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12) !important;
 }
 </style>
 """
@@ -57,81 +45,79 @@ COLUMNS = load_columns_data()
 def render_column_home_section():
     st.markdown(COMMON_CSS, unsafe_allow_html=True)
     st.markdown("---")
-    st.markdown(textwrap.dedent(f"""
+    st.markdown("""
 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
     <h2 style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800; margin:0;">
         🥬 カブ先生のお金のコラム
     </h2>
 </div>
-    """).strip(), unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
     if not COLUMNS:
         st.info("現在、新しいコラムを準備中じゃ！")
         return
 
     cols = st.columns(4)
-    # 最新の4件を表示
     display_columns = COLUMNS[:4]
     for col, article in zip(cols, display_columns):
         with col:
             img_name = article.get('image', f"{article['id']}.jpg")
             img_path = os.path.join(IMAGE_DIR, "column", img_name)
             img_b64 = get_image_base64(img_path)
-            
+
             img_html = (
                 f'<div style="width:100%; height:120px; background:url(data:image/jpeg;base64,{img_b64}) center/cover; border-bottom:1px solid #f0f0f0;"></div>'
-                if img_b64 else 
+                if img_b64 else
                 f'<div style="width:100%; height:120px; background:#f8f9fa; display:flex; align-items:center; justify-content:center; color:#ccc; border-bottom:1px solid #f0f0f0;">No Image</div>'
             )
-            
-            st.markdown(f"""
-<a href="?page=column_detail&id={article['id']}" target="_self" style="text-decoration:none;">
-    <div class="column-card" style="background:white; border-radius:12px; overflow:hidden;
-                box-shadow:0 4px 15px rgba(0,0,0,0.06); height:100%; border:1px solid #f0f0f0;">
-      {img_html}
-      <div style="padding:12px;">
-        <div style="display:inline-block; background:{article['category_color']}; color:white; 
-                    font-size:0.65rem; padding:2px 8px; border-radius:10px; margin-bottom:8px; font-weight:800;">
-          {article['category']}
-        </div>
-        <div style="font-weight:800; font-size:0.9rem; color:#2D3436; 
-                    line-height:1.4; margin-bottom:6px; min-height:2.8em;">
-          {article['title']}
-        </div>
-        <div style="font-size:0.78rem; color:#636E72; line-height:1.5; min-height:4.5em; overflow:hidden;">
-          {article['lead']}
-        </div>
-      </div>
+
+            st.markdown(f"""<a href="?page=column_detail&id={article['id']}" target="_self" style="text-decoration:none;">
+<div class="column-card" style="background:white; border-radius:12px; overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.06); height:100%; border:1px solid #f0f0f0;">
+  {img_html}
+  <div style="padding:12px;">
+    <div style="display:inline-block; background:{article['category_color']}; color:white;
+        font-size:0.65rem; padding:2px 8px; border-radius:10px; margin-bottom:8px; font-weight:800;">
+      {article['category']}
     </div>
-</a>
-""", unsafe_allow_html=True)
+    <div style="font-weight:800; font-size:0.9rem; color:#2D3436;
+        line-height:1.4; margin-bottom:6px;">{article['title']}</div>
+    <div style="font-size:0.78rem; color:#636E72; line-height:1.5; overflow:hidden;
+        display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical;">
+      {article['lead']}
+    </div>
+  </div>
+</div>
+</a>""", unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(textwrap.dedent(f"""
-<a href="?page=column" target="_self" style="text-decoration:none;">
-    <button style="width:100%; padding:12px; border-radius:12px; border:none; background:#FF6B6B; color:white; cursor:pointer; font-weight:800; font-size:1rem;">
-        📰 全てのコラムを見る →
-    </button>
-</a>
-    """).strip(), unsafe_allow_html=True)
+    st.markdown("""<a href="?page=column" target="_self" style="text-decoration:none;">
+<button style="width:100%; padding:12px; border-radius:12px; border:none; background:#FF6B6B;
+    color:white; cursor:pointer; font-weight:800; font-size:1rem;">
+    📰 全てのコラムを見る →
+</button>
+</a>""", unsafe_allow_html=True)
+
 
 # ---------------------------------------------------------
-# 一覧ページ：マンガページ風レイアウト（2カラム）
+# 一覧ページ：2カラムグリッド
 # ---------------------------------------------------------
+def render_column_list_page():
     st.markdown(COMMON_CSS, unsafe_allow_html=True)
-    st.markdown(textwrap.dedent(f"""
-<div style="text-align:center; padding:40px 20px; background:#FFF; border-radius:24px; margin-bottom:30px; border:2px solid #FFE082;">
-    <h1 style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800; color:#2D3436; font-size:2.2rem; margin-bottom:12px;">
-        🥬 カブ先生の「お金のコラム」
-    </h1>
-    <p style="color:#636E72; font-size:1.1rem; max-width:600px; margin:0 auto;">
-        投資の最新ニュースや「今さら聞けない」経済の基本まで、<br>
-        カブ先生がわかりやすく解説するぞ！
-    </p>
+    st.markdown("""
+<div style="text-align:center; padding:40px 20px; background:#FFF;
+    border-radius:24px; margin-bottom:30px; border:2px solid #FFE082;">
+  <h1 style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800;
+      color:#2D3436; font-size:2.2rem; margin-bottom:12px;">
+    🥬 カブ先生の「お金のコラム」
+  </h1>
+  <p style="color:#636E72; font-size:1.1rem; max-width:600px; margin:0 auto;">
+    投資の最新ニュースや「今さら聞けない」経済の基本まで、<br>
+    カブ先生がわかりやすく解説するぞ！
+  </p>
 </div>
-    """).strip(), unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
-    # 博士の挨拶
     character_explain(
         CHARA["hakase"],
         "投資の知識は一生の宝物じゃ！<br>毎日少しずつ、ワシと一緒に学んでいこう。難しいことも分かりやすく教えるぞ。",
@@ -143,238 +129,160 @@ def render_column_home_section():
     if not COLUMNS:
         st.info("現在、新しいコラムを準備中じゃ！")
         return
-    
-    # 2カラムでカードを表示
+
     cols = st.columns(2)
     for i, article in enumerate(COLUMNS):
         with cols[i % 2]:
             img_name = article.get('image', f"{article['id']}.jpg")
             img_path = os.path.join(IMAGE_DIR, "column", img_name)
             img_b64 = get_image_base64(img_path)
-            
+
             img_html = (
                 f'<div style="width:100%; height:200px; background:url(data:image/jpeg;base64,{img_b64}) center/cover;"></div>'
-                if img_b64 else 
+                if img_b64 else
                 f'<div style="width:100%; height:200px; background:#f8f9fa; display:flex; align-items:center; justify-content:center; color:#ccc;">No Image</div>'
             )
-            
-            st.markdown(f"""
-<a href="?page=column_detail&id={article['id']}" target="_self" style="text-decoration:none;">
-    <div class="column-card" style="background:white; border-radius:12px; overflow:hidden;
-                box-shadow:0 4px 15px rgba(0,0,0,0.07); margin-bottom:8px; border: 1px solid #f0f0f0;">
-      {img_html}
-      <div style="padding:20px;">
-        <div style="display:inline-block; background:{article['category_color']}; color:white; 
-                    font-size:0.75rem; padding:3px 10px; border-radius:12px; margin-bottom:10px; font-weight:800;">
-          {article['category']}
-        </div>
-        <h3 style="font-weight:800; margin-bottom:12px; color:#2D3436; line-height:1.4;">{article['title']}</h3>
-        <p style="font-size:0.92rem; color:#636E72; line-height:1.6; margin-bottom:0;">{article['lead']}</p>
-      </div>
+
+            st.markdown(f"""<a href="?page=column_detail&id={article['id']}" target="_self" style="text-decoration:none;">
+<div class="column-card" style="background:white; border-radius:12px; overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.07); margin-bottom:8px; border:1px solid #f0f0f0;">
+  {img_html}
+  <div style="padding:20px;">
+    <div style="display:inline-block; background:{article['category_color']}; color:white;
+        font-size:0.75rem; padding:3px 10px; border-radius:12px; margin-bottom:10px; font-weight:800;">
+      {article['category']}
     </div>
-</a>
-""", unsafe_allow_html=True)
+    <div style="font-weight:800; font-size:1.1rem; color:#2D3436; line-height:1.4; margin-bottom:8px;">
+      {article['title']}
+    </div>
+    <div style="font-size:0.92rem; color:#636E72; line-height:1.6;">{article['lead']}</div>
+  </div>
+</div>
+</a>""", unsafe_allow_html=True)
             st.markdown("<br>", unsafe_allow_html=True)
 
+
 # ---------------------------------------------------------
-# 詳細ページ：ウラ金ページ風レイアウト（画像 -> 本文）
+# 詳細ページ
 # ---------------------------------------------------------
 def render_column_detail_page(column_id: str):
     article = next((c for c in COLUMNS if c["id"] == column_id), None)
     if not article:
         st.error("記事が見つかりませんでした。")
-        if st.button("一覧に戻る"):
-            st.session_state.current_page = "column"
-            st.rerun()
+        st.markdown('<a href="?page=column" target="_self">← 一覧に戻る</a>', unsafe_allow_html=True)
         return
 
-    # 戻るボタン
-    st.markdown("""
-    <a href="?page=column" target="_self" style="text-decoration:none;">
-        <button style="padding:8px 16px; border-radius:8px; border:1px solid #ddd; background:white; color:#2D3436; cursor:pointer;">
-            ← 記事一覧にもどる
-        </button>
-    </a>
-    <br><br>
-    """, unsafe_allow_html=True)
+    st.markdown(COMMON_CSS, unsafe_allow_html=True)
 
-    # チャット・コラム用スタイル (ウラ金さんリスペクト)
+    # 戻るリンク
+    st.markdown('<a href="?page=column" target="_self" style="color:#636E72; text-decoration:none; font-size:0.9rem;">← 記事一覧にもどる</a><br><br>', unsafe_allow_html=True)
+
+    # 詳細ページスタイル
     st.markdown("""<style>
-.column-section {
-    background: white;
-    border-radius: 16px;
-    padding: 30px;
-    margin-bottom: 40px;
-    color: #2D3436;
-    border: 1px solid #f0f0f0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+.col-detail-body { line-height:1.9; font-size:1.05rem; color:#2D3436; }
+.col-detail-body h3 {
+    color:#2D3436; font-weight:800; margin-top:40px; margin-bottom:16px;
+    border-left:6px solid #FF6B6B; padding-left:14px;
+    font-family:'M PLUS Rounded 1c', sans-serif;
 }
-.column-body {
-    line-height: 1.8;
-    font-size: 1.05rem;
+.col-detail-body p { margin-bottom:18px; }
+.col-detail-body ul, .col-detail-body ol { margin-bottom:18px; padding-left:24px; }
+.col-kabu-bubble {
+    display:flex; gap:12px; margin:24px 0;
 }
-.column-body h3 {
-    color: #2D3436;
-    font-weight: 800;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    border-left: 6px solid #FF6B6B;
-    padding-left: 15px;
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-}
-.column-body p {
-    margin-bottom: 20px;
-}
-.ura-chat-flex {
-    display: flex;
-    gap: 12px;
-    margin: 24px 0;
-}
-.ura-bubble {
-    padding: 12px 18px;
-    border-radius: 18px;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    max-width: 85%;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-.ura-bubble-teacher {
-    background: #E8F8FF;
-    border-bottom-left-radius: 2px;
-    border: 2px solid #0984E3;
-}
-.ura-bubble-evil {
-    background: #FFEAA7;
-    border-bottom-left-radius: 2px;
-    border: 2px solid #D63031;
+.col-kabu-text {
+    background:#E8F8FF; border:2px solid #0984E3;
+    border-radius:4px 18px 18px 18px;
+    padding:14px 18px; font-size:0.95rem; line-height:1.7; max-width:85%;
 }
 </style>""", unsafe_allow_html=True)
 
-    # ① ヘッダー画像
+    # タイトル
+    st.markdown(f"""
+<div style="text-align:center; margin-bottom:30px;">
+  <div style="display:inline-block; background:{article['category_color']}; color:white;
+      font-size:0.85rem; padding:4px 16px; border-radius:20px; margin-bottom:15px; font-weight:800;">
+    {article['category']}
+  </div>
+  <h1 style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800; color:#2D3436;
+      font-size:2rem; margin-bottom:12px; line-height:1.35;">
+    {article['title']}
+  </h1>
+  <div style="color:#888; font-size:0.9rem;">⏱️ 読了目安: 約{article['reading_time']}分</div>
+</div>
+""", unsafe_allow_html=True)
+
+    # ヘッダー画像
     img_name = article.get('image', f"{article['id']}.jpg")
     img_path = os.path.join(IMAGE_DIR, "column", img_name)
     img_b64 = get_image_base64(img_path)
-    
-    # キャラクターアイコン
-    hakase_icon = chara_img('hakase', width=50)
-    urakane_icon = chara_img('urakane', width=50)
-
-    # ② タイトル・メタ情報
-    st.markdown(f"""
-    <div style="margin-bottom:30px; text-align:center;">
-        <div style="display:inline-block; background:{article['category_color']}; color:white; 
-                    font-size:0.85rem; padding:4px 16px; border-radius:20px; margin-bottom:15px; font-weight:800;">
-          {article['category']}
-        </div>
-        <h1 style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800; color:#2D3436; font-size:2.4rem; margin-bottom:16px; line-height:1.3;">
-            {article['title']}
-        </h1>
-        <div style="display:flex; justify-content:center; gap:30px; color:#888; font-size:0.95rem;">
-            <span>⏱️ 読了目安: 約{article['reading_time']}分</span>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
     if img_b64:
-        st.markdown(f"""
-        <div style="width:100%; border-radius:24px; margin-bottom:40px; box-shadow:0 15px 40px rgba(0,0,0,0.1); overflow:hidden;">
-            <img src="data:image/jpeg;base64,{img_b64}" style="width:100%; height:auto; display:block;">
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(f"""<div style="border-radius:20px; overflow:hidden; margin-bottom:36px;
+    box-shadow:0 12px 36px rgba(0,0,0,0.10);">
+  <img src="data:image/jpeg;base64,{img_b64}" style="width:100%; height:auto; display:block;">
+</div>""", unsafe_allow_html=True)
 
-    # ③ 本文コンテナ (HTMLとMarkdownを統一)
-    st.markdown(textwrap.dedent(f"""
-<div class="column-section">
-    <div class="column-body">
-        <div class="ura-chat-flex">
-            <div style="flex-shrink:0;">{hakase_icon}</div>
-            <div class="ura-bubble ura-bubble-teacher">
-                <b>カブ先生：</b><br>
-                今日は「{article['title']}」について、じっくり解説していくぞ！<br>
-                この記事を読み終わる頃には、君も一つ「賢い投資家」に近づいているはずじゃ。
-            </div>
-        </div>
-        
-        {article["body"]}
+    # カブ先生のひとこと
+    hakase_icon = chara_img('hakase', width=50)
+    st.markdown(f"""<div class="col-kabu-bubble">
+  <div style="flex-shrink:0;">{hakase_icon}</div>
+  <div class="col-kabu-text">
+    <b>カブ先生：</b><br>
+    今日は「{article['title']}」について、じっくり解説していくぞ！<br>
+    読み終わる頃には、一歩「賢い投資家」に近づいているはずじゃ。
+  </div>
+</div>""", unsafe_allow_html=True)
 
-        <div style="background:#F8F9FA; border-radius:12px; padding:20px; margin-top:40px; border-left:8px solid {article['category_color']};">
-            <div style="font-weight:800; color:#2D3436; margin-bottom:10px;">💡 今回の重要ポイント！</div>
-            <div style="font-size:0.95rem; line-height:1.6; color:#636E72;">
-                投資の知識は一生の宝物じゃ。毎日少しずつでも良いから、わしと一緒に学んでいこう。
-                わからないことがあれば、いつでも質問箱へおいで！
-            </div>
-        </div>
-    </div>
-</div>
-    """).strip(), unsafe_allow_html=True)
+    # 本文 — markdownとして別途レンダリング（rawにならない）
+    st.markdown('<div class="col-detail-body">', unsafe_allow_html=True)
+    st.markdown(article["body"])
+    st.markdown('</div>', unsafe_allow_html=True)
 
-    # 前後の記事へのナビゲーション
+    # まとめボックス
+    st.markdown(f"""<div style="background:#F8F9FA; border-radius:12px; padding:24px;
+    margin-top:40px; border-left:8px solid {article['category_color']};">
+  <div style="font-weight:800; color:#2D3436; margin-bottom:10px;">💡 今回の重要ポイント！</div>
+  <div style="font-size:0.95rem; line-height:1.7; color:#636E72;">
+    投資の知識は一生の宝物じゃ。毎日少しずつでも良いから、わしと一緒に学んでいこう。<br>
+    わからないことがあれば、いつでも質問箱へおいで！
+  </div>
+</div>""", unsafe_allow_html=True)
+
+    # 前後ナビゲーション
     try:
         current_idx = next(i for i, c in enumerate(COLUMNS) if c["id"] == column_id)
         prev_article = COLUMNS[current_idx - 1] if current_idx > 0 else None
         next_article = COLUMNS[current_idx + 1] if current_idx < len(COLUMNS) - 1 else None
-        
+
         if prev_article or next_article:
-            st.markdown("<div style='display:flex; justify-content:space-between; gap:20px; margin-bottom:40px;'>", unsafe_allow_html=True)
-            
-            # 前の記事 (新しい方へ)
-            if prev_article:
-                st.markdown(f"""
-                <a href="?page=column_detail&id={prev_article['id']}" target="_self" style="flex:1; text-decoration:none;">
-                    <div class="column-card" style="background:white; padding:15px; border-radius:12px; border:1px solid #eee; height:100%;">
-                        <div style="font-size:0.75rem; color:#888; margin-bottom:5px;">← 前のコラム</div>
-                        <div style="font-weight:800; color:#2D3436; font-size:0.9rem; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden;">
-                            {prev_article['title']}
-                        </div>
-                    </div>
-                </a>
-                """, unsafe_allow_html=True)
-            else:
-                st.markdown("<div style='flex:1;'></div>", unsafe_allow_html=True)
-                
-            # 次の記事 (古い方へ)
-            if next_article:
-                st.markdown(f"""
-                <a href="?page=column_detail&id={next_article['id']}" target="_self" style="flex:1; text-decoration:none; text-align:right;">
-                    <div class="column-card" style="background:white; padding:15px; border-radius:12px; border:1px solid #eee; height:100%;">
-                        <div style="font-size:0.75rem; color:#888; margin-bottom:5px;">次のコラム →</div>
-                        <div style="font-weight:800; color:#2D3436; font-size:0.9rem; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden;">
-                            {next_article['title']}
-                        </div>
-                    </div>
-                </a>
-                """, unsafe_allow_html=True)
-            else:
-                st.markdown("<div style='flex:1;'></div>", unsafe_allow_html=True)
-                
-            st.markdown("</div>", unsafe_allow_html=True)
-    except:
+            col_prev, col_next = st.columns(2)
+            with col_prev:
+                if prev_article:
+                    st.markdown(f"""<a href="?page=column_detail&id={prev_article['id']}" target="_self" style="text-decoration:none;">
+<div class="column-card" style="background:white; padding:14px; border-radius:12px; border:1px solid #eee;">
+  <div style="font-size:0.75rem; color:#888; margin-bottom:4px;">← 前のコラム</div>
+  <div style="font-weight:800; color:#2D3436; font-size:0.9rem;">{prev_article['title']}</div>
+</div></a>""", unsafe_allow_html=True)
+            with col_next:
+                if next_article:
+                    st.markdown(f"""<a href="?page=column_detail&id={next_article['id']}" target="_self" style="text-decoration:none;">
+<div class="column-card" style="background:white; padding:14px; border-radius:12px; border:1px solid #eee; text-align:right;">
+  <div style="font-size:0.75rem; color:#888; margin-bottom:4px;">次のコラム →</div>
+  <div style="font-weight:800; color:#2D3436; font-size:0.9rem;">{next_article['title']}</div>
+</div></a>""", unsafe_allow_html=True)
+    except Exception:
         pass
 
     st.markdown("<br>", unsafe_allow_html=True)
-    
-    # 戻るボタン
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown("""
-        <a href="?page=home" target="_self" style="text-decoration:none;">
-            <button style="width:100%; padding:12px; border-radius:12px; border:1px solid #ddd; background:white; color:#2D3436; cursor:pointer; font-weight:800;">
-                🏠 ホームに戻る
-            </button>
-        </a>
-        """, unsafe_allow_html=True)
-    with col2:
-        st.markdown("""
-        <a href="?page=column" target="_self" style="text-decoration:none;">
-            <button style="width:100%; padding:12px; border-radius:12px; border:1px solid #ddd; background:white; color:#2D3436; cursor:pointer; font-weight:800;">
-                📰 一覧に戻る
-            </button>
-        </a>
-        """, unsafe_allow_html=True)
 
-    st.markdown("<br>", unsafe_allow_html=True)
-    
+    # 下部ボタン
+    c1, c2 = st.columns(2)
+    with c1:
+        st.markdown('<a href="?page=home" target="_self" style="text-decoration:none;"><button style="width:100%; padding:12px; border-radius:12px; border:1px solid #ddd; background:white; color:#2D3436; cursor:pointer; font-weight:800;">🏠 ホームに戻る</button></a>', unsafe_allow_html=True)
+    with c2:
+        st.markdown('<a href="?page=column" target="_self" style="text-decoration:none;"><button style="width:100%; padding:12px; border-radius:12px; border:1px solid #ddd; background:white; color:#2D3436; cursor:pointer; font-weight:800;">📰 一覧に戻る</button></a>', unsafe_allow_html=True)
+
     # タグ
     if article.get("tags"):
-        tag_html = " ".join([f'<span style="background:#f0f0f0; color:#666; padding:6px 14px; border-radius:20px; font-size:0.85rem; margin-right:10px;">#{t}</span>' for t in article["tags"]])
-        st.markdown(f"<div style='margin-bottom:60px;'>{tag_html}</div>", unsafe_allow_html=True)
+        tag_html = " ".join([f'<span style="background:#f0f0f0; color:#666; padding:6px 14px; border-radius:20px; font-size:0.85rem; margin-right:6px;">#{t}</span>' for t in article["tags"]])
+        st.markdown(f'<div style="margin-top:24px; margin-bottom:60px;">{tag_html}</div>', unsafe_allow_html=True)

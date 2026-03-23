@@ -210,8 +210,8 @@ flex-wrap: wrap;
             st.session_state.current_page = "about"
             st.rerun()
 
-    # 3. 今日のマーケット
-    render_market_hero(show_hero=True)
+    # 3. 今日のマーケット（バナーなし）
+    render_market_hero(show_hero=False)
 
     # 4. カブ先生のコラム（ホーム用ミニ一覧）
     from modules.column_v3 import render_column_home_section
