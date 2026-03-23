@@ -7,7 +7,7 @@ from modules.ui_components import (
 )
 from datetime import datetime
 import os
-from modules import column_unit
+from modules import col_unit as column_unit
 
 
 def render_market_hero(show_hero=True):

@@ -218,10 +218,10 @@ def run_app():
         from modules.home_unit import render_about_page
         render_about_page()
     elif page == "column":
-        from modules.column_unit import render_column_list_page
+        from modules.col_unit import render_column_list_page
         render_column_list_page()
     elif page == "column_detail":
-        from modules.column_unit import render_column_detail_page
+        from modules.col_unit import render_column_detail_page
         col_id = st.session_state.get("column_id", "col_001")
         render_column_detail_page(col_id)
     elif page == "explore":
