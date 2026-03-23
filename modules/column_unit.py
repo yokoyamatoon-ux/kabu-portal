@@ -38,7 +38,6 @@ def render_column_preview():
     cols = st.columns(4)
     for i, col in enumerate(latest_cols):
         with cols[i]:
-            # サムネイル（なければ博士のアイコンなど）
             thumb_path = col.get("thumbnail")
             if thumb_path and os.path.exists(thumb_path):
                 b64 = get_image_base64(thumb_path)
@@ -46,18 +45,24 @@ def render_column_preview():
                 b64 = get_image_base64(CHARA["hakase"])
             
             st.markdown(f"""
-            <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #f0f0f0; transition: transform 0.2s; cursor: pointer;">
-                <img src="data:image/png;base64,{b64}" style="width: 100%; height: 120px; object-fit: cover;">
-                <div style="padding: 12px;">
-                    <div style="font-size: 0.7rem; color: #888; margin-bottom: 4px;">{col['date']}</div>
-                    <div style="font-size: 0.9rem; font-weight: 800; color: #2D3436; line-height: 1.3; height: 2.6em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
+            <div style="
+                background: white; border-radius: 16px; overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #f0f0f0;
+                transition: transform 0.2s; cursor: pointer; height: 100%;
+            ">
+                <img src="data:image/png;base64,{b64}" style="width:100%; height:140px; object-fit:cover;">
+                <div style="padding: 15px;">
+                    <div style="background:#FF6B6B; color:white; padding:2px 8px; border-radius:10px; font-size:0.75rem; display:inline-block; margin-bottom:8px;">🥬 今日のコラム</div>
+                    <div style="font-size:0.75rem; color:#888; margin-bottom:4px;">{col['date']}</div>
+                    <div style="font-size:0.95rem; font-weight:800; color:#2D3436; margin-bottom:12px; line-height:1.3; min-height:2.6em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
                         {col['title']}
                     </div>
+                    <div style="background:#FFF9F0; border:1px solid #FFE082; color:#E67E22; border-radius:20px; padding:6px 12px; font-size:0.85rem; text-align:center; font-weight:700;">🥬 カブ博士に聞く</div>
                 </div>
             </div>
             """, unsafe_allow_html=True)
-            if st.button("読む", key=f"preview_read_{col['id']}", use_container_width=True):
-                st.session_state.page = "column"
+            if st.button("読む →", key=f"preview_read_{col['id']}", use_container_width=True):
+                st.session_state.current_page = "column"
                 st.session_state.selected_column_id = col['id']
                 st.rerun()
 

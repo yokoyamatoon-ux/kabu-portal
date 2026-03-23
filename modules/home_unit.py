@@ -231,8 +231,8 @@ flex-wrap: wrap;
                 st.session_state.current_page = "about"
                 st.rerun()
 
-        # 3. AI診断ボタン（マーケットヒーロー内でレンダーされるが、スライダー直下に置くならここで呼ぶ）
-        render_market_hero()
+        # 3. 今日のコラム
+        column_unit.render_column_preview()
 
 
 

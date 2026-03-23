@@ -280,10 +280,10 @@ def render_hero_slider():
     banners = [
         {
             "img": banner_imgs[0] if len(banner_imgs)>0 else "",
-            "title": "投資って、楽しいかも！",
-            "subtitle": "AIがぜんぶ教えてくれるから、むずかしくないよ✨",
-            "btn_text": "AI投資診断をスタート →",
-            "btn_page": "home&amp;diagnosis=1",
+            "title": "カブ先生のお金のコラム",
+            "subtitle": f"投資の「キホンのキ」を毎日更新中！ ({datetime.now().strftime('%Y/%m/%d')} 更新)",
+            "btn_text": "コラムを読む →",
+            "btn_page": "column",
             "accent": "#FF6B6B",
         },
         {
