@@ -178,7 +178,6 @@ def run_diagnosis_unit():
             
             <div class="diagnosis-card-white">
                 <div class="diagnosis-card-text">{result_msg}</div>
-                <div style="text-align:right; font-size:10px; color:#eee;">Update: Ver.4.5</div>
             </div>
         </div>
         """)

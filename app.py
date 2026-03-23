@@ -74,7 +74,6 @@ def render_navigation():
             font-size:1.2rem; color:#FF6B6B; padding:8px 0 4px;">
   🎓 カブ先生のお金の学校
 </div>
-<div style="font-size: 0.65rem; color: #888; margin-bottom: 12px;">Ver. 6.4 (News Cache)</div>
 """, unsafe_allow_html=True)
         
         pages = [
