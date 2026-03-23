@@ -104,44 +104,22 @@ def render_market_hero(show_hero=True):
 def render_home_page():
     st.markdown('<div class="page-content">', unsafe_allow_html=True)
     
-    # 1. ヒーローエリア / AI診断
-    is_diagnosis_param = st.query_params.get("diagnosis") == "1"
-    if is_diagnosis_param and "show_diagnosis" not in st.session_state:
-        st.session_state.show_diagnosis = True
-        if "diagnosis_step" not in st.session_state:
-            st.session_state.diagnosis_step = 0
-        if "diagnosis_answers" not in st.session_state:
-            st.session_state.diagnosis_answers = []
+    # 1. ヒーローセクション
+    # (AI株診断のボタンはユーザーの要望により削除済み)
     
-    is_active_diagnosis = (
-        st.session_state.get("show_diagnosis") or
-        st.session_state.get("diagnosis_step", 0) > 0
+    # 1. 自動切り替えヒーローバナー
+    render_hero_slider()
+
+    # 2. ウェルカムバナーの改善（バナー画像版）
+    BANNER_PATH = os.path.join(IMAGE_DIR, "banner01.jpg")
+    banner_b64 = get_image_base64(BANNER_PATH)
+    banner_html = (
+        f'<img src="data:image/png;base64,{banner_b64}" '
+        f'style="width:100%; max-width:420px; border-radius:12px; object-fit:cover;">'
+        if banner_b64 else ""
     )
-    
-    if is_active_diagnosis:
-        from modules import diagnosis_unit
-        diagnosis_unit.run_diagnosis_unit()
-        if st.button("← ホームに戻る", use_container_width=False):
-            st.session_state.diagnosis_step = 0
-            st.session_state.diagnosis_answers = []
-            if "show_diagnosis" in st.session_state: del st.session_state.show_diagnosis
-            st.rerun()
-        st.markdown('</div>', unsafe_allow_html=True)  # close page-content
-        return
-    else:
-        # 1. 自動切り替えヒーローバナー
-        render_hero_slider()
 
-        # 2. ウェルカムバナーの改善（バナー画像版）
-        BANNER_PATH = os.path.join(IMAGE_DIR, "banner01.jpg")
-        banner_b64 = get_image_base64(BANNER_PATH)
-        banner_html = (
-            f'<img src="data:image/png;base64,{banner_b64}" '
-            f'style="width:100%; max-width:420px; border-radius:12px; object-fit:cover;">'
-            if banner_b64 else ""
-        )
-
-        st.markdown(f"""
+    st.markdown(f"""
 <div style="
 background: white;
 border-radius: 20px;
@@ -174,7 +152,7 @@ flex-wrap: wrap;
   <div style="font-size:0.92rem; color:#444; line-height:1.9; margin-bottom:16px;">
     むずかしい言葉ゼロ。株・NISA・投資のキホンを<b>マンガ</b>でたのしく学べるぞ！<br>
     <b>カブ先生・マネ太・ミライ</b>たちキャラクターが案内してくれるから安心じゃ。<br>
-    <b>投資シミュレーション</b>や<b>AI株診断</b>など、体験しながら学べるコンテンツも充実！
+    <b>投資シミュレーション</b>や<b>最新コラム</b>など、体験しながら学べるコンテンツも充実！
   </div>
 
   <!-- 特徴タグ -->
@@ -186,7 +164,7 @@ flex-wrap: wrap;
     <span style="background:#E8FFF8; color:#009688; border-radius:20px;
                  padding:4px 12px; font-size:0.8rem; font-weight:700;">💹 シミュレーション</span>
     <span style="background:#F0F0FF; color:#6C63FF; border-radius:20px;
-                 padding:4px 12px; font-size:0.8rem; font-weight:700;">🤖 AI株診断</span>
+                 padding:4px 12px; font-size:0.8rem; font-weight:700;">🥬 今日のコラム</span>
   </div>
 
 </div>
@@ -210,12 +188,12 @@ flex-wrap: wrap;
 }}
 </style>
 """, unsafe_allow_html=True)
-        
-        # 入学バナー（クリックでaboutページへ）
-        NYUGAKU_PATH = os.path.join(IMAGE_DIR, "banner_new_v63.jpg")
-        nyugaku_b64 = get_image_base64(NYUGAKU_PATH)
-        if nyugaku_b64:
-            st.markdown(f"""
+    
+    # 入学バナー（クリックでaboutページへ）
+    NYUGAKU_PATH = os.path.join(IMAGE_DIR, "banner_new_v63.jpg")
+    nyugaku_b64 = get_image_base64(NYUGAKU_PATH)
+    if nyugaku_b64:
+        st.markdown(f"""
 <a href="?page=about" target="_self" style="display:block; cursor:pointer; text-decoration:none;">
   <img src="data:image/jpeg;base64,{nyugaku_b64}"
        style="width:100%; border-radius:16px; margin-bottom:16px;
@@ -226,17 +204,18 @@ flex-wrap: wrap;
        alt="カブ先生の学校に入学する">
 </a>
 """, unsafe_allow_html=True)
-        else:
-            # 画像がない場合のフォールバック
-            if st.button("🎓 このサイトについて・はじめての方はこちら →", key="btn_about", use_container_width=True):
-                st.session_state.current_page = "about"
-                st.rerun()
+    else:
+        # 画像がない場合のフォールバック
+        if st.button("🎓 このサイトについて・はじめての方はこちら →", key="btn_about", use_container_width=True):
+            st.session_state.current_page = "about"
+            st.rerun()
 
-        # 3. 今日のマーケット
-        render_market_hero(show_hero=False)
+    # 3. 今日のマーケット
+    render_market_hero(show_hero=True)
 
-        # 4. 今日のコラム
-        column_unit.render_column_preview()
+    # 4. カブ先生のコラム（ホーム用ミニ一覧）
+    from modules.column_unit import render_column_home_section
+    render_column_home_section()
 
     # =====================
     # 🌟 メインコンテンツ・ナビゲーション
@@ -365,7 +344,7 @@ flex-wrap: wrap;
         {"id": "manga",   "b64": img_manga,   "title": "マンガで学ぶ", "desc": "楽しく基本をマスター！"},
         {"id": "quiz",    "b64": img_quiz,    "title": "投資クイズ",   "desc": "クイズでレベルUP！"},
         {"id": "explore", "b64": img_explore, "title": "探す・体験",   "desc": "銘柄検索とシミュレーター"},
-        {"id": "qa",      "b64": img_qa,      "title": "質問箱",       "desc": "ギモンを先生に聞こう"},
+        {"id": "qa",      "b64": img_qa,      "title": "質問箱",       "desc": "投資のギモンを先生にぶつけてみよう"},
     ]
 
     st.markdown('<div class="section-title">✨ おすすめトピック</div>', unsafe_allow_html=True)
