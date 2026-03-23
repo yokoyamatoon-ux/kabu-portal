@@ -2,7 +2,9 @@ import streamlit as st
 import os
 import json
 from datetime import datetime
-from modules.ui_components import get_image_base64, CHARA, IMAGE_DIR, character_explain
+from modules.ui_components import (
+    get_image_base64, chara_img, icon_img, CHARA, IMAGE_DIR, character_explain
+)
 
 __all__ = ["render_column_list_page", "render_column_detail_page", "render_column_home_section"]
 
@@ -171,9 +173,14 @@ def render_column_detail_page(column_id: str):
         return
 
     # 戻るボタン
-    if st.button("← 記事一覧にもどる", type="secondary"):
-        st.session_state.current_page = "column"
-        st.rerun()
+    st.markdown("""
+    <a href="?page=column" target="_self" style="text-decoration:none;">
+        <button style="padding:8px 16px; border-radius:8px; border:1px solid #ddd; background:white; color:#2D3436; cursor:pointer;">
+            ← 記事一覧にもどる
+        </button>
+    </a>
+    <br><br>
+    """, unsafe_allow_html=True)
 
     # チャット・コラム用スタイル (ウラ金さんリスペクト)
     st.markdown("""<style>
@@ -296,13 +303,21 @@ def render_column_detail_page(column_id: str):
     # 戻るボタン
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("🏠 ホームに戻る", key="detail_back_home", use_container_width=True):
-            st.session_state.current_page = "home"
-            st.rerun()
+        st.markdown("""
+        <a href="?page=home" target="_self" style="text-decoration:none;">
+            <button style="width:100%; padding:12px; border-radius:12px; border:1px solid #ddd; background:white; color:#2D3436; cursor:pointer; font-weight:800;">
+                🏠 ホームに戻る
+            </button>
+        </a>
+        """, unsafe_allow_html=True)
     with col2:
-        if st.button("📰 一覧に戻る", key="detail_back_list", use_container_width=True):
-            st.session_state.current_page = "column"
-            st.rerun()
+        st.markdown("""
+        <a href="?page=column" target="_self" style="text-decoration:none;">
+            <button style="width:100%; padding:12px; border-radius:12px; border:1px solid #ddd; background:white; color:#2D3436; cursor:pointer; font-weight:800;">
+                📰 一覧に戻る
+            </button>
+        </a>
+        """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
     
