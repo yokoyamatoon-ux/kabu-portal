@@ -4,6 +4,8 @@ import json
 from datetime import datetime
 from modules.ui_components import get_image_base64, CHARA, IMAGE_DIR, character_explain
 
+__all__ = ["render_column_list_page", "render_column_detail_page", "render_column_home_section"]
+
 # ---------------------------------------------------------
 # 記事データの読み込み (data/columns.json から)
 # ---------------------------------------------------------
