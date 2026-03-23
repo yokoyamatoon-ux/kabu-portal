@@ -214,7 +214,7 @@ flex-wrap: wrap;
     render_market_hero(show_hero=True)
 
     # 4. カブ先生のコラム（ホーム用ミニ一覧）
-    from modules.col_unit import render_column_home_section
+    from modules.column_v3 import render_column_home_section
     render_column_home_section()
 
     # =====================
