@@ -27,7 +27,7 @@ COMMON_CSS = """
 # 記事データの読み込み (data/columns.json から)
 # ---------------------------------------------------------
 @st.cache_data(show_spinner=False)
-def load_columns_data():
+def load_columns_data_v2(salt: str):
     json_path = os.path.join("data", "columns.json")
     try:
         if os.path.exists(json_path):
@@ -37,7 +37,7 @@ def load_columns_data():
         st.error(f"Error loading columns.json: {e}")
     return []
 
-COLUMNS = load_columns_data()
+COLUMNS = load_columns_data_v2("2026.03.24.v1")
 
 # ---------------------------------------------------------
 # ホーム画面用：コラムプレビュー（4カラムグリッド）
