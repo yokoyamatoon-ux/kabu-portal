@@ -201,3 +201,18 @@ body .stApp section.main .force-white-text * {
 .force-white-text {
     color: #ffffff !important;
 }
+
+/* Hide streamlit header anchors very aggressively */
+.stApp a.header-anchor, 
+.stApp .header-anchor,
+.stApp a[href^="#"],
+.stApp h1 a, .stApp h2 a, .stApp h3 a, .stApp h4 a, .stApp h5 a, .stApp h6 a,
+[data-testid="stHeaderActionElements"],
+button[title="Copy link to this section"] {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+}

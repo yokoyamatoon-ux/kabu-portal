@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import base64
+import textwrap
 from datetime import datetime
 
 # 2. ページ設定 (絶対一番上に配置)
@@ -69,12 +70,12 @@ def render_navigation():
     
     # サイドバー実装
     with st.sidebar:
-        st.markdown(f"""
+        st.markdown(textwrap.dedent(f"""
 <div style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800;
             font-size:1.2rem; color:#FF6B6B; padding:8px 0 4px;">
   🎓 カブ先生のお金の学校
 </div>
-""", unsafe_allow_html=True)
+        """).strip(), unsafe_allow_html=True)
         
         pages = [
             ("home",    "🏠 ホーム"),

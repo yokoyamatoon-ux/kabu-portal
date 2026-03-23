@@ -7,6 +7,7 @@ from modules.ui_components import (
 )
 from datetime import datetime
 import os
+import textwrap
 from modules import col_unit as column_unit
 
 
@@ -19,28 +20,28 @@ def render_market_hero(show_hero=True):
         maneta_b64 = get_image_base64(CHARA["maneta"])
         update_date = datetime.now().strftime("%Y/%m/%d")
         
-        st.markdown(f"""
-        <div style="
-          background: linear-gradient(135deg, #FFE8E8 0%, #E8FFF8 100%);
-          border-radius: 24px;
-          padding: 28px 24px 20px;
-          margin-bottom: 20px;
-          box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-        ">
-          <div style="display:flex; align-items:center; gap:16px;">
-            <img src="data:image/png;base64,{hakase_b64}" 
-                 style="width:80px; flex-shrink:0;">
-            <div>
-              <h1 style="font-size:1.6rem; margin:0 0 6px; color:#2D3436; font-family:'M PLUS Rounded 1c', sans-serif;">カブ先生のお金のコラム</h1>
-              <p style="color:#636E72; margin:0; font-size:0.95rem; font-weight:500;">
-                投資の「キホンのキ」から裏話まで、毎日更新中じゃ！
-              </p>
-            </div>
-            <img src="data:image/png;base64,{maneta_b64}" 
-                 style="width:60px; flex-shrink:0; margin-left:auto;">
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(textwrap.dedent(f"""
+<div style="
+  background: linear-gradient(135deg, #FFE8E8 0%, #E8FFF8 100%);
+  border-radius: 24px;
+  padding: 28px 24px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+">
+  <div style="display:flex; align-items:center; gap:16px;">
+    <img src="data:image/png;base64,{hakase_b64}" 
+         style="width:80px; flex-shrink:0;">
+    <div>
+      <h1 style="font-size:1.6rem; margin:0 0 6px; color:#2D3436; font-family:'M PLUS Rounded 1c', sans-serif;">カブ先生のお金のコラム</h1>
+      <p style="color:#636E72; margin:0; font-size:0.95rem; font-weight:500;">
+        投資の「キホンのキ」から裏話まで、毎日更新中じゃ！
+      </p>
+    </div>
+    <img src="data:image/png;base64,{maneta_b64}" 
+         style="width:60px; flex-shrink:0; margin-left:auto;">
+  </div>
+</div>
+        """).strip(), unsafe_allow_html=True)
 
     # 2. 今日のマーケットミニグラフ（3列）
     st.markdown(f'<div class="section-title">📊 今日のマーケット <span style="font-size: 0.8rem; font-weight: 400; color: #636E72;">({datetime.now().strftime("%Y/%m/%d %H:%M")} 現在)</span></div>', 

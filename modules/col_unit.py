@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import json
+import textwrap
 from datetime import datetime
 from modules.ui_components import (
     get_image_base64, chara_img, icon_img, CHARA, IMAGE_DIR, character_explain
@@ -20,8 +21,16 @@ COMMON_CSS = """
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
 }
-.stApp a.header-anchor {
+/* Hide streamlit header anchors very aggressively */
+.stApp a.header-anchor, 
+.stApp .header-anchor,
+.stApp a[href^="#"],
+[data-testid="stHeaderActionElements"] {
     display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
 }
 </style>
 """
@@ -48,13 +57,13 @@ COLUMNS = load_columns_data()
 def render_column_home_section():
     st.markdown(COMMON_CSS, unsafe_allow_html=True)
     st.markdown("---")
-    st.markdown(f"""
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-        <h2 style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800; margin:0;">
-            🥬 カブ先生のお金のコラム
-        </h2>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(textwrap.dedent(f"""
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+    <h2 style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800; margin:0;">
+        🥬 カブ先生のお金のコラム
+    </h2>
+</div>
+    """).strip(), unsafe_allow_html=True)
 
     if not COLUMNS:
         st.info("現在、新しいコラムを準備中じゃ！")
@@ -98,29 +107,29 @@ def render_column_home_section():
 """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(f"""
-    <a href="?page=column" target="_self" style="text-decoration:none;">
-        <button style="width:100%; padding:12px; border-radius:12px; border:none; background:#FF6B6B; color:white; cursor:pointer; font-weight:800; font-size:1rem;">
-            📰 全てのコラムを見る →
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
+    st.markdown(textwrap.dedent(f"""
+<a href="?page=column" target="_self" style="text-decoration:none;">
+    <button style="width:100%; padding:12px; border-radius:12px; border:none; background:#FF6B6B; color:white; cursor:pointer; font-weight:800; font-size:1rem;">
+        📰 全てのコラムを見る →
+    </button>
+</a>
+    """).strip(), unsafe_allow_html=True)
 
 # ---------------------------------------------------------
 # 一覧ページ：マンガページ風レイアウト（2カラム）
 # ---------------------------------------------------------
     st.markdown(COMMON_CSS, unsafe_allow_html=True)
-    st.markdown(f"""
-    <div style="text-align:center; padding:40px 20px; background:#FFF; border-radius:24px; margin-bottom:30px; border:2px solid #FFE082;">
-        <h1 style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800; color:#2D3436; font-size:2.2rem; margin-bottom:12px;">
-            🥬 カブ先生の「お金のコラム」
-        </h1>
-        <p style="color:#636E72; font-size:1.1rem; max-width:600px; margin:0 auto;">
-            投資の最新ニュースや「今さら聞けない」経済の基本まで、<br>
-            カブ先生がわかりやすく解説するぞ！
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(textwrap.dedent(f"""
+<div style="text-align:center; padding:40px 20px; background:#FFF; border-radius:24px; margin-bottom:30px; border:2px solid #FFE082;">
+    <h1 style="font-family:'M PLUS Rounded 1c', sans-serif; font-weight:800; color:#2D3436; font-size:2.2rem; margin-bottom:12px;">
+        🥬 カブ先生の「お金のコラム」
+    </h1>
+    <p style="color:#636E72; font-size:1.1rem; max-width:600px; margin:0 auto;">
+        投資の最新ニュースや「今さら聞けない」経済の基本まで、<br>
+        カブ先生がわかりやすく解説するぞ！
+    </p>
+</div>
+    """).strip(), unsafe_allow_html=True)
 
     # 博士の挨拶
     character_explain(
@@ -274,31 +283,30 @@ def render_column_detail_page(column_id: str):
         """, unsafe_allow_html=True)
 
     # ③ 本文コンテナ (HTMLとMarkdownを統一)
-    body_html = article["body"].replace("\n", "<br>") # 簡易的な変換
-    st.markdown(f"""
-    <div class="column-section">
-        <div class="column-body">
-            <div class="ura-chat-flex">
-                <div style="flex-shrink:0;">{hakase_icon}</div>
-                <div class="ura-bubble ura-bubble-teacher">
-                    <b>カブ先生：</b><br>
-                    今日は「{article['title']}」について、じっくり解説していくぞ！<br>
-                    この記事を読み終わる頃には、君も一つ「賢い投資家」に近づいているはずじゃ。
-                </div>
+    st.markdown(textwrap.dedent(f"""
+<div class="column-section">
+    <div class="column-body">
+        <div class="ura-chat-flex">
+            <div style="flex-shrink:0;">{hakase_icon}</div>
+            <div class="ura-bubble ura-bubble-teacher">
+                <b>カブ先生：</b><br>
+                今日は「{article['title']}」について、じっくり解説していくぞ！<br>
+                この記事を読み終わる頃には、君も一つ「賢い投資家」に近づいているはずじゃ。
             </div>
-            
-            {article["body"]}
+        </div>
+        
+        {article["body"]}
 
-            <div style="background:#F8F9FA; border-radius:12px; padding:20px; margin-top:40px; border-left:8px solid {article['category_color']};">
-                <div style="font-weight:800; color:#2D3436; margin-bottom:10px;">💡 今回の重要ポイント！</div>
-                <div style="font-size:0.95rem; line-height:1.6; color:#636E72;">
-                    投資の知識は一生の宝物じゃ。毎日少しずつでも良いから、わしと一緒に学んでいこう。
-                    わからないことがあれば、いつでも質問箱へおいで！
-                </div>
+        <div style="background:#F8F9FA; border-radius:12px; padding:20px; margin-top:40px; border-left:8px solid {article['category_color']};">
+            <div style="font-weight:800; color:#2D3436; margin-bottom:10px;">💡 今回の重要ポイント！</div>
+            <div style="font-size:0.95rem; line-height:1.6; color:#636E72;">
+                投資の知識は一生の宝物じゃ。毎日少しずつでも良いから、わしと一緒に学んでいこう。
+                わからないことがあれば、いつでも質問箱へおいで！
             </div>
         </div>
     </div>
-    """, unsafe_allow_html=True)
+</div>
+    """).strip(), unsafe_allow_html=True)
 
     # 前後の記事へのナビゲーション
     try:
