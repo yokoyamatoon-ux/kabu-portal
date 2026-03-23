@@ -20,11 +20,16 @@ def load_columns():
 def render_column_preview():
     """ホーム画面用のコラムプレビュー（4列グリッド、旧ニュース形式）"""
     columns = load_columns()
+    # 表示用のコラム（データがなければ「準備中」を4つ）
     if not columns:
-        return
-
-    # 最新4件
-    latest_cols = columns[:4]
+        latest_cols = [
+            {"id": "prep1", "date": "Coming Soon", "title": "新しいコラムを準備中じゃ！", "thumbnail": ""},
+            {"id": "prep2", "date": "Coming Soon", "title": "投資の裏話もお楽しみに...", "thumbnail": ""},
+            {"id": "prep3", "date": "Coming Soon", "title": "カブ先生執筆中...", "thumbnail": ""},
+            {"id": "prep4", "date": "Coming Soon", "title": "近日公開予定✨", "thumbnail": ""},
+        ]
+    else:
+        latest_cols = columns[:4]
 
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 8px; margin: 20px 0 15px;">
@@ -50,18 +55,18 @@ def render_column_preview():
                 box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #f0f0f0;
                 transition: transform 0.2s; cursor: pointer; height: 100%;
             ">
-                <img src="data:image/png;base64,{b64}" style="width:100%; height:140px; object-fit:cover;">
+                <img src="data:image/png;base64,{b64}" style="width:100%; height:140px; object-fit:cover; opacity:{0.6 if 'prep' in col['id'] else 1.0};">
                 <div style="padding: 15px;">
                     <div style="background:#FF6B6B; color:white; padding:2px 8px; border-radius:10px; font-size:0.75rem; display:inline-block; margin-bottom:8px;">🥬 今日のコラム</div>
                     <div style="font-size:0.75rem; color:#888; margin-bottom:4px;">{col['date']}</div>
-                    <div style="font-size:0.95rem; font-weight:800; color:#2D3436; margin-bottom:12px; line-height:1.3; min-height:2.6em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
+                    <div style="font-size:0.95rem; font-weight:800; color:{'#888' if 'prep' in col['id'] else '#2D3436'}; margin-bottom:12px; line-height:1.3; min-height:2.6em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
                         {col['title']}
                     </div>
                     <div style="background:#FFF9F0; border:1px solid #FFE082; color:#E67E22; border-radius:20px; padding:6px 12px; font-size:0.85rem; text-align:center; font-weight:700;">🥬 カブ博士に聞く</div>
                 </div>
             </div>
             """, unsafe_allow_html=True)
-            if st.button("読む →", key=f"preview_read_{col['id']}", use_container_width=True):
+            if st.button("読む →", key=f"preview_read_{col['id']}", use_container_width=True, disabled=('prep' in col['id'])):
                 st.session_state.current_page = "column"
                 st.session_state.selected_column_id = col['id']
                 st.rerun()
