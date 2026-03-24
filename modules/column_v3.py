@@ -228,30 +228,43 @@ def render_column_detail_page(column_id: str):
 </div>
 """, unsafe_allow_html=True)
 
-    # ヘッダー画像
+    # 本文 — markdownとして別途レンダリング（rawにならない）
+    st.markdown('<div class="col-detail-body">', unsafe_allow_html=True)
+    
+    # 画像の読み込み（アイキャッチから本文中へ移動）
     img_name = article.get('image', f"{article['id']}.jpg")
     img_path = os.path.join(IMAGE_DIR, "column", img_name)
     img_b64 = get_image_base64(img_path)
-    if img_b64:
-        st.markdown(f"""<div style="border-radius:20px; overflow:hidden; margin-bottom:36px;
-    box-shadow:0 12px 36px rgba(0,0,0,0.10);">
-  <img src="data:image/jpeg;base64,{img_b64}" style="width:100%; height:auto; display:block;">
-</div>""", unsafe_allow_html=True)
-
-    # カブ先生のひとこと
-    hakase_icon = chara_img('hakase', width=50)
-    st.markdown(f"""<div class="col-kabu-bubble">
-  <div style="flex-shrink:0;">{hakase_icon}</div>
-  <div class="col-kabu-text">
-    <b>カブ先生：</b><br>
-    今日は「{article['title']}」について, じっくり解説していくぞ！<br>
-    読み終わる頃には, 一歩「賢い投資家」に近づいているはずじゃ。
+    
+    parts = article["body"].split('\n\n')
+    
+    if img_b64 and len(parts) >= 2:
+        # 1. 最初の見出しと段落を表示
+        st.markdown(parts[0] + "\n\n" + parts[1])
+        
+        # 2. マンガ解説セクションを挿入
+        st.markdown(f"""
+<div style="background: linear-gradient(135deg, #FFF9F0, #FDF7F5); border-radius: 20px; padding: 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); margin: 40px 0; border: 2px dashed #FFD3B6;">
+  <div style="text-align:center; margin-bottom:20px;">
+    <span style="background:#FF6B6B; color:white; padding:8px 20px; border-radius:24px; font-weight:800; font-size:1.05rem; letter-spacing:1px; box-shadow: 0 4px 12px rgba(255,107,107,0.3);">
+      📖 マンガでサクッと解説！
+    </span>
   </div>
+  <img src="data:image/png;base64,{img_b64}" style="width:100%; border-radius:12px; display:block; border: 1px solid #eee;">
+</div>
+""", unsafe_allow_html=True)
+        
+        # 3. 残りの本文を表示
+        if len(parts) > 2:
+            st.markdown("\n\n".join(parts[2:]))
+    else:
+        # 画像がない、または文章が短い場合はそのまま表示
+        if img_b64:
+            st.markdown(f"""<div style="border-radius:20px; overflow:hidden; margin-bottom:36px; box-shadow:0 12px 36px rgba(0,0,0,0.10);">
+  <img src="data:image/png;base64,{img_b64}" style="width:100%; height:auto; display:block;">
 </div>""", unsafe_allow_html=True)
+        st.markdown(article["body"])
 
-    # 本文 — markdownとして別途レンダリング（rawにならない）
-    st.markdown('<div class="col-detail-body">', unsafe_allow_html=True)
-    st.markdown(article["body"])
     st.markdown('</div>', unsafe_allow_html=True)
 
     # まとめボックス
