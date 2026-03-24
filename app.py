@@ -77,7 +77,7 @@ def render_navigation():
   🎓 カブ先生のお金の学校
 </div>
     <div style="font-size: 0.65rem; color: #FF6B6B; font-weight: 800; margin-bottom: 12px;">
-    Update: 2026-03-24 v3.2 (Force Reloaded)
+    Update: 2026-03-24 v3.3 (Force Reloaded)
 </div>
         """).strip(), unsafe_allow_html=True)
         

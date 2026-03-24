@@ -37,7 +37,7 @@ def load_columns_data_v2(salt: str):
         st.error(f"Error loading columns.json: {e}")
     return []
 
-COLUMNS = load_columns_data_v2("2026.03.24.v1")
+COLUMNS = load_columns_data_v2("2026.03.24.v3.3")
 
 # ---------------------------------------------------------
 # ホーム画面用：コラムプレビュー（4カラムグリッド）
