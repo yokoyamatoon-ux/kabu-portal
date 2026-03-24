@@ -78,7 +78,7 @@ def render_navigation():
   🎓 カブ先生のお金の学校
 </div>
     <div style="font-size: 0.65rem; color: #FF6B6B; font-weight: 800; margin-bottom: 12px;">
-    🚀 Automatic Update Enabled (mtime)
+    🚀 Auto-Deploy active (GitHub Actions Sync)
 </div>
         """).strip(), unsafe_allow_html=True)
         
