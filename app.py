@@ -22,6 +22,7 @@ from modules import column_v3 as col_unit # v3 forced update
 # SEO & Meta Tags
 st.markdown("""
 <head>
+  <meta name="google-site-verification" content="TsTsgjlkKlTnkHl1LJRIn34Dod1cL5afsAv_Td9DCLU" />
   <meta name="description" content="カブ先生が教える、初心者・女性・子供向けのだれでもわかる投資教育ポータル。マンガやクイズで楽しくお金について学ぼう。">
   <meta property="og:title" content="カブ先生のだれでもわかるお金の学校">
   <meta property="og:description" content="初心者向け投資教育ポータル。マンガやクイズでお金について楽しく学べます。">
