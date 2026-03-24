@@ -37,12 +37,11 @@ def load_columns_data_v2(salt: str):
         st.error(f"Error loading columns.json: {e}")
     return []
 
-COLUMNS = load_columns_data_v2("2026.03.24.v3.3")
-
 # ---------------------------------------------------------
 # ホーム画面用：コラムプレビュー（4カラムグリッド）
 # ---------------------------------------------------------
 def render_column_home_section():
+    articles = load_columns_data_v2("2026.03.24.v3.4")
     st.markdown(COMMON_CSS, unsafe_allow_html=True)
     st.markdown("---")
     st.markdown("""
@@ -53,12 +52,12 @@ def render_column_home_section():
 </div>
 """, unsafe_allow_html=True)
 
-    if not COLUMNS:
+    if not articles:
         st.info("現在、新しいコラムを準備中じゃ！")
         return
 
     cols = st.columns(4)
-    display_columns = COLUMNS[:4]
+    display_columns = articles[:4]
     for col, article in zip(cols, display_columns):
         with col:
             img_name = article.get('image', f"{article['id']}.jpg")
@@ -106,6 +105,7 @@ def render_column_home_section():
 # 一覧ページ：2カラムグリッド
 # ---------------------------------------------------------
 def render_column_list_page():
+    articles = load_columns_data_v2("2026.03.24.v3.4")
     st.markdown(COMMON_CSS, unsafe_allow_html=True)
     st.markdown("""
 <div style="text-align:center; padding:40px 20px; background:#FFF;
@@ -129,12 +129,12 @@ def render_column_list_page():
 
     st.markdown('<div style="margin-top:30px;"></div>', unsafe_allow_html=True)
 
-    if not COLUMNS:
+    if not articles:
         st.info("現在、新しいコラムを準備中じゃ！")
         return
 
     cols = st.columns(2)
-    for i, article in enumerate(COLUMNS):
+    for i, article in enumerate(articles):
         with cols[i % 2]:
             img_name = article.get('image', f"{article['id']}.jpg")
             img_path = os.path.join(IMAGE_DIR, "column", img_name)
@@ -172,7 +172,8 @@ def render_column_list_page():
 # 詳細ページ
 # ---------------------------------------------------------
 def render_column_detail_page(column_id: str):
-    article = next((c for c in COLUMNS if c["id"] == column_id), None)
+    articles = load_columns_data_v2("2026.03.24.v3.4")
+    article = next((c for c in articles if c["id"] == column_id), None)
     if not article:
         st.error("記事が見つかりませんでした。")
         st.markdown('<a href="?page=column" target="_self">← 一覧に戻る</a>', unsafe_allow_html=True)
@@ -237,8 +238,8 @@ def render_column_detail_page(column_id: str):
   <div style="flex-shrink:0;">{hakase_icon}</div>
   <div class="col-kabu-text">
     <b>カブ先生：</b><br>
-    今日は「{article['title']}」について、じっくり解説していくぞ！<br>
-    読み終わる頃には、一歩「賢い投資家」に近づいているはずじゃ。
+    今日は「{article['title']}」について, じっくり解説していくぞ！<br>
+    読み終わる頃には, 一歩「賢い投資家」に近づいているはずじゃ。
   </div>
 </div>""", unsafe_allow_html=True)
 
@@ -259,9 +260,9 @@ def render_column_detail_page(column_id: str):
 
     # 前後ナビゲーション
     try:
-        current_idx = next(i for i, c in enumerate(COLUMNS) if c["id"] == column_id)
-        prev_article = COLUMNS[current_idx - 1] if current_idx > 0 else None
-        next_article = COLUMNS[current_idx + 1] if current_idx < len(COLUMNS) - 1 else None
+        current_idx = next(i for i, c in enumerate(articles) if c["id"] == column_id)
+        prev_article = articles[current_idx - 1] if current_idx > 0 else None
+        next_article = articles[current_idx + 1] if current_idx < len(articles) - 1 else None
 
         if prev_article or next_article:
             col_prev, col_next = st.columns(2)
