@@ -27,8 +27,14 @@ COMMON_CSS = """
 # 記事データの読み込み (data/columns.json から)
 # ---------------------------------------------------------
 @st.cache_data(show_spinner=False)
-def load_columns_data_v2(salt: str):
+def load_columns_data_auto():
     json_path = os.path.join("data", "columns.json")
+    # ファイルの更新日時を引数に含めることで、ファイル更新時に自動的にキャッシュを無効化する
+    mtime = os.path.getmtime(json_path) if os.path.exists(json_path) else 0
+    return _load_columns_internal(json_path, mtime)
+
+@st.cache_data(show_spinner=False)
+def _load_columns_internal(json_path: str, mtime: float):
     try:
         if os.path.exists(json_path):
             with open(json_path, "r", encoding="utf-8") as f:
@@ -41,7 +47,7 @@ def load_columns_data_v2(salt: str):
 # ホーム画面用：コラムプレビュー（4カラムグリッド）
 # ---------------------------------------------------------
 def render_column_home_section():
-    articles = load_columns_data_v2("2026.03.24.v3.4")
+    articles = load_columns_data_auto()
     st.markdown(COMMON_CSS, unsafe_allow_html=True)
     st.markdown("---")
     st.markdown("""
@@ -105,7 +111,7 @@ def render_column_home_section():
 # 一覧ページ：2カラムグリッド
 # ---------------------------------------------------------
 def render_column_list_page():
-    articles = load_columns_data_v2("2026.03.24.v3.4")
+    articles = load_columns_data_auto()
     st.markdown(COMMON_CSS, unsafe_allow_html=True)
     st.markdown("""
 <div style="text-align:center; padding:40px 20px; background:#FFF;
@@ -172,7 +178,7 @@ def render_column_list_page():
 # 詳細ページ
 # ---------------------------------------------------------
 def render_column_detail_page(column_id: str):
-    articles = load_columns_data_v2("2026.03.24.v3.4")
+    articles = load_columns_data_auto()
     article = next((c for c in articles if c["id"] == column_id), None)
     if not article:
         st.error("記事が見つかりませんでした。")
