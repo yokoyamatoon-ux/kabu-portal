@@ -35,6 +35,6 @@ jobs:
           username: ${{ secrets.XSERVER_FTP_USER }}
           password: ${{ secrets.XSERVER_FTP_PASSWORD }}
           local-dir: web/dist/
-          server-dir: /
-          # 以前のiframeや古いファイルをすべて消して、新Webアプリに置き換える
+          server-dir: /public_html/
+          # 確実に古いファイルを消して、新しいWebアプリだけにする
           dangerous-clean-slate: true
