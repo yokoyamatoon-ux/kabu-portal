@@ -35,6 +35,6 @@ jobs:
           username: ${{ secrets.XSERVER_FTP_USER }}
           password: ${{ secrets.XSERVER_FTP_PASSWORD }}
           local-dir: web/dist/
-          server-dir: /kabu_portal/
-          # 既存の古いファイルを削除してクリーンな状態にする
+          server-dir: /
+          # 以前のiframeや古いファイルをすべて消して、新Webアプリに置き換える
           dangerous-clean-slate: true
