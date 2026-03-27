@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color: #2D3436;
+  background-color: #FFF9F0;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+}
+
+/* Manga Style utility classes */
+@layer components {
+  .section-title {
+    @apply font-black text-xl mb-4 text-text flex items-center gap-2;
+  }
+  
+  .kabu-card {
+    @apply bg-card rounded-manga p-4 shadow-manga border border-gray-100 transition-all duration-200;
+  }
+  
+  .kabu-card-hover {
+    @apply hover:-translate-y-1 hover:shadow-manga-hover;
+  }
+  
+  .manga-bubble {
+    @apply bg-white rounded-bubble p-4 border border-gray-100 shadow-sm relative;
+  }
+}

@@ -88,14 +88,25 @@ def render_explore_page():
         </div>
         """, unsafe_allow_html=True)
         
+        # 銘柄情報を一括取得して高速化
+        tickers = [s["ticker"] for s in theme["stocks"]]
+        stocks_info = market_data.get_multiple_stocks_info(tickers)
+        
         for stock in theme["stocks"]:
-            info = market_data.get_stock_info(stock["ticker"])
+            ticker = stock["ticker"]
+            info = stocks_info.get(ticker)
+            
+            # キャッシュにある個別情報（名前など）を補完
+            full_info = market_data.get_stock_info(ticker)
+            if full_info:
+                info = full_info
+                
             if info:
-                is_jp = ".T" in stock["ticker"]
+                is_jp = ".T" in ticker
                 currency_symbol = "¥" if is_jp else "$"
                 color = "🟢" if info['change_pct'] >= 0 else "🔴"
                 
-                with st.expander(f"{color} {stock['name']} ({stock['ticker']}) - {currency_symbol}{info['price']:,}"):
+                with st.expander(f"{color} {stock['name']} ({ticker}) - {currency_symbol}{info['price']:,}"):
                     st.write(f"前日比: {info['change_pct']:+.2f}%")
                     col1, col2 = st.columns(2)
                     with col1:

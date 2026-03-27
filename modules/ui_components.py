@@ -20,19 +20,19 @@ TOP_BANNERS = [
 ]
 
 def get_image_base64(path: str) -> str:
-    """画像ファイルをbase64文字列に変換。ファイルの更新日時をチェックしてキャッシュを更新。"""
+    """画像ファイルをbase64文字列に変換。キャッシュを長時間（1時間）保持して高速化。"""
     if not path or not os.path.exists(path): return ""
     
-    # ファイルの更新日時を取得してハッシュの代わりに使うことで、ファイル変更時にキャッシュを無効化する
-    mtime = os.path.getmtime(path)
-    return _get_image_base64_cached(path, mtime)
+    # 頻繁なOSのファイルアクセスを避けるため、パスのみをキーにキャッシュ
+    # ファイルを変更した場合はStreamlitを再起動するか、開発モードなら自動検知される
+    return _get_image_base64_cached(path)
 
-@st.cache_data(show_spinner=False)
-def _get_image_base64_cached(path: str, mtime: float) -> str:
+@st.cache_data(show_spinner=False, ttl=3600)
+def _get_image_base64_cached(path: str) -> str:
     try:
         with open(path, "rb") as f:
             return base64.b64encode(f.read()).decode()
-    except:
+    except Exception:
         return ""
 
 def chara_img(key: str, width: int = 70) -> str:

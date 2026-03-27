@@ -1,0 +1,16 @@
+name: Keep App Awake
+
+on:
+  schedule:
+    # 毎日0時(JST 9時)に実行
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 手動実行も可能にします
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send keep-awake ping to Streamlit Cloud
+        run: |
+          curl -sL https://kabu-app-prw97nlg88fj6rxl977ptb.streamlit.app/ > /dev/null
+          echo "Keep-awake ping sent to Streamlit Cloud."

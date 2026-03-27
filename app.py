@@ -77,8 +77,13 @@ def render_navigation():
             font-size:1.2rem; color:#FF6B6B; padding:8px 0 4px;">
   🎓 カブ先生のお金の学校
 </div>
-    <div style="font-size: 0.65rem; color: #FF6B6B; font-weight: 800; margin-bottom: 12px;">
-    🚀 Auto-Deploy active (GitHub Actions Sync)
+<div style="display:flex; flex-direction:column; gap:2px; margin-bottom:12px;">
+    <div style="font-size: 0.65rem; color: #FF6B6B; font-weight: 800;">
+        🚀 Auto-Deploy active (GitHub Actions Sync)
+    </div>
+    <div style="font-size: 0.65rem; color: #00B894; font-weight: 800;">
+        🟢 System Status: Active 24/7 (Keep-Awake)
+    </div>
 </div>
         """).strip(), unsafe_allow_html=True)
         

@@ -88,59 +88,145 @@ THEMES = {
     },
 }
 
-@st.cache_data(ttl=300)
-def get_indices():
-    tickers = {"日経225": "^N225", "S&P500": "^GSPC", "ドル円": "JPY=X"}
+# ---------------------------------------------------------
+# 主要指数のデータ管理 (一括・高速・フォールバック対応)
+# ---------------------------------------------------------
+
+# 万が一取得に失敗した時や、起動直後のための仮データ
+FALLBACK_MARKET_DATA = {
+    "日経225 🇯🇵": {"price": 38500.0, "change_pct": 0.5, "ticker": "^N225"},
+    "S&P500 🇺🇸":  {"price": 5100.0, "change_pct": 0.3, "ticker": "^GSPC"},
+    "ドル円 💴":    {"price": 150.2, "change_pct": -0.1, "ticker": "JPY=X"},
+}
+
+@st.cache_data(ttl=1200)
+def get_unified_market_data(period="1mo"):
+    """主要3指数の現在値と履歴を一括で取得する。失敗時は空を返すが、UI層でフォールバックさせる。"""
+    indices = {
+        "日経225 🇯🇵": "^N225",
+        "S&P500 🇺🇸":  "^GSPC",
+        "ドル円 💴":    "JPY=X",
+    }
     result = {}
-    for name, ticker in tickers.items():
-        # デフォルト値を先にセット
-        result[name] = {"price": "---", "change_pct": 0}
-        try:
-            t = yf.Ticker(ticker)
-            info = t.fast_info
-            if hasattr(info, "last_price") and info.last_price is not None:
-                price = info.last_price
-                prev = info.previous_close if hasattr(info, "previous_close") and info.previous_close else price
-                result[name] = {
-                    "price": round(price, 2),
-                    "change_pct": round((price - prev) / prev * 100, 2) if prev else 0
-                }
-        except Exception:
-            pass # デフォルト値が既にセットされているので何もしない
+    try:
+        tickers_list = list(indices.values())
+        # 一括ダウンロードが最もネットワーク的に効率的
+        data = yf.download(tickers_list, period=period, interval="1d", group_by='ticker', progress=False)
+        
+        for name, ticker in indices.items():
+            if ticker in data.columns.levels[0]:
+                hist = data[ticker]["Close"].dropna()
+                if not hist.empty:
+                    price = hist.iloc[-1]
+                    prev  = hist.iloc[-2] if len(hist) > 1 else price
+                    result[name] = {
+                        "price": price,
+                        "change_pct": (price - prev) / prev * 100 if prev else 0,
+                        "history": hist,
+                        "ticker": ticker
+                    }
+    except Exception as e:
+        print(f"Unified fetch error: {e}")
+    
     return result
 
-@st.cache_data(ttl=300)
+def get_indices():
+    """主要指数の現在価格を取得（サイドバー用）。unified関数の結果から抽出。"""
+    data = get_unified_market_data(period="1mo")
+    
+    final_indices = {}
+    for name, fb in FALLBACK_MARKET_DATA.items():
+        # 表示名を market_history 型に合わせるためキー調整
+        short_name = name.split(" ")[0] # "日経225"
+        if name in data:
+            final_indices[short_name] = data[name]
+        else:
+            final_indices[short_name] = fb # 失敗時はフォールバック値を返す
+            
+    return final_indices
+
+def get_market_history(period="1mo"):
+    """主要指数の履歴データを取得（ホーム画面用）。unified関数の結果をそのまま返すかフォールバック。"""
+    data = get_unified_market_data(period=period)
+    
+    # 完全に空の場合はフォールバック情報を混ぜて返す（チャートは出ないが数字は出る）
+    if not data:
+        return FALLBACK_MARKET_DATA
+    return data
+
+@st.cache_data(ttl=1200)
+def get_multiple_stocks_info(tickers: list):
+    """複数銘柄の情報を一括で取得してキャッシュ（性能向上用）"""
+    if not tickers: return {}
+    
+    result = {}
+    try:
+        # 価格と履歴を一括ダウンロード
+        data = yf.download(tickers, period="1y", interval="1d", group_by='ticker', progress=False)
+        
+        for ticker in tickers:
+            try:
+                if ticker in data.columns.levels[0]:
+                    hist = data[ticker]["Close"].dropna()
+                    if not hist.empty:
+                        price = hist.iloc[-1]
+                        prev  = hist.iloc[-2] if len(hist) > 1 else price
+                        
+                        # 個別名などは get_stock_info の個別キャッシュに任せるか、
+                        # ここでは最低限の情報だけ返す
+                        result[ticker] = {
+                            "ticker":     ticker,
+                            "price":      round(price, 2),
+                            "change_pct": round((price - prev) / prev * 100, 2) if prev else 0,
+                            "history":    hist,
+                        }
+            except:
+                pass
+    except:
+        pass
+    return result
+
+@st.cache_data(ttl=1200)
 def get_stock_info(ticker: str):
+    """個別銘柄の情報を取得（詳細ページ・検索用）"""
     try:
         t = yf.Ticker(ticker)
-        info = t.fast_info
-        hist = t.history(period="1y")
+        # 履歴と基本情報を並行して取得（内部的にキャッシュされる）
+        hist = t.history(period="1y")["Close"]
+        
+        # t.info は非常に重いため、必要な最低限の情報（fast_info）を優先
+        f_info = t.fast_info
+        price = f_info.last_price
+        prev  = f_info.previous_close or price
+        
+        # 名前だけは t.info から取得せざるを得ない場合があるが、まずは安全に取得
+        name = ticker
+        try:
+            name = t.info.get("longName") or t.info.get("shortName") or ticker
+        except:
+            pass
+            
         return {
-            "name":       t.info.get("longName") or t.info.get("shortName") or ticker,
+            "name":       name,
             "ticker":     ticker,
-            "price":      round(info.last_price, 2),
-            "change_pct": round((info.last_price - info.previous_close) / info.previous_close * 100, 2),
-            "history":    hist["Close"],
+            "price":      round(price, 2),
+            "change_pct": round((price - prev) / prev * 100, 2) if prev else 0,
+            "history":    hist,
         }
-    except:
+    except Exception as e:
+        print(f"Error fetching stock info for {ticker}: {e}")
         return None
 
-@st.cache_data(ttl=300)
+@st.cache_data(ttl=1200)
 def search_stock(query: str):
     """
     企業名（日本語・英語）・ティッカー・証券コードどれでも検索できる。
-    
-    検索の優先順位：
-    1. 日本語辞書で部分一致（高速・精度高）
-    2. 証券コード4桁（例：7203）
-    3. 英字ティッカー直打ち（例：AAPL）
-    4. yfinance Search API（上記で見つからない場合・上場企業ほぼ全件対応）
     """
     query = query.strip()
     if not query:
         return None
 
-    # 1. 日本語辞書で部分一致
+    # 1. 日本語辞書で部分一致（最速）
     query_lower = query.lower()
     for name, ticker in STOCK_DICT.items():
         if query_lower in name.lower() or name.lower() in query_lower:
@@ -156,25 +242,20 @@ def search_stock(query: str):
         if result:
             return result
 
-    # 4. yfinance Search API（辞書にない企業・英語名・あいまい検索）
+    # 4. yfinance Search API
     try:
         search_results = yf.Search(query, max_results=5)
         quotes = search_results.quotes
-        
-        if not quotes:
-            return None
-        
-        # 最初のヒット（最も関連性が高い）を使用
-        best_ticker = quotes[0].get("symbol")
-        if best_ticker:
-            result = get_stock_info(best_ticker)
-            if result:
-                # 候補が複数ある場合は候補リストも返す（UI表示用）
-                result["search_candidates"] = [
-                    {"name": q.get("longname") or q.get("shortname", ""), "ticker": q.get("symbol", "")}
-                    for q in quotes[:3]
-                ]
-                return result
+        if quotes:
+            best_ticker = quotes[0].get("symbol")
+            if best_ticker:
+                result = get_stock_info(best_ticker)
+                if result:
+                    result["search_candidates"] = [
+                        {"name": q.get("longname") or q.get("shortname", ""), "ticker": q.get("symbol", "")}
+                        for q in quotes[:3]
+                    ]
+                    return result
     except Exception:
         pass
 
