@@ -35,4 +35,6 @@ jobs:
           username: ${{ secrets.XSERVER_FTP_USER }}
           password: ${{ secrets.XSERVER_FTP_PASSWORD }}
           local-dir: web/dist/
-          server-dir: /kabu_portal/ # Xserver上の公開ディレクトリ
+          server-dir: /kabu_portal/
+          # 既存の古いファイルを削除してクリーンな状態にする
+          dangerous-clean-slate: true
