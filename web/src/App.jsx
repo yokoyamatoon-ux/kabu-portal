@@ -68,7 +68,7 @@ function App() {
              ))}
           </div>
         </div>
-        <img src="/placeholder.jpg" alt="banner" className="w-full md:w-1/3 rounded-2xl object-cover shadow-2xl relative z-10 hover:scale-105 transition-transform duration-500" onError={(e) => e.target.style.display='none'} />
+        <img src="/images/Top01.jpg" alt="banner" className="w-full md:w-1/3 rounded-2xl object-cover shadow-2xl relative z-10 hover:scale-105 transition-transform duration-500" />
       </MangaCard>
 
       <section className="grid grid-cols-2 md:grid-cols-4 gap-4">

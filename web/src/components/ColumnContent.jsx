@@ -108,7 +108,7 @@ export const ColumnDetail = ({ columnId, onBack }) => {
 
           <div className="mt-12 pt-8 border-t flex items-center gap-6">
              <div className="w-20 h-20 rounded-full bg-secondary-light flex items-center justify-center border-2 border-secondary overflow-hidden shrink-0">
-                <img src="/src/assets/images/kabuhakase_new.png" alt="hakase" className="w-16 h-16 object-contain" />
+                <img src="/images/kabuhakase_new.png" alt="hakase" className="w-16 h-16 object-contain" />
              </div>
              <div>
                 <div className="font-black text-text mb-1">カブ先生より一言</div>
