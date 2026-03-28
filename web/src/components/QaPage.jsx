@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { chara_img, CHARA, CharacterSpeech } from './MangaComponents'
+import { CharacterSpeech } from './MangaComponents'
+import { CHARA } from '../lib/constants'
 
 const QA_DATABASE = {
     "円安ってなに？": "日本円の価値が他の国の通貨（ドルなど）に対して低くなることじゃ。輸入品が値上がりする反面、海外に物を売る輸出企業にとってはチャンスになるぞ！",

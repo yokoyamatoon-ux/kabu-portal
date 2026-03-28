@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MangaCard, CharacterSpeech, SectionHeader, chara_img } from './MangaComponents'
+import { MangaCard, CharacterSpeech, SectionHeader } from './MangaComponents'
 import { CHARA } from '../lib/constants'
 import MONEY_SECRETS from '../data/money_secrets.json'
 
