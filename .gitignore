@@ -38,6 +38,7 @@ ENV/
 *.csv
 *.json
 !x_news_posts.json
+!web/package-lock.json
 
 # OS
 .DS_Store
