@@ -5,31 +5,17 @@ on:
     branches:
       - main
     paths:
-      - 'web/**'
+      - 'web/dist/**'
       - '.github/workflows/deploy_web.yml'
-      - '.gitignore'
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
-      - name: 🏗️ Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: 📦 Install dependencies
-        working-directory: web
-        run: npm install
-
-      - name: 🚀 Build Web App
-        working-directory: web
-        run: npm run build
-
-      - name: 📂 Sync to Xserver (okane-no-manabi.jp)
+      - name: 📂 Sync dist to Xserver (okane-no-manabi.jp)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.XSERVER_FTP_HOST }}
