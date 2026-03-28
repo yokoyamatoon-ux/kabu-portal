@@ -4,6 +4,11 @@ import { HeroSlider } from './components/HeroSlider'
 import { MangaCard, CharacterSpeech, SectionHeader } from './components/MangaComponents'
 import { CHARA, NAVIGATION } from './lib/constants'
 import { ColumnList, ColumnDetail } from './components/ColumnContent'
+import { MangaPage } from './components/MangaPage'
+import { QuizPage } from './components/QuizPage'
+import { QaPage } from './components/QaPage'
+import { ManetaDiaryPage } from './components/ManetaDiary'
+import { MoneySecretPage } from './components/MoneySecret'
 import { Simulator } from './components/Simulator'
 import { getMarketData } from './lib/MarketData'
 
@@ -91,6 +96,39 @@ function App() {
          ))}
       </section>
 
+      {/* Promo Grid specific to Streamlit parity */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <MangaCard 
+          className="group cursor-pointer p-6 bg-[#111] border-[3px] border-[#FFE66D] hover:-translate-y-1 transition-all shadow-xl hover:shadow-2xl flex flex-col items-center"
+          onClick={() => navigateTo('money_secret')}
+          style={{ backgroundImage: 'repeating-linear-gradient(-45deg, #111, #111 20px, #cca623 20px, #cca623 40px)' }}
+        >
+          <div className="bg-[#111] text-[#FFDE00] font-black border-[3px] border-[#FFDE00] rounded-full px-6 py-1 -mt-10 mb-4 whitespace-nowrap">⚠️ お金の裏事情ファイル 🆕</div>
+          <div className="border-2 border-gray-600 rounded-lg overflow-hidden w-full bg-black mb-4">
+            <img src="/images/Ura.jpg" alt="ura" className="w-full h-auto object-contain opacity-90 group-hover:opacity-100" />
+          </div>
+          <div className="bg-[#2d3436]/90 border border-white/10 text-white p-4 rounded-lg text-sm leading-relaxed w-full">
+            <span className="text-[#FFDE00] font-bold block mb-1">世の中には表に出ない「お金のダークサイド」が存在します。</span>
+            このファイルでは、初心者が陥りやすい罠や、知っておくべき金融の裏ルールをこっそり教えます。絶対に真似してはいけませんよ！
+          </div>
+        </MangaCard>
+
+        <MangaCard 
+          className="group cursor-pointer p-6 bg-[#fff9f0] border-[3px] border-danger hover:-translate-y-1 transition-all shadow-xl hover:shadow-2xl flex flex-col items-center"
+          onClick={() => navigateTo('maneta_diary')}
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #fff9f0, #fff9f0 20px, #ffe8e8 20px, #ffe8e8 40px)' }}
+        >
+          <div className="bg-danger text-white font-black border-[3px] border-[#ff4757] rounded-full px-6 py-1 -mt-10 mb-4 whitespace-nowrap">📈 マネ太のはじめての投資 🆕</div>
+          <div className="border-2 border-[#FFB8B8] rounded-lg overflow-hidden w-full bg-white mb-4">
+            <img src="/images/hajimete.jpg" alt="maneta" className="w-full h-auto object-contain opacity-90 group-hover:opacity-100" />
+          </div>
+          <div className="bg-white/90 border border-[#ffcccc] text-[#333] p-4 rounded-lg text-sm leading-relaxed w-full">
+            <span className="text-danger font-bold block mb-1">ボクのお小遣い、どうなっちゃうの！？</span>
+            初心者マネ太が実際に投資プランに挑戦していくドキュメンタリー！日々の資産運用や葛藤を赤裸々に綴る投資日記をチェックしてね👦✨
+          </div>
+        </MangaCard>
+      </section>
+
       <CharacterSpeech 
         chara={CHARA.hakase} 
         text="投資の基本を知るなら、まずはこのコラムから見てみるのがおすすめじゃ！<br>毎日新しい情報を届けておるぞ。"
@@ -135,6 +173,11 @@ function App() {
   const renderContent = () => {
     switch (page) {
       case 'home': return renderHome()
+      case 'manga': return <MangaPage />
+      case 'quiz': return <QuizPage navigateTo={navigateTo} />
+      case 'qa': return <QaPage />
+      case 'money_secret': return <MoneySecretPage />
+      case 'maneta_diary': return <ManetaDiaryPage navigateTo={navigateTo} />
       case 'column': return <ColumnList onSelect={handleColumnSelect} />
       case 'column_detail': return <ColumnDetail columnId={selectedColumn} onBack={() => navigateTo('column')} />
       case 'explore': return <Simulator />
