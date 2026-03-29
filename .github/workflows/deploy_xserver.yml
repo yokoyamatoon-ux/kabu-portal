@@ -3,29 +3,32 @@ name: Deploy to Xserver via FTP
 on:
   push:
     branches:
-      - main  # mainブランチにpushされた時（Antigravityが更新した時など）に自動実行されます
+      - main  # mainブランチにpushされた時に自動実行
 
 jobs:
   web-deploy:
-    name: 🎉 Deploy
+    name: 🎉 Build & Deploy React App
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
       
-      - name: 📂 Sync files
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          
+      - name: 🔨 Install Dependencies & Build
+        working-directory: ./web
+        run: |
+          npm ci
+          npm run build
+      
+      - name: 📂 Sync files (upload dist)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.XSERVER_FTP_HOST }}
           username: ${{ secrets.XSERVER_FTP_USER }}
           password: ${{ secrets.XSERVER_FTP_PASSWORD }}
-          server-dir: /kabu_portal/ # 新しいFTPアカウントのルートがpublic_htmlなので、その下のkabu_portalフォルダにアップロードします
-          exclude: |
-            **/.git*
-            **/.git*/**
-            .github/**
-            **/__pycache__/**
-            **/.streamlit/**
-            README.md
-            *.bat
-            *.ps1
+          server-dir: ./
+          local-dir: ./web/dist/
