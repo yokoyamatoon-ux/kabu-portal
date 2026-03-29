@@ -76,7 +76,31 @@ function App() {
         <img src="/images/Top01.jpg" alt="banner" className="w-full md:w-1/3 rounded-2xl object-cover shadow-2xl relative z-10 hover:scale-105 transition-transform duration-500" />
       </MangaCard>
 
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <section className="space-y-4">
+        <SectionHeader title="今日のマーケット" icon="📊" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {(marketData.length > 0 ? marketData : [
+             { label: '日経平均 🇯🇵', price: '---', change: '0.00' },
+             { label: 'S&P500 🇺🇸', price: '---', change: '0.00' },
+             { label: 'ドル円 💴', price: '---', change: '0.00' },
+          ]).map((item) => (
+            <MangaCard key={item.label} className="text-center p-6 bg-white border-2 border-transparent hover:border-primary/20">
+              <div className="text-xs text-muted font-bold mb-1">{item.label}</div>
+              <div className="text-3xl font-black text-text mb-2 animate-in fade-in zoom-in duration-300">{item.price}</div>
+              <div className={`text-sm font-black ${Number(item.change) >= 0 ? 'text-success' : 'text-danger'} animate-in slide-in-from-top-1 duration-500`}>
+                {Number(item.change) >= 0 ? '▲' : '▼'} {Math.abs(item.change)}%
+              </div>
+              <div className="h-12 flex items-end gap-1 mt-4 px-4">
+                 {item.history?.map((h, i) => (
+                   <div key={i} className="flex-1 bg-primary/10 rounded-t-sm transition-all duration-1000" style={{ height: `${h}%`, backgroundColor: Number(item.change) >= 0 ? 'rgba(0,184,148,0.2)' : 'rgba(255,118,117,0.2)' }}></div>
+                 ))}
+              </div>
+            </MangaCard>
+          ))}
+        </div>
+      </section>
+
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
          {NAVIGATION.map((nav) => (
            <MangaCard 
              key={nav.id} 
@@ -134,30 +158,6 @@ function App() {
         text="投資の基本を知るなら、まずはこのコラムから見てみるのがおすすめじゃ！<br>毎日新しい情報を届けておるぞ。"
         color="#FFF9F0"
       />
-
-      <section className="space-y-4">
-        <SectionHeader title="今日のマーケット" icon="📊" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {(marketData.length > 0 ? marketData : [
-             { label: '日経平均 🇯🇵', price: '---', change: '0.00' },
-             { label: 'S&P500 🇺🇸', price: '---', change: '0.00' },
-             { label: 'ドル円 💴', price: '---', change: '0.00' },
-          ]).map((item) => (
-            <MangaCard key={item.label} className="text-center p-6 bg-white border-2 border-transparent hover:border-primary/20">
-              <div className="text-xs text-muted font-bold mb-1">{item.label}</div>
-              <div className="text-3xl font-black text-text mb-2 animate-in fade-in zoom-in duration-300">{item.price}</div>
-              <div className={`text-sm font-black ${Number(item.change) >= 0 ? 'text-success' : 'text-danger'} animate-in slide-in-from-top-1 duration-500`}>
-                {Number(item.change) >= 0 ? '▲' : '▼'} {Math.abs(item.change)}%
-              </div>
-              <div className="h-12 flex items-end gap-1 mt-4 px-4">
-                 {item.history?.map((h, i) => (
-                   <div key={i} className="flex-1 bg-primary/10 rounded-t-sm transition-all duration-1000" style={{ height: `${h}%`, backgroundColor: Number(item.change) >= 0 ? 'rgba(0,184,148,0.2)' : 'rgba(255,118,117,0.2)' }}></div>
-                 ))}
-              </div>
-            </MangaCard>
-          ))}
-        </div>
-      </section>
 
       {/* Featured Column Section */}
       <section className="space-y-4">

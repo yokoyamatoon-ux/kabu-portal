@@ -1,10 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-export const MangaCard = ({ children, className = '', hover = true }) => (
+export const MangaCard = ({ children, className = '', hover = true, ...props }) => (
   <motion.div
     whileHover={hover ? { y: -8, scale: 1.02 } : {}}
     className={`bg-white rounded-manga p-4 shadow-manga border border-gray-100 ${className}`}
+    {...props}
   >
     {children}
   </motion.div>
