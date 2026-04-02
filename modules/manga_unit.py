@@ -31,10 +31,10 @@ manga_episodes = [
     },
     {
         "ep": 4,
-        "title": "NISAってなに？",
-        "summary": "税金がかからない！？おトクな制度のひみつ",
-        "image_path": os.path.join(MANGA_DIR, "Manga04.jpg"), # もし画像がない場合は制作中表示がでる
-        "thumbnail": os.path.join(MANGA_DIR, "Manga04.jpg"),
+        "title": "NISAの始め方",
+        "summary": "たったの3ステップ！投資デビューの最短ルートを教えるぞ✨",
+        "image_path": os.path.join(MANGA_DIR, "manga04.jpg"),
+        "thumbnail": os.path.join(MANGA_DIR, "manga04.jpg"),
         "topic": "nisa"
     },
     {

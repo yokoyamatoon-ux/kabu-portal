@@ -69,10 +69,13 @@ export const MoneySecretPage = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {MONEY_SECRETS.map((ep) => (
-          <MangaCard key={ep.ep} className="p-0 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:-translate-y-1 bg-white border border-gray-100 flex flex-col h-full" onClick={() => setSelectedEp(ep.ep)}>
+          <MangaCard key={ep.ep} className="p-0 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:-translate-y-1 bg-white border border-gray-100 flex flex-col h-full relative" onClick={() => setSelectedEp(ep.ep)}>
              <div className="h-48 bg-gray-50 flex items-center justify-center overflow-hidden relative border-b border-gray-100">
                <img src={`/images/urakane0${ep.ep}.jpg`} alt={ep.title} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
                <div className="hidden absolute inset-0 items-center justify-center text-6xl">🕵️</div>
+               {ep.ep === 1 && (
+                 <div className="absolute top-4 left-4 bg-danger text-white text-[0.65rem] font-black px-3 py-1 rounded-full shadow-lg border border-white z-30 animate-pulse">NEW!</div>
+               )}
              </div>
              <div className="p-6 flex-1 flex flex-col">
                 <div className="text-danger font-black text-xs mb-1">第{ep.ep}話</div>

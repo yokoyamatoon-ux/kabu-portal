@@ -6,7 +6,7 @@ const MANGA_EPISODES = [
   { ep: 1, title: '株ってなに？', summary: '会社の「オーナーの一部」になることを学ぼう！', image: '/images/Manga01.jpg', topic: 'basic' },
   { ep: 2, title: '配当金ってなに？', summary: '持ってるだけでもらえるお小遣い！', image: '/images/Manga03.jpg', topic: 'dividend' },
   { ep: 3, title: '株価はなぜ動くの？', summary: '需要と供給のしくみをマンガで理解しよう', image: '/images/Manga02.jpg', topic: 'market' },
-  { ep: 4, title: 'NISAってなに？', summary: '税金がかからない！？おトクな制度のひみつ', image: '/images/Manga04.jpg', topic: 'nisa' },
+  { ep: 4, title: 'NISAの始め方', summary: 'たったの3ステップ！投資デビューの最短ルートを教えるぞ✨', image: '/images/Manga04.jpg', topic: 'nisa' },
   { ep: 5, title: '成長株ってなに？', summary: 'グングン増えるチャンス！でもリスクには注意？', image: '/images/Manga05.jpg', topic: 'growth' },
 ]
 
@@ -77,10 +77,13 @@ export const MangaPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {MANGA_EPISODES.map((ep) => (
           <MangaCard key={ep.ep} className="p-0 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:-translate-y-1 bg-white border border-gray-100 flex flex-col h-full" onClick={() => setSelectedEp(ep.ep)}>
-             <div className="h-48 bg-gray-50 flex items-center justify-center overflow-hidden relative border-b border-gray-100">
-               <img src={ep.image} alt={ep.title} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
-               <div className="hidden absolute inset-0 items-center justify-center text-6xl">🥬</div>
-             </div>
+              <div className="h-48 bg-gray-50 flex items-center justify-center overflow-hidden relative border-b border-gray-100">
+                <img src={ep.image} alt={ep.title} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+                <div className="hidden absolute inset-0 items-center justify-center text-6xl">🥬</div>
+                {ep.ep === 4 && (
+                   <div className="absolute top-4 right-4 bg-danger text-white text-xs font-black px-3 py-1 rounded-full shadow-lg border-2 border-white animate-bounce z-10">NEW!</div>
+                )}
+              </div>
              <div className="p-6 flex-1 flex flex-col">
                 <div className="text-primary font-black text-xs mb-1">第{ep.ep}話</div>
                 <h3 className="text-xl font-black text-text mb-2 line-clamp-2">{ep.title}</h3>

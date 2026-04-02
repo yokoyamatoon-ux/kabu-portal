@@ -4,16 +4,26 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'web/dist/**'
-      - '.github/workflows/deploy_web.yml'
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
+
+      - name: ⚙️ Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📦 Install dependencies
+        run: npm install
+        working-directory: web
+
+      - name: 🏗️ Build project
+        run: npm run build
+        working-directory: web
 
       - name: 📂 Sync dist to Xserver (okane-no-manabi.jp)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4

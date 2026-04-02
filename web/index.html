@@ -1,13 +1,82 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>web</title>
+    <title>カブ先生のお金の学校 | マンガで楽しく学ぶ投資の基本</title>
+    <meta name="description" content="投資やNISAの基本をカブ先生とマンガで楽しく学べる「カブ先生のお金の学校」。初心者向けにわかりやすく解説しています。" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://okane-no-manabi.jp/" />
+    <meta property="og:title" content="カブ先生のお金の学校 | マンガで楽しく学ぶ投資の基本" />
+    <meta property="og:description" content="投資やNISAの基本をカブ先生とマンガで楽しく学べる「カブ先生のお金の学校」。" />
+    <meta property="og:image" content="https://okane-no-manabi.jp/favicon.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://okane-no-manabi.jp/" />
+    <meta property="twitter:title" content="カブ先生のお金の学校 | マンガで楽しく学ぶ投資の基本" />
+    <meta property="twitter:description" content="投資やNISAの基本をカブ先生とマンガで楽しく学べる「カブ先生のお金の学校」。" />
+    <meta property="twitter:image" content="https://okane-no-manabi.jp/favicon.png" />
+    <link rel="canonical" href="https://okane-no-manabi.jp/" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "カブ先生のお金の学校",
+      "url": "https://okane-no-manabi.jp/",
+      "description": "投資やNISAの基本をカブ先生とマンガで楽しく学べる「カブ先生のお金の学校」。",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://okane-no-manabi.jp/?page=explore&q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Fallback content for SEO (Googlebot) and No-JS users -->
+      <div style="padding: 20px; font-family: sans-serif; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+        <header>
+          <h1>カブ先生のお金の学校 | マンガで楽しく学ぶ投資の基本</h1>
+          <p>投資やNISAの基本をカブ先生とマンガで楽しく学べる「カブ先生のお金の学校」。初心者向けにわかりやすく解説しています。</p>
+        </header>
+        
+        <nav>
+          <ul style="list-style: none; padding: 0; display: flex; gap: 15px; flex-wrap: wrap;">
+            <li><a href="/?page=home">ホーム</a></li>
+            <li><a href="/?page=manga">📖 マンガで学ぶ</a></li>
+            <li><a href="/?page=column">📄 投資コラム</a></li>
+            <li><a href="/?page=quiz">❓ 投資クイズ</a></li>
+            <li><a href="/?page=qa">💬 お悩み相談</a></li>
+            <li><a href="/?page=about">🎓 入学案内</a></li>
+          </ul>
+        </nav>
+
+        <section style="margin-top: 40px;">
+          <h2>ようこそ、だれでもわかるお金の学校へ！🎓</h2>
+          <p>むずかしい言葉ゼロ。株・NISA・投資のキホンをマンガでたのしく学べるぞ！カブ先生・マネ太・ミライたちキャラクターが案内してくれるから安心じゃ。</p>
+        </section>
+
+        <section style="margin-top: 20px;">
+          <h3>注目のコンテンツ</h3>
+          <ul>
+            <li><strong>マンガで学ぶ</strong>: 投資の基本をストーリーで分かりやすく。</li>
+            <li><strong>投資コラム</strong>: 専門家（カブ先生）が教える最新の投資知識。</li>
+            <li><strong>シミュレーション</strong>: 自分の資産がどう増えるか試してみよう。</li>
+          </ul>
+        </section>
+        
+        <footer style="margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px; color: #666; font-size: 0.8em;">
+          <p>&copy; 2026 カブ先生のお金の学校. All rights reserved.</p>
+        </footer>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

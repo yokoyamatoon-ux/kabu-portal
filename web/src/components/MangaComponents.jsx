@@ -27,9 +27,8 @@ export const CharacterSpeech = ({ chara, text, color = '#FFF0F0' }) => (
   </div>
 )
 
-export const SectionHeader = ({ title, icon }) => (
+export const SectionHeader = ({ title }) => (
   <div className="section-title border-b-4 border-secondary/50 pb-2 mb-6">
-    <span className="text-2xl">{icon}</span>
     <span>{title}</span>
   </div>
 )
