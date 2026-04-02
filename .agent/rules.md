@@ -12,3 +12,9 @@ This document defines the rules for the AI Agent when working on the Kabu Portal
 
 ## Rule 3: Workflow Trigger
 - **Definition**: After every successful deployment, the Agent must update the `walkthrough.md` to inform the user that the changes are live on the actual site.
+
+## Rule 4: UI Display Limits (Home vs List)
+- **Definition**: The "Featured Columns" (注目のコラム) or similar section on the **Home page** MUST firmly be limited to the latest 4 items (`limit={4}`). In contrast, dedicated list pages (e.g. `?page=column`) MUST show all available items.
+
+## Rule 5: Cache Awareness
+- **Definition**: Frontend changes (React/Vite) are heavily aggressive with caching. If the live site or localhost does not seem to reflect code modifications immediately after deployment, the Agent must instruct the user to use Super Reload (`Ctrl+F5`) or Incognito mode to bypass old JS bundles.
