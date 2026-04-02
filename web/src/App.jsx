@@ -174,7 +174,7 @@ function App() {
             <SectionHeader title="注目のコラム" />
             <button onClick={() => navigateTo('column')} className="text-primary font-black text-sm hover:underline">もっと見る →</button>
          </div>
-         <ColumnList onSelect={handleColumnSelect} />
+         <ColumnList onSelect={handleColumnSelect} limit={4} />
       </section>
 
       <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
