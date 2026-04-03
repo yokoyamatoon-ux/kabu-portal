@@ -1,15 +1,20 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-export const MangaCard = ({ children, className = '', hover = true, ...props }) => (
-  <motion.div
-    whileHover={hover ? { y: -8, scale: 1.02 } : {}}
-    className={`bg-white rounded-manga p-4 shadow-manga border border-gray-100 ${className}`}
-    {...props}
-  >
-    {children}
-  </motion.div>
-)
+export const MangaCard = ({ children, className = '', hover = true, href, onClick, ...props }) => {
+  const Component = href ? motion.a : motion.div
+  return (
+    <Component
+      href={href}
+      onClick={onClick}
+      whileHover={hover ? { y: -8, scale: 1.02 } : {}}
+      className={`bg-white rounded-manga p-4 shadow-manga border border-gray-100 block ${className}`}
+      {...props}
+    >
+      {children}
+    </Component>
+  )
+}
 
 export const CharacterSpeech = ({ chara, text, color = '#FFF0F0' }) => (
   <div className="flex items-end gap-3 my-6">

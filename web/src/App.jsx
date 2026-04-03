@@ -153,18 +153,19 @@ function App() {
              ))}
           </div>
         </div>
-        <img src="/images/Top01.jpg" alt="banner" className="w-full md:w-1/3 rounded-2xl object-cover shadow-2xl relative z-10 hover:scale-105 transition-transform duration-500" />
+        <img src="/images/Top01.jpg" alt="banner" className="w-full md:w-1/3 rounded-2xl object-cover shadow-2xl relative z-10 hover:scale-105 transition-transform duration-500 aspect-[4/3] md:aspect-square bg-gray-100" />
       </MangaCard>
 
 
       {/* Admission Banner */}
-      <div 
-        onClick={() => navigateTo('about')}
-        className="cursor-pointer group relative rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 border-4 border-white"
+      <a 
+        href="?page=about"
+        onClick={(e) => { e.preventDefault(); navigateTo('about'); }}
+        className="block cursor-pointer group relative rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 border-4 border-white aspect-[5/2] md:aspect-[4/1] bg-gray-100"
       >
-        <img src="/images/banner_nyugaku.jpg" alt="入学案内" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-700" />
-        <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors"></div>
-      </div>
+        <img src="/images/banner_nyugaku.jpg" alt="入学案内" className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 absolute inset-0" />
+        <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors pointer-events-none"></div>
+      </a>
 
 
 
@@ -172,7 +173,7 @@ function App() {
       <section className="space-y-4">
          <div className="flex justify-between items-center px-2">
             <SectionHeader title="注目のコラム" />
-            <button onClick={() => navigateTo('column')} className="text-primary font-black text-sm hover:underline">もっと見る →</button>
+            <a href="?page=column" onClick={(e) => { e.preventDefault(); navigateTo('column'); }} className="text-primary font-black text-sm hover:underline">もっと見る →</a>
          </div>
          <ColumnList onSelect={handleColumnSelect} limit={4} />
       </section>
@@ -181,8 +182,9 @@ function App() {
          {NAVIGATION.map((nav) => (
             <MangaCard 
               key={nav.id} 
+              href={`?page=${nav.id}`}
               className="group cursor-pointer p-0 overflow-hidden flex flex-col h-full bg-white transition-all hover:scale-105 active:scale-95 shadow-xl hover:shadow-2xl"
-              onClick={() => navigateTo(nav.id)}
+              onClick={(e) => { e.preventDefault(); navigateTo(nav.id); }}
             >
                <div className="h-32 overflow-hidden bg-gray-50 flex items-center justify-center relative">
                   <img src={nav.image} alt={nav.label} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 opacity-90 group-hover:opacity-100" />
@@ -203,7 +205,8 @@ function App() {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
         <MangaCard 
           className="group cursor-pointer p-6 bg-[#111] border-[3px] border-[#FFE66D] hover:-translate-y-1 transition-all shadow-xl hover:shadow-2xl flex flex-col items-center relative overflow-hidden"
-          onClick={() => navigateTo('money_secret')}
+          href="?page=money_secret"
+          onClick={(e) => { e.preventDefault(); navigateTo('money_secret'); }}
           style={{ backgroundImage: 'repeating-linear-gradient(-45deg, #111, #111 20px, #cca623 20px, #cca623 40px)' }}
         >
           <div className="absolute top-0 right-0 bg-danger text-white text-[0.6rem] font-black px-4 py-1 rotate-45 translate-x-4 translate-y-2 shadow-lg border-b border-white z-20">NEW!</div>
@@ -219,7 +222,8 @@ function App() {
 
         <MangaCard 
           className="group cursor-pointer p-6 bg-[#fff9f0] border-[3px] border-danger hover:-translate-y-1 transition-all shadow-xl hover:shadow-2xl flex flex-col items-center"
-          onClick={() => navigateTo('maneta_diary')}
+          href="?page=maneta_diary"
+          onClick={(e) => { e.preventDefault(); navigateTo('maneta_diary'); }}
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, #fff9f0, #fff9f0 20px, #ffe8e8 20px, #ffe8e8 40px)' }}
         >
           <div className="bg-danger text-white font-black border-[3px] border-[#ff4757] rounded-full px-6 py-1 -mt-10 mb-4 whitespace-nowrap">📈 マネ太のはじめての投資 🆕</div>

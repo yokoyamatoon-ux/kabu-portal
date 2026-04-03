@@ -11,9 +11,11 @@ export const ColumnList = ({ onSelect, limit }) => {
         {displayColumns.map((col, index) => (
           <MangaCard 
             key={col.id} 
+            href={`?page=column_detail&id=${col.id}`}
+            onClick={(e) => { e.preventDefault(); onSelect(col.id) }}
             className="p-0 overflow-hidden cursor-pointer flex flex-col h-full bg-white shadow-xl hover:shadow-2xl transition-all border border-gray-100"
           >
-            <div onClick={() => onSelect(col.id)} className="h-full flex flex-col">
+            <div className="h-full flex flex-col">
               <div className="h-44 overflow-hidden relative border-b border-gray-100">
                 <img src={col.image} alt={col.title} className="w-full h-full object-cover" />
                 <div className="absolute top-2 left-2 right-2 flex justify-between items-start pointer-events-none">

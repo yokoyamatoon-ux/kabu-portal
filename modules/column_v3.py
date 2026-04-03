@@ -62,22 +62,21 @@ def render_column_home_section():
         st.info("現在、新しいコラムを準備中じゃ！")
         return
 
-    # Display articles in rows of 4
-    for i in range(0, len(articles), 4):
-        cols = st.columns(4)
-        for col, article in zip(cols, articles[i:i+4]):
-            with col:
-                img_name = article.get('image', f"{article['id']}.jpg")
-                img_path = os.path.join(IMAGE_DIR, "column", img_name)
-                img_b64 = get_image_base64(img_path)
+    cols = st.columns(4)
+    display_columns = articles[:4]
+    for col, article in zip(cols, display_columns):
+        with col:
+            img_name = article.get('image', f"{article['id']}.jpg")
+            img_path = os.path.join(IMAGE_DIR, "column", img_name)
+            img_b64 = get_image_base64(img_path)
 
-                img_html = (
-                    f'<div style="width:100%; height:120px; background:url(data:image/jpeg;base64,{img_b64}) center/cover; border-bottom:1px solid #f0f0f0;"></div>'
-                    if img_b64 else
-                    f'<div style="width:100%; height:120px; background:#f8f9fa; display:flex; align-items:center; justify-content:center; color:#ccc; border-bottom:1px solid #f0f0f0;">No Image</div>'
-                )
+            img_html = (
+                f'<div style="width:100%; height:120px; background:url(data:image/jpeg;base64,{img_b64}) center/cover; border-bottom:1px solid #f0f0f0;"></div>'
+                if img_b64 else
+                f'<div style="width:100%; height:120px; background:#f8f9fa; display:flex; align-items:center; justify-content:center; color:#ccc; border-bottom:1px solid #f0f0f0;">No Image</div>'
+            )
 
-                st.markdown(f"""<a href="?page=column_detail&id={article['id']}" target="_self" style="text-decoration:none;">
+            st.markdown(f"""<a href="?page=column_detail&id={article['id']}" target="_self" style="text-decoration:none;">
 <div class="column-card" style="background:white; border-radius:12px; overflow:hidden;
     box-shadow:0 4px 15px rgba(0,0,0,0.06); height:100%; border:1px solid #f0f0f0;">
   {img_html}

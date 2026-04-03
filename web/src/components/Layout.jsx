@@ -36,17 +36,21 @@ export const Layout = ({ children, currentPage, setPage, marketData }) => {
         <nav className="flex flex-col gap-1.5 overflow-y-auto pr-2 custom-scrollbar">
 
           {pages.map((page) => (
-            <button
+            <a
               key={page.id}
-              onClick={() => setPage(page.id)}
-              className={`w-full text-left px-4 py-3 rounded-xl font-bold transition-all ${
+              href={`?page=${page.id}`}
+              onClick={(e) => {
+                e.preventDefault()
+                setPage(page.id)
+              }}
+              className={`w-full text-left px-4 py-3 rounded-xl font-bold transition-all block ${
                 currentPage === page.id
                   ? 'bg-primary text-white shadow-lg shadow-primary/20'
                   : 'text-text hover:bg-primary-light hover:text-primary'
               }`}
             >
               {page.label}
-            </button>
+            </a>
           ))}
         </nav>
 
@@ -119,20 +123,22 @@ export const Layout = ({ children, currentPage, setPage, marketData }) => {
                 <div className="text-primary font-black text-2xl">メニュー</div>
                 <nav className="flex flex-col gap-3">
                   {pages.map((page) => (
-                    <button
+                    <a
                       key={page.id}
-                      onClick={() => {
+                      href={`?page=${page.id}`}
+                      onClick={(e) => {
+                        e.preventDefault()
                         setPage(page.id)
                         setIsMenuOpen(false)
                       }}
-                      className={`w-full text-left px-6 py-4 rounded-2xl font-bold transition-all text-lg ${
+                      className={`w-full text-left px-6 py-4 rounded-2xl font-bold transition-all text-lg block ${
                         currentPage === page.id
                           ? 'bg-primary text-white shadow-lg shadow-primary/20'
                           : 'text-text hover:bg-primary-light hover:text-primary'
                       }`}
                     >
                       {page.label}
-                    </button>
+                    </a>
                   ))}
                 </nav>
               </motion.div>
