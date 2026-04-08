@@ -42,10 +42,16 @@ ENV/
 !web/package-lock.json
 !web/src/**/*.json
 !web/src/data/*.json
+!web/src/lib/*.json
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Ensure web source files are always included for CI builds
+!web/src/
+!web/src/**
+!web/index.html
 
 # Local development shortcuts and logs
 *.vbs
