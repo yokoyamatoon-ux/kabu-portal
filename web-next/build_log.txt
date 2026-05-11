@@ -1,0 +1,26 @@
+﻿
+> web-next@0.1.0 build
+> next build
+
+笆ｲ Next.js 16.2.3 (Turbopack)
+
+  Creating an optimized production build ...
+笨・Compiled successfully in 2.1s
+  Running TypeScript ...
+  Finished TypeScript in 764ms ...
+  Collecting page data using 19 workers ...
+node.exe : 
+発生場所 行:1 文字:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\
+nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [] 
+   , RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+> Build error occurred
+Error: Page "/money_secret/[ep]" is missing "generateStat
+icParams()" so it cannot be used with "output: export" co
+nfig.
+    at ignore-listed frames

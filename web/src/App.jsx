@@ -5,6 +5,7 @@ import { HeroSlider } from './components/HeroSlider'
 import { MangaCard, CharacterSpeech, SectionHeader } from './components/MangaComponents'
 import { CHARA, NAVIGATION } from './lib/constants'
 import { ColumnList, ColumnDetail } from './components/ColumnContent'
+import { COLUMNS } from './lib/columns'
 import { AboutPage } from './components/AboutPage'
 import { MangaPage } from './components/MangaPage'
 import { QuizPage } from './components/QuizPage'
@@ -12,6 +13,7 @@ import { QaPage } from './components/QaPage'
 import { ManetaDiaryPage } from './components/ManetaDiary'
 import { MoneySecretPage } from './components/MoneySecret'
 import { Simulator } from './components/Simulator'
+import { LegalPage } from './components/LegalPage'
 import { getMarketData } from './lib/MarketData'
 
 import { BrokerLinks } from './components/BrokerLinks'
@@ -20,6 +22,27 @@ function App() {
   const [page, setPage] = useState('home')
   const [selectedColumn, setSelectedColumn] = useState(null)
   const [marketData, setMarketData] = useState([])
+
+  // On mount: read URL params and redirect ?page=home to /
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const p = params.get('page')
+    const id = params.get('id')
+
+    // Redirect ?page=home → / (canonical dedup)
+    if (p === 'home') {
+      window.history.replaceState({}, '', window.location.pathname)
+      setPage('home')
+      return
+    }
+
+    if (p) {
+      setPage(p)
+      if (p === 'column_detail' && id) {
+        setSelectedColumn(id)
+      }
+    }
+  }, [])
 
   useEffect(() => {
     const fetchMarket = async () => {
@@ -31,28 +54,172 @@ function App() {
     return () => clearInterval(interval)
   }, [])
 
-  // URLSync (Basic)
+  // URLSync (popstate for back/forward)
   useEffect(() => {
     const handlePopState = () => {
       const params = new URLSearchParams(window.location.search)
       const p = params.get('page') || 'home'
+      const id = params.get('id')
       setPage(p)
+      if (p === 'column_detail' && id) {
+        setSelectedColumn(id)
+      }
     }
     window.addEventListener('popstate', handlePopState)
     return () => window.removeEventListener('popstate', handlePopState)
   }, [])
 
+  // Dynamic SEO: Canonical, Title, OGP Meta Tags
+  useEffect(() => {
+    const BASE_URL = 'https://okane-no-manabi.jp';
+
+    // --- Build canonical URL ---
+    let canonicalUrl;
+    if (page === 'home') {
+      canonicalUrl = `${BASE_URL}/`;
+    } else if (page === 'column_detail' && selectedColumn) {
+      canonicalUrl = `${BASE_URL}/?page=column_detail&id=${selectedColumn}`;
+    } else {
+      canonicalUrl = `${BASE_URL}/?page=${page}`;
+    }
+
+    let link = document.querySelector("link[rel='canonical']");
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', canonicalUrl);
+
+    // --- Page metadata ---
+    const pageMeta = {
+      'home': {
+        title: 'カブ先生のお金の学校 | マンガで楽しく学ぶ投資の基本',
+        description: '投資やNISAの基本をカブ先生とマンガで楽しく学べる「カブ先生のお金の学校」。初心者向けにわかりやすく解説しています。'
+      },
+      'manga': {
+        title: 'マンガで学ぶ | カブ先生のお金の学校',
+        description: '投資の基本をマンガのストーリーで楽しく学べます。カブ先生と仲間たちが分かりやすく解説！'
+      },
+      'quiz': {
+        title: '投資クイズ | カブ先生のお金の学校',
+        description: '楽しいクイズで投資知識をチェック！初心者でも気軽に挑戦できる投資クイズ。'
+      },
+      'qa': {
+        title: 'お悩み相談 | カブ先生のお金の学校',
+        description: '投資やお金に関するお悩みにカブ先生が答えます。初心者の疑問をやさしく解決！'
+      },
+      'money_secret': {
+        title: 'お金の裏事情ファイル | カブ先生のお金の学校',
+        description: '初心者が陥りやすいお金の罠や、知っておくべき金融の裏ルールをこっそり教えます。'
+      },
+      'maneta_diary': {
+        title: 'マネ太のはじめての投資 | カブ先生のお金の学校',
+        description: '初心者マネ太が実際に投資プランに挑戦するドキュメンタリー！日々の資産運用を赤裸々に綴る投資日記。'
+      },
+      'column': {
+        title: '投資コラム | カブ先生のお金の学校',
+        description: 'カブ先生による最新の投資コラム。株式市場、NISA、為替などをわかりやすく解説。'
+      },
+      'about': {
+        title: '入学案内 | カブ先生のお金の学校',
+        description: 'カブ先生のお金の学校へようこそ！サイトの使い方やキャラクター紹介をチェック。'
+      },
+      'explore': {
+        title: 'シミュレーション | カブ先生のお金の学校',
+        description: '投資シミュレーションで自分の資産がどう増えるか体験してみよう！'
+      },
+      'privacy': {
+        title: 'プライバシーポリシー | カブ先生のお金の学校',
+        description: 'カブ先生のお金の学校のプライバシーポリシーです。'
+      },
+      'disclaimer': {
+        title: '免責事項 | カブ先生のお金の学校',
+        description: 'カブ先生のお金の学校の免責事項です。'
+      },
+      'contact': {
+        title: 'お問い合わせ | カブ先生のお金の学校',
+        description: 'カブ先生のお金の学校へのお問い合わせはこちら。'
+      },
+      'tokushoho': {
+        title: '特定商取引法に基づく表記 | カブ先生のお金の学校',
+        description: '特定商取引法に基づく表記です。'
+      }
+    };
+
+    // For column_detail, get meta from column data
+    let meta;
+    if (page === 'column_detail' && selectedColumn) {
+      const col = COLUMNS.find(c => c.id === selectedColumn);
+      if (col) {
+        meta = {
+          title: `${col.title.replace(/\*\*/g, '')} | カブ先生のお金の学校`,
+          description: col.lead.replace(/\*\*/g, ''),
+          image: col.image.startsWith('http') ? col.image : `${BASE_URL}${col.image}`
+        };
+      }
+    }
+    if (!meta) {
+      meta = pageMeta[page] || pageMeta['home'];
+    }
+
+    // --- Set title ---
+    document.title = meta.title;
+
+    // --- Update meta description ---
+    const setMetaTag = (attr, attrValue, content) => {
+      let el = document.querySelector(`meta[${attr}="${attrValue}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, attrValue);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
+    };
+
+    setMetaTag('name', 'description', meta.description);
+
+    // --- Update OGP ---
+    const ogImage = meta.image || `${BASE_URL}/favicon.png`;
+    setMetaTag('property', 'og:url', canonicalUrl);
+    setMetaTag('property', 'og:title', meta.title);
+    setMetaTag('property', 'og:description', meta.description);
+    setMetaTag('property', 'og:image', ogImage);
+    setMetaTag('property', 'og:type', page === 'column_detail' ? 'article' : 'website');
+
+    // --- Update Twitter Card ---
+    setMetaTag('property', 'twitter:url', canonicalUrl);
+    setMetaTag('property', 'twitter:title', meta.title);
+    setMetaTag('property', 'twitter:description', meta.description);
+    setMetaTag('property', 'twitter:image', ogImage);
+  }, [page, selectedColumn])
+
   const navigateTo = (p) => {
     setPage(p)
-    const url = new URL(window.location)
-    url.searchParams.set('page', p)
-    window.history.pushState({}, '', url)
+    if (p === 'home') {
+      // home → / (no query params) to avoid duplicate
+      window.history.pushState({}, '', window.location.pathname)
+    } else {
+      const url = new URL(window.location)
+      url.searchParams.set('page', p)
+      // Remove id param when navigating away from column_detail
+      if (p !== 'column_detail') {
+        url.searchParams.delete('id')
+      }
+      window.history.pushState({}, '', url)
+    }
     window.scrollTo(0, 0)
   }
 
   const handleColumnSelect = (id) => {
     setSelectedColumn(id)
     setPage('column_detail')
+    // Update URL with column id
+    const url = new URL(window.location)
+    url.searchParams.set('page', 'column_detail')
+    url.searchParams.set('id', id)
+    window.history.pushState({}, '', url)
+    window.scrollTo(0, 0)
   }
 
   const renderHome = () => (
@@ -254,6 +421,10 @@ function App() {
       case 'column_detail': return <ColumnDetail columnId={selectedColumn} onBack={() => navigateTo('column')} />
       case 'about': return <AboutPage />
       case 'explore': return <Simulator />
+      case 'privacy': return <LegalPage type="privacy" />
+      case 'disclaimer': return <LegalPage type="disclaimer" />
+      case 'tokushoho': return <LegalPage type="tokushoho" />
+      case 'contact': return <LegalPage type="contact" />
       default:
         return (
           <div className="py-24 text-center animate-in zoom-in duration-500">

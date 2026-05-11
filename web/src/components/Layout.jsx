@@ -153,9 +153,27 @@ export const Layout = ({ children, currentPage, setPage, marketData }) => {
         <footer className="p-8 text-center text-muted text-sm border-t border-gray-100 bg-white/50">
            <p>© {new Date().getFullYear()} KABU PORTAL Project</p>
            <div className="mt-2 flex justify-center gap-4 text-[0.8rem]">
-             <a href="#" className="hover:text-primary transition-colors">プライバシーポリシー</a>
-             <a href="#" className="hover:text-primary transition-colors">免責事項</a>
-             <a href="#" className="hover:text-primary transition-colors">お問い合わせ</a>
+             <a 
+               href="?page=privacy" 
+               onClick={(e) => { e.preventDefault(); setPage('privacy'); }}
+               className="hover:text-primary transition-colors"
+             >
+               プライバシーポリシー
+             </a>
+             <a 
+               href="?page=disclaimer" 
+               onClick={(e) => { e.preventDefault(); setPage('disclaimer'); }}
+               className="hover:text-primary transition-colors"
+             >
+               免責事項
+             </a>
+             <a 
+               href="?page=contact" 
+               onClick={(e) => { e.preventDefault(); setPage('contact'); }}
+               className="hover:text-primary transition-colors"
+             >
+               お問い合わせ
+             </a>
            </div>
         </footer>
       </main>

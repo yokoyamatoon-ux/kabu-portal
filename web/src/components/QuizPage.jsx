@@ -62,7 +62,29 @@ export const QuizPage = ({ navigateTo }) => {
         <h2 className="text-3xl font-black text-text mb-4">クイズしゅうりょう！</h2>
         <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 mb-8">
           <p className="text-xl font-bold mb-2 text-muted">あなたのスコアは...</p>
-          <div className="text-4xl font-black text-primary">{QUIZZES.length}問中 {score}問 正解</div>
+          <div className="text-4xl font-black text-primary mb-8">{QUIZZES.length}問中 {score}問 正解</div>
+          
+          <div className="pt-8 border-t border-dashed border-gray-200">
+             <div className="text-sm font-black text-text mb-4">学んだ知識を活かして、さっそく投資デビューしてみるのじゃ！</div>
+             <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto">
+                <a 
+                  href="https://ad2.trafficgate.net/t/r/1222/738/317294_396520" 
+                  target="_blank" 
+                  rel="nofollow noopener noreferrer"
+                  className="block bg-gray-50 p-2 rounded-xl border border-gray-200 hover:border-primary transition-all flex items-center justify-center h-16 overflow-hidden bg-white"
+                >
+                  <img src="https://srv2.trafficgate.net/t/b/1222/738/317294_396520" alt="楽天証券" className="max-w-full max-h-full object-contain" />
+                </a>
+                <a 
+                  href="https://ad2.trafficgate.net/t/r/212/6012/317294_396520" 
+                  target="_blank" 
+                  rel="nofollow noopener noreferrer"
+                  className="block bg-gray-50 p-2 rounded-xl border border-gray-200 hover:border-primary transition-all flex items-center justify-center h-16 overflow-hidden bg-white"
+                >
+                  <img src="https://srv2.trafficgate.net/t/b/212/6012/317294_396520" alt="松井証券" className="max-w-full max-h-full object-contain" />
+                </a>
+             </div>
+          </div>
         </div>
         <button onClick={handleRestart} className="px-8 py-4 bg-primary text-white font-black rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
           もう一度チャレンジ！

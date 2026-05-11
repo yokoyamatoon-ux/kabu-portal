@@ -8,6 +8,7 @@ const MANGA_EPISODES = [
   { ep: 3, title: '株価はなぜ動くの？', summary: '需要と供給のしくみをマンガで理解しよう', image: '/images/Manga02.jpg', topic: 'market' },
   { ep: 4, title: 'NISAの始め方', summary: 'たったの3ステップ！投資デビューの最短ルートを教えるぞ✨', image: '/images/Manga04.jpg', topic: 'nisa' },
   { ep: 5, title: '成長株ってなに？', summary: 'グングン増えるチャンス！でもリスクには注意？', image: '/images/Manga05.jpg', topic: 'growth' },
+  { ep: 6, title: '為替とFXの基本', summary: '少額で大金を動かせる「魔法」の裏には、一瞬で資産を失うリスクが潜んでおるぞ。', image: '/images/manabu/20260424manabu_fx.png', topic: 'fx' },
 ]
 
 export const MangaPage = () => {
@@ -39,25 +40,54 @@ export const MangaPage = () => {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto mt-12 pt-8 border-t border-dashed border-gray-200 grid grid-cols-3 gap-4">
-          <div>
-            {activeEp.ep > 1 && (
-              <button onClick={() => setSelectedEp(activeEp.ep - 1)} className="w-full p-4 bg-white border border-gray-100 font-bold rounded-xl shadow-sm hover:shadow-md hover:text-primary transition-all text-sm md:text-base">
-                ← 第{activeEp.ep - 1}話
+        <div className="max-w-4xl mx-auto mt-12 pt-8 border-t border-dashed border-gray-200">
+           <div className="bg-gray-100 rounded-2xl p-6 mb-8 flex flex-col md:flex-row items-center gap-6 justify-between">
+              <div className="flex-1 text-center md:text-left">
+                 <div className="font-black text-text text-sm mb-1 uppercase tracking-widest">おつかれさま！✨</div>
+                 <div className="text-muted text-xs font-bold leading-relaxed">
+                    読み終わったら、実際に証券口座を開設して、少しずつ始めてみるのが一番の勉強になるぞ！
+                 </div>
+              </div>
+              <div className="flex gap-4">
+                 <a 
+                   href="https://ad2.trafficgate.net/t/r/1222/738/317294_396520" 
+                   target="_blank" 
+                   rel="nofollow noopener noreferrer"
+                   className="block bg-white p-2 rounded-lg border border-gray-200 hover:border-primary transition-all h-12 w-32 flex items-center justify-center bg-white"
+                 >
+                   <img src="https://srv2.trafficgate.net/t/b/1222/738/317294_396520" alt="楽天証券" className="max-w-full max-h-full object-contain" />
+                 </a>
+                 <a 
+                   href="https://ad2.trafficgate.net/t/r/212/6012/317294_396520" 
+                   target="_blank" 
+                   rel="nofollow noopener noreferrer"
+                   className="block bg-white p-2 rounded-lg border border-gray-200 hover:border-primary transition-all h-12 w-32 flex items-center justify-center bg-white"
+                 >
+                   <img src="https://srv2.trafficgate.net/t/b/212/6012/317294_396520" alt="松井証券" className="max-w-full max-h-full object-contain" />
+                 </a>
+              </div>
+           </div>
+
+           <div className="grid grid-cols-3 gap-4">
+            <div>
+              {activeEp.ep > 1 && (
+                <button onClick={() => setSelectedEp(activeEp.ep - 1)} className="w-full p-4 bg-white border border-gray-100 font-bold rounded-xl shadow-sm hover:shadow-md hover:text-primary transition-all text-sm md:text-base">
+                  ← 第{activeEp.ep - 1}話
+                </button>
+              )}
+            </div>
+            <div>
+              <button onClick={() => setSelectedEp(null)} className="w-full p-4 bg-white border border-gray-100 font-bold rounded-xl shadow-sm hover:shadow-md hover:text-primary transition-all text-sm md:text-base">
+                📖 一覧へ
               </button>
-            )}
-          </div>
-          <div>
-            <button onClick={() => setSelectedEp(null)} className="w-full p-4 bg-white border border-gray-100 font-bold rounded-xl shadow-sm hover:shadow-md hover:text-primary transition-all text-sm md:text-base">
-              📖 一覧へ
-            </button>
-          </div>
-          <div>
-             {activeEp.ep < MANGA_EPISODES.length && (
-              <button onClick={() => setSelectedEp(activeEp.ep + 1)} className="w-full p-4 bg-primary text-white font-bold rounded-xl shadow-md shadow-primary/20 hover:shadow-lg transition-all text-sm md:text-base">
-                第{activeEp.ep + 1}話 →
-              </button>
-            )}
+            </div>
+            <div>
+               {activeEp.ep < MANGA_EPISODES.length && (
+                <button onClick={() => setSelectedEp(activeEp.ep + 1)} className="w-full p-4 bg-primary text-white font-bold rounded-xl shadow-md shadow-primary/20 hover:shadow-lg transition-all text-sm md:text-base">
+                  第{activeEp.ep + 1}話 →
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -80,7 +110,7 @@ export const MangaPage = () => {
               <div className="h-48 bg-gray-50 flex items-center justify-center overflow-hidden relative border-b border-gray-100">
                 <img src={ep.image} alt={ep.title} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
                 <div className="hidden absolute inset-0 items-center justify-center text-6xl">🥬</div>
-                {ep.ep === 4 && (
+                {ep.ep === MANGA_EPISODES.length && (
                    <div className="absolute top-4 right-4 bg-danger text-white text-xs font-black px-3 py-1 rounded-full shadow-lg border-2 border-white animate-bounce z-10">NEW!</div>
                 )}
               </div>

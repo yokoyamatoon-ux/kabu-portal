@@ -1,27 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- ホーム -->
   <url>
     <loc>https://okane-no-manabi.jp/</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- マンガで学ぶ -->
   <url>
     <loc>https://okane-no-manabi.jp/?page=manga</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
+
+  <!-- 投資クイズ -->
   <url>
     <loc>https://okane-no-manabi.jp/?page=quiz</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- 投資コラム一覧 -->
   <url>
     <loc>https://okane-no-manabi.jp/?page=column</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 入学案内 -->
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=about</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- お悩み相談 -->
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=qa</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- シミュレーション -->
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=explore</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- お金の裏事情ファイル -->
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=money_secret</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- マネ太のはじめての投資 -->
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=maneta_diary</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- プライバシーポリシー -->
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=privacy</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- 免責事項 -->
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=disclaimer</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- お問い合わせ -->
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=contact</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- コラム記事 -->
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=column_detail&amp;id=col_014</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=column_detail&amp;id=col_013</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=column_detail&amp;id=col_012</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=column_detail&amp;id=col_011</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=column_detail&amp;id=col_010</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=column_detail&amp;id=col_009</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=column_detail&amp;id=col_005</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=column_detail&amp;id=col_006</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=column_detail&amp;id=col_007</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=column_detail&amp;id=col_008</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=column_detail&amp;id=col_001</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=column_detail&amp;id=col_002</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=column_detail&amp;id=col_003</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okane-no-manabi.jp/?page=column_detail&amp;id=col_004</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>

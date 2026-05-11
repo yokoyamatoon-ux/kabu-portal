@@ -1,0 +1,278 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - text: 🎓 カブ先生の
+          - text: お金の学校
+        - generic [ref=e7]:
+          - generic [ref=e8]: 🏦
+          - generic [ref=e9]: あなたの仮想おさいふ
+          - generic [ref=e10]: ¥1,000,000
+          - generic [ref=e11]: ※仮想のお金です
+      - navigation [ref=e12]:
+        - link "🏠 ホーム" [ref=e13] [cursor=pointer]:
+          - /url: "?page=home"
+        - link "🎓 入学案内" [ref=e14] [cursor=pointer]:
+          - /url: "?page=about"
+        - link "📖 マンガで学ぶ" [ref=e15] [cursor=pointer]:
+          - /url: "?page=manga"
+        - link "❓ 投資クイズ" [ref=e16] [cursor=pointer]:
+          - /url: "?page=quiz"
+        - link "🔍 探す・体験" [ref=e17] [cursor=pointer]:
+          - /url: "?page=explore"
+        - link "🎓 質問箱" [ref=e18] [cursor=pointer]:
+          - /url: "?page=qa"
+        - link "🥬 今日のコラム" [ref=e19] [cursor=pointer]:
+          - /url: "?page=column"
+        - link "⚠️ お金の裏事情ファイル" [ref=e20] [cursor=pointer]:
+          - /url: "?page=money_secret"
+        - link "📈 マネ太の投資日記" [ref=e21] [cursor=pointer]:
+          - /url: "?page=maneta_diary"
+      - generic [ref=e22]:
+        - generic [ref=e23]: 今日のマーケット
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - generic [ref=e26]: 日経平均
+            - generic [ref=e27]:
+              - generic [ref=e28]: "38520.97"
+              - generic [ref=e29]: ▲0.43%
+          - generic [ref=e30]:
+            - generic [ref=e31]: S&P500
+            - generic [ref=e32]:
+              - generic [ref=e33]: "5129.85"
+              - generic [ref=e34]: ▲0.3%
+          - generic [ref=e35]:
+            - generic [ref=e36]: ドル円
+            - generic [ref=e37]:
+              - generic [ref=e38]: "150.73"
+              - generic [ref=e39]: ▲0.17%
+    - main [ref=e40]:
+      - generic [ref=e42]:
+        - img [ref=e44]
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - generic [ref=e52]: 今日のマーケット
+            - generic [ref=e53]: "📅 取得日時: 2026/4/8 16:20:13"
+          - generic [ref=e54]:
+            - generic [ref=e55]:
+              - generic [ref=e56]:
+                - generic [ref=e57]: 日経平均 🇯🇵
+                - generic [ref=e58]: ▲ 0.43%
+              - generic [ref=e59]: "38520.97"
+              - application [ref=e63]:
+                - generic [ref=e79]:
+                  - generic [ref=e81]: "37800"
+                  - generic [ref=e83]: "38500"
+                  - generic [ref=e85]: "39200"
+                  - generic [ref=e87]: "39900"
+              - generic [ref=e88]:
+                - generic [ref=e89]: 1ヶ月前
+                - generic [ref=e90]: 現在
+            - generic [ref=e91]:
+              - generic [ref=e92]:
+                - generic [ref=e93]: S&P500 🇺🇸
+                - generic [ref=e94]: ▲ 0.3%
+              - generic [ref=e95]: "5129.85"
+              - application [ref=e99]:
+                - generic [ref=e115]:
+                  - generic [ref=e117]: "5040"
+                  - generic [ref=e119]: "5120"
+                  - generic [ref=e121]: "5200"
+                  - generic [ref=e123]: "5280"
+              - generic [ref=e124]:
+                - generic [ref=e125]: 1ヶ月前
+                - generic [ref=e126]: 現在
+            - generic [ref=e127]:
+              - generic [ref=e128]:
+                - generic [ref=e129]: ドル円 💴
+                - generic [ref=e130]: ▲ 0.17%
+              - generic [ref=e131]: "150.73"
+              - application [ref=e135]:
+                - generic [ref=e151]:
+                  - generic [ref=e153]: "147"
+                  - generic [ref=e155]: "150"
+                  - generic [ref=e157]: "153"
+                  - generic [ref=e159]: "156"
+              - generic [ref=e160]:
+                - generic [ref=e161]: 1ヶ月前
+                - generic [ref=e162]: 現在
+        - generic [ref=e163]:
+          - generic [ref=e165]:
+            - heading "カブ先生の だれでもわかるお金の学校へ ようこそ！🎓" [level=1] [ref=e166]:
+              - text: カブ先生の
+              - text: だれでもわかるお金の学校へ
+              - text: ようこそ！🎓
+            - generic [ref=e167]:
+              - text: むずかしい言葉ゼロ。株・NISA・投資のキホンをマンガでたのしく学べるぞ！
+              - text: カブ先生・マネ太・ミライたちキャラクターが案内してくれるから安心じゃ。
+            - generic [ref=e168]:
+              - generic [ref=e169]: 📖 マンガで学ぶ
+              - generic [ref=e170]: ❓ 投資クイズ
+              - generic [ref=e171]: 💹 シミュレーション
+          - img "banner" [ref=e172]
+        - link "入学案内" [ref=e173] [cursor=pointer]:
+          - /url: "?page=about"
+          - img "入学案内" [ref=e174]
+        - generic [ref=e175]:
+          - generic [ref=e176]:
+            - generic [ref=e178]: 注目のコラム
+            - link "もっと見る →" [ref=e179] [cursor=pointer]:
+              - /url: "?page=column"
+          - generic [ref=e181]:
+            - 'link "金（ゴールド）が史上最高値を更新。なぜ今、金が買われるの？ 株式市場 NEW! 2026.04.07 金（ゴールド）が史上最高値を更新。なぜ今、金が買われるの？ 「金が最高値！」ってよく聞くけど、そもそもなぜ金が人気なの？カブ先生がマネ太にわかりやすく教えるぞ。 #金 #ゴールド 続きを読む →" [ref=e182] [cursor=pointer]':
+              - /url: "?page=column_detail&id=col_011"
+              - generic [ref=e183]:
+                - generic [ref=e184]:
+                  - img "金（ゴールド）が史上最高値を更新。なぜ今、金が買われるの？" [ref=e185]
+                  - generic:
+                    - generic: 株式市場
+                    - generic: NEW!
+                - generic [ref=e186]:
+                  - generic [ref=e187]: 2026.04.07
+                  - heading "金（ゴールド）が史上最高値を更新。なぜ今、金が買われるの？" [level=3] [ref=e188]
+                  - paragraph [ref=e189]: 「金が最高値！」ってよく聞くけど、そもそもなぜ金が人気なの？カブ先生がマネ太にわかりやすく教えるぞ。
+                  - generic [ref=e190]:
+                    - generic [ref=e191]:
+                      - generic [ref=e192]: "#金"
+                      - generic [ref=e193]: "#ゴールド"
+                    - generic [ref=e194]: 続きを読む →
+            - 'link "「利回り10%超」の甘い罠！高配当株選びで失敗しないための3つのポイント 株式市場 2026.04.02 「利回り10%超」の甘い罠！高配当株選びで失敗しないための3つのポイント 配当金がたくさんもらえる！と飛びつく前に待つんじゃ。高すぎる利回りの裏に隠された「ワケ」を解説するぞ。 #高配当株 #投資入門 続きを読む →" [ref=e195] [cursor=pointer]':
+              - /url: "?page=column_detail&id=col_010"
+              - generic [ref=e196]:
+                - generic [ref=e197]:
+                  - img "「利回り10%超」の甘い罠！高配当株選びで失敗しないための3つのポイント" [ref=e198]
+                  - generic:
+                    - generic: 株式市場
+                - generic [ref=e199]:
+                  - generic [ref=e200]: 2026.04.02
+                  - heading "「利回り10%超」の甘い罠！高配当株選びで失敗しないための3つのポイント" [level=3] [ref=e201]
+                  - paragraph [ref=e202]: 配当金がたくさんもらえる！と飛びつく前に待つんじゃ。高すぎる利回りの裏に隠された「ワケ」を解説するぞ。
+                  - generic [ref=e203]:
+                    - generic [ref=e204]:
+                      - generic [ref=e205]: "#高配当株"
+                      - generic [ref=e206]: "#投資入門"
+                    - generic [ref=e207]: 続きを読む →
+            - 'link "【初心者必見】新NISAの始め方、3つのステップでやさしく解説！ NISA・投資入門 2026.03.31 【初心者必見】新NISAの始め方、3つのステップでやさしく解説！ 「NISAってどうやって始めるの？」そんな疑問にカブ先生が答えるぞ。口座開設から設定まで、最短ルートを教えるのじゃ。 #NISA #口座開設 続きを読む →" [ref=e208] [cursor=pointer]':
+              - /url: "?page=column_detail&id=col_009"
+              - generic [ref=e209]:
+                - generic [ref=e210]:
+                  - img "【初心者必見】新NISAの始め方、3つのステップでやさしく解説！" [ref=e211]
+                  - generic:
+                    - generic: NISA・投資入門
+                - generic [ref=e212]:
+                  - generic [ref=e213]: 2026.03.31
+                  - heading "【初心者必見】新NISAの始め方、3つのステップでやさしく解説！" [level=3] [ref=e214]
+                  - paragraph [ref=e215]: 「NISAってどうやって始めるの？」そんな疑問にカブ先生が答えるぞ。口座開設から設定まで、最短ルートを教えるのじゃ。
+                  - generic [ref=e216]:
+                    - generic [ref=e217]:
+                      - generic [ref=e218]: "#NISA"
+                      - generic [ref=e219]: "#口座開設"
+                    - generic [ref=e220]: 続きを読む →
+            - 'link "AI半導体バブルはいつ弾ける？投資家が注視すべき3つの指標 株式市場 2026.03.24 AI半導体バブルはいつ弾ける？投資家が注視すべき3つの指標 エヌビディア狂騒曲。歴史上の「バブル」と比較しつつ、冷静に出口戦略を考えるのじゃ。 #株式市場 #AI 続きを読む →" [ref=e221] [cursor=pointer]':
+              - /url: "?page=column_detail&id=col_005"
+              - generic [ref=e222]:
+                - generic [ref=e223]:
+                  - img "AI半導体バブルはいつ弾ける？投資家が注視すべき3つの指標" [ref=e224]
+                  - generic:
+                    - generic: 株式市場
+                - generic [ref=e225]:
+                  - generic [ref=e226]: 2026.03.24
+                  - heading "AI半導体バブルはいつ弾ける？投資家が注視すべき3つの指標" [level=3] [ref=e227]
+                  - paragraph [ref=e228]: エヌビディア狂騒曲。歴史上の「バブル」と比較しつつ、冷静に出口戦略を考えるのじゃ。
+                  - generic [ref=e229]:
+                    - generic [ref=e230]:
+                      - generic [ref=e231]: "#株式市場"
+                      - generic [ref=e232]: "#AI"
+                    - generic [ref=e233]: 続きを読む →
+        - generic [ref=e234]:
+          - link "マンガで学ぶ NEW! マンガで学ぶ 楽しく基本をマスター！" [ref=e235] [cursor=pointer]:
+            - /url: "?page=manga"
+            - generic [ref=e236]:
+              - img "マンガで学ぶ" [ref=e237]
+              - generic [ref=e239]: NEW!
+            - generic [ref=e240]:
+              - generic [ref=e241]: マンガで学ぶ
+              - generic [ref=e242]: 楽しく基本をマスター！
+          - link "投資クイズ 投資クイズ クイズでレベルUP！" [ref=e243] [cursor=pointer]:
+            - /url: "?page=quiz"
+            - img "投資クイズ" [ref=e245]
+            - generic [ref=e247]:
+              - generic [ref=e248]: 投資クイズ
+              - generic [ref=e249]: クイズでレベルUP！
+          - link "探す・体験 探す・体験 銘柄検索とシミュレーター" [ref=e250] [cursor=pointer]:
+            - /url: "?page=explore"
+            - img "探す・体験" [ref=e252]
+            - generic [ref=e254]:
+              - generic [ref=e255]: 探す・体験
+              - generic [ref=e256]: 銘柄検索とシミュレーター
+          - link "質問箱 質問箱 投資のギモンを解決" [ref=e257] [cursor=pointer]:
+            - /url: "?page=qa"
+            - img "質問箱" [ref=e259]
+            - generic [ref=e261]:
+              - generic [ref=e262]: 質問箱
+              - generic [ref=e263]: 投資のギモンを解決
+        - generic [ref=e264]:
+          - link "NEW! ⚠️ お金の裏事情ファイル 🆕 ura 世の中には表に出ない「お金のダークサイド」が存在します。 このファイルでは、初心者が陥りやすい罠や、知っておくべき金融の裏ルールをこっそり教えます。絶対に真似してはいけませんよ！" [ref=e265] [cursor=pointer]:
+            - /url: "?page=money_secret"
+            - generic [ref=e266]: NEW!
+            - generic [ref=e267]: ⚠️ お金の裏事情ファイル 🆕
+            - img "ura" [ref=e269]
+            - generic [ref=e270]:
+              - generic [ref=e271]: 世の中には表に出ない「お金のダークサイド」が存在します。
+              - text: このファイルでは、初心者が陥りやすい罠や、知っておくべき金融の裏ルールをこっそり教えます。絶対に真似してはいけませんよ！
+          - link "📈 マネ太のはじめての投資 🆕 maneta ボクのお小遣い、どうなっちゃうの！？ 初心者マネ太が実際に投資プランに挑戦していくドキュメンタリー！日々の資産運用や葛藤を赤裸々に綴る投資日記をチェックしてね👦✨" [ref=e272] [cursor=pointer]:
+            - /url: "?page=maneta_diary"
+            - generic [ref=e273]: 📈 マネ太のはじめての投資 🆕
+            - img "maneta" [ref=e275]
+            - generic [ref=e276]:
+              - generic [ref=e277]: ボクのお小遣い、どうなっちゃうの！？
+              - text: 初心者マネ太が実際に投資プランに挑戦していくドキュメンタリー！日々の資産運用や葛藤を赤裸々に綴る投資日記をチェックしてね👦✨
+        - generic [ref=e278]:
+          - generic [ref=e280]:
+            - heading "おすすめ証券会社" [level=2] [ref=e281]
+            - paragraph [ref=e282]: まずは自分に合った口座を見つけるのじゃ！
+          - generic [ref=e283]:
+            - generic [ref=e286]:
+              - heading "SBI証券" [level=3] [ref=e287]
+              - paragraph [ref=e288]: 口座数No.1！総合力で選ぶならココ
+              - generic [ref=e289]:
+                - generic [ref=e290]: 🔰 初心者向け
+                - generic [ref=e291]: 💰 手数料最安級
+              - link "口座開設 ➔" [ref=e292] [cursor=pointer]:
+                - /url: https://www.sbisec.co.jp
+            - generic [ref=e295]:
+              - heading "楽天証券" [level=3] [ref=e296]
+              - paragraph [ref=e297]: ポイントで投資！楽天ユーザー必見
+              - generic [ref=e298]:
+                - generic [ref=e299]: 🔰 初心者向け
+                - generic [ref=e300]: 🛍️ 楽天ユーザー向け
+              - link "口座開設 ➔" [ref=e301] [cursor=pointer]:
+                - /url: https://www.rakuten-sec.co.jp
+            - generic [ref=e304]:
+              - heading "松井証券" [level=3] [ref=e305]
+              - paragraph [ref=e306]: 50万円まで手数料0円！少額ならココ
+              - generic [ref=e307]:
+                - generic [ref=e308]: ⚡ 少額投資向け
+                - generic [ref=e309]: 📞 充実のサポート
+              - link "口座開設 ➔" [ref=e310] [cursor=pointer]:
+                - /url: https://ad2.trafficgate.net/t/r/216/6012/317294_396520
+            - generic [ref=e313]:
+              - heading "アイザワ証券" [level=3] [ref=e314]
+              - paragraph [ref=e315]: アジア株に強い！地域密着の充実サポート
+              - generic [ref=e316]:
+                - generic [ref=e317]: 🌏 アジア株向け
+                - generic [ref=e318]: 🤝 充実サポート
+              - link "口座開設 ➔" [ref=e319] [cursor=pointer]:
+                - /url: https://www.aizawa.co.jp
+          - paragraph [ref=e320]: ※当サイトは特定の証券会社を推薦するものではありません。投資は自己責任でお願いします。
+      - generic [ref=e321]:
+        - paragraph [ref=e322]: © 2026 KABU PORTAL Project
+        - generic [ref=e323]:
+          - link "プライバシーポリシー" [ref=e324] [cursor=pointer]:
+            - /url: "?page=privacy"
+          - link "免責事項" [ref=e325] [cursor=pointer]:
+            - /url: "?page=disclaimer"
+          - link "お問い合わせ" [ref=e326] [cursor=pointer]:
+            - /url: "?page=contact"
+  - generic [ref=e327]: "144"

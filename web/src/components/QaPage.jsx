@@ -117,6 +117,36 @@ export const QaPage = () => {
           </div>
         </div>
       </div>
+
+      <div className="bg-white rounded-3xl p-8 border-2 border-gray-100 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
+         <div className="flex-1 text-center md:text-left">
+            <h3 className="text-xl font-black text-text mb-2 flex items-center justify-center md:justify-start gap-2">
+               <span>🚀</span> 疑問が解けたら、まずは開設！
+            </h3>
+            <p className="text-sm text-muted font-bold leading-relaxed">
+               わからないことが解決したら、実際に証券口座を持ってみるのが上達の秘訣じゃ。<br/>
+               カブ先生も愛用している証券会社を紹介するぞ。
+            </p>
+         </div>
+         <div className="grid grid-cols-2 gap-4 w-full md:w-auto">
+            <a 
+              href="https://ad2.trafficgate.net/t/r/1222/738/317294_396520" 
+              target="_blank" 
+              rel="nofollow noopener noreferrer"
+              className="block bg-gray-50 p-2 rounded-xl border border-gray-200 hover:border-primary transition-all flex items-center justify-center h-16 w-36 overflow-hidden bg-white"
+            >
+              <img src="https://srv2.trafficgate.net/t/b/1222/738/317294_396520" alt="楽天証券" className="max-w-full max-h-full object-contain" />
+            </a>
+            <a 
+              href="https://ad2.trafficgate.net/t/r/212/6012/317294_396520" 
+              target="_blank" 
+              rel="nofollow noopener noreferrer"
+              className="block bg-gray-50 p-2 rounded-xl border border-gray-200 hover:border-primary transition-all flex items-center justify-center h-16 w-36 overflow-hidden bg-white"
+            >
+              <img src="https://srv2.trafficgate.net/t/b/212/6012/317294_396520" alt="松井証券" className="max-w-full max-h-full object-contain" />
+            </a>
+         </div>
+      </div>
     </div>
   )
 }

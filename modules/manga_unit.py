@@ -1,51 +1,22 @@
 import streamlit as st
 import os
-from modules.ui_components import get_image_base64
+from modules.ui_components import get_image_base64, resolve_image_path
 
-# マンガエピソード定義
-MANGA_DIR = os.path.join(os.getcwd(), "manga")
-manga_episodes = [
-    {
-        "ep": 1,
-        "title": "株ってなに？",
-        "summary": "会社の「オーナーの一部」になることを学ぼう！",
-        "image_path": os.path.join(MANGA_DIR, "Manga01.jpg"),
-        "thumbnail": os.path.join(MANGA_DIR, "Manga01.jpg"),
-        "topic": "basic"
-    },
-    {
-        "ep": 2,
-        "title": "配当金ってなに？",
-        "summary": "持ってるだけでもらえるお小遣い！",
-        "image_path": os.path.join(MANGA_DIR, "Manga03.jpg"),
-        "thumbnail": os.path.join(MANGA_DIR, "Manga03.jpg"),
-        "topic": "dividend"
-    },
-    {
-        "ep": 3,
-        "title": "株価はなぜ動くの？",
-        "summary": "需要と供給のしくみをマンガで理解しよう",
-        "image_path": os.path.join(MANGA_DIR, "Manga02.jpg"),
-        "thumbnail": os.path.join(MANGA_DIR, "Manga02.jpg"),
-        "topic": "market"
-    },
-    {
-        "ep": 4,
-        "title": "NISAの始め方",
-        "summary": "たったの3ステップ！投資デビューの最短ルートを教えるぞ✨",
-        "image_path": os.path.join(MANGA_DIR, "manga04.jpg"),
-        "thumbnail": os.path.join(MANGA_DIR, "manga04.jpg"),
-        "topic": "nisa"
-    },
-    {
-        "ep": 5,
-        "title": "成長株ってなに？",
-        "summary": "グングン増えるチャンス！でもリスクには注意？",
-        "image_path": os.path.join(MANGA_DIR, "Manga05.jpg"),
-        "thumbnail": os.path.join(MANGA_DIR, "Manga05.jpg"),
-        "topic": "growth"
-    },
-]
+import json
+
+# 設定
+DATA_DIR = os.path.join(os.getcwd(), "data")
+IMAGE_DIR = os.path.join(os.getcwd(), "image")
+
+def load_manga_data():
+    """manga.jsonからデータを読み込む"""
+    json_path = os.path.join(DATA_DIR, "manga.json")
+    if os.path.exists(json_path):
+        with open(json_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
+
+manga_episodes = load_manga_data()
 
 def render_manga_page():
     """マンガ学習ページのエントリポイント"""
@@ -101,7 +72,11 @@ def render_manga_list():
     for i, ep in enumerate(manga_episodes):
         col = cols[i % 2]
         with col:
-            b64 = get_image_base64(ep["thumbnail"]) if os.path.exists(ep["thumbnail"]) else ""
+            # 画像パスの解決 (画像解決エンジンを使用)
+            # thumbnailフィールドがない場合は最初のページをサムネイルにする
+            raw_thumb = ep.get("thumbnail") or (ep["manga_pages"][0] if ep.get("manga_pages") else "")
+            img_path = resolve_image_path(raw_thumb, category="manga")
+            b64 = get_image_base64(img_path)
             
             # カード全体をボタン的に見せるため、背景と情報をコンテナ化
             # Streamlitのネイティブボタンやクリック検知が必要なため、div + buttonの組み合わせ
@@ -139,20 +114,71 @@ def render_manga_viewer(ep_num):
 </div>
 """, unsafe_allow_html=True)
 
-    # マンガ画像
-    if os.path.exists(ep["image_path"]):
-        b64 = get_image_base64(ep["image_path"])
-        if b64:
-            st.markdown(f"""
-<div style="max-width: 900px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-radius: 12px; overflow: hidden;">
+    # マンガ画像（複数ページ対応）
+    pages = ep.get("manga_pages")
+    if not pages and "image" in ep:
+        # 互換性のため、単一画像もリスト化
+        pages = [ep["image"]]
+    
+    if pages:
+        for i, page_path in enumerate(pages):
+            # 画像パスの解決 (画像解決エンジンを使用)
+            full_path = resolve_image_path(page_path, category="manga")
+            b64 = get_image_base64(full_path)
+            
+            if b64:
+                    st.markdown(f"""
+<div style="max-width: 900px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.15); margin-bottom: 5px;">
   <img src="data:image/png;base64,{b64}" style="width:100%; display:block;">
 </div>
 """, unsafe_allow_html=True)
-        else:
-            st.error("画像の読み込みに失敗しました。")
+            else:
+                if i == 0:
+                    render_coming_soon(ep['ep'])
     else:
-        # 準備中の表示
-        st.markdown(f"""
+        render_coming_soon(ep['ep'])
+
+    # --- カブ先生の解説セクション ---
+    if "commentary" in ep or "summary_points" in ep:
+        st.markdown("<br><br>", unsafe_allow_html=True)
+        st.markdown(f'<h3 style="font-family:\'M PLUS Rounded 1c\',sans-serif;font-weight:800;text-align:center;color:#2D3436;border-bottom:3px solid #FF6B6B;display:inline-block;padding:0 20px 5px;margin-bottom:30px;">🎓 カブ先生の深掘り解説：第{ep["ep"]}話</h3>', unsafe_allow_html=True)
+        
+        from modules.ui_components import character_explain, CHARA
+        
+        # 1. ダイアログ形式の解説
+        for item in ep.get("commentary", []):
+            role = item.get("speaker", "kabu")
+            text = item.get("text", "")
+            emote = item.get("emote", "normal")
+            
+            chara_data = CHARA.get(role, CHARA["kabu"])
+            bg = "#FFF9F0" if role == "kabu" else "#F0F7FF"
+            character_explain(chara_data, text, bg_color=bg)
+
+        # 2. まとめ・ポイント
+        if "summary_points" in ep:
+            st.markdown("<br>", unsafe_allow_html=True)
+            points_html = "".join([f"<li>{p}</li>" for p in ep["summary_points"]])
+            st.markdown(f"""
+<div style="background: white; border-radius: 16px; padding: 25px; border-left: 8px solid #FF6B6B; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+  <h4 style="margin-top:0; color:#FF6B6B; font-weight:800;">💡 この話の重要ポイント</h4>
+  <ul style="margin-bottom:0; line-height:1.7; color:#2D3436;">
+    {points_html}
+  </ul>
+</div>
+""", unsafe_allow_html=True)
+
+        # 3. FAQ
+        if "faq" in ep:
+            st.markdown("<br><br>", unsafe_allow_html=True)
+            st.markdown('<h4 style="font-weight:800; color:#2D3436; margin-bottom:20px;">❓ よくある質問</h4>', unsafe_allow_html=True)
+            for item in ep["faq"]:
+                with st.expander(f"Q: {item['q']}", expanded=False):
+                    st.markdown(item["a"])
+
+def render_coming_soon(ep_num):
+    """準備中表示"""
+    st.markdown(f"""
 <div style="
   background:linear-gradient(135deg,#FFF9F0,#FFE8E8);
   border-radius:12px;padding:100px 40px;text-align:center;
@@ -160,7 +186,7 @@ def render_manga_viewer(ep_num):
   <div style="font-size:4rem;">📖✨</div>
   <div style="font-weight:800;margin-top:16px;color:#636E72;font-size:1.2rem;">
     ただいま制作中じゃ！<br>
-    <span style="font-size:0.9rem;">第{ep['ep']}話はもうすぐ公開されるぞ。楽しみに待っておれ！</span>
+    <span style="font-size:0.9rem;">第{ep_num}話はもうすぐ公開されるぞ。楽しみに待っておれ！</span>
   </div>
 </div>
 """, unsafe_allow_html=True)

@@ -20,7 +20,9 @@ const BROKERS = [
     gradient: 'from-[#FFF0F5] to-[#FFD6E7]',
     textColor: '#E85555',
     pills: ['🔰 初心者向け', '🛍️ 楽天ユーザー向け'],
-    url: 'https://www.rakuten-sec.co.jp'
+    url: 'https://ad2.trafficgate.net/t/r/1222/738/317294_396520',
+    bannerSrc: 'https://srv2.trafficgate.net/t/b/1222/738/317294_396520',
+    isAffiliate: true
   },
   {
     id: 'matsui',
@@ -30,8 +32,8 @@ const BROKERS = [
     gradient: 'from-[#EEF5FF] to-[#D6E8FF]',
     textColor: '#0984e3',
     pills: ['⚡ 少額投資向け', '📞 充実のサポート'],
-    url: 'https://ad2.trafficgate.net/t/r/216/6012/317294_396520',
-    bannerSrc: 'https://srv2.trafficgate.net/t/b/216/6012/317294_396520',
+    url: 'https://ad2.trafficgate.net/t/r/212/6012/317294_396520',
+    bannerSrc: 'https://srv2.trafficgate.net/t/b/212/6012/317294_396520',
     isAffiliate: true
   },
   {
@@ -62,7 +64,12 @@ export const BrokerLinks = () => {
             key={broker.id}
             className="group flex flex-col h-full bg-white border-2 border-transparent hover:border-primary/20 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2 overflow-hidden"
           >
-            <div className={`h-12 bg-gray-50 flex items-center justify-center`}>
+            <div className={`h-24 bg-gray-50 flex items-center justify-center overflow-hidden border-b border-gray-100`}>
+              {broker.bannerSrc ? (
+                <img src={broker.bannerSrc} alt={broker.name} className="w-full h-full object-contain p-2" />
+              ) : (
+                <span className="text-4xl">{broker.icon}</span>
+              )}
             </div>
             
             <div className="p-6 flex flex-col flex-1">

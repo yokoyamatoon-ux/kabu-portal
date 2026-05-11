@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1. Redirect HTTP to HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # 2. Redirect WWW to Non-WWW
+  RewriteCond %{HTTP_HOST} ^www\.okane-no-manabi\.jp [NC]
+  RewriteRule ^(.*)$ https://okane-no-manabi.jp/$1 [L,R=301]
+
+</IfModule>

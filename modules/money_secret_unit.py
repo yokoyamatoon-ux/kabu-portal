@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-from modules.ui_components import get_image_base64, IMAGE_DIR, chara_img, icon_img
+from modules.ui_components import get_image_base64, IMAGE_DIR, chara_img, icon_img, resolve_image_path
 import json
 
 # 裏事情エピソード定義の読み込み
@@ -13,8 +13,8 @@ def load_ura_episodes():
                 data = json.load(f)
                 # パスを絶対パスっぽく解決
                 for item in data:
-                    item["image_path"] = os.path.join(os.getcwd(), item["image_path"])
-                    item["thumbnail"] = os.path.join(os.getcwd(), item["thumbnail"])
+                    item["image_path"] = resolve_image_path(item["image_path"], category="manga/urakane")
+                    item["thumbnail"] = resolve_image_path(item["thumbnail"], category="manga/urakane")
                 return data
     except Exception as e:
         st.error(f"Error loading money_secrets.json: {e}")
@@ -156,7 +156,7 @@ def render_ura_viewer(ep_num):
     warning_icon = icon_img('warning.png', 24)
 
     # マンガ画像
-    manga_b64 = get_image_base64(ep["image_path"]) if os.path.exists(ep["image_path"]) else ""
+    manga_b64 = get_image_base64(ep["image_path"])
 
     # チャットコンテンツの抽出とプレースホルダー置換
     chat_html = ep.get("chat_html", "")

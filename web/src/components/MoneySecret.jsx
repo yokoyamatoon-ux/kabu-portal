@@ -39,13 +39,37 @@ export const MoneySecretPage = () => {
 
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-2xl border border-gray-100 mx-auto">
            <div className="text-center mb-8">
-             <img src={`/images/urakane0${activeEp.ep}.jpg`} alt={activeEp.title} className="w-full max-w-2xl mx-auto rounded-xl shadow-md border border-gray-100 object-cover" onError={(e) => { e.target.style.display='none'; }} />
+             <img src={activeEp.image_path.startsWith('manga/') && !activeEp.image_path.includes('urakane0') ? `/${activeEp.image_path}` : `/images/urakane0${activeEp.ep}.jpg`} alt={activeEp.title} className="w-full max-w-2xl mx-auto rounded-xl shadow-md border border-gray-100 object-cover" onError={(e) => { e.target.style.display='none'; }} />
            </div>
            
            <div 
              className="prose prose-sm md:prose-base max-w-none prose-p:my-2 prose-img:m-0"
              dangerouslySetInnerHTML={{ __html: processHtml(activeEp.chat_html) }} 
            />
+
+           <div className="mt-12 pt-8 border-t border-gray-100">
+              <div className="bg-gray-50 rounded-2xl p-6 text-center">
+                 <div className="font-black text-text mb-4">裏事情を知ったら、次は「正しい投資」の第一歩！</div>
+                 <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto">
+                   <a 
+                     href="https://ad2.trafficgate.net/t/r/1222/738/317294_396520" 
+                     target="_blank" 
+                     rel="nofollow noopener noreferrer"
+                     className="block bg-white p-2 rounded-xl border border-gray-200 hover:border-primary transition-all flex items-center justify-center h-16 overflow-hidden"
+                   >
+                     <img src="https://srv2.trafficgate.net/t/b/1222/738/317294_396520" alt="楽天証券" className="max-w-full max-h-full object-contain" />
+                   </a>
+                   <a 
+                     href="https://ad2.trafficgate.net/t/r/212/6012/317294_396520" 
+                     target="_blank" 
+                     rel="nofollow noopener noreferrer"
+                     className="block bg-white p-2 rounded-xl border border-gray-200 hover:border-primary transition-all flex items-center justify-center h-16 overflow-hidden"
+                   >
+                     <img src="https://srv2.trafficgate.net/t/b/212/6012/317294_396520" alt="松井証券" className="max-w-full max-h-full object-contain" />
+                   </a>
+                 </div>
+              </div>
+           </div>
         </div>
 
         <div className="mt-8 text-center">
@@ -71,9 +95,9 @@ export const MoneySecretPage = () => {
         {MONEY_SECRETS.map((ep) => (
           <MangaCard key={ep.ep} className="p-0 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:-translate-y-1 bg-white border border-gray-100 flex flex-col h-full relative" onClick={() => setSelectedEp(ep.ep)}>
              <div className="h-48 bg-gray-50 flex items-center justify-center overflow-hidden relative border-b border-gray-100">
-               <img src={`/images/urakane0${ep.ep}.jpg`} alt={ep.title} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+               <img src={ep.image_path.startsWith('manga/') && !ep.image_path.includes('urakane0') ? `/${ep.image_path}` : `/images/urakane0${ep.ep}.jpg`} alt={ep.title} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
                <div className="hidden absolute inset-0 items-center justify-center text-6xl">🕵️</div>
-               {ep.ep === 1 && (
+               {ep.ep === 7 && (
                  <div className="absolute top-4 left-4 bg-danger text-white text-[0.65rem] font-black px-3 py-1 rounded-full shadow-lg border border-white z-30 animate-pulse">NEW!</div>
                )}
              </div>

@@ -19,12 +19,45 @@ TOP_BANNERS = [
     os.path.join(IMAGE_DIR, "Top03.jpg"),
 ]
 
-def get_image_base64(path: str) -> str:
-    """画像ファイルをbase64文字列に変換。キャッシュを長時間（1時間）保持して高速化。"""
-    if not path or not os.path.exists(path): return ""
+def resolve_image_path(raw_path: str, category: str = "column") -> str:
+    """
+    JSON内のパス形式の揺れを吸収して、正しいファイルパスを返す。
+    1. 前後のスラッシュやフォルダ名を削除 (basename)
+    2. image/{category}/filename としてパスを構築
+    3. ファイルが見つからない場合、拡張子を入れ替えて試行 (.png <-> .jpg)
+    """
+    if not raw_path:
+        return ""
     
-    # 頻繁なOSのファイルアクセスを避けるため、パスのみをキーにキャッシュ
-    # ファイルを変更した場合はStreamlitを再起動するか、開発モードなら自動検知される
+    # フォルダ名やプレフィックスを削除してファイル名のみにする
+    filename = os.path.basename(raw_path)
+    if not filename:
+        return ""
+    
+    # 基本のターゲットパス
+    target_dir = os.path.join(IMAGE_DIR, category)
+    base_path = os.path.join(target_dir, filename)
+    
+    if os.path.exists(base_path):
+        return base_path
+    
+    # 見つからない場合、拡張子の揺れを許容して探す
+    name_no_ext, _ = os.path.splitext(filename)
+    for ext in [".jpg", ".png", ".jpeg", ".JPG", ".PNG"]:
+        alt_path = os.path.join(target_dir, name_no_ext + ext)
+        if os.path.exists(alt_path):
+            return alt_path
+            
+    # それでも見つからない場合、親ディレクトリ(image/)も探す
+    direct_path = os.path.join(IMAGE_DIR, filename)
+    if os.path.exists(direct_path):
+        return direct_path
+        
+    return ""
+
+def get_image_base64(path: str) -> str:
+    """画像ファイルをbase64文字列に変換。キャッシュを保持して高速化。"""
+    if not path or not os.path.exists(path): return ""
     return _get_image_base64_cached(path)
 
 @st.cache_data(show_spinner=False, ttl=3600)

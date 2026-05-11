@@ -110,6 +110,34 @@ export const Simulator = () => {
                 </div>
              </div>
           </MangaCard>
+
+          <MangaCard className="bg-gradient-to-br from-secondary-light to-white p-6 border-2 border-secondary shadow-lg">
+             <div className="flex items-center gap-3 mb-4">
+               <span className="text-2xl">🚀</span>
+               <h4 className="font-black text-secondary-dark uppercase tracking-tight">準備はできたかな？</h4>
+             </div>
+             <p className="text-[0.7rem] font-bold text-muted mb-6 leading-relaxed">
+               シミュレーションで将来のイメージが沸いたら、実際に口座を作って少額から始めてみるのが一番の近道じゃ！
+             </p>
+             <div className="grid grid-cols-2 gap-4">
+               <a 
+                 href="https://ad2.trafficgate.net/t/r/1222/738/317294_396520" 
+                 target="_blank" 
+                 rel="nofollow noopener noreferrer"
+                 className="block bg-white p-3 rounded-xl border-2 border-gray-100 hover:border-primary transition-all flex items-center justify-center h-16 group"
+               >
+                 <img src="https://srv2.trafficgate.net/t/b/1222/738/317294_396520" alt="楽天証券" className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" />
+               </a>
+               <a 
+                 href="https://ad2.trafficgate.net/t/r/212/6012/317294_396520" 
+                 target="_blank" 
+                 rel="nofollow noopener noreferrer"
+                 className="block bg-white p-3 rounded-xl border-2 border-gray-100 hover:border-primary transition-all flex items-center justify-center h-16 group"
+               >
+                 <img src="https://srv2.trafficgate.net/t/b/212/6012/317294_396520" alt="松井証券" className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" />
+               </a>
+             </div>
+          </MangaCard>
         </div>
       </div>
     </div>

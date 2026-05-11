@@ -36,7 +36,7 @@ export const ManetaDiaryPage = ({ navigateTo }) => {
 
              {/* Post-Manga Dialogue */}
              {activeEp.chat_data && activeEp.chat_data.length > 0 && (
-               <div className="bg-[#FFF9F0] p-6 rounded-2xl border border-[#ffcc5c]/20">
+               <div className="bg-[#FFF9F0] p-6 rounded-2xl border border-[#ffcc5c]/20 mb-8">
                  {activeEp.chat_data.map((chat, idx) => (
                    <CharacterSpeech 
                      key={idx}
@@ -47,6 +47,28 @@ export const ManetaDiaryPage = ({ navigateTo }) => {
                  ))}
                </div>
              )}
+
+             <div className="pt-8 border-t border-gray-100 flex flex-col items-center">
+                <div className="text-secondary font-black text-sm mb-4">マネ太もここから始めたぞ！キミも挑戦してみよう✨</div>
+                <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
+                   <a 
+                     href="https://ad2.trafficgate.net/t/r/1222/738/317294_396520" 
+                     target="_blank" 
+                     rel="nofollow noopener noreferrer"
+                     className="block bg-white p-2 rounded-xl border border-gray-200 hover:border-primary transition-all flex items-center justify-center h-16 overflow-hidden"
+                   >
+                     <img src="https://srv2.trafficgate.net/t/b/1222/738/317294_396520" alt="楽天証券" className="max-w-full max-h-full object-contain" />
+                   </a>
+                   <a 
+                     href="https://ad2.trafficgate.net/t/r/212/6012/317294_396520" 
+                     target="_blank" 
+                     rel="nofollow noopener noreferrer"
+                     className="block bg-white p-2 rounded-xl border border-gray-200 hover:border-primary transition-all flex items-center justify-center h-16 overflow-hidden"
+                   >
+                     <img src="https://srv2.trafficgate.net/t/b/212/6012/317294_396520" alt="松井証券" className="max-w-full max-h-full object-contain" />
+                   </a>
+                </div>
+             </div>
           </div>
         </div>
 

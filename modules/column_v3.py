@@ -1,10 +1,10 @@
 import streamlit as st
+from modules.ui_components import (
+    get_image_base64, chara_img, icon_img, CHARA, IMAGE_DIR, character_explain, resolve_image_path
+)
 import os
 import json
 from datetime import datetime
-from modules.ui_components import (
-    get_image_base64, chara_img, icon_img, CHARA, IMAGE_DIR, character_explain
-)
 
 __all__ = ["render_column_list_page", "render_column_detail_page", "render_column_home_section"]
 
@@ -66,8 +66,8 @@ def render_column_home_section():
     display_columns = articles[:4]
     for col, article in zip(cols, display_columns):
         with col:
-            img_name = article.get('image', f"{article['id']}.jpg")
-            img_path = os.path.join(IMAGE_DIR, "column", img_name)
+            # 画像パスの解決 (画像解決エンジンを使用)
+            img_path = resolve_image_path(article.get('image', f"{article['id']}.jpg"), category="column")
             img_b64 = get_image_base64(img_path)
 
             img_html = (
@@ -231,9 +231,8 @@ def render_column_detail_page(column_id: str):
     # 本文 — markdownとして別途レンダリング（rawにならない）
     st.markdown('<div class="col-detail-body">', unsafe_allow_html=True)
     
-    # 画像の読み込み（アイキャッチから本文中へ移動）
-    img_name = article.get('image', f"{article['id']}.jpg")
-    img_path = os.path.join(IMAGE_DIR, "column", img_name)
+    # 画像の読み込み (画像解決エンジンを使用)
+    img_path = resolve_image_path(article.get('image'), category="column")
     img_b64 = get_image_base64(img_path)
     
     parts = article["body"].split('\n\n')

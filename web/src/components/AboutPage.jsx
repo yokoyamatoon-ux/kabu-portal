@@ -120,13 +120,54 @@ export const AboutPage = () => {
         </p>
       </div>
 
-      <div className="text-center">
-        <button 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
-          className="bg-primary text-white font-black px-12 py-4 rounded-full shadow-lg hover:shadow-xl transition-all"
-        >
-          ホームに戻って冒険を始める！
-        </button>
+      <div className="bg-gradient-to-br from-primary-light to-white rounded-[3rem] p-10 md:p-14 border-4 border-white shadow-2xl relative overflow-hidden text-center space-y-8">
+        <div className="absolute top-0 left-0 w-64 h-64 bg-primary opacity-5 rounded-full -ml-32 -mt-32"></div>
+        <div className="relative z-10 space-y-4">
+          <div className="text-5xl mb-4">🚀</div>
+          <h2 className="text-3xl font-black text-text">さあ、あなたも「お金の学校」<br />の一員になろう！</h2>
+          <p className="text-muted font-bold max-w-lg mx-auto leading-relaxed">
+            知識がついたら、次は実践じゃ。まずは口座を作って、少額から投資の世界を覗いてみるのじゃ！
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10 max-w-2xl mx-auto">
+          <MangaCard className="p-6 bg-white border-2 border-gray-100 hover:border-primary transition-all group flex flex-col items-center gap-4">
+            <div className="h-16 flex items-center justify-center">
+              <img src="https://srv2.trafficgate.net/t/b/1222/738/317294_396520" alt="楽天証券" className="max-w-full max-h-full object-contain" />
+            </div>
+            <a 
+              href="https://ad2.trafficgate.net/t/r/1222/738/317294_396520" 
+              target="_blank" 
+              rel="nofollow noopener noreferrer"
+              className="w-full bg-primary text-white font-black py-3 rounded-full shadow-lg hover:shadow-xl transition-all text-sm"
+            >
+              楽天証券で口座開設 ➔
+            </a>
+          </MangaCard>
+
+          <MangaCard className="p-6 bg-white border-2 border-gray-100 hover:border-primary transition-all group flex flex-col items-center gap-4">
+            <div className="h-16 flex items-center justify-center">
+              <img src="https://srv2.trafficgate.net/t/b/212/6012/317294_396520" alt="松井証券" className="max-w-full max-h-full object-contain" />
+            </div>
+            <a 
+              href="https://ad2.trafficgate.net/t/r/212/6012/317294_396520" 
+              target="_blank" 
+              rel="nofollow noopener noreferrer"
+              className="w-full bg-primary text-white font-black py-3 rounded-full shadow-lg hover:shadow-xl transition-all text-sm"
+            >
+              松井証券で口座開設 ➔
+            </a>
+          </MangaCard>
+        </div>
+
+        <div className="pt-8">
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+            className="text-primary font-black hover:underline transition-all text-sm"
+          >
+            ページの上部に戻る
+          </button>
+        </div>
       </div>
     </div>
   )

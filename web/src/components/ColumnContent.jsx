@@ -60,6 +60,9 @@ export const ColumnDetail = ({ columnId, onBack }) => {
   }, [columnId])
 
   const col = COLUMNS.find(c => c.id === columnId)
+
+  // Title is now managed centrally in App.jsx SEO useEffect
+
   if (!col) return <div>Column not found</div>
 
   return (
@@ -117,6 +120,35 @@ export const ColumnDetail = ({ columnId, onBack }) => {
               }
               return <p key={i} className="mb-6">{line}</p>
             })}
+          </div>
+
+          <div className="mt-16 bg-gradient-to-br from-secondary-light/30 to-white rounded-3xl p-8 border-2 border-dashed border-secondary/50 text-center">
+             <div className="font-black text-text mb-4 flex items-center justify-center gap-3">
+                <span className="text-2xl">🌱</span>
+                <span>まずは小さな一歩から始めてみよう</span>
+             </div>
+             <p className="text-sm text-muted font-bold mb-8 leading-relaxed">
+                解説を読んで知識がついたら、実際に口座を作って少額から触ってみるのが一番の近道じゃ！<br/>
+                カブ先生おすすめの証券会社をチェックしてみるのじゃ。
+             </p>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mx-auto">
+                <a 
+                  href="https://ad2.trafficgate.net/t/r/1222/738/317294_396520" 
+                  target="_blank" 
+                  rel="nofollow noopener noreferrer"
+                  className="block bg-white p-3 rounded-xl border-2 border-gray-100 hover:border-primary transition-all flex items-center justify-center h-16 group shadow-sm hover:shadow-md"
+                >
+                  <img src="https://srv2.trafficgate.net/t/b/1222/738/317294_396520" alt="楽天証券" className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" />
+                </a>
+                <a 
+                  href="https://ad2.trafficgate.net/t/r/212/6012/317294_396520" 
+                  target="_blank" 
+                  rel="nofollow noopener noreferrer"
+                  className="block bg-white p-3 rounded-xl border-2 border-gray-100 hover:border-primary transition-all flex items-center justify-center h-16 group shadow-sm hover:shadow-md"
+                >
+                  <img src="https://srv2.trafficgate.net/t/b/212/6012/317294_396520" alt="松井証券" className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" />
+                </a>
+             </div>
           </div>
 
           <div className="mt-12 pt-8 border-t flex items-center gap-6">

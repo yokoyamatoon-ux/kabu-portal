@@ -2,7 +2,10 @@
 description: Automated Site Deployment Workflow
 ---
 
-This workflow defines the procedure for updating the Kabu Portal site. Whenever a change is made to the `web/` directory or related site content, this deployment MUST be executed to reflect changes on the live site.
+This workflow defines the procedure for updating the Kabu Portal site.
+
+> [!IMPORTANT]
+> Whenever a change is made to the `web/` directory or related site content, this deployment **MUST** be executed to reflect changes on the live site. Failure to do so violates the **Strict Deployment Rule**.
 
 // turbo
 1. Execute the deployment script:

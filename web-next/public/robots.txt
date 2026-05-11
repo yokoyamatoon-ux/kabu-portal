@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block crawling of legacy SPA query parameters (Allowing ?page= for 301 discovery)
+Disallow: /*?q=
+
+Sitemap: https://okane-no-manabi.jp/sitemap.xml

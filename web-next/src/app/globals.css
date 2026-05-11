@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-rounded: "M PLUS Rounded 1c", sans-serif;
+
+  --color-primary: #FF6B6B;
+  --color-primary-light: #FFF0F0;
+  --color-primary-dark: #E85555;
+  
+  --color-secondary: #FFE66D;
+  --color-secondary-light: #FFF8E0;
+  --color-secondary-dark: #E8A000;
+  
+  --color-success: #00B894;
+  --color-danger: #FF7675;
+  --color-background: #FFF9F0;
+  --color-card: #FFFFFF;
+  --color-text: #2D3436;
+  --color-muted: #636E72;
+
+  --radius-manga: 24px;
+  --radius-bubble: 16px;
+
+  --shadow-manga: 0 8px 20px rgba(0,0,0,0.05);
+  --shadow-manga-hover: 0 16px 32px rgba(0,0,0,0.1);
+}
+
+@layer base {
+  :root {
+    font-family: var(--font-rounded);
+    color: var(--color-text);
+    background-color: var(--color-background);
+  }
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#__next {
+  width: 100%;
+}
+
+/* Site-wide centering container */
+.site-container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Manga Style utility classes */
+@layer components {
+  .section-title {
+    @apply font-black text-xl mb-4 text-text flex items-center gap-2;
+  }
+  
+  .kabu-card {
+    @apply bg-card rounded-manga p-4 shadow-manga border border-gray-100 transition-all duration-200;
+  }
+  
+  .kabu-card-hover {
+    @apply hover:-translate-y-1 hover:shadow-manga-hover;
+  }
+  
+  .manga-bubble {
+    @apply bg-white rounded-bubble p-4 border border-gray-100 shadow-sm relative;
+  }
+
+  /* お金のウラ事情 チャットスタイル */
+  .ura-chat-flex {
+    @apply flex gap-4 mb-6 items-start;
+  }
+  
+  .ura-bubble {
+    @apply flex-1 p-4 md:p-5 rounded-2xl md:rounded-3xl relative border border-gray-100 shadow-sm font-bold leading-relaxed text-sm md:text-base;
+  }
+
+  .ura-bubble-teacher {
+    @apply bg-[#FFF5F5] rounded-tl-none border-red-100;
+  }
+  
+  .ura-bubble-user {
+    @apply bg-[#F0F7FF] rounded-tr-none border-blue-100;
+  }
+  
+  .ura-bubble-evil {
+    @apply bg-[#F4F4F4] rounded-tr-none border-gray-300;
+  }
+
+  .ura-chat-flex[style*="row-reverse"] .ura-bubble-teacher {
+    @apply rounded-tl-3xl rounded-tr-none;
+  }
+  
+  .ura-chat-flex:not([style*="row-reverse"]) .ura-bubble-user,
+  .ura-chat-flex:not([style*="row-reverse"]) .ura-bubble-evil {
+    @apply rounded-tr-3xl rounded-tl-none;
+  }
+}
