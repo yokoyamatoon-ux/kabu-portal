@@ -39,9 +39,9 @@ def main():
     
     # Define targets
     targets = [
-        ("^N225", "日経平均 🇯🇵"),
-        ("^GSPC", "S&P500 🇺🇸"),
-        ("JPY=X", "ドル円 💴")
+        ("^N225", "日経平均 JP"),
+        ("^GSPC", "S&P500 US"),
+        ("JPY=X", "ドル円 💰")
     ]
     
     results = []

@@ -1,0 +1,37 @@
+name: Deploy to Xserver via FTP
+
+on:
+  push:
+    branches:
+      - main  # mainブランチにpushされた時に自動実行
+
+jobs:
+  web-deploy:
+    name: 🎉 Build & Deploy React App
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+      
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          
+      - name: 🔨 Install Dependencies & Build
+        working-directory: ./web
+        run: |
+          npm ci
+          npm run build
+      
+      - name: 📂 Sync files (upload dist)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.XSERVER_FTP_HOST }}
+          username: ${{ secrets.XSERVER_FTP_USER }}
+          password: ${{ secrets.XSERVER_FTP_PASSWORD }}
+          server-dir: ./
+          local-dir: ./web/dist/
+          dry-run: false
+          protocol: ftp
+          port: 21

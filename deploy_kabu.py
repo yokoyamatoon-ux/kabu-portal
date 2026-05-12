@@ -110,6 +110,10 @@ def main():
         dst_market = os.path.join("web-next", "src", "data", "market.json")
         if os.path.exists(src_market):
             shutil.copy2(src_market, dst_market)
+            # Also copy to public directory for runtime fetching
+            dst_public = os.path.join("web-next", "public", "data", "market.json")
+            os.makedirs(os.path.dirname(dst_public), exist_ok=True)
+            shutil.copy2(src_market, dst_public)
     except Exception as e:
         print(f"Failed to fetch market data: {e}")
         
