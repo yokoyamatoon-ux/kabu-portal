@@ -1,10 +1,10 @@
 | Task | Status | Notes |
 | :--- | :--- | :--- |
-| **Preparation** | | |
-| 1. Create rewrite script | [x] | Python script `scratch/update_col_013.py` created to securely parse and modify JSON content. |
-| **Apply Rewrite** | | |
-| 2. Apply to raw data | [x] | Updated successfully in sync using Python update script. |
-| 3. Apply to web-next data | [x] | Updated successfully in sync using Python update script. |
-| **Verification** | | |
-| 4. Next.js Dev Verification | [x] | Verified structure. Dynamic pages generate col_013 perfectly. |
-| 5. Build export test | [x] | Ran `npm run build` inside `web-next`. All 61 static pages compiled successfully in 2.0s without errors. |
+| **Preparation & Drafting** | | |
+| 1. Create Option A Draft script | [x] | Python script `scratch/generate_column_col_024.py` created containing Option A complete Japanese column content. |
+| **Apply Release** | | |
+| 2. Run apply script to raw data | [x] | `data/columns.json` updated with `col_024` placed at the top (latest article position). |
+| 3. Sync to web-next data | [x] | `web-next/src/data/columns.json` synchronized perfectly. |
+| **Verification & Commit** | | |
+| 4. Next.js Static Export Test | [x] | Ran `npm run build`. 62 dynamic static pages (including `/column/col_024`) compiled in 2.1s with zero errors or warnings. |
+| 5. Git Commit Changes | [x] | Changes committed to local main branch. Ready for site deployment. |
