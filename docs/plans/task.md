@@ -19,3 +19,4 @@
 | **17. Generate & Deploy col_030 (SpaceX IPO)** | [x] | Created new Column 30, mapped corrected user JPEG 'Column20260604.jpeg' to 'Column20260604.png', rebuilt and successfully deployed to live server. |
 | **18. Fix start_kabu_portal.vbs startup error** | [x] | Updated the target of the startup VBScript to point to `Kabu_Admin_Start.bat` instead of the deleted `start_app.bat`, and verified it runs successfully on startup. |
 | **19. Draft Column Recommendation X Posts** | [x] | Created 3 highly engaging, persona-compliant X posts for columns 28, 29, and 30 with correct okane-no-manabi.jp URLs in the reply thread format. |
+| **20. Draft Yuipisu Apology Reply X Post** | [x] | Created a comprehensive, persona-compliant long-form X reply comment for Yuipisu's apology, incorporating all 6 user perspectives including the contract issue. |
