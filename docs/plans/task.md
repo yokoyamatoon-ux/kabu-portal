@@ -20,3 +20,4 @@
 | **18. Fix start_kabu_portal.vbs startup error** | [x] | Updated the target of the startup VBScript to point to `Kabu_Admin_Start.bat` instead of the deleted `start_app.bat`, and verified it runs successfully on startup. |
 | **19. Draft Column Recommendation X Posts** | [x] | Created 3 highly engaging, persona-compliant X posts for columns 28, 29, and 30 with correct okane-no-manabi.jp URLs in the reply thread format. |
 | **20. Draft Yuipisu Apology Reply X Post** | [x] | Created a comprehensive, persona-compliant long-form X reply comment for Yuipisu's apology, incorporating all 6 user perspectives including the contract issue. |
+| **21. Draft Yahoo News Reply Thread** | [x] | Created a high-impact, persona-compliant X reply thread targeting the Yahoo News post on Trump and Kura Sushi, linking to the related note.com article. |
