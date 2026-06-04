@@ -21,3 +21,6 @@
 | **19. Draft Column Recommendation X Posts** | [x] | Created 3 highly engaging, persona-compliant X posts for columns 28, 29, and 30 with correct okane-no-manabi.jp URLs in the reply thread format. |
 | **20. Draft Yuipisu Apology Reply X Post** | [x] | Created a comprehensive, persona-compliant long-form X reply comment for Yuipisu's apology, incorporating all 6 user perspectives including the contract issue. |
 | **21. Draft Yahoo News Reply Thread** | [x] | Created a high-impact, persona-compliant X reply thread targeting the Yahoo News post on Trump and Kura Sushi, linking to the related note.com article. |
+| **22. Verify NotebookLM MCP configuration in mcp_config.json** | [x] | Checked configuration, corrected uv command syntax, resolved UTF-8 encoding crash, and successfully tested server startup manually. |
+| **23. Troubleshoot NotebookLM MCP connection and get notebook list** | [x] | Fixed stdio stream corruption by creating run_notebooklm_mcp.py wrapper to redirect init logs/banners to stderr, and updated run-notebooklm-mcp.bat. |
+
