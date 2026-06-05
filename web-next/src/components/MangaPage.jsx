@@ -56,12 +56,13 @@ export const MangaPage = ({ initialEp = null }) => {
         {/* --- マンガの内容解説 (SEO/AIO対策) --- */}
         {activeEp.description_long && (
           <div className="max-w-4xl mx-auto mt-10 bg-white p-8 md:p-10 rounded-[2rem] border border-gray-100 shadow-lg">
-            <h2 className="text-xl font-black text-text mb-4 border-l-4 border-primary pl-4">
-              このお話の内容
+            <h2 className="text-xl font-black text-text mb-6 border-l-4 border-primary pl-4">
+              このお話の解説
             </h2>
-            <p className="text-muted leading-loose font-bold text-base md:text-lg">
-              {activeEp.description_long}
-            </p>
+            <div 
+              className="text-muted leading-loose font-bold text-base md:text-lg space-y-4"
+              dangerouslySetInnerHTML={{ __html: activeEp.description_long }}
+            />
           </div>
         )}
 
