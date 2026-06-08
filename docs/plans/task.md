@@ -35,6 +35,8 @@
 | **33. Copy Manga Assets & Add Ep 17 to money_secrets.json** | [x] | Copied Episode 17 manga assets to canonical folder and prepended to data/money_secrets.json databases. |
 | **34. Create Note.com Draft (AI School Scam)** | [x] | Created and uploaded note.com draft (ID: 164183864, Key: n14692596dbc2) without any double asterisks. |
 | **35. Run Verification & Deploy Site** | [x] | Rebuilt Next.js site and deployed via FTP differential sync. Verified that the live page loads correctly. |
+| **36. Add copy prompt button to AI_Workstation.html and block editing modal to PromptStudio.html** | [x] | Designed and implemented a copy button for user prompts on the dashboard, and a premium modal editor for saved blocks in Prompt Studio. Checked integrity of files successfully. |
+
 
 
 
