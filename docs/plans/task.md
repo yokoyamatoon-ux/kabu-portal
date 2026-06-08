@@ -33,8 +33,8 @@
 | **31. Update Episode 17 Manga Prompts** | [x] | Overwrote manga script and AI image generation prompts for Episode 17 following the new layout rules in manga/urakane/manga_school_scam_prompts.md. |
 | **32. Design Ep 17 Content (Portal & Note)** | [x] | Designed and approved the content package (manga, portal data, note draft). |
 | **33. Copy Manga Assets & Add Ep 17 to money_secrets.json** | [x] | Copied Episode 17 manga assets to canonical folder and prepended to data/money_secrets.json databases. |
-| **34. Create Note.com Draft (AI School Scam)** | [/] | Writing note.com draft article at scratch/note_school_scam.md (ensuring no double asterisks). |
-| **35. Run Verification & Deploy Site** | [ ] | Verify compliance, rebuild Next.js site, and deploy via FTP differential sync. |
+| **34. Create Note.com Draft (AI School Scam)** | [x] | Created and uploaded note.com draft (ID: 164183864, Key: n14692596dbc2) without any double asterisks. |
+| **35. Run Verification & Deploy Site** | [/] | Verifying changes, rebuilding the Next.js site, and deploying via FTP differential sync. |
 
 
 
