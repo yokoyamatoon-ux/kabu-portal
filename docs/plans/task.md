@@ -32,8 +32,8 @@
 | **30. Rebuild and Deploy Site** | [x] | Rebuilt Next.js site and uploaded via differential FTP sync. Generated 1280:670 padded eyecatch image `manabu_20260605_01_eyecatch.png` and uploaded it to note.com draft via API. Verified that the live page `https://okane-no-manabi.jp/manga/13/` loads correctly with the manga panels. |
 | **31. Update Episode 17 Manga Prompts** | [x] | Overwrote manga script and AI image generation prompts for Episode 17 following the new layout rules in manga/urakane/manga_school_scam_prompts.md. |
 | **32. Design Ep 17 Content (Portal & Note)** | [x] | Designed and approved the content package (manga, portal data, note draft). |
-| **33. Copy Manga Assets & Add Ep 17 to money_secrets.json** | [/] | Copying user drawn manga files and appending Episode 17 JSON data. |
-| **34. Create Note.com Draft (AI School Scam)** | [ ] | Write and upload note.com draft article, ensuring no double asterisks are used. |
+| **33. Copy Manga Assets & Add Ep 17 to money_secrets.json** | [x] | Copied Episode 17 manga assets to canonical folder and prepended to data/money_secrets.json databases. |
+| **34. Create Note.com Draft (AI School Scam)** | [/] | Writing note.com draft article at scratch/note_school_scam.md (ensuring no double asterisks). |
 | **35. Run Verification & Deploy Site** | [ ] | Verify compliance, rebuild Next.js site, and deploy via FTP differential sync. |
 
 
