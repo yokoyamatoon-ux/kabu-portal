@@ -49,6 +49,9 @@ export const ColumnStaticContent = ({ col }) => {
         }
       }
 
+      if (line.startsWith('#### ')) {
+        return `<h4 class="text-lg font-black mt-8 mb-4 text-text border-l-2 border-primary-light pl-2">${line.replace('#### ', '')}</h4>`;
+      }
       if (line.startsWith('## ')) {
         return `<h2 class="text-2xl font-black mt-16 mb-8 text-text border-b-4 border-primary-light pb-3 flex items-center gap-2"><span class="text-primary">●</span>${line.replace('## ', '')}</h2>`;
       }
@@ -189,10 +192,10 @@ export const ColumnStaticContent = ({ col }) => {
                 解説を読んで知識がついたら、実際に口座を作って少額から触ってみるのが一番の道じゃ！<br/>カブ先生おすすめの証券会社をチェックしてみるのじゃ。
              </p>
              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                <a href="https://ad2.trafficgate.net/t/r/1222/738/317294_396520" target="_blank" rel="nofollow noopener noreferrer" class="block bg-white p-5 rounded-2xl hover:scale-105 transition-all flex items-center justify-center h-20 group shadow-xl">
+                <a href="https://ad2.trafficgate.net/t/r/1222/738/317294_396520" target="_blank" rel="nofollow noopener noreferrer" class="block bg-white p-5 rounded-2xl hover:scale-105 transition-all flex items-center justify-center h-28 group shadow-xl">
                   <img src="https://srv2.trafficgate.net/t/b/1222/738/317294_396520" alt="楽天証券" class="max-w-full max-h-full object-contain" />
                 </a>
-                <a href="https://ad2.trafficgate.net/t/r/212/6012/317294_396520" target="_blank" rel="nofollow noopener noreferrer" class="block bg-white p-5 rounded-2xl hover:scale-105 transition-all flex items-center justify-center h-20 group shadow-xl">
+                <a href="https://ad2.trafficgate.net/t/r/212/6012/317294_396520" target="_blank" rel="nofollow noopener noreferrer" class="block bg-white p-5 rounded-2xl hover:scale-105 transition-all flex items-center justify-center h-28 group shadow-xl">
                   <img src="https://srv2.trafficgate.net/t/b/212/6012/317294_396520" alt="松井証券" class="max-w-full max-h-full object-contain" />
                 </a>
              </div>

@@ -23,4 +23,17 @@
 | **21. Draft Yahoo News Reply Thread** | [x] | Created a high-impact, persona-compliant X reply thread targeting the Yahoo News post on Trump and Kura Sushi, linking to the related note.com article. |
 | **22. Verify NotebookLM MCP configuration in mcp_config.json** | [x] | Checked configuration, corrected uv command syntax, resolved UTF-8 encoding crash, and successfully tested server startup manually. |
 | **23. Troubleshoot NotebookLM MCP connection and get notebook list** | [x] | Fixed stdio stream corruption by creating run_notebooklm_mcp.py wrapper to redirect init logs/banners to stderr, and updated run-notebooklm-mcp.bat. |
+| **24. Create note.com Draft (Kabu's news comments)** | [x] | Successfully created note.com draft (ID: 163547150, Key: ne74fe0ac58f5) with Kabu-teacher news comments. Complies with note rules and passes verification. |
+| **25. Fix missing column images on live site** | [x] | Identified that the deployment differential cache was out of sync. Cleared .deploy_cache.json, rebuilt, and redeployed the site. Verified all 404 images now return 200 OK. |
+| **26. Add Manga Episode 13 to database** | [x] | Append Episode 13 JSON data to data/manga.json. |
+| **27. Create Note.com Draft Article** | [x] | Create scratch/note_tax_and_invoice.md draft. |
+| **28. Local Note Article Validation** | [x] | Validate note draft style and compliance locally. |
+| **29. Upload Note.com Draft** | [x] | Upload the draft via note-mcp (Python fallback). |
+| **30. Rebuild and Deploy Site** | [x] | Rebuilt Next.js site and uploaded via differential FTP sync. Generated 1280:670 padded eyecatch image `manabu_20260605_01_eyecatch.png` and uploaded it to note.com draft via API. Verified that the live page `https://okane-no-manabi.jp/manga/13/` loads correctly with the manga panels. |
+| **31. Update Episode 17 Manga Prompts** | [x] | Overwrote manga script and AI image generation prompts for Episode 17 following the new layout rules in manga/urakane/manga_school_scam_prompts.md. |
+| **32. Design Ep 17 Content (Portal & Note)** | [/] | Designing the content package for Episode 17 (AI School Scam) and getting user approval. |
+| **33. Add Episode 17 to money_secrets.json** | [ ] | Append Episode 17 data to data/money_secrets.json. |
+| **34. Create Note.com Draft (AI School Scam)** | [ ] | Write and upload note.com draft article, ensuring no double asterisks are used. |
+| **35. Run Verification & Deploy Site** | [ ] | Verify compliance, rebuild Next.js site, and deploy via FTP differential sync. |
+
 

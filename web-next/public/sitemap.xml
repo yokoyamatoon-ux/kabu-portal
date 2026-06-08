@@ -16,7 +16,7 @@
   <url><loc>https://okane-no-manabi.jp/quiz/</loc><lastmod>2026-05-06</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://okane-no-manabi.jp/explore/</loc><lastmod>2026-05-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://okane-no-manabi.jp/qa/</loc><lastmod>2026-05-06</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://okane-no-manabi.jp/money_secret/</loc><lastmod>2026-05-06</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://okane-no-manabi.jp/money_secret/</loc><lastmod>2026-05-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://okane-no-manabi.jp/maneta_diary/</loc><lastmod>2026-05-06</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://okane-no-manabi.jp/privacy/</loc><lastmod>2026-05-06</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://okane-no-manabi.jp/disclaimer/</loc><lastmod>2026-05-06</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
@@ -41,6 +41,10 @@
   <url><loc>https://okane-no-manabi.jp/money_secret/8/</loc><lastmod>2026-05-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://okane-no-manabi.jp/money_secret/9/</loc><lastmod>2026-05-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://okane-no-manabi.jp/money_secret/10/</loc><lastmod>2026-05-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://okane-no-manabi.jp/money_secret/11/</loc><lastmod>2026-05-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://okane-no-manabi.jp/money_secret/12/</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://okane-no-manabi.jp/money_secret/13/</loc><lastmod>2026-05-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://okane-no-manabi.jp/money_secret/14/</loc><lastmod>2026-05-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- マネ太日記 (maneta_diary) 各話 -->
   <url><loc>https://okane-no-manabi.jp/maneta_diary/1/</loc><lastmod>2026-05-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>

@@ -4,6 +4,7 @@ import MONEY_SECRETS from "../../../data/money_secrets.json";
 import { resolveImagePath } from "../../../lib/image-utils";
 import { ColumnStaticContent } from "../../../components/ColumnStaticContent";
 import { ColumnClientShell } from "../../../components/ColumnClientShell";
+import AffiliateBanner from "../../../components/AffiliateBanner";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -147,6 +148,13 @@ export default async function ColumnDetailPage({ params }) {
       
       <ColumnClientShell columnId={id}>
         <ColumnStaticContent col={col} />
+        
+        {col.affiliate_html ? (
+          <div className="max-w-4xl mx-auto my-12 px-4 flex justify-center" dangerouslySetInnerHTML={{ __html: col.affiliate_html }} />
+        ) : (
+          <AffiliateBanner />
+        )}
+
         {relatedHtml && (
           <div dangerouslySetInnerHTML={{ __html: relatedHtml }} />
         )}

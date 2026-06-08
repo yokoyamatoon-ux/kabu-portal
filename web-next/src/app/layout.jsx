@@ -12,14 +12,14 @@ export const metadata = {
     title: 'カブ先生のお金の学校 | マンガで楽しく学ぶ投資の基本',
     description: '株・NISA・投資のキホンをマンガでたのしく学べる「カブ先生のお金の学校」。',
     siteName: 'カブ先生のお金の学校',
-    images: [{ url: 'https://okane-no-manabi.jp/favicon.png' }],
+    images: [{ url: 'https://okane-no-manabi.jp/images/Top01.jpg' }],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'カブ先生のお金の学校 | マンガで楽しく学ぶ投資の基本',
     description: '株・NISA・投資のキホンをマンガでたのしく学べる「カブ先生のお金の学校」。',
-    images: ['https://okane-no-manabi.jp/favicon.png'],
+    images: ['https://okane-no-manabi.jp/images/Top01.jpg'],
   },
 };
 

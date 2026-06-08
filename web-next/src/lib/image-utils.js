@@ -4,9 +4,27 @@
 export const resolveImagePath = (rawPath, category = "column") => {
   if (!rawPath) return "";
 
+  // Normalize windows backslashes to forward slashes
+  const normalizedPath = rawPath.replace(/\\/g, "/");
+
+  // If the path is already an absolute path relative to public, preserve it
+  if (normalizedPath.startsWith("/images/")) {
+      return normalizedPath;
+  }
+
+  if (normalizedPath.startsWith("/manga/")) {
+      // If it is a subdirectory (e.g. /manga/manabu/ or /manga/urakane/), preserve it
+      const parts = normalizedPath.split("/");
+      if (parts.length > 3) {
+          return normalizedPath;
+      }
+      // If it is a top-level manga file like /manga/Manga01.jpg, it is actually in /images/
+      return `/images/${parts[parts.length - 1]}`;
+  }
+
   // 1. ファイル名のみを抽出 (basename)
   // スラッシュやバックスラッシュで分割して最後を取得
-  const parts = rawPath.split(/[/\\]/);
+  const parts = normalizedPath.split("/");
   const filename = parts[parts.length - 1];
   
   if (!filename) return "";

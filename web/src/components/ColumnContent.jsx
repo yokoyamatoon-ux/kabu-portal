@@ -136,7 +136,7 @@ export const ColumnDetail = ({ columnId, onBack }) => {
                   href="https://ad2.trafficgate.net/t/r/1222/738/317294_396520" 
                   target="_blank" 
                   rel="nofollow noopener noreferrer"
-                  className="block bg-white p-3 rounded-xl border-2 border-gray-100 hover:border-primary transition-all flex items-center justify-center h-16 group shadow-sm hover:shadow-md"
+                  className="block bg-white p-4 rounded-xl border-2 border-gray-100 hover:border-primary transition-all flex items-center justify-center h-28 group shadow-sm hover:shadow-md"
                 >
                   <img src="https://srv2.trafficgate.net/t/b/1222/738/317294_396520" alt="楽天証券" className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" />
                 </a>
@@ -144,7 +144,7 @@ export const ColumnDetail = ({ columnId, onBack }) => {
                   href="https://ad2.trafficgate.net/t/r/212/6012/317294_396520" 
                   target="_blank" 
                   rel="nofollow noopener noreferrer"
-                  className="block bg-white p-3 rounded-xl border-2 border-gray-100 hover:border-primary transition-all flex items-center justify-center h-16 group shadow-sm hover:shadow-md"
+                  className="block bg-white p-4 rounded-xl border-2 border-gray-100 hover:border-primary transition-all flex items-center justify-center h-28 group shadow-sm hover:shadow-md"
                 >
                   <img src="https://srv2.trafficgate.net/t/b/212/6012/317294_396520" alt="松井証券" className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" />
                 </a>

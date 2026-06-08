@@ -29,32 +29,35 @@ def sync_assets():
     # Manga (General)
     # Root manga/ files (legacy) and image/manga/ (new)
     dst_manga = os.path.join("web-next", "public", "images")
+    dst_manga_legacy = os.path.join("web-next", "public", "manga")
+    os.makedirs(dst_manga_legacy, exist_ok=True)
     for src in ["manga", os.path.join("image", "manga")]:
         if os.path.exists(src):
             for item in os.listdir(src):
                 if item.lower().endswith(('.png', '.jpg', '.jpeg')) and not os.path.isdir(os.path.join(src, item)):
                     shutil.copy2(os.path.join(src, item), os.path.join(dst_manga, item))
+                    shutil.copy2(os.path.join(src, item), os.path.join(dst_manga_legacy, item))
 
     # Money Secret (Urakane)
-    src_urakane = os.path.join("image", "manga", "urakane")
-    if not os.path.exists(src_urakane):
-        src_urakane = os.path.join("manga", "urakane") # Fallback
-    shutil.copytree(src_urakane, os.path.join("web-next", "public", "images", "money_secret"), dirs_exist_ok=True)
+    dst_urakane = os.path.join("web-next", "public", "images", "money_secret")
+    os.makedirs(dst_urakane, exist_ok=True)
+    for src in [os.path.join("manga", "urakane"), os.path.join("image", "manga", "urakane")]:
+        if os.path.exists(src):
+            shutil.copytree(src, dst_urakane, dirs_exist_ok=True)
 
     # Maneta
-    src_maneta = os.path.join("image", "manga", "maneta")
-    if not os.path.exists(src_maneta):
-        src_maneta = os.path.join("manga", "maneta")
-    shutil.copytree(src_maneta, os.path.join("web-next", "public", "images", "maneta"), dirs_exist_ok=True)
+    dst_maneta = os.path.join("web-next", "public", "images", "maneta")
+    os.makedirs(dst_maneta, exist_ok=True)
+    for src in [os.path.join("manga", "maneta"), os.path.join("image", "manga", "maneta")]:
+        if os.path.exists(src):
+            shutil.copytree(src, dst_maneta, dirs_exist_ok=True)
 
     # Manabu (マンガで学ぶ)
-    src_manabu = os.path.join("image", "manga", "manabu")
-    if not os.path.exists(src_manabu):
-        src_manabu = os.path.join("manga", "manabu")
-    if os.path.exists(src_manabu):
-        dst_manabu = os.path.join("web-next", "public", "manga", "manabu")
-        os.makedirs(dst_manabu, exist_ok=True)
-        shutil.copytree(src_manabu, dst_manabu, dirs_exist_ok=True)
+    dst_manabu = os.path.join("web-next", "public", "manga", "manabu")
+    os.makedirs(dst_manabu, exist_ok=True)
+    for src in [os.path.join("manga", "manabu"), os.path.join("image", "manga", "manabu")]:
+        if os.path.exists(src):
+            shutil.copytree(src, dst_manabu, dirs_exist_ok=True)
 
     # Common images (Top level image/ files)
     src_img_root = "image"
@@ -78,25 +81,54 @@ def build_project():
         return False
     return True
 
-def upload_directory(ftp, local_path, remote_path):
-    print(f"Uploading {local_path} to {remote_path}")
+import hashlib
+import json
+
+# キャッシュファイル
+DEPLOY_CACHE = ".deploy_cache.json"
+
+def get_file_hash(file_path):
+    """ファイルのハッシュ値（MD5）を計算"""
+    hasher = hashlib.md5()
+    with open(file_path, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hasher.update(chunk)
+    return hasher.hexdigest()
+
+def load_cache():
+    if os.path.exists(DEPLOY_CACHE):
+        with open(DEPLOY_CACHE, "r") as f:
+            return json.load(f)
+    return {}
+
+def save_cache(cache):
+    with open(DEPLOY_CACHE, "w") as f:
+        json.dump(cache, f)
+
+def upload_directory(ftp, local_path, remote_path, cache):
+    print(f"Checking {local_path}...")
     
     for item in os.listdir(local_path):
         l_path = os.path.join(local_path, item)
         r_path = remote_path + "/" + item if remote_path != "." else item
         
         if os.path.isfile(l_path):
-            print(f"  Uploading file: {item}")
+            current_hash = get_file_hash(l_path)
+            if cache.get(r_path) == current_hash:
+                # 変更なし、スキップ
+                continue
+                
+            print(f"  Uploading: {item}")
             with open(l_path, "rb") as f:
                 ftp.storbinary(f"STOR {r_path}", f)
+            cache[r_path] = current_hash
+            
         elif os.path.isdir(l_path):
-            print(f"  Creating directory: {item}")
             try:
                 ftp.mkd(r_path)
             except ftplib.error_perm:
-                # Directory already exists
                 pass
-            upload_directory(ftp, l_path, r_path)
+            upload_directory(ftp, l_path, r_path, cache)
 
 def main():
     sync_assets()
@@ -104,13 +136,10 @@ def main():
     print("--- Fetching latest market data ---")
     try:
         subprocess.run(["python", "scripts/fetch_market_data.py"], check=True)
-        # Re-sync data just in case to ensure the latest market.json is copied to web-next/src/data/
-        # Instead of calling sync_assets again, we can just copy market.json directly
         src_market = os.path.join("data", "market.json")
         dst_market = os.path.join("web-next", "src", "data", "market.json")
         if os.path.exists(src_market):
             shutil.copy2(src_market, dst_market)
-            # Also copy to public directory for runtime fetching
             dst_public = os.path.join("web-next", "public", "data", "market.json")
             os.makedirs(os.path.dirname(dst_public), exist_ok=True)
             shutil.copy2(src_market, dst_public)
@@ -120,6 +149,8 @@ def main():
     if not build_project():
         return
 
+    cache = load_cache()
+
     print("--- Connecting to FTP ---")
     try:
         with ftplib.FTP(FTP_HOST) as ftp:
@@ -127,8 +158,9 @@ def main():
             ftp.set_pasv(True)
             print("Login successful.")
             
-            print("--- Starting Upload ---")
-            upload_directory(ftp, LOCAL_DIST_DIR, ".")
+            print("--- Starting Differential Upload ---")
+            upload_directory(ftp, LOCAL_DIST_DIR, ".", cache)
+            save_cache(cache)
             print("--- Upload Complete! ---")
             print("Site updated successfully.")
             

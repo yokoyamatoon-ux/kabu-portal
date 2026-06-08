@@ -1,4 +1,5 @@
 import { MoneySecretPage } from "../../../components/MoneySecret";
+import AffiliateBanner from "../../../components/AffiliateBanner";
 import MONEY_SECRETS from "../../../data/money_secrets.json";
 import COLUMNS from "../../../data/columns.json";
 import MANGA_EPISODES from "../../../data/manga.json";
@@ -142,6 +143,9 @@ export default async function MoneySecretEpPage({ params }) {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       ))}
       <MoneySecretPage initialEp={parseInt(ep)} />
+      
+      <AffiliateBanner />
+
       {relatedHtml && (
         <div dangerouslySetInnerHTML={{ __html: relatedHtml }} />
       )}

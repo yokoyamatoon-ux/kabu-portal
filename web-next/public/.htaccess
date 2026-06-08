@@ -15,6 +15,10 @@ RewriteRule ^(index\.html)?$ /? [R=301,L]
 RewriteCond %{QUERY_STRING} ^page=manga$ [NC]
 RewriteRule ^(index\.html)?$ /manga/? [R=301,L]
 
+# Manga Detail (legacy ?ep=X)
+RewriteCond %{QUERY_STRING} (?:^|&)ep=([0-9]+)(?:&|$) [NC]
+RewriteRule ^(index\.html)?$ /manga/%1/? [R=301,L]
+
 # Quiz
 RewriteCond %{QUERY_STRING} ^page=quiz$ [NC]
 RewriteRule ^(index\.html)?$ /quiz/? [R=301,L]

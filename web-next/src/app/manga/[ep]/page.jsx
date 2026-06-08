@@ -1,4 +1,5 @@
 import { MangaPage } from "../../../components/MangaPage";
+import AffiliateBanner from "../../../components/AffiliateBanner";
 import MANGA_EPISODES from "../../../data/manga.json";
 import COLUMNS from "../../../data/columns.json";
 import { resolveImagePath } from "../../../lib/image-utils";
@@ -163,6 +164,11 @@ export default async function MangaEpPage({ params }) {
         />
       ))}
       <MangaPage initialEp={parseInt(ep)} />
+      {episode.affiliate_html ? (
+        <div className="max-w-4xl mx-auto my-12 px-4 flex justify-center" dangerouslySetInnerHTML={{ __html: episode.affiliate_html }} />
+      ) : (
+        <AffiliateBanner />
+      )}
       {relatedHtml && (
         <div dangerouslySetInnerHTML={{ __html: relatedHtml }} />
       )}
