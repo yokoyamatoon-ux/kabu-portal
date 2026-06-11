@@ -1155,7 +1155,12 @@
             "初心者",
             "損切り"
         ],
-        "related_contents": [],
+        "related_contents": [
+            {
+                "type": "money_secret",
+                "id": 13
+            }
+        ],
         "manga_pages": [
             "/manga/manabu/20260611/manabu_20260611_01.png",
             "/manga/manabu/20260611/manabu_20260611_02.png"

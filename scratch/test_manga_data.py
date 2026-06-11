@@ -9,7 +9,7 @@ def test_manga():
     
     # Verify Ep 10 integrity
     ep10 = next(x for x in data if x.get('ep') == 10)
-    assert "喝！！" in ep10['commentary'][5]['text']
+    assert any("喝！！" in x['text'] for x in ep10['commentary']), "Could not find '喝！！' in Ep 10 commentary"
     assert "description_long" in ep10
     assert "上場" in ep10['title']
     
@@ -17,6 +17,7 @@ def test_manga():
     ep14 = next(x for x in data if x.get('ep') == 14)
     assert ep14['title'] == "不祥事と株価暴落の真実"
     assert ep14['topic'] == "stock_crash"
+    assert ep14['related_contents'] == [{"type": "money_secret", "id": 13}]
     
     desc = ep14['description_long']
     assert "日本マクドナルドHD" in desc

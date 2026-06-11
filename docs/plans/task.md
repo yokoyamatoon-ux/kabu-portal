@@ -38,4 +38,21 @@
 | **36. Add copy prompt button to AI_Workstation.html and block editing modal to PromptStudio.html** | [x] | Designed and implemented a copy button for user prompts on the dashboard, and a premium modal editor for saved blocks in Prompt Studio. Checked integrity of files successfully. |
 | **37. Add and Deploy Column 31 (Nikkei Stock Average)** | [x] | Prepended new Column 31 to data/columns.json, copied eyecatch Column20260609.png to canonical paths, and successfully ran the deployment script. |
 | **38. Update Column 31 stock price reference** | [x] | Updated Nikkei Stock Average price in col_031 body to 60,000 yen or more (as of June 2026), rebuilt and redeployed. |
+| **40. Draft & Upload Note.com (DPJ vs LDP Economy)** | [x] | Created note_dpj_ldp_economy.md and successfully uploaded to note.com (Draft ID: 164415509, Key: nd30737097956). Eyecatch requires manual setting. |
+| **41. Add and Deploy Column 32 (Deflation & Inflation)** | [x] | Prepended new Column 32 to data/columns.json, generated Column20260610.png, and successfully ran the deployment script. |
+| **42. Update Column 32 Eyecatch with User Image** | [x] | Converted user supplied Column20260610.jpeg to PNG, copied to image/column, rebuilt and successfully redeployed. Verified live page `/column/col_032` displays title and image correctly. |
+| **43. Add and Deploy Manga Episode 14 (Stock Crash)** | [x] | Add Episode 14 JSON data, copy manga assets to canonical folder, rebuild and deploy. |
+| **44. Brainstorm: Explore project context** | [x] | Explore current manga JSON, website structures, content management guides, and rules. |
+| **45. Brainstorm: Design & Rules for Manga 14 article extension** | [x] | Design past real-world crash examples (good/bad with sources), explanations, and the content rule updates. |
+| **46. Brainstorm: Write design doc and get approval** | [x] | Write design doc at docs/plans/2026-06-11-manga14-extension-design.md. |
+| **47. Implementation: Create content policy guideline** | [x] | Create docs/plans/manga_content_policy.md guideline. |
+| **48. Implementation: Create TDD test script and verify failure** | [x] | Create scratch/test_manga_data.py to test the JSON validation. |
+| **49. Implementation: Update Manga 14 article in JSON database** | [x] | Edit data/manga.json with the new article content. |
+| **50. Verify: Rebuild, test, deploy and verify live page** | [x] | Run npm run build/dev and deploy_kabu.py. Verify live page works. |
+
+
+
+
+
+
 
