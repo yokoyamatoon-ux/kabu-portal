@@ -1,9 +1,8 @@
 name: Deploy to Xserver via FTP
 
 on:
-  push:
-    branches:
-      - main  # mainブランチにpushされた時に自動実行
+  workflow_dispatch:
+
 
 jobs:
   web-deploy:

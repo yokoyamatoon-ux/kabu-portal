@@ -51,11 +51,6 @@
 | **50. Verify: Rebuild, test, deploy and verify live page** | [x] | Run npm run build/dev and deploy_kabu.py. Verify live page works. |
 | **51. Content: Write note.com draft on stock basics and LLC vs Joint-stock** | [x] | Write scratch/note_stock_basics.md with detailed explanations. |
 | **52. Content: Upload note.com draft via note-mcp** | [x] | Uploaded the draft via note-mcp (Draft ID: 164702183, Key: n9c665e7b0812). Format updated to list to support note.com rendering. |
-
-
-
-
-
-
-
-
+| **53. Disable GitHub Actions automatic deploys** | [/] | Comment out push trigger in deploy_web.yml and deploy_xserver.yml to prevent regression. |
+| **54. Run manual deploy script** | [ ] | Rebuild and deploy using scripts/deploy_kabu.py to restore Next.js (web-next) pages. |
+| **55. Verify live pages display correctly** | [ ] | Use read_url_content to confirm 200 OK on key routes: /, /money_secret/, /money_secret/17/, /manga/14/, /column/col_032/. |
