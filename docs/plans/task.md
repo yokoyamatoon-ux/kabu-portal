@@ -54,3 +54,8 @@
 | **53. Disable GitHub Actions automatic deploys** | [x] | Comment out push trigger in deploy_web.yml and deploy_xserver.yml to prevent regression. |
 | **54. Run manual deploy script** | [x] | Rebuild and deploy using scripts/deploy_kabu.py to restore Next.js (web-next) pages. |
 | **55. Verify live pages display correctly** | [x] | Use read_url_content to confirm 200 OK on key routes: /, /money_secret/, /money_secret/17/, /manga/14/, /column/col_032/. |
+| **56. Clean .deploy_cache.json to force full upload** | [x] | Delete local .deploy_cache.json to bypass differential upload and sync all files to server. |
+| **57. Run manual deploy script after cache clear** | [x] | Run python scripts/deploy_kabu.py to trigger full asset rebuild and upload. |
+| **58. Verify CSS and JS assets return 200 OK** | [x] | Verify pages load styles and scripts successfully on okane-no-manabi.jp. |
+| **59. Verify money secrets count and contents** | [x] | Confirm all episodes in data/money_secrets.json are fully deployed and readable on the live page. |
+
