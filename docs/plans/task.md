@@ -49,6 +49,9 @@
 | **48. Implementation: Create TDD test script and verify failure** | [x] | Create scratch/test_manga_data.py to test the JSON validation. |
 | **49. Implementation: Update Manga 14 article in JSON database** | [x] | Edit data/manga.json with the new article content. |
 | **50. Verify: Rebuild, test, deploy and verify live page** | [x] | Run npm run build/dev and deploy_kabu.py. Verify live page works. |
+| **51. Content: Write note.com draft on stock basics and LLC vs Joint-stock** | [x] | Write scratch/note_stock_basics.md with detailed explanations. |
+| **52. Content: Upload note.com draft via note-mcp** | [x] | Uploaded the draft via note-mcp (Draft ID: 164689627, Key: nab8aa6d424d3). Eyecatch requires manual setting. |
+
 
 
 
