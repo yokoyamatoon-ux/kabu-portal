@@ -69,5 +69,5 @@
 | **68. Verify: Rebuild and deploy to live server** | [x] | Clear cache, rebuild Next.js site, and deploy via scripts/deploy_kabu.py. Verify live pages work. |
 | **69. Content: Create note.com draft for Kioxia deep dive** | [x] | Write note_kioxia_deepdive.md and upload to note.com via note-mcp. |
 | **70. Implement: Add internal links and banners to col_030** | [x] | Modify columns.json to include visual banner for money secrets and expand related links. |
-| **71. Verify: Build, redeploy and verify col_030 links on live site** | [/] | Run build, deploy_kabu.py, and verify the layout and link targets. |
+| **71. Verify: Build, redeploy and verify col_030 links on live site** | [x] | Run build, deploy_kabu.py, and verify the layout and link targets. |
 
