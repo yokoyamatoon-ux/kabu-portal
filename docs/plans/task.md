@@ -58,4 +58,9 @@
 | **57. Run manual deploy script after cache clear** | [x] | Run python scripts/deploy_kabu.py to trigger full asset rebuild and upload. |
 | **58. Verify CSS and JS assets return 200 OK** | [x] | Verify pages load styles and scripts successfully on okane-no-manabi.jp. |
 | **59. Verify money secrets count and contents** | [x] | Confirm all episodes in data/money_secrets.json are fully deployed and readable on the live page. |
-
+| **60. Brainstorm: Explore project context for MLM content** | [x] | Analyze manga and content guidelines, existing money secrets schema, and character styling. |
+| **61. Brainstorm: Ask clarifying questions for MLM content** | [x] | Ask user questions to clarify details, sources, and layout. |
+| **62. Brainstorm: Propose 2-3 approaches** | [x] | Formulate approaches with trade-offs and recommendations. |
+| **63. Brainstorm: Present design sections** | [x] | Present architecture, content flow, and get user approval. |
+| **64. Brainstorm: Write design doc** | [x] | Save validated design to docs/plans/ and commit. |
+| **65. Brainstorm: Transition to implementation** | [x] | Invoke writing-plans skill to create implementation plan. |
