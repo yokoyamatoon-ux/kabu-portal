@@ -66,5 +66,5 @@
 | **65. Brainstorm: Transition to implementation** | [x] | Invoke writing-plans skill to create implementation plan. |
 | **66. Implement: Create validation test script** | [x] | Create scratch/test_money_secrets_data.py to check MLM data integrity and assert failure. |
 | **67. Implement: Add MLM Episode 18 to money_secrets.json** | [x] | Add Ep 18 data to the top of data/money_secrets.json and pass test. |
-| **68. Verify: Rebuild and deploy to live server** | [/] | Clear cache, rebuild Next.js site, and deploy via scripts/deploy_kabu.py. Verify live pages work. |
+| **68. Verify: Rebuild and deploy to live server** | [x] | Clear cache, rebuild Next.js site, and deploy via scripts/deploy_kabu.py. Verify live pages work. |
 
