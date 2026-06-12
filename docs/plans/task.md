@@ -67,4 +67,5 @@
 | **66. Implement: Create validation test script** | [x] | Create scratch/test_money_secrets_data.py to check MLM data integrity and assert failure. |
 | **67. Implement: Add MLM Episode 18 to money_secrets.json** | [x] | Add Ep 18 data to the top of data/money_secrets.json and pass test. |
 | **68. Verify: Rebuild and deploy to live server** | [x] | Clear cache, rebuild Next.js site, and deploy via scripts/deploy_kabu.py. Verify live pages work. |
+| **69. Content: Create note.com draft for Kioxia deep dive** | [x] | Write note_kioxia_deepdive.md and upload to note.com via note-mcp. |
 
