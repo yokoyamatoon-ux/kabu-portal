@@ -70,4 +70,6 @@
 | **69. Content: Create note.com draft for Kioxia deep dive** | [x] | Write note_kioxia_deepdive.md and upload to note.com via note-mcp. |
 | **70. Implement: Add internal links and banners to col_030** | [x] | Modify columns.json to include visual banner for money secrets and expand related links. |
 | **71. Verify: Build, redeploy and verify col_030 links on live site** | [x] | Run build, deploy_kabu.py, and verify the layout and link targets. |
+| 72. Implement: Integrate Ura.jpg into col_030 banner | [x] | Modify columns.json to include Ura.jpg in the HTML banner. |
+| 73. Verify: Build, redeploy and verify col_030 live page | [x] | Clear cache, rebuild Next.js site, and deploy via scripts/deploy_kabu.py. |
 
