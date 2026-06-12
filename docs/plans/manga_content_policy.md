@@ -37,3 +37,14 @@
   例:
   右上にミライのフキダシ：「〜〜」
   左下にマネ太のフキダシ：「〜〜」
+
+### ③ マンガ生成の前提システムプロンプト（キャラクター・スタイル固定）
+画像生成AIにキャラクターシート（参照画像）を正しく模倣させ、頭身やスタイルの崩れを防ぐために、プロンプトの先頭に必ず以下のシステム指示文（英語および日本語）を共通前提として付与すること。
+
+#### システム指示文（英語）
+Mandatory Rule: You must perfectly replicate the character designs, faces, hairstyles, clothing, and colors from the referenced character sheets. Do not change, modify, or modernize the character visual designs. Do not alter their body proportions (must stay 2.5-head-tall chibi/SD style). Keep the visual consistency across all panels. Do not add any realistic details, shading, or complex textures. Keep it simple flat anime style.
+Style: Japanese educational manga style, clean ink line art with thick outlines, bright and vibrant flat colors, no complex shading, no textures, no noise, high quality vector-like illustration.
+
+#### システム指示文（日本語）
+最優先ルール: 参照画像（キャラクターシート）の顔、髪型、服装、色、体型を100%完全に再現してください。アレンジや新規デザイン、現代風への改変は一切禁止します。キャラクターの頭身（2.5頭身のSD・ちびキャラ）を絶対に変更しないでください。すべてのコマでキャラクターのビジュアルの同一性を維持してください。リアルなディテールや過剰なグラデーション、陰影、複雑なテクスチャは追加せず、シンプルなフラットアニメスタイルを維持してください。
+描画スタイル: 日本の学習マンガ風、太めの輪郭線を使用したクリーンなインク線画、明るく鮮やかなフラットカラー（単色塗り）、複雑な陰影やグラデーションはなし、テクスチャやノイズの排除、高品質なベクター風イラストレーション。
