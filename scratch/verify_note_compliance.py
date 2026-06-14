@@ -82,7 +82,8 @@ def main():
         "d:\\Antigravity\\Kabu\\data\\note_article_insurance.md",
         "d:\\Antigravity\\Kabu\\scratch\\note_kabu_news_20260604.md",
         "d:\\Antigravity\\Kabu\\scratch\\note_tax_and_invoice.md",
-        "d:\\Antigravity\\Kabu\\scratch\\note_school_scam.md"
+        "d:\\Antigravity\\Kabu\\scratch\\note_school_scam.md",
+        "d:\\Antigravity\\Kabu\\scratch\\note_elon_musk.md"
     ]
     
     print("="*80)
