@@ -76,5 +76,5 @@
 | **75. Brainstorm: Ask clarifying questions** | [x] | Ask user about column categorization, tone details, and specific other examples. |
 | **76. Brainstorm: Propose 2-3 approaches** | [x] | Formulate approaches with trade-offs and recommendations. |
 | **77. Brainstorm: Present design sections** | [x] | Design column contents, note contents, and check validation strategy. |
-| **78. Brainstorm: Write design doc** | [/] | Save design doc to docs/plans/ and commit. |
-| **79. Brainstorm: Transition to implementation** | [ ] | Invoke writing-plans to create implementation plan. |
+| **78. Brainstorm: Write design doc** | [x] | Save design doc to docs/plans/ and commit. |
+| **79. Brainstorm: Transition to implementation** | [x] | Invoke writing-plans to create implementation plan. |
