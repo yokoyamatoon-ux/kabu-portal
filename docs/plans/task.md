@@ -72,4 +72,9 @@
 | **71. Verify: Build, redeploy and verify col_030 links on live site** | [x] | Run build, deploy_kabu.py, and verify the layout and link targets. |
 | 72. Implement: Integrate Ura.jpg into col_030 banner | [x] | Modify columns.json to include Ura.jpg in the HTML banner. |
 | 73. Verify: Build, redeploy and verify col_030 live page | [x] | Clear cache, rebuild Next.js site, and deploy via scripts/deploy_kabu.py. |
-
+| **74. Brainstorm: Explore project context for SpaceX employees stock** | [x] | Checked schema, scripts, and details of SpaceX tweet. |
+| **75. Brainstorm: Ask clarifying questions** | [x] | Ask user about column categorization, tone details, and specific other examples. |
+| **76. Brainstorm: Propose 2-3 approaches** | [x] | Formulate approaches with trade-offs and recommendations. |
+| **77. Brainstorm: Present design sections** | [x] | Design column contents, note contents, and check validation strategy. |
+| **78. Brainstorm: Write design doc** | [/] | Save design doc to docs/plans/ and commit. |
+| **79. Brainstorm: Transition to implementation** | [ ] | Invoke writing-plans to create implementation plan. |
