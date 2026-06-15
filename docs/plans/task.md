@@ -78,3 +78,8 @@
 | **77. Brainstorm: Present design sections** | [x] | Design column contents, note contents, and check validation strategy. |
 | **78. Brainstorm: Write design doc** | [x] | Save design doc to docs/plans/ and commit. |
 | **79. Brainstorm: Transition to implementation** | [x] | Invoke writing-plans to create implementation plan. |
+| **80. Implement: Create Column JSON Data and Validation Test** | [x] | Write test script and prepend col_033 to columns.json. |
+| **81. Implement: Generate and Deploy Column Eyecatch Image** | [x] | Generate eyecatch image and copy to web-next public folder. |
+| **82. Implement: Create note.com Draft Article** | [x] | Write note_elon_musk.md and verify compliance. |
+| **83. Implement: Upload note.com Draft via note-mcp Wrapper** | [x] | Upload the draft via note-mcp client script. |
+| **84. Verify: Build, Deploy, and Verify Live Site** | [x] | Build web-next, deploy to live server, and verify URLs. |
