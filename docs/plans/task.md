@@ -91,5 +91,7 @@
 | **90. Implement: Add Related Contents to Episode 19** | [x] | Added `col_033` and `col_030` to `related_contents` in Episode 19, ran validation tests, and successfully committed and pushed changes. |
 | **91. Implement: Draft and Publish Episode 19 X Thread** | [x] | Created `scripts/post_x_school_scam.py` script, verified character counts (parent: 270pt, reply: 255pt), and successfully posted the image thread to X. |
 | **92. Content: Draft and Upload note.com (Shareholders Meeting)** | [x] | Wrote article (3,500+ chars), validated bold markers and tone compliance, generated eyecatch image `Column20260616_eyecatch.png`, and uploaded as note draft (ID: 165479573). |
+| **93. Implement: Draft and Publish Shareholders Meeting X Thread** | [x] | Created `scripts/post_x_shareholders_meeting.py` script, verified character counts (parent: 258pt, reply: 255pt), and successfully posted the image thread to X. |
+
 
 
