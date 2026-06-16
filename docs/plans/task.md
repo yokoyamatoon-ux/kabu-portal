@@ -86,6 +86,6 @@
 | **85. Implement: Update Manga Generation Rules** | [x] | Add dialogue positioning rule to 5_manga_generation_rules.md. |
 | **86. Implement: Copy and Place Manga Image Assets** | [x] | Copy prepaid school warning manga assets to web-next/public and image/. |
 | **87. Implement: Insert Episode 19 Data to money_secrets.json** | [x] | Prepend Episode 19 JSON data to data/money_secrets.json. |
-| **88. Verify: Rebuild Static Pages and Verify** | [ ] | Run npm run build and verify layout. |
-| **89. Verify: Deploy to Live Server and Verify Online** | [ ] | Run deploy_kabu.py and check live page /money_secret/19/. |
+| **88. Verify: Rebuild Static Pages and Verify** | [x] | Run npm run build and verify layout. |
+| **89. Verify: Deploy to Live Server and Verify Online** | [x] | Run deploy_kabu.py and check live page /money_secret/19/. |
 
