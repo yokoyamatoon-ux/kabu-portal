@@ -101,6 +101,9 @@
 | **100. Implement: Update test_manga_data.py (TDD)** | [x] | Modified test script to expect Episode 15 and verify key fields. |
 | **101. Implement: Add Ep 15 to manga.json & Create Prompts** | [x] | Added Ep 15 to data/manga.json and created manga_gold_investment_prompts.md. |
 | **102. Implement: Build & Deploy Site** | [x] | Ran next build and deploy_kabu.py successfully. Verified https://okane-no-manabi.jp/manga/15/ returns 200 OK. |
+| **103. Implement: Update 5_manga_generation_rules.md with 5-panel rules** | [x] | Added 5-panel layout configuration and character placement prerequisites to rules document. |
+| **104. Implement: Recreate Ep 15 manga prompts with 5-panel layout** | [x] | Re-wrote manga_gold_investment_prompts.md to 5-panel layout per page with strict right-to-left prerequisites. |
+| **105. Implement: Deploy site with updated Ep 15 layout** | [x] | Redeployed site and verified page loading. |
 
 
 
