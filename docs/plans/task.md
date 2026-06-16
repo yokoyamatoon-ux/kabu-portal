@@ -96,8 +96,11 @@
 | **95. Brainstorm: Ask clarifying question on Gold investment topic** | [x] | Clarified to focus on balancing basic characteristics and recent 2026 market crash trends. |
 | **96. Brainstorm: Propose 2-3 approaches** | [x] | Proposed 3 approaches. User selected recommended Approach 1 (Balance of basics & 2026 crash). |
 | **97. Brainstorm: Present design sections** | [x] | Presented manga plot, prompts, and column structure. User approved the design. |
-| **98. Brainstorm: Write design doc** | [/] | Writing design doc to docs/plans/2026-06-16-gold-investment-design.md. |
-| **99. Brainstorm: Transition to implementation** | [ ] | |
+| **98. Brainstorm: Write design doc** | [x] | Wrote design doc to docs/plans/2026-06-16-gold-investment-design.md. |
+| **99. Brainstorm: Transition to implementation** | [x] | Created implementation plan docs/plans/2026-06-16-gold-investment-implementation.md. |
+| **100. Implement: Update test_manga_data.py (TDD)** | [x] | Modified test script to expect Episode 15 and verify key fields. |
+| **101. Implement: Add Ep 15 to manga.json & Create Prompts** | [x] | Added Ep 15 to data/manga.json and created manga_gold_investment_prompts.md. |
+| **102. Implement: Build & Deploy Site** | [x] | Ran next build and deploy_kabu.py successfully. Verified https://okane-no-manabi.jp/manga/15/ returns 200 OK. |
 
 
 
