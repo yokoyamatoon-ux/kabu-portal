@@ -83,3 +83,9 @@
 | **82. Implement: Create note.com Draft Article** | [x] | Write note_elon_musk.md and verify compliance. |
 | **83. Implement: Upload note.com Draft via note-mcp Wrapper** | [x] | Upload the draft via note-mcp client script. |
 | **84. Verify: Build, Deploy, and Verify Live Site** | [x] | Build web-next, deploy to live server, and verify URLs. |
+| **85. Implement: Update Manga Generation Rules** | [ ] | Add dialogue positioning rule to 5_manga_generation_rules.md. |
+| **86. Implement: Copy and Place Manga Image Assets** | [ ] | Copy prepaid school warning manga assets to web-next/public and image/. |
+| **87. Implement: Insert Episode 19 Data to money_secrets.json** | [ ] | Prepend Episode 19 JSON data to data/money_secrets.json. |
+| **88. Verify: Rebuild Static Pages and Verify** | [ ] | Run npm run build and verify layout. |
+| **89. Verify: Deploy to Live Server and Verify Online** | [ ] | Run deploy_kabu.py and check live page /money_secret/19/. |
+
