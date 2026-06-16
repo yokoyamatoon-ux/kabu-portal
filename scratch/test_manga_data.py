@@ -5,7 +5,7 @@ def test_manga():
     with open('data/manga.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
         
-    assert len(data) == 14, f"Expected 14 episodes, got {len(data)}"
+    assert len(data) == 15, f"Expected 15 episodes, got {len(data)}"
     
     # Verify Ep 10 integrity
     ep10 = next(x for x in data if x.get('ep') == 10)
@@ -19,14 +19,29 @@ def test_manga():
     assert ep14['topic'] == "stock_crash"
     assert ep14['related_contents'] == [{"type": "money_secret", "id": 13}]
     
-    desc = ep14['description_long']
-    assert "日本マクドナルドHD" in desc
-    assert "東芝" in desc
-    assert "https://www.nikkei.com" in desc
+    desc_ep14 = ep14['description_long']
+    assert "日本マクドナルドHD" in desc_ep14
+    assert "東芝" in desc_ep14
+    assert "https://www.nikkei.com" in desc_ep14
     
-    # Check for translation artifacts
-    assert not re.search(r'\bof\b', desc), "Found English 'of' in Japanese text"
-    assert not re.search(r'\bis\b', desc), "Found English 'is' in Japanese text"
+    # Verify Ep 15 contents
+    ep15 = next(x for x in data if x.get('ep') == 15)
+    assert "金" in ep15['title']
+    assert ep15['topic'] == "gold_investment"
+    assert ep15['manga_pages'] == [
+        "/manga/manabu/20260617/manabu_20260617_01.png",
+        "/manga/manabu/20260617/manabu_20260617_02.png"
+    ]
+    
+    desc_ep15 = ep15['description_long']
+    assert "5,600" in desc_ep15 or "5600" in desc_ep15
+    assert "4,000" in desc_ep15 or "4000" in desc_ep15
+    assert "利息" in desc_ep15
+    
+    # Check for translation artifacts in ep14 and ep15
+    for desc in [desc_ep14, desc_ep15]:
+        assert not re.search(r'\bof\b', desc), "Found English 'of' in Japanese text"
+        assert not re.search(r'\bis\b', desc), "Found English 'is' in Japanese text"
     
     print("All tests passed successfully!")
 
