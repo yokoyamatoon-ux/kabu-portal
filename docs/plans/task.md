@@ -88,4 +88,4 @@
 | **87. Implement: Insert Episode 19 Data to money_secrets.json** | [x] | Prepend Episode 19 JSON data to data/money_secrets.json. |
 | **88. Verify: Rebuild Static Pages and Verify** | [x] | Run npm run build and verify layout. |
 | **89. Verify: Deploy to Live Server and Verify Online** | [x] | Run deploy_kabu.py and check live page /money_secret/19/. |
-
+| **90. Implement: Add Related Contents to Episode 19** | [x] | Added `col_033` and `col_030` to `related_contents` in Episode 19, ran validation tests, and successfully committed and pushed changes. |
