@@ -5,18 +5,18 @@ def test_money_secrets():
     with open('data/money_secrets.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
         
-    # エピソード数の検証 (17 -> 18話に増加)
-    assert len(data) == 18, f"Expected 18 episodes, got {len(data)}"
+    # エピソード数の検証 (18 -> 19話に増加)
+    assert len(data) == 19, f"Expected 19 episodes, got {len(data)}"
     
-    # 第18話 (先頭に挿入されると想定) の検証
-    ep18 = data[0]
-    assert ep18.get('ep') == 18, f"First element should be Ep 18, got Ep {ep18.get('ep')}"
-    assert ep18.get('title') == "「権利収入」の甘い誘惑 〜マルチ商法と人間関係切り売りの代償〜"
+    # 第19話 (先頭に挿入されると想定) の検証
+    ep19 = data[0]
+    assert ep19.get('ep') == 19, f"First element should be Ep 19, got Ep {ep19.get('ep')}"
+    assert ep19.get('title') == "「前払いAI学校」の甘い誘惑 〜有名起業家AI学校とミュゼプラチナムに共通する『お金をもらってから考える』危ういモデル〜"
     
-    chat = ep18.get('chat_html', '')
-    assert "マルチ商法" in chat, "Could not find 'マルチ商法' in Ep 18 chat_html"
-    assert "特定商取引法" in chat, "Could not find '特定商取引法' in Ep 18 chat_html"
-    assert "188" in chat, "Could not find '188' in Ep 18 chat_html"
+    chat = ep19.get('chat_html', '')
+    assert "ミュゼ" in chat, "Could not find 'ミュゼ' in Ep 19 chat_html"
+    assert "前受収益" in chat, "Could not find '前受収益' in Ep 19 chat_html"
+    assert "債務超過" in chat, "Could not find '債務超過' in Ep 19 chat_html"
     
     # プレースホルダーアイコンの確認
     assert "{{MANETA_ICON}}" in chat
