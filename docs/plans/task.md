@@ -92,6 +92,12 @@
 | **91. Implement: Draft and Publish Episode 19 X Thread** | [x] | Created `scripts/post_x_school_scam.py` script, verified character counts (parent: 270pt, reply: 255pt), and successfully posted the image thread to X. |
 | **92. Content: Draft and Upload note.com (Shareholders Meeting)** | [x] | Wrote article (3,500+ chars), validated bold markers and tone compliance, generated eyecatch image `Column20260616_eyecatch.png`, and uploaded as note draft (ID: 165479573). |
 | **93. Implement: Draft and Publish Shareholders Meeting X Thread** | [x] | Created `scripts/post_x_shareholders_meeting.py` script, verified character counts (parent: 258pt, reply: 255pt), and successfully posted the image thread to X. |
+| **94. Brainstorm: Explore project context for Gold investment** | [x] | Checked manga.json format and manga rules. |
+| **95. Brainstorm: Ask clarifying question on Gold investment topic** | [x] | Clarified to focus on balancing basic characteristics and recent 2026 market crash trends. |
+| **96. Brainstorm: Propose 2-3 approaches** | [x] | Proposed 3 approaches. User selected recommended Approach 1 (Balance of basics & 2026 crash). |
+| **97. Brainstorm: Present design sections** | [x] | Presented manga plot, prompts, and column structure. User approved the design. |
+| **98. Brainstorm: Write design doc** | [/] | Writing design doc to docs/plans/2026-06-16-gold-investment-design.md. |
+| **99. Brainstorm: Transition to implementation** | [ ] | |
 
 
 
