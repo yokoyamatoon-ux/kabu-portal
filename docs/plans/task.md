@@ -108,5 +108,6 @@
 | **107. Implement: Rebuild and deploy site with actual manga images** | [x] | Rebuilt Next.js site and successfully synced converted PNG manga panels to the live server. |
 | **108. Implement: Register note_portfolio.md in compliance check (TDD)** | [x] | Registered note_portfolio.md and verified FILE NOT FOUND failure. |
 | **109. Implement: Write note_portfolio.md (Portfolio explanation)** | [x] | Completed detailed MD draft in scratch/note_portfolio.md and passed all compliance checks. |
-| **110. Implement: Upload note draft using note-mcp wrapper script** | [/] | Creating upload script in scratch/upload_portfolio_note.py. |
-| **111. Implement: Verify upload draft ID & Key and finalize tracker** | [ ] | |
+| **110. Implement: Upload note draft using note-mcp wrapper script** | [x] | Created upload_portfolio_note.py and successfully uploaded note_portfolio.md draft to note.com. |
+| **111. Implement: Verify upload draft ID & Key and finalize tracker** | [x] | Verified upload succeeded. Draft ID: 165609384, Key: n2587ad048a1d. |
+
