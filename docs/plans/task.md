@@ -104,6 +104,8 @@
 | **103. Implement: Update 5_manga_generation_rules.md with 5-panel rules** | [x] | Added 5-panel layout configuration and character placement prerequisites to rules document. |
 | **104. Implement: Recreate Ep 15 manga prompts with 5-panel layout** | [x] | Re-wrote manga_gold_investment_prompts.md to 5-panel layout per page with strict right-to-left prerequisites. |
 | **105. Implement: Deploy site with updated Ep 15 layout** | [x] | Redeployed site and verified page loading. |
+| **106. Implement: Convert and place Ep 15 manga images (JPG to PNG)** | [x] | Processed user's JPG images to PNG using PIL in .venv. |
+| **107. Implement: Rebuild and deploy site with actual manga images** | [x] | Rebuilt Next.js site and successfully synced converted PNG manga panels to the live server. |
 
 
 
