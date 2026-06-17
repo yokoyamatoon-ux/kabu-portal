@@ -106,6 +106,12 @@
 | **105. Implement: Deploy site with updated Ep 15 layout** | [x] | Redeployed site and verified page loading. |
 | **106. Implement: Convert and place Ep 15 manga images (JPG to PNG)** | [x] | Processed user's JPG images to PNG using PIL in .venv. |
 | **107. Implement: Rebuild and deploy site with actual manga images** | [x] | Rebuilt Next.js site and successfully synced converted PNG manga panels to the live server. |
+| **108. Implement: Register note_portfolio.md in compliance check (TDD)** | [x] | Registered note_portfolio.md and verified FILE NOT FOUND failure. |
+| **109. Implement: Write note_portfolio.md (Portfolio explanation)** | [/] | Writing note article draft in scratch/note_portfolio.md. |
+
+| **110. Implement: Upload note draft using note-mcp wrapper script** | [ ] | |
+| **111. Implement: Verify upload draft ID & Key and finalize tracker** | [ ] | |
+
 
 
 
