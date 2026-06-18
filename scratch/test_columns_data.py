@@ -39,6 +39,25 @@ def test_columns():
     assert 'col_031' in related_ids
     assert 'col_024' in related_ids
     
+    # Find col_034
+    col_034 = next((x for x in data if x.get('id') == 'col_034'), None)
+    assert col_034 is not None, "col_034 not found in columns.json"
+    
+    # Check basic fields for col_034
+    assert col_034['date'] == '2026.06.19'
+    assert col_034['category'] == '株式投資・企業分析'
+    assert col_034['category_color'] == '#3498DB'
+    assert col_034['image'] == '/images/column/Column20260619.png'
+    assert col_034['reading_time'] == 6
+    
+    body_034 = col_034['body']
+    assert 'マネ太：「' in body_034
+    assert 'ミライ：「' in body_034
+    assert 'カブ先生：「' in body_034
+    assert 'NOWHERE' in body_034
+    assert 'シナジー効果' in body_034
+    assert '時間を買う' in body_034
+
     print("Columns test passed successfully!")
 
 if __name__ == '__main__':
