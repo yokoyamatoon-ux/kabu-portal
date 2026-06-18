@@ -110,5 +110,12 @@
 | **109. Implement: Write note_portfolio.md (Portfolio explanation)** | [x] | Completed detailed MD draft in scratch/note_portfolio.md and passed all compliance checks. |
 | **110. Implement: Upload note draft using note-mcp wrapper script** | [x] | Created upload_portfolio_note.py and successfully uploaded note_portfolio.md draft to note.com. |
 | **111. Implement: Verify upload draft ID & Key and finalize tracker** | [x] | Verified upload succeeded. Draft ID: 165640175, Key: n6feec551a836. |
+| **112. Brainstorm: Explore project context for Maneta Diary Ep 6** | [x] | Exploring files, schemas, and templates |
+| **113. Implement: Create validation script test_maneta_diary_data.py (TDD)** | [x] | Writing test script and verifying failure |
+| **114. Implement: Add Episode 6 to maneta_diary.json and convert images** | [x] | Adding JSON entry and converting JPG to PNG |
+| **115. Verify: Rebuild and deploy to live server** | [x] | Running build and deploy_kabu.py |
+
+
+
 
 
