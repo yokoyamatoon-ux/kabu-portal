@@ -114,8 +114,6 @@
 | **113. Implement: Create validation script test_maneta_diary_data.py (TDD)** | [x] | Writing test script and verifying failure |
 | **114. Implement: Add Episode 6 to maneta_diary.json and convert images** | [x] | Adding JSON entry and converting JPG to PNG |
 | **115. Verify: Rebuild and deploy to live server** | [x] | Running build and deploy_kabu.py |
-
-
-
-
-
+| **116. Brainstorm: Explore project context for note.com Day Trading article** | [x] | Analyzed rules, tone, and requirements. |
+| **117. Content: Write note.com Day Trading draft and check compliance** | [x] | Wrote draft at scratch/note_day_trading.md, verified locally with verify_note_compliance.py (0 errors/warnings). |
+| **118. Content: Upload note.com Day Trading draft and eyecatch** | [x] | Resized Column20260413.png to 1280:670 aspect ratio, uploaded draft and eyecatch (Draft ID: 165796254, Key: n81459ce666ca). Verified preview visual quality in browser. |
