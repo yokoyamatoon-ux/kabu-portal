@@ -1,0 +1,305 @@
+[
+  {
+    "ep": 1,
+    "date": "2026年3月23日 (月)",
+    "title": "ついに口座を作ったぞ！",
+    "summary": "初心者のマネ太が初めて証券口座を開設。マイナンバーカードと格闘しながら投資家デビュー！",
+    "image": "/images/maneta/maneta01_01.jpg",
+    "manga_pages": [
+      "/images/maneta/maneta01_01.jpg",
+      "/images/maneta/maneta01_02.jpg"
+    ],
+    "chat_data": [
+      {
+        "chara": "hakase",
+        "text": "さて、マネ太くん。ついに投資家としての「第一歩」を踏み出したな！",
+        "color": "#FFFFFF"
+      },
+      {
+        "chara": "maneta",
+        "text": "先生、最初は「スマホでポチポチするだけ」だと思ってたけど、本人確認とかマイナンバーとか、結構本格的でびっくりしたよ。",
+        "color": "#E3F2FD"
+      },
+      {
+        "chara": "mirai",
+        "text": "でも、一度作っちゃえば、あとは自分のタイミングで投資ができるようになるんだもんね。",
+        "color": "#FCE4EC"
+      },
+      {
+        "chara": "hakase",
+        "text": "その通りじゃ。特に「NISA」の設定を最初にしたのは正解じゃ。普通、投資で出た利益には約20%の税金がかかるが、NISAならそれが「ゼロ」になる。これは大きいぞ。",
+        "color": "#FFFFFF"
+      },
+      {
+        "chara": "maneta",
+        "text": "月1万円、ボクにとっては大金だけど、これからどう動くのか毎日チェックしちゃうかも！",
+        "color": "#E3F2FD"
+      }
+    ],
+    "related_contents": [
+      {"type": "column", "id": "col_009"},
+      {"type": "column", "id": "col_003"}
+    ]
+  },
+  {
+    "ep": 2,
+    "date": "2026年4月9日 (木)",
+    "title": "1万円のゆくえ",
+    "summary": "注文ボタンをポチッ！投資家への第一歩を踏み出したマネ太。でも翌朝、資産を確認すると……！？",
+    "image": "/images/maneta/maneta02_01.png",
+    "manga_pages": [
+      "/images/maneta/maneta02_01.png",
+      "/images/maneta/maneta02_02.png"
+    ],
+    "chat_data": [
+      {
+        "chara": "maneta",
+        "text": "ミライさん、ついにはじめての投資信託を買ったよ！これでボクの1万円が、世界中の会社を応援しにいくんだね。",
+        "color": "#E3F2FD"
+      },
+      {
+        "chara": "mirai",
+        "text": "マネ太くん、すごい！一歩踏み出したね。私もドキドキしちゃうな。",
+        "color": "#FCE4EC"
+      },
+      {
+        "chara": "maneta",
+        "text": "……でも、次の日の朝に見てみたら、9,995円になってたんだ。5円も減ってる！ボク、何か間違えたのかな……（泣）",
+        "color": "#E3F2FD"
+      },
+      {
+        "chara": "hakase",
+        "text": "フォッフォッフォッ！マネ太くん、あわてるでない。投資は100メートル走ではなくフルマラソンじゃ。一日の数円の動きに一喜一憂しては、投資家として失格じゃよ。",
+        "color": "#FFFFFF"
+      },
+      {
+        "chara": "mirai",
+        "text": "カブ先生、これは故障じゃないんですよね？",
+        "color": "#FCE4EC"
+      },
+      {
+        "chara": "hakase",
+        "text": "相場は呼吸するように毎日動くもの。大事なのは「続けること」。まずは1ヶ月、どっしり構えて見守るのじゃ！",
+        "color": "#FFFFFF"
+      }
+    ],
+    "related_contents": [
+      {"type": "column", "id": "col_007"},
+      {"type": "manga", "id": 3}
+    ]
+  },
+  {
+    "ep": 3,
+    "date": "2026年4月15日 (水)",
+    "title": "マネ太、初めてのパニック",
+    "summary": "カブ先生の教えで「投資はマラソン」と悟りを開いたはずのマネ太だったが、数分後にチャートの動きを見て大慌て！？",
+    "image": "/images/maneta/maneta20260415_01.png",
+    "manga_pages": [
+      "/images/maneta/maneta20260415_01.png",
+      "/images/maneta/maneta20260415_02.png"
+    ],
+    "chat_data": [
+      {
+        "chara": "hakase",
+        "text": "……おーい、さっきまでの「悟り」はどこへいったんじゃ？",
+        "color": "#FFFFFF"
+      },
+      {
+        "chara": "mirai",
+        "text": "5分も持たなかったね、マネ太くん……。でも、最初は誰でも自分の資産が減るとドキッとしちゃうものだよ。",
+        "color": "#FCE4EC"
+      },
+      {
+        "chara": "maneta",
+        "text": "だって！！たった5分でさらに3円も減ったんだよ！？ボクのジュース代がぁぁぁ！",
+        "color": "#E3F2FD"
+      },
+      {
+        "chara": "hakase",
+        "text": "やれやれ……。相場は1日の中で上がったり下がったりを繰り返すんじゃ。長期投資において、スマホのアプリを1日に何回も開くのは精神衛生上よくないぞ。",
+        "color": "#FFFFFF"
+      },
+      {
+        "chara": "mirai",
+        "text": "「果報は寝て待て」って言うし、積立投資の設定が終わったら、あとは放っておくくらいが丁度いいのかもね！",
+        "color": "#FCE4EC"
+      }
+    ],
+    "related_contents": [
+      {"type": "column", "id": "col_007"},
+      {"type": "manga", "id": 3}
+    ]
+  },
+  {
+    "ep": 4,
+    "date": "2026年4月22日 (水)",
+    "title": "迷ったら「地球」を丸ごと買え！？",
+    "summary": "米国株？日本株？迷えるマネ太にカブ先生が授けた究極の1本「オルカン」。これ1つで世界中に投資できる魔法の正体とは？",
+    "image": "/images/maneta/04/maneta20260422_01.png",
+    "manga_pages": [
+      "/images/maneta/04/maneta20260422_01.png",
+      "/images/maneta/04/maneta20260422_02.png"
+    ],
+    "chat_data": [
+      {
+        "chara": "maneta",
+        "text": "カブ先生、新NISAで何を買えばいいか全然選べません！米国が伸びそうだけど、日本も捨てがたいし……。",
+        "color": "#E3F2FD"
+      },
+      {
+        "chara": "hakase",
+        "text": "フォッフォッフォ。マネ太くん、それなら世界丸ごと買えばいいんじゃよ。",
+        "color": "#FFFFFF"
+      },
+      {
+        "chara": "maneta",
+        "text": "ええっ、世界丸ごと！？そんなことできるんですか？",
+        "color": "#E3F2FD"
+      },
+      {
+        "chara": "hakase",
+        "text": "「オルカン（全世界株式）」なら、これ1本でアメリカも日本も、世界中の約3,000社に分散投資できる。特定の国を選ぶ必要はないんじゃ。",
+        "color": "#FFFFFF"
+      },
+      {
+        "chara": "mirai",
+        "text": "それに手数料（信託報酬）も業界最低水準だから、長く投資を続けるにはぴったりだね！",
+        "color": "#FCE4EC"
+      },
+      {
+        "chara": "maneta",
+        "text": "世界中に投資してるなんて、なんだかワクワクするなぁ。これなら迷わずに続けられそうだよ！",
+        "color": "#E3F2FD"
+      }
+    ],
+    "related_contents": [
+      {"type": "column", "id": "col_013"},
+      {"type": "manga", "id": 5}
+    ]
+  },
+  {
+    "ep": 5,
+    "date": "2026年4月28日 (火)",
+    "title": "「積み立て投資」って何？",
+    "summary": "タイミングを考えなくていい「積み立て投資」。下落さえチャンスに変える「ドルコスト平均法」の魔法とは？",
+    "image": "/images/maneta/05/maneta20260428_01.png",
+    "manga_pages": [
+      "/images/maneta/05/maneta20260428_01.png",
+      "/images/maneta/05/maneta20260428_02.png"
+    ],
+    "chat_data": [
+      {
+        "chara": "maneta",
+        "text": "カブ先生、投資を始めたけど「いつ買えばいいか」タイミングが難しくて……。ボク、ずっとスマホの画面を見ちゃいそうっす。",
+        "color": "#E3F2FD"
+      },
+      {
+        "chara": "hakase",
+        "text": "フォッフォッフォ！マネ太くん、実はタイミングを考えなくていい方法があるんじゃ。それが「積み立て投資」じゃよ。",
+        "color": "#FFFFFF"
+      },
+      {
+        "chara": "mirai",
+        "text": "毎月決まった日に、決まった金額を自動的に買い続けるだけ。一度設定しちゃえば、あとは「ほったらかし」でOKなんだよね。",
+        "color": "#FCE4EC"
+      },
+      {
+        "chara": "hakase",
+        "text": "その通り。特に「ドルコスト平均法」という仕組みが強力なんじゃ。価格が下がった時は同じ1万円でより多くの口数が買える。つまり、価格の下落が「安く仕込めるチャンス」になるんじゃよ。<br><br><table style='width:100%; border-collapse: collapse; border: 1px solid #ffcc5c; background: white; font-size: 0.75rem; text-align: center;'><tr style='background: #FFF9F0;'><th style='border: 1px solid #ffcc5c; padding: 4px;'>月</th><th style='border: 1px solid #ffcc5c; padding: 4px;'>価格</th><th style='border: 1px solid #ffcc5c; padding: 4px;'>購入口数</th></tr><tr><td style='border: 1px solid #ffcc5c; padding: 4px;'>1月</td><td style='border: 1px solid #ffcc5c; padding: 4px;'>1,000円</td><td style='border: 1px solid #ffcc5c; padding: 4px;'>10口</td></tr><tr><td style='border: 1px solid #ffcc5c; padding: 4px;'>2月</td><td style='border: 1px solid #ffcc5c; padding: 4px; color: #D63031; font-weight: bold;'>500円(下落)</td><td style='border: 1px solid #ffcc5c; padding: 4px; color: #00B894; font-weight: bold;'>20口</td></tr><tr><td style='border: 1px solid #ffcc5c; padding: 4px;'>3月</td><td style='border: 1px solid #ffcc5c; padding: 4px;'>1,000円</td><td style='border: 1px solid #ffcc5c; padding: 4px;'>10口</td></tr></table>",
+        "color": "#FFFFFF"
+      },
+      {
+        "chara": "maneta",
+        "text": "なるほど！下がった時の方がたくさん買えるから、平均の購入価格が下がるんすね。これなら相場が下がっても慌てなくていいっす！",
+        "color": "#E3F2FD"
+      },
+      {
+        "chara": "mirai",
+        "text": "新NISAの「つみたて投資枠」でオルカンを毎月コツコツ買うのが、私たちにとって一番シンプルで続けやすい方法だね✨",
+        "color": "#FCE4EC"
+      },
+      {
+        "chara": "hakase",
+        "text": "うむ。無理のない範囲でどっしり構えて続けるのが、資産形成の鉄則じゃぞ。<br><br><span style='font-size: 0.7rem; color: #636E72;'>※投資にはリスクがあります。余裕資金で無理のない範囲で始めましょう。</span>",
+        "color": "#FFFFFF"
+      }
+    ],
+    "related_contents": [
+      {"type": "column", "id": "col_010"},
+      {"type": "manga", "id": 4}
+    ]
+  },
+  {
+    "ep": 6,
+    "date": "2026年5月8日 (金)",
+    "title": "「ポートフォリオ」って何？",
+    "summary": "カブ先生が教える「卵を一つのカゴに盛るな」の教訓。自分だけの最強の組み合わせ「ポートフォリオ」と、大枠の資産配分「アセットアロケーション」の違いをやさしく解説！",
+    "image": "/images/maneta/06/maneta20260508_01.png",
+    "manga_pages": [
+      "/images/maneta/06/maneta20260508_01.png",
+      "/images/maneta/06/maneta20260508_02.png"
+    ],
+    "chat_data": [
+      {
+        "chara": "hakase",
+        "text": "さて、具体的な資産の分け方じゃな。投資を始めるときは、どの銘柄を買うかばかりに目がいきがちじゃが、実はその前に一番重要な**「設計図」**を決める必要がある。それが「アセットアロケーション（資産配分）」じゃよ。",
+        "color": "#FFFFFF"
+      },
+      {
+        "chara": "maneta",
+        "text": "アセットアロケーション……！？また英語の難しそうな呪文が出てきたっす！ポートフォリオだけでも頭がこんがらがってるのに、それと何が違うんすか？カブ先生、教えてください！",
+        "color": "#E3F2FD"
+      },
+      {
+        "chara": "hakase",
+        "text": "フォッフォッフォ！そんなに慌てるでない。似ているようで役割が全然違うんじゃよ。違いを分かりやすく表にまとめたから、まずはこれを見るのじゃ。<br><br><table style='width:100%; border-collapse: collapse; border: 1px solid #ffcc5c; background: white; font-size: 0.75rem; text-align: center;'><tr style='background: #FFF9F0;'><th style='border: 1px solid #ffcc5c; padding: 4px; width: 30%;'>用語</th><th style='border: 1px solid #ffcc5c; padding: 4px;'>意味</th><th style='border: 1px solid #ffcc5c; padding: 4px; width: 35%;'>具体例</th></tr><tr><td style='border: 1px solid #ffcc5c; padding: 4px; font-weight: bold;'>アセットアロケーション</td><td style='border: 1px solid #ffcc5c; padding: 4px; text-align: left;'>大枠の資産分類（株・債券・現金など）の配分比率</td><td style='border: 1px solid #ffcc5c; padding: 4px; text-align: left;'>株 50%：現金 50% など</td></tr><tr><td style='border: 1px solid #ffcc5c; padding: 4px; font-weight: bold;'>ポートフォリオ</td><td style='border: 1px solid #ffcc5c; padding: 4px; text-align: left;'>その資産枠の中に入る、具体的な銘柄・商品の組み合わせ</td><td style='border: 1px solid #ffcc5c; padding: 4px; text-align: left;'>株式枠の中に「オルカン」や「トヨタ株」</td></tr></table>",
+        "color": "#FFFFFF"
+      },
+      {
+        "chara": "mirai",
+        "text": "なるほど！全体のお金を「現金（安全資産）」や「株式（成長資産）」という大きなお皿にどう分けるかが『アセットアロケーション（大枠の設計図）』で、そのお皿の中に入れる具体的料理（オルカンや日本株など）を選ぶのが『ポートフォリオ（銘柄の組み合わせ）』なんですね！",
+        "color": "#FCE4EC"
+      },
+      {
+        "chara": "hakase",
+        "text": "ミライちゃん、実に見事な例えじゃ！実は、投資の運用成績（リターンとリスク）の約9割は、この「アセットアロケーション」で決まると言われておる。個別の銘柄選びよりも、全体のお金をどう配分するかのバランスの方が遥かに重要なのじゃ。",
+        "color": "#FFFFFF"
+      },
+      {
+        "chara": "maneta",
+        "text": "えええっ！中身を選ぶことより、大枠のバランスの方がそんなに大事なんすか！？それなら、ボクたち初心者はどうやってそのバランスを決めればいいっすか？",
+        "color": "#E3F2FD"
+      },
+      {
+        "chara": "hakase",
+        "text": "初心者のうちは、無理に細かく分けようとせず、最もシンプルで強力な**「半分ずつアプローチ」**がおすすめじゃ。例えば、自分の全資産の「半分は安全な現金」として銀行に置いておき、「残り半分でオルカン（全世界株式）」をコツコツ積み立てる。これだけで、非常に優れたアセットアロケーションになるぞい。",
+        "color": "#FFFFFF"
+      },
+      {
+        "chara": "mirai",
+        "text": "それなら、もし市場が暴落して株式の価値が一時的に半分になっても、資産全体で見れば25%しか減らないことになりますね。手元に十分な現金があるから、不安になって途中で売ってしまうのを防げますし、ドルコスト平均法で安くなった株を買い増す余裕も生まれますね。",
+        "color": "#FCE4EC"
+      },
+      {
+        "chara": "hakase",
+        "text": "その通りじゃ！相場が良いときは株式の成長に乗ることができ、相場が急落したときは現線のクッションが心とお金を守ってくれる。これこそが、長く投資を続けるための鉄則じゃな。",
+        "color": "#FFFFFF"
+      },
+      {
+        "chara": "maneta",
+        "text": "なるほどっす！それならボクのガラスのハートでも安心して続けられそうっす！さっそく今日からボクの全財産のバランスを見直してみるっすよ！",
+        "color": "#E3F2FD"
+      },
+      {
+        "chara": "hakase",
+        "text": "うむ、その心掛けは素晴らしいぞ。ただし、投資を長く続けていると、株価の上昇や下落によって、最初は「50:50」だったバランスが「株70:現金30」のようにいつの間にか偏ってしまうことがある。その偏った比率を元の設計図通りに戻すメンテナンス作業を「リバランス」と呼ぶのじゃが、そのやり方についてはまた次回詳しく説明しようかの！",
+        "color": "#FFFFFF"
+      }
+    ],
+    "related_contents": [
+      {"type": "column", "id": "col_013"},
+      {"type": "column", "id": "col_011"},
+      {"type": "manga", "id": 5}
+    ]
+  }
+]
