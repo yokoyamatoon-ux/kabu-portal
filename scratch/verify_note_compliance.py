@@ -86,7 +86,8 @@ def main():
         "d:\\Antigravity\\Kabu\\scratch\\note_elon_musk.md",
         "d:\\Antigravity\\Kabu\\scratch\\note_shareholders_meeting.md",
         "d:\\Antigravity\\Kabu\\scratch\\note_portfolio.md",
-        "d:\\Antigravity\\Kabu\\scratch\\note_day_trading.md"
+        "d:\\Antigravity\\Kabu\\scratch\\note_day_trading.md",
+        "d:\\Antigravity\\Kabu\\scratch\\note_ma_synergy.md"
     ]
     
     print("="*80)

@@ -117,3 +117,8 @@
 | **116. Brainstorm: Explore project context for note.com Day Trading article** | [x] | Analyzed rules, tone, and requirements. |
 | **117. Content: Write note.com Day Trading draft and check compliance** | [x] | Wrote draft at scratch/note_day_trading.md, verified locally with verify_note_compliance.py (0 errors/warnings). |
 | **118. Content: Upload note.com Day Trading draft and eyecatch** | [x] | Resized Column20260413.png to 1280:670 aspect ratio, uploaded draft and eyecatch (Draft ID: 165796254, Key: n81459ce666ca). Verified preview visual quality in browser. |
+| **119. Implement: Register col_034 in columns.json test (TDD)** | [x] | Updated test_columns_data.py and verified it fails. |
+| **120. Implement: Prepend col_034 to columns.json and convert eyecatch** | [x] | Prepended col_034 to columns.json and processed Column20260619.jpeg into the correct aspect ratio. |
+| **121. Verify: Build and deploy site to live server** | [x] | Ran npm run build and deploy_kabu.py successfully. col_034 is now live. |
+| **122. Content: Write and verify note.com M&A draft locally** | [x] | Created scratch/note_ma_synergy.md and verified it has 0 errors/warnings. |
+| **123. Content: Upload M&A draft to note.com** | [x] | Uploaded draft and eyecatch successfully. Draft ID: 165952442, Key: n7a082e7fea21. Verified layout in preview. |
