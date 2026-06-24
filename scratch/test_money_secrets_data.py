@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import json
 import re
 
@@ -5,18 +6,24 @@ def test_money_secrets():
     with open('data/money_secrets.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
         
-    # エピソード数の検証 (18 -> 19話に増加)
-    assert len(data) == 19, f"Expected 19 episodes, got {len(data)}"
+    # エピソード数の検証 (19 -> 20話に増加)
+    assert len(data) == 20, f"Expected 20 episodes, got {len(data)}"
     
-    # 第19話 (先頭に挿入されると想定) の検証
-    ep19 = data[0]
-    assert ep19.get('ep') == 19, f"First element should be Ep 19, got Ep {ep19.get('ep')}"
-    assert ep19.get('title') == "「前払いAI学校」の甘い誘惑 〜有名起業家AI学校とミュゼプラチナムに共通する『お金をもらってから考える』危ういモデル〜"
+    # 第20話 (先頭に挿入されると想定) の検証
+    ep20 = data[0]
+    assert ep20.get('ep') == 20, f"First element should be Ep 20, got Ep {ep20.get('ep')}"
     
-    chat = ep19.get('chat_html', '')
-    assert "ミュゼ" in chat, "Could not find 'ミュゼ' in Ep 19 chat_html"
-    assert "前受収益" in chat, "Could not find '前受収益' in Ep 19 chat_html"
-    assert "債務超過" in chat, "Could not find '債務超過' in Ep 19 chat_html"
+    # Title validation
+    assert "\u526f\u696d" in ep20.get('title'), "Title missing side hustle keyword"
+    assert "\u78ba\u5b9a\u7533\u544a" in ep20.get('title'), "Title missing tax return keyword"
+    
+    chat = ep20.get('chat_html', '')
+    assert "\u78ba\u5b9a\u7533\u544a" in chat, "Could not find '確定申告' in Ep 20 chat_html"
+    assert "\u30af\u30e9\u30a6\u30c9\u30bd\u30fc\u30b7\u30f3\u30b0" in chat, "Could not find 'クラウドソーシング' in Ep 20 chat_html"
+    
+    # Separately check for "時給" and "300円" to accommodate "時給換算したら300円"
+    assert "\u6642\u7d66" in chat, "Could not find '時給' in Ep 20 chat_html"
+    assert "300\u5186" in chat, "Could not find '300円' in Ep 20 chat_html"
     
     # プレースホルダーアイコンの確認
     assert "{{MANETA_ICON}}" in chat
