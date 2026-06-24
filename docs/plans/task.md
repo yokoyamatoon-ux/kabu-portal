@@ -145,4 +145,4 @@
 | **144. Ep20: Verify Episode 20 JSON data using validation script** | [x] | Modify scratch/test_money_secrets_data.py to verify Ep 20 is present and run test |
 | **145. Ep20: Build, deploy, and verify Episode 20 live page** | [x] | Run npm run build, execute deploy_kabu.py, and verify live URL |
 | **146. Content: Create note.com draft for dependents deduction** | [x] | Write dependents deduction explanation draft in scratch folder |
-| **147. Content: Upload note.com draft using note-mcp** | [x] | Uploaded draft to note.com. Draft ID: 166765622, Key: nf9ca9778988d. |
+| **147. Content: Upload note.com draft using note-mcp** | [x] | Uploaded fact-checked draft to note.com. Draft ID: 166767703, Key: n521238ca6c70. |
