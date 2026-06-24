@@ -122,3 +122,25 @@
 | **121. Verify: Build and deploy site to live server** | [x] | Ran npm run build and deploy_kabu.py successfully. col_034 is now live. |
 | **122. Content: Write and verify note.com M&A draft locally** | [x] | Created scratch/note_ma_synergy.md and verified it has 0 errors/warnings. |
 | **123. Content: Upload M&A draft to note.com** | [x] | Uploaded draft and eyecatch successfully. Draft ID: 165952442, Key: n7a082e7fea21. Verified layout in preview. |
+| **124. Content: Copy & Rename Manga Assets for Ep 16** | [x] | Copy new manga PNGs from user path to canonical image folder with lowercase naming. |
+| **125. Content: Append Ep 16 (ETF) to data/manga.json** | [x] | Append Episode 16 ETF data to data/manga.json. |
+| **126. Verify: Validate manga.json using test_manga_data.py** | [x] | Run the JSON validation script to ensure data integrity. |
+| **127. Verify: Build and Deploy Kabu Portal to live server** | [x] | Run the python deploy script to rebuild and sync with live server. |
+| **128. Verify: Confirm live URL loads correctly** | [x] | Access okane-no-manabi.jp/manga/16/ to verify the page works. |
+| **129. Bugfix: Fix Korean particle typo in manga.json** | [x] | Correct "ETFの" to "ETFの" in Episode 16 description_long. |
+| **130. Verify: Re-run validation, rebuild, and redeploy** | [x] | Run tests, build the Next.js site, redeploy via FTP and verify URL. |
+| **131. Brainstorm: Ask clarifying questions for ETF commentary rewrite** | [x] | Clarifying deep dive topics with the user |
+| **132. Brainstorm: Propose approaches** | [x] | Outlining proposed approaches with trade-offs |
+| **133. Brainstorm: Present design & Write design doc** | [x] | Presenting dialogue design sections and writing design doc |
+| **134. Implementation: Rewrite Episode 16 commentary in manga.json** | [x] | Replace Episode 16 commentary dialogues with deep-dive investment concepts |
+| **135. Verify: Re-run validation, rebuild, and redeploy** | [x] | Validate data/manga.json, run Next build, deploy to live server, and verify page content |
+| **136. Implementation: Create note_nisa_curation.md with curated NISA content** | [x] | Create a detailed note draft explaining 4 NISA keys |
+| **137. Implementation: Update verify_note_compliance.py to include new draft** | [x] | Register the new note draft in the validation script |
+| **138. Verify: Run compliance verification tests** | [x] | Run verify_note_compliance.py and check for 0 errors |
+| **139. Implementation: Create upload_nisa_curation_note.py script** | [x] | Write Python script to upload draft using note-mcp |
+| **140. Verify: Run upload script and confirm note draft ID & Key** | [x] | Upload the note.com draft and report preview links |
+| **141. Research: Investigate unimplemented Urakane topics** | [x] | Scanned all past conversations and workspace files; confirmed all proposed topics (including GLP-1, AI School, MLM, and horiemon-AI school) have been implemented as Episodes 16-19. |
+| **142. Ep20: Convert and place Episode 20 manga images (JPG to PNG)** | [x] | Run python script to convert user supplied JPG/JPEG to PNG and place them in image/manga/urakane/ |
+| **143. Ep20: Add Episode 20 data to money_secrets.json** | [x] | Insert Ep 20 JSON data at the top of money_secrets.json |
+| **144. Ep20: Verify Episode 20 JSON data using validation script** | [x] | Modify scratch/test_money_secrets_data.py to verify Ep 20 is present and run test |
+| **145. Ep20: Build, deploy, and verify Episode 20 live page** | [x] | Run npm run build, execute deploy_kabu.py, and verify live URL |
