@@ -1,6 +1,6 @@
 ---
 title: 「扶養控除」の2026年度改革と、副業で「扶養から外れる」罠
-eyecatch: d:\Antigravity\Kabu\image\manga\urakane\urakane20260624_01.png
+eyecatch: D:\Antigravity\Kabu\image\manga\urakane\urakane20260624_01_eyecatch.png
 tags: [扶養控除, 税金, 副業, 確定申告]
 ---
 
@@ -69,6 +69,11 @@ tags: [扶養控除, 税金, 副業, 確定申告]
 
 ▶ マンガで学ぶお金のウラ事情（第20話）はこちら
 https://okane-no-manabi.jp/money_secret/20/
+
+また、公式Xでも、日々知っておくべきお金の知恵や防衛術を発信しておるぞい。こちらもフォローして勉強するのじゃ！
+
+▶ カブ先生の公式Xはこちら
+https://x.com/kabu_teacher
 
 これからも、知っておくべきお金のウラ側をやさしく伝えていくぞい。
 知識こそが、大切なお金と家族を守る最大の武器じゃ！フォッフォッフォ！
