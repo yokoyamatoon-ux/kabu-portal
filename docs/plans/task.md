@@ -159,3 +159,15 @@
 | **158. Verify: Local Next.js build validation** | [x] | Copy data and dummy image to web-next, run npm run build. |
 | **159. Deploy: Update with production eyecatch and run deploy_kabu.py** | [x] | Place real eyecatch image and run deploy_kabu.py. |
 | **160. Verify: Verify production URL of col_036** | [x] | Confirm live URL okane-no-manabi.jp/column/col_036/ loads correctly. |
+| **161. Brainstorm: Explore project context for Elderly Medical Expense Note** | [x] | Analyze note styling rules, character roles, and current data templates. |
+| **162. Brainstorm: Ask clarifying questions** | [x] | Ask user clarifying questions about tone, length, and title selection. |
+| **163. Brainstorm: Propose 2-3 approaches** | [x] | Propose different editorial angles for the note.com draft and Urakane Ep 21. |
+| **164. Brainstorm: Present design sections** | [x] | Present note outline, Urakane Ep 21 chat HTML structure, and E-E-A-T source linking. |
+| **165. Brainstorm: Write design doc** | [x] | Save design doc to docs/plans/ and commit. |
+| **166. Brainstorm: Transition to implementation** | [x] | Invoke writing-plans to create implementation plan. |
+| **167. Implement: Create note draft on elderly medical expenses** | [x] | Write scratch/note_medical_expenses.md. |
+| **168. Implement: Register note in compliance check and run validation** | [x] | Update and run verify_note_compliance.py. |
+| **169. Implement: Copy Urakane Ep 21 manga assets** | [x] | Copy/convert images to image/manga/urakane/ and web-next public folders. |
+| **170. Implement: Prepend Episode 21 to money_secrets.json** | [x] | Prepend Ep 21 data with chat_html to money_secrets.json and sync to web-next. |
+| **171. Verify: Build, deploy, and verify production URL for Ep 21** | [x] | Rebuild, run deploy_kabu.py, upload draft to note.com, and verify URL 200 OK. |
+
