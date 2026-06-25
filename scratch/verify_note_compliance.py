@@ -91,7 +91,9 @@ def main():
         "d:\\Antigravity\\Kabu\\scratch\\note_bad_ma.md",
         "d:\\Antigravity\\Kabu\\scratch\\note_nisa_curation.md",
         "d:\\Antigravity\\Kabu\\scratch\\note_consumption_tax_cut.md",
-        "d:\\Antigravity\\Kabu\\scratch\\note_dependents_deduction.md"
+        "d:\\Antigravity\\Kabu\\scratch\\note_dependents_deduction.md",
+        "d:\\Antigravity\\Kabu\\scratch\\note_medical_expenses.md",
+        "d:\\Antigravity\\Kabu\\scratch\\note_nissan_toyota.md"
     ]
     
     print("="*80)
