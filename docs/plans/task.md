@@ -146,3 +146,16 @@
 | **145. Ep20: Build, deploy, and verify Episode 20 live page** | [x] | Run npm run build, execute deploy_kabu.py, and verify live URL |
 | **146. Content: Create note.com draft for dependents deduction** | [x] | Write dependents deduction explanation draft in scratch folder |
 | **147. Content: Upload note.com draft using note-mcp** | [x] | Uploaded fact-checked draft to note.com. Draft ID: 166767703, Key: n521238ca6c70. |
+| **148. Brainstorm: Explore project context for Robo-Advisor Column** | [x] | Checked columns.json schema, character persona rules, and existing data. |
+| **149. Brainstorm: Ask clarifying questions** | [x] | Ask the user one clarifying question about the dialog structure. |
+| **150. Brainstorm: Propose 2-3 approaches** | [x] | Propose different content angles and structures. |
+| **151. Brainstorm: Present design sections** | [x] | Present column text structure and related assets design. |
+| **152. Brainstorm: Write design doc** | [x] | Save design doc to docs/plans/ and commit. |
+| **153. Brainstorm: Transition to implementation** | [x] | Invoke writing-plans to create implementation plan. |
+| **154. Implement: Create TDD validation test script** | [x] | Create scratch/test_columns_data_roboadvisor.py. |
+| **155. Implement: Create dummy eyecatch image** | [x] | Create a temporary placeholder image for testing. |
+| **156. Implement: Prepend col_036 data to columns.json** | [x] | Prepend col_036 JSON data to data/columns.json. |
+| **157. Verify: Run TDD validation test** | [x] | Run the validation script and ensure it passes. |
+| **158. Verify: Local Next.js build validation** | [x] | Copy data and dummy image to web-next, run npm run build. |
+| **159. Deploy: Update with production eyecatch and run deploy_kabu.py** | [x] | Place real eyecatch image and run deploy_kabu.py. |
+| **160. Verify: Verify production URL of col_036** | [x] | Confirm live URL okane-no-manabi.jp/column/col_036/ loads correctly. |
