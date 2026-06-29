@@ -1,0 +1,9 @@
+2026/05/20-13:58:38.767 a884 Reusing MANIFEST D:\Antigravity\Kabu\.chromium_kabu_v3\Default\Local Storage\leveldb/MANIFEST-000001
+2026/05/20-13:58:38.771 a884 Recovering log #76
+2026/05/20-13:58:38.981 a884 Level-0 table #80: started
+2026/05/20-13:58:39.055 a884 Level-0 table #80: 81185 bytes OK
+2026/05/20-13:58:39.055 a884 Recovering log #79
+2026/05/20-13:58:39.056 a884 Reusing old log D:\Antigravity\Kabu\.chromium_kabu_v3\Default\Local Storage\leveldb/000079.log 
+2026/05/20-13:58:39.097 a884 Delete type=0 #76
+2026/05/20-13:59:33.122 b64c Level-0 table #82: started
+2026/05/20-13:59:33.388 b64c Level-0 table #82: 82457 bytes OK

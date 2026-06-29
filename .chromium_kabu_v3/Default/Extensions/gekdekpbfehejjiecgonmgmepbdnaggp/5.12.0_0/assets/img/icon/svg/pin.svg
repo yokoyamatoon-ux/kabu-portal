@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="19px" viewBox="0 0 12 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g stroke="none" stroke-width="1" fill-rule="evenodd">
+    <g transform="translate(-1030.000000, -155.000000)">
+      <g transform="translate(965.000000, 13.000000)">
+        <g transform="translate(35.000000, 135.000000)" class="Icon__Path">
+          <path d="M37,20 L37,26 L35,26 L35,20 L37,20 Z M42,7 L42,10 L39.985,10 L39.9854736,15.9709473 L42,17.6047363 L42,19.9984131 L30,19.9984131 L30,17.6047363 L32.0074463,15.9709473 L32.007,10 L30,10 L30,7 L42,7 Z"></path>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/app/shared/shared.min.css"/>
+  <link rel="stylesheet" type="text/css" href="/app/popup/popup.min.css"/>
+  <style type="text/css">
+    body {
+      width: 370px;
+      height: 500px;
+      margin: 0 auto;
+      overflow-y: hidden;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .Placeholder {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body data-popup="true">
+<div class="total-app-ext-theme-scope">
+  <div id="root">
+    <div class="Placeholder">
+      <img src="/assets/img/_brand/placeholder/popup-placeholder.svg" alt="Total Adblock">
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="/assets/js/jquery.js"></script>
+<script type="text/javascript" src="/app/vendor/vendor.min.js"></script>
+<script type="text/javascript" src="/app/shared/shared.min.js"></script>
+<script type="text/javascript" src="/app/popup/popup.min.js"></script>
+</body>
+</html>

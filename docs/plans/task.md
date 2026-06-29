@@ -170,4 +170,30 @@
 | **169. Implement: Copy Urakane Ep 21 manga assets** | [x] | Copy/convert images to image/manga/urakane/ and web-next public folders. |
 | **170. Implement: Prepend Episode 21 to money_secrets.json** | [x] | Prepend Ep 21 data with chat_html to money_secrets.json and sync to web-next. |
 | **171. Verify: Build, deploy, and verify production URL for Ep 21** | [x] | Rebuild, run deploy_kabu.py, upload draft to note.com, and verify URL 200 OK. |
+| **172. Design: Restructure Episode 21 and design draft status logic** | [x] | Defined Approach A division and Next.js draft filtering scheme. |
+| **173. Implement: Create manga prompts manga_medical_expenses_prompts.md** | [x] | Write the storyboard in manga/urakane/manga_medical_expenses_prompts.md. |
 
+| **174. Implement: Restructure Episode 21 chat_html and add draft: true** | [x] | Restructured Episode 21 to start chat_html from Kabu-sensei's shout, added draft: true to data/money_secrets.json. |
+| **175. Implement: Add draft filtering to MoneySecret.jsx and [ep]/page.jsx** | [x] | Integrated draft filtering in MoneySecret detail/listing, KeywordSearch, related contents, and page.jsx (using notFound()). |
+| **176. Verify: Build, deploy, and confirm Episode 21 is hidden in listing** | [x] | Ran deploy_kabu.py. Cleaned up stale remote directories using scratch script. Confirmed live /money_secret/21/ returns 404 and listing page is clean. |
+| **177. Brainstorm: Explore project context for Nissan vs Toyota Note** | [x] | Checked rules, guidelines, sample note configs, and verify_note_compliance.py. |
+| **178. Brainstorm: Ask clarifying questions** | [x] | Clarified with user that style should be dialogue intro, followed by monologue. |
+| **179. Brainstorm: Propose 2-3 approaches** | [x] | Proposed 3 approaches. User selected Approach 1 (Customer focus and investment). |
+| **180. Brainstorm: Present design sections** | [x] | Presented article structure and metadata design, received user approval. |
+| **181. Brainstorm: Write design doc** | [x] | Saved validated design to docs/plans/2026-06-25-nissan-toyota-design.md. |
+| **182. Brainstorm: Transition to implementation** | [x] | Invoked writing-plans to create implementation plan. |
+| **183. Implement: Register note in compliance check** | [x] | Register scratch/note_nissan_toyota.md in verify_note_compliance.py and assert failure. |
+| **184. Implement: Write note draft on Nissan vs Toyota** | [x] | Write scratch/note_nissan_toyota.md and verify with compliance check script. |
+| **185. Implement: Create and run upload script** | [x] | Create scratch/upload_nissan_toyota_note.py and upload the draft to note.com. |
+| **186. Verify: Confirm upload status and final check** | [x] | Verify the draft is uploaded and output draft ID and Key. |
+| **187. Brainstorm: Explore project context for Bubble Economy Column** | [x] | Located `columns.json` and studied the content-guide. |
+| **188. Brainstorm: Ask clarifying questions** | [/] | Clarify column details and note.com integration with user. |
+| **189. Brainstorm: Propose 2-3 approaches** | [ ] | Outline choices for column body dialogues and category. |
+| **190. Brainstorm: Present design & Write design doc** | [ ] | Formulate design doc and obtain approval. |
+| **191. Brainstorm: Transition to implementation** | [ ] | Create implementation plan docs/plans/2026-06-28-bubble-column-implementation.md. |
+| **192. Implement: Create TDD validation test for col_037** | [x] | Add test script to ensure integrity. |
+| **193. Implement: Add col_037 JSON data to columns.json** | [x] | Structure the dialogue and append to database. |
+| **194. Implement: Generate/Convert Eyecatch image** | [x] | Convert or generate the column eyecatch image. |
+| **195. Implement: Create note_bubble.md draft** | [x] | Write the corresponding note.com draft. |
+| **196. Implement: Upload note.com draft using note-mcp** | [x] | Upload draft to note.com. |
+| **197. Verify: Build, deploy, and verify live page** | [x] | Rebuild web-next and run deploy_kabu.py. |

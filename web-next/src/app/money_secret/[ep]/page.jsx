@@ -4,12 +4,13 @@ import MONEY_SECRETS from "../../../data/money_secrets.json";
 import COLUMNS from "../../../data/columns.json";
 import MANGA_EPISODES from "../../../data/manga.json";
 import { resolveImagePath } from "../../../lib/image-utils";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
   const { ep } = await params;
   const episode = MONEY_SECRETS.find(e => e.ep === parseInt(ep));
   
-  if (!episode) {
+  if (!episode || episode.draft) {
     return {
       title: 'エピソードが見つかりません | カブ先生のお金の学校',
     };
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }) {
 }
 
 export async function generateStaticParams() {
-  return MONEY_SECRETS.map((ep) => ({
+  return MONEY_SECRETS.filter(ep => !ep.draft).map((ep) => ({
     ep: ep.ep.toString(),
   }));
 }
@@ -88,6 +89,11 @@ function generateJsonLd(episode) {
 export default async function MoneySecretEpPage({ params }) {
   const { ep } = await params;
   const episode = MONEY_SECRETS.find(e => e.ep === parseInt(ep));
+  
+  if (!episode || episode.draft) {
+    notFound();
+  }
+  
   const jsonLdSchemas = episode ? generateJsonLd(episode) : [];
 
   // 関連記事の解決
@@ -106,7 +112,7 @@ export default async function MoneySecretEpPage({ params }) {
       }
       if (ref.type === 'money_secret') {
         const item = MONEY_SECRETS.find(s => s.ep === parseInt(ref.id));
-        return item ? { ...item, image: resolveImagePath(item.thumbnail || item.image_path, 'money_secret'), link: `/money_secret/${item.ep}/`, typeLabel: 'URA-KANE', category: 'お金のウラ事情' } : null;
+        return item && !item.draft ? { ...item, image: resolveImagePath(item.thumbnail || item.image_path, 'money_secret'), link: `/money_secret/${item.ep}/`, typeLabel: 'URA-KANE', category: 'お金のウラ事情' } : null;
       }
       return null;
     }).filter(Boolean);

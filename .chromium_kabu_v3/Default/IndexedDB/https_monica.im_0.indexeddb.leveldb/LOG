@@ -1,0 +1,14 @@
+2026/05/20-13:58:45.833 beac Reusing MANIFEST D:\Antigravity\Kabu\.chromium_kabu_v3\Default\IndexedDB\https_monica.im_0.indexeddb.leveldb/MANIFEST-000001
+2026/05/20-13:58:45.834 beac Recovering log #140
+2026/05/20-13:58:45.843 beac Reusing old log D:\Antigravity\Kabu\.chromium_kabu_v3\Default\IndexedDB\https_monica.im_0.indexeddb.leveldb/000140.log 
+2026/05/20-13:58:45.844 beac Delete type=2 #139
+2026/05/20-13:58:46.134 d38 Level-0 table #145: started
+2026/05/20-13:58:46.332 d38 Level-0 table #145: 4278 bytes OK
+2026/05/20-13:58:46.491 d38 Delete type=0 #140
+2026/05/20-13:58:46.492 cd90 Manual compaction at level-0 from '\x00+\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00,\x00\x00\x00' @ 0 : 0; will stop at '\x00+\x00\x00\x05' @ 2491 : 1
+2026/05/20-13:58:46.549 cd90 Compacting 1@0 + 1@1 files
+2026/05/20-13:58:46.651 cd90 Generated table #146@0: 138 keys, 2953 bytes
+2026/05/20-13:58:46.651 cd90 Compacted 1@0 + 1@1 files => 2953 bytes
+2026/05/20-13:58:46.751 cd90 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/05/20-13:58:46.752 cd90 Delete type=2 #145
+2026/05/20-13:58:46.752 cc5c Manual compaction at level-0 from '\x00+\x00\x00\x05' @ 2491 : 1 .. '\x00,\x00\x00\x00' @ 0 : 0; will stop at (end)

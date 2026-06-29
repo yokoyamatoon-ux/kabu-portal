@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="40px" viewBox="0 0 27 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g stroke="none" stroke-width="1" fill-rule="evenodd">
+    <g transform="translate(-151.000000, -191.000000)">
+      <g transform="translate(0.000000, -19.000000)" opacity="0.25">
+        <polygon points="1440 153 1440 819 0 819"></polygon>
+      </g>
+      <g transform="translate(151.000000, 191.000000)" class="Icon__Path" fill-rule="nonzero">
+        <path d="M15.7748045,16.3365322 L15.775076,0 L1.15463195e-13,23.6626536 L10.4026672,23.6626307 L10.4032787,40 L26.1783547,16.3373464 L15.7748045,16.3365322 Z M14.3097523,4.838802 L14.3100237,17.8023987 L23.4407951,17.8015844 L11.8677194,35.161198 L11.868331,22.1976013 L2.73751373,22.1975784 L14.3097523,4.838802 Z"></path>
+      </g>
+    </g>
+  </g>
+</svg>

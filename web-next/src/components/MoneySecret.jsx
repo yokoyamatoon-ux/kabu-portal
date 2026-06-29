@@ -34,7 +34,7 @@ export const MoneySecretPage = ({ initialEp = null }) => {
   const router = useRouter()
   const [selectedEp, setSelectedEp] = useState(initialEp)
 
-  const activeEp = MONEY_SECRETS.find(e => e.ep === selectedEp)
+  const activeEp = MONEY_SECRETS.find(e => e.ep === selectedEp && !e.draft)
 
   const processHtml = (html) => {
     let processed = html
@@ -148,7 +148,7 @@ export const MoneySecretPage = ({ initialEp = null }) => {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {MONEY_SECRETS.map((ep) => (
+        {MONEY_SECRETS.filter(ep => !ep.draft).map((ep) => (
           <MangaCard key={ep.ep} href={`/money_secret/${ep.ep}/`} className="p-0 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:-translate-y-1 bg-white border border-gray-100 flex flex-col h-full relative" onClick={(e) => { e.preventDefault(); setSelectedEp(ep.ep); router.push(`/money_secret/${ep.ep}/`) }}>
              <div className="h-48 bg-gray-50 flex items-center justify-center overflow-hidden relative border-b border-gray-100">
                <img src={ep.image_path} alt={ep.title} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />

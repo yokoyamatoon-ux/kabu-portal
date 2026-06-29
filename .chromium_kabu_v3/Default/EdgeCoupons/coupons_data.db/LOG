@@ -1,0 +1,6 @@
+2026/05/20-14:00:29.899 23dc Reusing MANIFEST D:\Antigravity\Kabu\.chromium_kabu_v3\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/05/20-14:00:29.900 23dc Recovering log #91
+2026/05/20-14:00:29.900 23dc Reusing old log D:\Antigravity\Kabu\.chromium_kabu_v3\Default\EdgeCoupons/coupons_data.db/000091.log 
+2026/05/20-14:00:30.275 d42c Level-0 table #95: started
+2026/05/20-14:00:30.306 d42c Level-0 table #95: 682654 bytes OK
+2026/05/20-14:00:30.348 d42c Delete type=0 #91

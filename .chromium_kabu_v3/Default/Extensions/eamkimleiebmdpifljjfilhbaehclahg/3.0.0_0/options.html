@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-loc="extension_name"></title>
+
+    <link type="text/css"
+          rel="stylesheet"
+          href="/inc/bootstrap/3.3.6/css/bootstrap.min.css" />
+
+    <!-- cointipper -->
+    <script type="text/javascript" src="/inc/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript"
+            src="/inc/cointipper/jquery.cointipper-pack.min.js"></script>
+    <link rel="stylesheet" href="/inc/cointipper/jquery.cointipper.min.css" />
+    <link rel="stylesheet" href="css/options.css" />
+    <!-- cointipper end -->
+
+    <script src="/js/options.js"></script>
+    <script type="module" src="/js/common.js"></script>
+    <script type="module" src="/js/locales.js"></script>
+</head>
+
+<body id="options-body">
+    <div>
+
+        <div style="padding:3rem; margin-top:3rem" class="container custom">
+            <div id="options" class="row">
+
+                <div class="col">
+                    <div style="padding-left: 60px;">
+                        <fieldset>
+                            <legend data-loc="option_legend1"></legend>
+                            <div class="checkbox">
+                                <label class="">
+                                    <input type="checkbox"
+                                           name="autoClipboard"
+                                           id="autoClipboard" />
+                                    <span data-loc="auto_copy"></span>
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label class="">
+                                    <input type="checkbox"
+                                           name="autoClipboardNoGrid"
+                                           id="autoClipboardNoGrid" />
+
+                                    <span data-loc="do_not_copy"></span>
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label class="">
+                                    <input type="checkbox"
+                                           name="enableRightClickDeactivate"
+                                           id="enableRightClickDeactivate" />
+
+                                    <span data-loc="disable_right_click"></span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend data-loc="option_legend2"></legend>
+
+                            <div class="controls">
+                                <div class="checkbox">
+                                    <label class="">
+                                        <input type="checkbox"
+                                               name="enableColorToolbox"
+                                               id="enableColorToolbox" />
+
+                                        <span data-loc="enable_box"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="controls">
+                                <div class="checkbox">
+                                    <label class="">
+                                        <input type="checkbox"
+                                               name="enableColorTooltip"
+                                               id="enableColorTooltip" />
+
+                                        <span data-loc="enable_color"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <h5 data-loc="dropper_cursor"></h5>
+                            <p><em data-loc="drop_desc"></em></p>
+                            <div class="controls">
+                                <div class="checkbox">
+                                    <label class="">
+                                        <input type="radio"
+                                               name="dropperCursor"
+                                               value="default"
+                                               id="dropperCursordefault" />
+                                        <img src="/img/cursor_default.png"
+                                             alt="default"
+                                             style="cursor: default" />
+                                        <span data-loc="pointer"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label class="">
+                                        <input type="radio"
+                                               name="dropperCursor"
+                                               value="crosshair"
+                                               id="dropperCursorcrosshair" />
+                                        <img src="/img/cursor_crosshair.png"
+                                             alt="crosshair"
+                                             style="cursor: crosshair" />
+                                        <span data-loc="crosshair"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend data-loc="option_legend3"></legend>
+                            <div class="bs-callout bs-callout-info">
+                                <h4><span data-loc="pickup_color"></span> <kbd>Alt+P</kbd></h4>
+                                <p>
+                                    <span data-loc="change_at"></span> <a href="#" id="shortcutPageLink"><span data-loc="ext_shortcut"></span></a>
+                                </p>
+                            </div>
+
+                            <div class="bs-callout bs-callout-info">
+                                <h4><span data-loc="cancel_pick"></span> <kbd>Esc</kbd></h4>
+                                <p>
+                                    <span data-loc="cancel_desc"></span>
+                                </p>
+                            </div>
+
+                            <div class="bs-callout bs-callout-info">
+                                <h4><span data-loc="update_color"></span> <kbd>U</kbd></h4>
+                                <p>
+                                    <span data-loc="update_desc"></span>
+                                </p>
+                            </div>
+                        </fieldset>
+
+                        <hr />
+                        <div>
+                            <button id="saveButton" class="btn btn-default" data-loc="save_settings">
+                            </button>
+                            <span id="status"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

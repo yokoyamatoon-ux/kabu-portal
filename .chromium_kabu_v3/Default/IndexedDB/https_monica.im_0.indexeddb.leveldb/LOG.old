@@ -1,0 +1,25 @@
+2026/05/19-16:38:04.640 16c7c Reusing MANIFEST D:\Antigravity\Kabu\.chromium_kabu_v3\Default\IndexedDB\https_monica.im_0.indexeddb.leveldb/MANIFEST-000001
+2026/05/19-16:38:04.640 16c7c Recovering log #133
+2026/05/19-16:38:04.641 16c7c Reusing old log D:\Antigravity\Kabu\.chromium_kabu_v3\Default\IndexedDB\https_monica.im_0.indexeddb.leveldb/000133.log 
+2026/05/19-16:38:04.641 16c7c Delete type=2 #132
+2026/05/19-16:38:04.808 15f60 Level-0 table #138: started
+2026/05/19-16:38:04.893 15f60 Level-0 table #138: 4320 bytes OK
+2026/05/19-16:38:04.968 15f60 Delete type=0 #133
+2026/05/19-16:38:04.968 15f60 Manual compaction at level-0 from '\x00)\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00*\x00\x00\x00' @ 0 : 0; will stop at '\x00)\x00\x00\x05' @ 2369 : 1
+2026/05/19-16:38:04.969 15f60 Compacting 1@0 + 1@1 files
+2026/05/19-16:38:05.043 15f60 Generated table #139@0: 138 keys, 2775 bytes
+2026/05/19-16:38:05.043 15f60 Compacted 1@0 + 1@1 files => 2775 bytes
+2026/05/19-16:38:05.085 15f60 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/05/19-16:38:05.086 15f60 Delete type=2 #138
+2026/05/19-16:38:05.086 15f60 Manual compaction at level-0 from '\x00)\x00\x00\x05' @ 2369 : 1 .. '\x00*\x00\x00\x00' @ 0 : 0; will stop at (end)
+2026/05/19-16:38:06.081 150a0 Level-0 table #141: started
+2026/05/19-16:38:06.259 150a0 Level-0 table #141: 1218 bytes OK
+2026/05/19-16:38:06.377 150a0 Delete type=2 #135
+2026/05/19-16:38:06.377 150a0 Delete type=0 #137
+2026/05/19-16:38:06.377 9e90 Manual compaction at level-0 from '\x00*\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00+\x00\x00\x00' @ 0 : 0; will stop at '\x00*\x00\x00\x05' @ 2400 : 1
+2026/05/19-16:38:06.377 9e90 Compacting 1@0 + 1@1 files
+2026/05/19-16:38:06.569 9e90 Generated table #142@0: 138 keys, 2951 bytes
+2026/05/19-16:38:06.569 9e90 Compacted 1@0 + 1@1 files => 2951 bytes
+2026/05/19-16:38:06.759 9e90 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/05/19-16:38:06.759 9e90 Delete type=2 #141
+2026/05/19-16:38:06.760 9e90 Manual compaction at level-0 from '\x00*\x00\x00\x05' @ 2400 : 1 .. '\x00+\x00\x00\x00' @ 0 : 0; will stop at (end)

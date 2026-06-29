@@ -1,0 +1,43 @@
+
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <radialGradient cx="37.8537034%" cy="65.7573866%" fx="37.8537034%" fy="65.7573866%" r="65.5671243%" gradientTransform="translate(0.3785, 0.6576), scale(0.8808, 1), translate(-0.3785, -0.6576)" id="radialGradient-tdvwi-ckoq-1">
+            <stop stop-color="#0083DE" offset="65.2%"></stop>
+            <stop stop-color="#006AAC" offset="82.2%"></stop>
+            <stop stop-color="#005A8C" offset="94.4%"></stop>
+        </radialGradient>
+        <radialGradient cx="51.1673742%" cy="41.9142306%" fx="51.1673742%" fy="41.9142306%" r="67.1391995%" gradientTransform="translate(0.5117, 0.4191), scale(0.9302, 1), translate(-0.5117, -0.4191)" id="radialGradient-tdvwi-ckoq-2">
+            <stop stop-color="#05509B" offset="69%"></stop>
+            <stop stop-color="#054E98" offset="71.7%"></stop>
+            <stop stop-color="#033E78" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="109.12%" cy="45.2619905%" fx="109.12%" fy="45.2619905%" r="231.00199%" gradientTransform="translate(1.0912, 0.4526), scale(0.6659, 1), rotate(180), translate(-1.0912, -0.4526)" id="radialGradient-tdvwi-ckoq-3">
+            <stop stop-color="#5EEB69" offset="0%"></stop>
+            <stop stop-color="#4BC958" offset="21.4%"></stop>
+            <stop stop-color="#4AC862" offset="22.5%"></stop>
+            <stop stop-color="#47C68B" offset="27.2%"></stop>
+            <stop stop-color="#44C4AE" offset="32.3%"></stop>
+            <stop stop-color="#41C2CB" offset="37.6%"></stop>
+            <stop stop-color="#3FC1E1" offset="43.3%"></stop>
+            <stop stop-color="#3EC0F1" offset="49.5%"></stop>
+            <stop stop-color="#3DBFFA" offset="56.5%"></stop>
+            <stop stop-color="#3DBFFD" offset="66.4%"></stop>
+        </radialGradient>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-401, -670)" fill-rule="nonzero">
+            <g transform="translate(321, 248)">
+                <g transform="translate(35, 395)">
+                    <g transform="translate(0, 27)">
+                        <g transform="translate(45, 0)">
+                            <path d="M0,13.6367 C0,8.1711 4.5899,0 14.0098,0 C23.4164,0 28,6.9461 28,11.8335 C28,15.7563 24.8997,18.6459 21.0056,18.6459 C18.0341,18.6459 16.2743,17.6603 16.2743,16.8749 C16.2743,16.3667 17.5028,15.589 17.5028,14.0875 C17.5028,12.292 16.1126,10.4916 13.9713,10.4916 C11.9175,10.4916 10.4895,12.201 10.4895,13.9251 C10.4895,18.0915 14.4305,22.0759 20.2412,22.0759 C23.7125,22.0759 24.9725,20.7963 25.4233,20.7963 C25.5605,20.7963 25.8762,20.8523 25.8762,21.2184 C25.8762,21.5684 22.036,27.9986002 14.0182,27.9986002 C6.0424,28 0,21.7161 0,13.6367 Z" fill="#1DE9B6"></path>
+                            <path d="M0,13.6367 C0,8.1711 5.3305,5.2087 8.911,5.2087 C18.3183,5.2087 21.0049,6.9468 21.0049,11.8342 C21.0049,15.757 17.5028,15.5904 17.5028,14.0889 C17.5028,12.2934 16.1126,10.493 13.9713,10.493 C11.9175,10.493 10.4895,12.2024 10.4895,13.9265 C10.4895,18.0929 14.4305,22.0773 20.2412,22.0773 C23.7125,22.0773 24.9725,20.7977 25.4233,20.7977 C25.5605,20.7977 25.8762,20.8537 25.8762,21.2198 C25.8762,21.5698 22.036,28 14.0182,28 C6.0424,28 0,21.7161 0,13.6367 Z" fill="url(#radialGradient-tdvwi-ckoq-1)"></path>
+                            <path d="M10.4895,13.9258 C10.4895,12.3172 11.732,10.7233 13.566,10.5161 C10.6932,10.7604 7.4074,13.5786 7.4074,18.7978 C7.4074,24.3719 12.2122,28.2233 17.1675,27.6374 C23.0377,26.2885 25.8762,21.5194 25.8762,21.2198 C25.8762,20.8537 25.5605,20.7977 25.4233,20.7977 C24.9732,20.7977 23.7125,22.0773 20.2412,22.0773 C14.4305,22.0773 10.4895,18.0929 10.4895,13.9258 Z" fill="url(#radialGradient-tdvwi-ckoq-2)"></path>
+                            <path d="M0,13.6367 C0,8.1711 4.5899,0 14.0098,0 C23.4164,0 28,6.9461 28,11.8335 C28,15.7563 24.8997,18.6459 21.0056,18.6459 C18.0341,18.6459 16.2743,17.6603 16.2743,16.8749 C16.2743,16.3667 17.5028,15.589 17.5028,14.0875 C17.5028,12.292 16.0496,6.6129 8.6632,6.6129 C6.6094,6.6136 0.8792,7.5215 0,13.6367 Z" fill="url(#radialGradient-tdvwi-ckoq-3)"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

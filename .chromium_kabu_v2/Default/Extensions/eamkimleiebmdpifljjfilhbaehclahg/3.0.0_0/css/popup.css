@@ -1,0 +1,94 @@
+.btn-sm{
+    background-color:rgba(0,0,0,.5);
+    padding:5px;
+    border-radius:10px;
+}
+
+/* History Square */
+
+.colors-history-square {
+    width: 15px;
+    height: 15px;
+    font-size: 1px;
+}
+
+
+/* Label on left side of color box */
+
+.ed-color-box-label {
+    position: absolute;
+    left: 50%;
+    margin-left: 5.5rem;
+    top: 2.5rem;
+    width: 5rem;
+    transform: rotate(-90deg);
+}
+
+.ed-color-box {
+    width: 8rem;
+}
+
+
+/* Label on left side of color box - new color */
+
+#box-new-label {
+    top: 8.5rem;
+}
+.custom-content{
+	text-align:center;
+}
+
+#tab-ed-link,
+span.ed-tab-in {
+    display: none;
+}
+a{
+	color:#d74354!important;
+}
+
+#tab-ed-active {
+    display: inline-block;
+	border-bottom: 4px solid #f3565d;
+	color:#FFF;
+}
+
+
+#tab-cp-active {
+	color:#FFF;
+	border-bottom: 4px solid #f3565d;
+}
+.color-picker {
+    position: static;
+}
+
+.color-picker-control {
+    width: 175px;
+    height: 150px;
+    border: 0px;
+    box-shadow: none;
+}
+
+.color-picker-h {
+    width: 19px;
+    border: 0px;
+    box-shadow: none;
+}
+
+#colorpicker-input {
+    width: 6em;
+}
+.tabbable-panel {
+    border: 1px solid #eee;
+    padding: 10px;
+background: #DA4453;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #89216B, #DA4453);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #89216B, #DA4453); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+.tab1{
+	width:70%;
+	background-color: #202022;
+    padding: 10px;
+    border-radius: 5%;
+}

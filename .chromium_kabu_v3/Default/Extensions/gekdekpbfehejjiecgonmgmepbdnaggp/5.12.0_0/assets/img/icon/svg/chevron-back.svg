@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="7px" height="12px" viewBox="0 0 7 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path d="M309.99998,12 C310.219939,12 310.426744,12.0779277 310.582317,12.2195161 L310.582317,12.2195161 L316.075,18 L330,18 C333.865993,18 337,21.1340068 337,25 L337,606 C337,609.865993 333.865993,613 330,613 L19,613 C15.1340068,613 12,609.865993 12,606 L12,25 C12,21.1340068 15.1340068,18 19,18 L303.924,18 L309.417683,12.2195702 C309.542142,12.1062994 309.699376,12.033737 309.8699,12.0092428 Z" id="path-1"></path>
+    <filter x="-1.8%" y="-1.0%" width="103.7%" height="102.0%" filterUnits="objectBoundingBox" id="filter-2">
+      <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+      <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+      <feColorMatrix values="0 0 0 0 0.352941176   0 0 0 0 0.388235294   0 0 0 0 0.42745098  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+    </filter>
+  </defs>
+  <g stroke="none" stroke-width="1" fill-rule="evenodd">
+    <g transform="translate(-42.000000, -102.000000)">
+      <g>
+        <use fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+      </g>
+      <g transform="translate(42.000000, 96.000000)" class="Icon__Path">
+        <path d="M3.10448065,8.3975444 C1.93754051,7.23067342 1.18713029,6.48036695 0.85325,6.146625 C0.65825,5.951125 0.34175,5.951125 0.14625,6.146625 C-0.04875,6.342125 -0.04875,6.658625 0.14625,6.853625 L5.26025,11.967625 L0.14625,17.081625 C-0.04875,17.276625 -0.04875,17.593625 0.14625,17.789125 C0.34175,17.984125 0.65825,17.984125 0.85325,17.789125 C0.727805556,17.9145694 1.13372222,17.5086528 2.071,16.571375 C3.00827778,15.6340972 4.41419444,14.2281806 6.28875,12.353625 C6.39475,12.247625 6.43775,12.106125 6.42825,11.967625 C6.43775,11.829125 6.39475,11.687625 6.28875,11.581625 C4.87351918,10.1664781 3.81209606,9.10511786 3.10448065,8.3975444 Z" transform="translate(3.214766, 11.967688) scale(-1, 1) translate(-3.214766, -11.967688) "></path>
+      </g>
+    </g>
+  </g>
+</svg>

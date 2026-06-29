@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <circle id="path-1" cx="12" cy="12" r="12"></circle>
+    <filter x="-27.1%" y="-22.9%" width="154.2%" height="154.2%" filterUnits="objectBoundingBox" id="filter-2">
+      <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+      <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+      <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.35 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+    </filter>
+  </defs>
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g transform="translate(-349.000000, -160.000000)"></g>
+    <g transform="translate(31.000000, -160.000000)"></g>
+    <g transform="translate(4.000000, 3.000000)">
+      <g>
+        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+        <use fill="#0BC86D" fill-rule="evenodd" xlink:href="#path-1"></use>
+      </g>
+      <path d="M15.5699684,7.32321942 L10.5162424,13.6852781 L7.7131608,11.9313394 C7.23058937,11.58187 6.55528325,11.68987 6.20507917,12.1724414 C5.85560978,12.6557475 5.96360978,13.3306251 6.44654856,13.680523 L10.0027526,15.9795435 C10.1929159,16.1173598 10.4147322,16.1846455 10.6358751,16.1846455 C10.9173241,16.1846455 11.1969975,16.0752373 11.4064465,15.8614414 L17.1111112,8.83607656 C17.5289684,8.41056636 17.5227847,7.72693371 17.096601,7.30907656 C16.6718255,6.89158677 15.9878255,6.89777044 15.5699684,7.32321942 Z" fill="#FFFFFF"></path>
+    </g>
+  </g>
+</svg>

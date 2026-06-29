@@ -1,0 +1,6 @@
+2026/05/20-13:58:45.889 bb8c Reusing MANIFEST D:\Antigravity\Kabu\.chromium_kabu_v3\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/05/20-13:58:45.889 bb8c Recovering log #88
+2026/05/20-13:58:45.890 bb8c Reusing old log D:\Antigravity\Kabu\.chromium_kabu_v3\Default\EdgeCoupons/coupons_data.db/000088.log 
+2026/05/20-13:58:53.552 beac Level-0 table #92: started
+2026/05/20-13:58:53.579 beac Level-0 table #92: 682665 bytes OK
+2026/05/20-13:58:53.621 beac Delete type=0 #88

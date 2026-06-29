@@ -1,0 +1,4 @@
+2026/05/13-17:43:26.531 143c Reusing MANIFEST D:\Antigravity\Kabu\.chromium_kabu_v2\Default\Local Storage\leveldb/MANIFEST-000001
+2026/05/13-17:43:26.539 143c Recovering log #4
+2026/05/13-17:43:26.540 143c Level-0 table #7: started
+2026/05/13-17:43:27.290 143c Level-0 table #7: 81295 bytes IO error: D:\Antigravity\Kabu\.chromium_kabu_v2\Default\Local Storage\leveldb/000007.ldb: OS or hardware error. (ChromeMethodBFE: 8::NewRandomAccessFile::16)

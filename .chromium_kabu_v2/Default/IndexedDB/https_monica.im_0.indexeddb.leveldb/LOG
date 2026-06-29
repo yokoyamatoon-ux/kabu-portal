@@ -1,0 +1,10 @@
+2026/05/13-17:39:45.554 10d0c Creating DB D:\Antigravity\Kabu\.chromium_kabu_v2\Default\IndexedDB\https_monica.im_0.indexeddb.leveldb since it was missing.
+2026/05/13-17:39:45.952 10d0c Reusing MANIFEST D:\Antigravity\Kabu\.chromium_kabu_v2\Default\IndexedDB\https_monica.im_0.indexeddb.leveldb/MANIFEST-000001
+2026/05/13-17:39:47.211 10d0c Level-0 table #5: started
+2026/05/13-17:39:47.685 10d0c Level-0 table #5: 740 bytes OK
+2026/05/13-17:39:47.849 10d0c Delete type=0 #3
+2026/05/13-17:39:47.849 ccb8 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
+2026/05/13-17:39:58.420 dfd0 Level-0 table #7: started
+2026/05/13-17:39:58.813 dfd0 Level-0 table #7: 5164 bytes OK
+2026/05/13-17:39:59.242 dfd0 Delete type=0 #4
+2026/05/13-17:39:59.242 d6c8 Manual compaction at level-0 from '\x00\x04\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x05\x00\x00\x00' @ 0 : 0; will stop at (end)

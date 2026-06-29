@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="307px" height="215px" viewBox="0 0 307 215" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <rect id="path-1" x="0" y="0" width="267" height="175" rx="7"></rect>
+    <filter x="-10.9%" y="-16.6%" width="123.2%" height="135.4%" filterUnits="objectBoundingBox" id="filter-2">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+      <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+      <feColorMatrix values="0 0 0 0 0.352941176   0 0 0 0 0.388235294   0 0 0 0 0.42745098  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+    </filter>
+    <rect id="path-3" x="0" y="0" width="16" height="16" rx="3"></rect>
+    <filter x="-18.8%" y="-18.8%" width="137.5%" height="137.5%" filterUnits="objectBoundingBox" id="filter-4">
+      <feGaussianBlur stdDeviation="2.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+      <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+      <feColorMatrix values="0 0 0 0 0.11372549   0 0 0 0 0.125490196   0 0 0 0 0.137254902  0 0 0 0.1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+    </filter>
+  </defs>
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g transform="translate(-860.000000, -336.000000)">
+      <g transform="translate(878.000000, 320.000000)">
+        <g transform="translate(0.000000, 34.000000)">
+          <g>
+            <g>
+              <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+              <rect stroke="#A7ACB1" stroke-width="2" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="1" y="1" width="265" height="173" rx="7"></rect>
+            </g>
+            <rect fill="#A7ACB1" x="0" y="25" width="267" height="2"></rect>
+            <path d="M14,11 C14.8284271,11 15.5784271,11.3357864 16.1213203,11.8786797 C16.6642136,12.4215729 17,13.1715729 17,14 C17,14.8284271 16.6642136,15.5784271 16.1213203,16.1213203 C15.5784271,16.6642136 14.8284271,17 14,17 C13.1715729,17 12.4215729,16.6642136 11.8786797,16.1213203 C11.3357864,15.5784271 11,14.8284271 11,14 C11,13.1715729 11.3357864,12.4215729 11.8786797,11.8786797 C12.4215729,11.3357864 13.1715729,11 14,11 Z M25,11 C25.8284271,11 26.5784271,11.3357864 27.1213203,11.8786797 C27.6642136,12.4215729 28,13.1715729 28,14 C28,14.8284271 27.6642136,15.5784271 27.1213203,16.1213203 C26.5784271,16.6642136 25.8284271,17 25,17 C24.1715729,17 23.4215729,16.6642136 22.8786797,16.1213203 C22.3357864,15.5784271 22,14.8284271 22,14 C22,13.1715729 22.3357864,12.4215729 22.8786797,11.8786797 C23.4215729,11.3357864 24.1715729,11 25,11 Z M36,11 C36.8284271,11 37.5784271,11.3357864 38.1213203,11.8786797 C38.6642136,12.4215729 39,13.1715729 39,14 C39,14.8284271 38.6642136,15.5784271 38.1213203,16.1213203 C37.5784271,16.6642136 36.8284271,17 36,17 C35.1715729,17 34.4215729,16.6642136 33.8786797,16.1213203 C33.3357864,15.5784271 33,14.8284271 33,14 C33,13.1715729 33.3357864,12.4215729 33.8786797,11.8786797 C34.4215729,11.3357864 35.1715729,11 36,11 Z" stroke="#A7ACB1" stroke-width="2" fill="#FFFFFF"></path>
+          </g>
+          <g transform="translate(2.000000, 27.000000)">
+            <path d="M0,0 L263,0 L263,139 C263,142.865993 259.865993,146 256,146 L7,146 C3.13400675,146 4.73447626e-16,142.865993 0,139 L0,0 L0,0 Z" fill="#FAFAFA"></path>
+            <rect fill="#2C3035" x="20" y="36" width="128" height="80" rx="2"></rect>
+            <circle fill="#5A636D" cx="84" cy="76" r="12"></circle>
+            <polygon fill="#FFFFFF" fill-rule="nonzero" points="81 81.2783454 89.9228069 76.1391727 81 71"></polygon>
+            <rect fill="#EAEDF2" x="39" y="13" width="148" height="9" rx="4.5"></rect>
+            <rect fill="#E63748" x="200" y="13" width="25" height="9" rx="1"></rect>
+            <rect fill="#EAEDF2" x="25" y="110" width="118" height="2" rx="1"></rect>
+            <rect fill="#E63748" x="25" y="110" width="80" height="2" rx="1"></rect>
+            <g transform="translate(168.000000, 36.000000)">
+              <g>
+                <rect fill="#2C3035" x="0" y="0" width="38" height="24" rx="2"></rect>
+                <circle fill="#5A636D" cx="19.5" cy="11.5" r="3.5"></circle>
+                <polygon fill="#FFFFFF" fill-rule="nonzero" points="18 13 21 11.5 18 10"></polygon>
+                <rect fill="#EAEDF2" x="2" y="21" width="34" height="1" rx="0.5"></rect>
+                <rect fill="#E63748" x="2" y="21" width="24" height="1" rx="0.5"></rect>
+              </g>
+              <path d="M68.5,9 C69.3284271,9 70,9.67157288 70,10.5 C70,11.3284271 69.3284271,12 68.5,12 L46.5,12 C45.6715729,12 45,11.3284271 45,10.5 C45,9.67157288 45.6715729,9 46.5,9 L68.5,9 Z M78.5,4 C79.3284271,4 80,4.67157288 80,5.5 C80,6.32842712 79.3284271,7 78.5,7 L46.5,7 C45.6715729,7 45,6.32842712 45,5.5 C45,4.67157288 45.6715729,4 46.5,4 L78.5,4 Z" fill="#D6D9DD"></path>
+            </g>
+            <g transform="translate(168.000000, 70.000000)">
+              <g>
+                <rect fill="#2C3035" x="0" y="0" width="38" height="24" rx="2"></rect>
+                <circle fill="#5A636D" cx="19.5" cy="11.5" r="3.5"></circle>
+                <polygon fill="#FFFFFF" fill-rule="nonzero" points="18 13 21 11.5 18 10"></polygon>
+                <rect fill="#EAEDF2" x="2" y="21" width="34" height="1" rx="0.5"></rect>
+                <rect fill="#E63748" x="2" y="21" width="24" height="1" rx="0.5"></rect>
+              </g>
+              <path d="M68.5,9 C69.3284271,9 70,9.67157288 70,10.5 C70,11.3284271 69.3284271,12 68.5,12 L46.5,12 C45.6715729,12 45,11.3284271 45,10.5 C45,9.67157288 45.6715729,9 46.5,9 L68.5,9 Z M78.5,4 C79.3284271,4 80,4.67157288 80,5.5 C80,6.32842712 79.3284271,7 78.5,7 L46.5,7 C45.6715729,7 45,6.32842712 45,5.5 C45,4.67157288 45.6715729,4 46.5,4 L78.5,4 Z" fill="#D6D9DD"></path>
+            </g>
+            <g transform="translate(168.000000, 104.000000)">
+              <g>
+                <rect fill="#2C3035" x="0" y="0" width="38" height="24" rx="2"></rect>
+                <circle fill="#5A636D" cx="19.5" cy="11.5" r="3.5"></circle>
+                <polygon fill="#FFFFFF" fill-rule="nonzero" points="18 13 21 11.5 18 10"></polygon>
+                <rect fill="#EAEDF2" x="2" y="21" width="34" height="1" rx="0.5"></rect>
+                <rect fill="#E63748" x="2" y="21" width="24" height="1" rx="0.5"></rect>
+              </g>
+              <path d="M68.5,9 C69.3284271,9 70,9.67157288 70,10.5 C70,11.3284271 69.3284271,12 68.5,12 L46.5,12 C45.6715729,12 45,11.3284271 45,10.5 C45,9.67157288 45.6715729,9 46.5,9 L68.5,9 Z M78.5,4 C79.3284271,4 80,4.67157288 80,5.5 C80,6.32842712 79.3284271,7 78.5,7 L46.5,7 C45.6715729,7 45,6.32842712 45,5.5 C45,4.67157288 45.6715729,4 46.5,4 L78.5,4 Z" fill="#D6D9DD"></path>
+            </g>
+            <rect fill="#D6D9DD" x="20" y="123" width="85" height="3" rx="1.5"></rect>
+            <rect fill="#D6D9DD" x="20" y="128" width="55" height="3" rx="1.5"></rect>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -123,7 +123,7 @@ export default async function MangaEpPage({ params }) {
       }
       if (ref.type === 'money_secret') {
         const item = MONEY_SECRETS.find(s => s.ep === parseInt(ref.id));
-        return item ? { ...item, image: resolveImagePath(item.thumbnail || item.image_path, 'money_secret'), link: `/money_secret/${item.ep}/`, typeLabel: 'URA-KANE', category: 'お金のウラ事情' } : null;
+        return item && !item.draft ? { ...item, image: resolveImagePath(item.thumbnail || item.image_path, 'money_secret'), link: `/money_secret/${item.ep}/`, typeLabel: 'URA-KANE', category: 'お金のウラ事情' } : null;
       }
       return null;
     }).filter(Boolean);

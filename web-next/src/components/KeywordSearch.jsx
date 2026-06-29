@@ -39,7 +39,7 @@ export default function KeywordSearch() {
       tags: m.tags ?? [],
       category: "マンガで学ぶ"
     })),
-    ...money_secrets.map(s => ({
+    ...money_secrets.filter(s => !s.draft).map(s => ({
       type: "money_secret",
       title: s.title,
       url: `/money_secret/${s.ep}/`,

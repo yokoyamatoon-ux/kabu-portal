@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="24px" viewBox="0 0 25 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/48px/Mobile</title>
+    <g id="Suite" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Adblock_Suite" transform="translate(-163.000000, -366.000000)">
+            <g id="Group" transform="translate(14.000000, 15.000000)">
+                <g id="Adblock-for-Mobile" transform="translate(81.281292, 351.000000)">
+                    <g id="Group" transform="translate(68.306309, 0.000000)">
+                        <g id="Icon" transform="translate(-0.000000, 0.000000)">
+                            <path d="M11.967507,0 C11.967507,0 12.6777735,4.49036951 12.8624576,10.3406244 L9.98259671,13.2208936 L6.93613113,10.1749272 L5.27235047,11.8387079 L10.0113001,16.5776575 L12.903351,13.6850232 C12.8761816,17.0589301 12.6292614,20.6618503 11.967655,24 C0.731086677,19.8158629 0.0248558265,5.64003869 0.000710030953,5.06317629 L0,5.04504268 Z" id="Combined-Shape" fill="#E63748"></path>
+                            <path d="M11.967655,1.60499065e-13 L23.93531,5.04504268 L23.93531,5.04504268 L23.9347837,5.06281391 C23.9163152,5.63407199 23.3443047,19.8149824 11.967655,24 L11.967655,24 L11.9675901,14.621 L18.6629595,7.92599802 L16.9704775,6.23351602 L11.9675901,11.236 L11.967655,1.60499065e-13 Z" id="Combined-Shape" fill="#C42B34"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

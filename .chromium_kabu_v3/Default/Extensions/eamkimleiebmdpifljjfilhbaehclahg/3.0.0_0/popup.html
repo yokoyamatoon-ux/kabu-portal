@@ -1,0 +1,123 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/inc/tachyons-4.0.4.css">
+    <link rel="stylesheet" href="/css/hint.css">
+    <link rel="stylesheet" href="/inc/msc/msc-style.css">
+    <link type="text/css" rel="stylesheet" href="/inc/color-picker/color-picker.css">
+    <link rel="stylesheet" href="/css/popup.css">
+
+    <script src="/inc/pusher.color.min.js"></script>
+    <script src="/inc/msc/msc-script.js"></script>
+    <script src="/js/popup.js" async></script>
+    <script type="module" src="/js/common.js"></script>
+    <script type="module" src="/js/locales.js"></script>
+
+</head>
+
+<body class="bg-black-10">
+    <article class="w-100 center bg-white " style="width: 34rem">
+
+        <section class="cf tabbable-panel">
+
+            <section class="fl tab1">
+                <header class="w-100">
+                    <nav class="mb3 pb1">
+                        <span class="ed-tab b f6 f5-ns dib mr2 ttu" id="tab-ed">
+                            <span id="tab-ed-active" class="ed-tab-in" data-loc="pick_color"></span>
+                            <a id="tab-ed-link"
+                                class="ed-tab-in link blue hint--bottom hint--no-animate hint--rounded hint--small"
+                                href="#">
+                                <span class="dim" data-loc="pick_color"></span>
+                            </a>
+                        </span>
+
+
+                        <span class="ed-tab b f6 f5-ns dib mr2 ttu" id="tab-cp">
+                            <span id="tab-cp-active" class="ed-tab-in" data-loc="color_picker"></span>
+                            <a id="tab-cp-link"
+                                class="ed-tab-in link blue hint--bottom hint--no-animate hint--rounded hint--small"
+                                href="#">
+                                <span class="dim" data-loc="color_picker"></span>
+                            </a>
+                        </span>
+                    </nav>
+                </header>
+
+                <section id="content">
+
+                    <div id="tab-ed-content" class="content-page custom-content">
+                        <div class="bg-yellow w-75 ph3 mt2 ba br1 b--gold" id="pick-message" style="display: none">
+                        </div>
+                        <a class="black-70 link dim b dib mr3 pv2 ph3" id="pick" href="#">
+
+                            <img src="img/100.png">
+
+                        </a>
+                        <p class="white-80" data-loc="click_action"></p>
+                    </div>
+
+
+                </section>
+            </section>
+
+            <section class="fr" id="color-boxes">
+                <div id="box-current" class="ed-color-box w-100 br2 cf pa2 mb2">
+                </div>
+                <div id="box-new" class="ed-color-box w-100 br2 cf pa2">
+                </div>
+            </section>
+
+            <section class="cf mt2" id="color-history">
+                <section class="fl w-60">
+                    <div class="mt3 cf white-80">
+                        <span class="f5 fl"><span data-loc="palette"></span> <span id="palette-name"
+                                data-palette="default"><span data-loc="palette_default"></span></span></span>
+                        <div id="colors-history-toolbar" class="fl ml2">
+                            <a class="link dib w1 hint--top hint--no-animate hint--rounded"
+                                aria-label="Different Palette?" href="#" id="colors-palette-change">
+                                <svg class="dim" viewBox="0 0 1792 1792" style="fill:white;width:14px;">
+                                    <use xlink:href="/img/icons.svg#fa-th">
+                                </svg>
+                            </a>
+                            <a class="link dib w1 hint--top hint--no-animate hint--rounded eb-history-tool-noempty"
+                                aria-label="Trash Colors in this Palette!" href="#" id="colors-history-clear">
+                                <svg class="dim" viewBox="0 0 1792 1792" style="fill:white;width:16px;">
+                                    <use xlink:href="/img/icons.svg#fa-trash-o">
+                                </svg>
+                            </a>
+                            <a class="link dib w1 hint--top hint--no-animate hint--rounded eb-history-tool-noempty"
+                                aria-label="Give me CSV" href="#" id="colors-history-export">
+                                <svg class="dim" viewBox="0 0 1792 1792" style="fill:white;width:14px;">
+                                    <use xlink:href="/img/icons.svg#fa-floppy-o">
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <section id="colors-palette" class="mt1" style="display:none"></section>
+
+                    <section id="colors-history" class="cf mt2"></section>
+
+                    <p class="i white-80" id="colors-history-instructions">
+                        <span data-loc="empty_history"></span>
+                    </p>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="#" target="_blank" id="drive" class="btn-sm btn-secondary">Drive feature</a>
+                        <a href="#" target="_blank" id="rate" class="btn-sm btn-secondary">Rate us</a>
+                        <a href="#" target="_blank" id="home" class="btn-sm btn-secondary">Homepage</a>
+                    </div>
+                </section>
+            </section>
+        </section>
+
+    </article>
+
+    <script src="/js/rate.js"></script>
+</body>
+
+</html>
