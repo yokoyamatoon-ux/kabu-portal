@@ -197,3 +197,6 @@
 | **195. Implement: Create note_bubble.md draft** | [x] | Write the corresponding note.com draft. |
 | **196. Implement: Upload note.com draft using note-mcp** | [x] | Upload draft to note.com. |
 | **197. Verify: Build, deploy, and verify live page** | [x] | Rebuild web-next and run deploy_kabu.py. |
+| **198. Implement: Draft X post for col_037 bubble economy** | [x] | Drafted parent and reply tweets with point validation. |
+| **199. Implement: Create and run scripts/post_x_col_037_bubble.py** | [x] | Create script and publish the thread to X. |
+| **200. Verify: Confirm X thread is successfully posted** | [x] | Run script and verify output. |
