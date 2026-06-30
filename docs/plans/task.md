@@ -200,3 +200,10 @@
 | **198. Implement: Draft X post for col_037 bubble economy** | [x] | Drafted parent and reply tweets with point validation. |
 | **199. Implement: Create and run scripts/post_x_col_037_bubble.py** | [x] | Create script and publish the thread to X. |
 | **200. Verify: Confirm X thread is successfully posted** | [x] | Run script and verify output. |
+| **201. Implement: Create manga_money_laundering_prompts.md** | [x] | Write storyboard prompts following the rules. |
+| **202. Implement: Convert and place Episode 22 manga images (JPG/JPEG to PNG)** | [x] | Convert using Pillow and place in image/ and web-next/ public folders. |
+| **203. Implement: Create TDD validation test for Ep 22** | [x] | Add test script to verify money_secrets.json integrity. |
+| **204. Implement: Add Episode 22 JSON data to money_secrets.json** | [x] | Prepend Ep 22 data in draft mode and pass tests. |
+| **205. Implement: Create note_money_laundering.md draft** | [/] | Write the corresponding note.com draft and check compliance. |
+| **206. Implement: Upload note.com draft using note-mcp** | [x] | Upload draft to note.com. |
+| **207. Verify: Build, deploy, and verify draft filtering** | [x] | Rebuild web-next, run deploy_kabu.py, and verify 404 on live Ep 22 URL. |
