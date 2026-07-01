@@ -95,7 +95,8 @@ def main():
         "d:\\Antigravity\\Kabu\\scratch\\note_medical_expenses.md",
         "d:\\Antigravity\\Kabu\\scratch\\note_nissan_toyota.md",
         "d:\\Antigravity\\Kabu\\scratch\\note_bubble.md",
-        "d:\\Antigravity\\Kabu\\scratch\\note_money_laundering.md"
+        "d:\\Antigravity\\Kabu\\scratch\\note_money_laundering.md",
+        "d:\\Antigravity\\Kabu\\scratch\\note_mortgage.md"
     ]
     
     print("="*80)

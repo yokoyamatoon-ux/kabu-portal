@@ -210,3 +210,11 @@
 | **208. Implement: Draft X post for Episode 22 money laundering** | [x] | Drafted parent and reply tweets with point validation. |
 | **209. Implement: Create and run scripts/post_x_urakane_ep22.py** | [x] | Create script and publish the thread to X. |
 | **210. Verify: Confirm X thread is successfully posted** | [x] | Run script and verify output. |
+| **211. Implement: Convert and place Column20260701.png** | [x] | Convert using Pillow and place in image/ and web-next/ folders. |
+| **212. Implement: Create TDD validation test for col_038** | [x] | Add test script to verify columns.json integrity. |
+| **213. Implement: Add col_038 JSON data to columns.json** | [x] | Structure the dialogue/comparisons and append to database. |
+| **214. Implement: Create note_mortgage.md draft** | [x] | Write the corresponding note.com draft and check compliance. |
+| **215. Implement: Upload note.com draft using note-mcp** | [x] | Upload draft to note.com. |
+| **216. Verify: Build, deploy, and verify live page** | [x] | Rebuild web-next and run deploy_kabu.py. |
+| **217. Implement: Create and run scripts/post_x_col_038_mortgage.py** | [x] | Create script and publish the thread to X. |
+| **218. Verify: Confirm X thread is successfully posted** | [x] | Run script and verify output. |
