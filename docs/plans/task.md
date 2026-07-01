@@ -220,3 +220,9 @@
 | **218. Verify: Confirm X thread is successfully posted** | [x] | Run script and verify output. |
 | **219. Implement: Create and run scripts/post_x_col_038_mortgage_v2.py** | [x] | Create script and publish the thread to X with updated image. |
 | **220. Verify: Confirm new X thread is successfully posted** | [x] | Run script and verify output. |
+| **221. Implement: Generate dummy manga images** | [x] | Place white blank PNGs as placeholders for Episode 17. |
+| **222. Implement: Create TDD validation test for ep 17** | [x] | Add test script to verify manga.json integrity. |
+| **223. Implement: Add ep 17 JSON data to manga.json** | [x] | Append Episode 17 data to database. |
+| **224. Implement: Create note_bankruptcy.md draft** | [x] | Write the corresponding note.com draft and check compliance. |
+| **225. Implement: Upload note.com draft using note-mcp** | [x] | Upload draft to note.com. |
+| **226. Verify: Build, deploy, and verify live page** | [x] | Rebuild web-next and run deploy_kabu.py. |

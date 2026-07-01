@@ -43,3 +43,16 @@
 - **要素のクリックエラー（最重要）:** X（Twitter）の画面上には、透明なポップアップや「ツイートを送信しました」というトースト通知が前面に被さることが頻繁にあります。
 - これによりPlaywright標準の `element.click()` や `click(force=True)` が `subtree intercepts pointer events` (Timeout 30000ms exceeded) で失敗する原因となります。
 - **解決策:** Xの画面上でボタン（投稿ボタン、リプライボタン、入力エリアなど）をクリックさせるスクリプトを書く際は、必ずJavaScriptの内部DOMから直接クリックを発火させる **`element.evaluate("node => node.click()")`** を使用してください。Playwright標準のクリックメソッドは極力避けてください。
+
+## 8. xurl コマンドによる API 実行ルール
+本PCには複数のXアカウント（カブ先生、黒焦団）の認証情報が設定されています。コマンドラインや自動化スクリプト等で `xurl` を使ってAPI操作を行う際は、意図しないアカウントへの誤投稿（誤爆）を防ぐため、**必ず `--app Kabu_X` を付与してアカウントを明示**してください。
+
+* **ツイート投稿例**:
+  ```powershell
+  npx @xdevplatform/xurl --app Kabu_X post "カブ先生からの投稿内容"
+  ```
+* **MCPサーバー起動例**:
+  ```powershell
+  npx @xdevplatform/xurl --app Kabu_X mcp https://api.x.com/mcp
+  ```
+* **注意**: `--app` オプションを省略すると、デフォルト設定の状況によって別のアカウントで動作するリスクがあります。
