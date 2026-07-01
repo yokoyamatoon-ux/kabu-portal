@@ -218,3 +218,5 @@
 | **216. Verify: Build, deploy, and verify live page** | [x] | Rebuild web-next and run deploy_kabu.py. |
 | **217. Implement: Create and run scripts/post_x_col_038_mortgage.py** | [x] | Create script and publish the thread to X. |
 | **218. Verify: Confirm X thread is successfully posted** | [x] | Run script and verify output. |
+| **219. Implement: Create and run scripts/post_x_col_038_mortgage_v2.py** | [x] | Create script and publish the thread to X with updated image. |
+| **220. Verify: Confirm new X thread is successfully posted** | [x] | Run script and verify output. |
