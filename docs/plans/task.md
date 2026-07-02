@@ -226,3 +226,6 @@
 | **224. Implement: Create note_bankruptcy.md draft** | [x] | Write the corresponding note.com draft and check compliance. |
 | **225. Implement: Upload note.com draft using note-mcp** | [x] | Upload draft to note.com. |
 | **226. Verify: Build, deploy, and verify live page** | [x] | Rebuild web-next and run deploy_kabu.py. |
+| **227. Implement: Draft X posts for Episode 17 and note** | [x] | Drafted parent and reply tweets with point validation. |
+| **228. Implement: Create and run scripts/post_x_manga_bankruptcy.py** | [x] | Create script using xurl to publish both threads to X. |
+| **229. Verify: Confirm both X threads are successfully posted** | [x] | Run script and verify output. |
