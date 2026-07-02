@@ -26,11 +26,13 @@ if sys.platform == "win32":
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 def run_xurl_command(args):
-    """xurlコマンドを実行し、出力をパースして返す"""
-    cmd = ["npx", "@xdevplatform/xurl", "--app", "Kabu_X"] + args
-    print(f"Executing: {' '.join(cmd)}")
+    """xurlコマンドを shell=False で確実に実行し、出力をパースして返す"""
+    npx_cmd = "npx.cmd" if sys.platform == "win32" else "npx"
+    cmd = [npx_cmd, "@xdevplatform/xurl", "--app", "Kabu_X"] + args
+    print(f"Executing Process: {cmd}")
     
-    res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", shell=True)
+    # shell=False により、テキスト引数内のスペースや改行、URL特殊文字が正しく渡る
+    res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8")
     
     if res.returncode != 0:
         print(f"❌ コマンド実行失敗 (code: {res.returncode}):")
@@ -52,10 +54,11 @@ def upload_media(image_path):
         print(f"❌ エラー: 画像ファイルが見つかりません: {image_path}")
         return None
 
-    cmd = ["npx", "@xdevplatform/xurl", "--app", "Kabu_X", "media", "upload", image_path]
-    print(f"Executing: {' '.join(cmd)}")
+    npx_cmd = "npx.cmd" if sys.platform == "win32" else "npx"
+    cmd = [npx_cmd, "@xdevplatform/xurl", "--app", "Kabu_X", "media", "upload", image_path]
+    print(f"Executing Process: {cmd}")
     
-    res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", shell=True)
+    res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8")
     if res.returncode != 0:
         print(f"❌ コマンド実行失敗: {res.stderr}")
         return None
