@@ -229,3 +229,5 @@
 | **227. Implement: Draft X posts for Episode 17 and note** | [x] | Drafted parent and reply tweets with point validation. |
 | **228. Implement: Create and run scripts/post_x_manga_bankruptcy.py** | [x] | Create script using xurl to publish both threads to X. |
 | **229. Verify: Confirm both X threads are successfully posted** | [x] | Run script and verify output. |
+| **230. Implement: Modify scripts/post_x_manga_bankruptcy.py to 3-step thread** | [x] | Modify scripts/post_x_manga_bankruptcy.py for 3-step thread format. |
+| **231. Verify: Re-publish both 3-step threads and verify logs** | [x] | Run script and verify output. |

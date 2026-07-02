@@ -69,7 +69,6 @@ def upload_media(image_path):
         
     # 2. JSON部分の抽出とパースの試行
     try:
-        # JSON部分だけを正規表現で切り抜く
         json_match = re.search(r"(\{.*\})", stdout, re.DOTALL)
         if json_match:
             data = json.loads(json_match.group(1))
@@ -105,15 +104,29 @@ def post_tweet(text, media_id=None):
     return None
 
 def post_reply(parent_id, text):
-    """スレッドとして返信する"""
+    """スレッドとして返信し、その返信のツイートIDを返す"""
     args = ["reply", str(parent_id), text]
     res = run_xurl_command(args)
-    return res is not None
+    if not res:
+        return None
+        
+    # JSON構造からIDを取得
+    if isinstance(res, dict) and "data" in res:
+        return res["data"].get("id")
+        
+    # フォールバック
+    if isinstance(res, dict) and "raw_text" in res:
+        match = re.search(r'"id"\s*:\s*"(\d+)"', res["raw_text"])
+        if match:
+            return match.group(1)
+            
+    return None
 
-def publish_manga_thread():
-    print("\n========== 1. マンガ紹介スレッド投稿 ==========")
+def publish_manga_thread_3step():
+    print("\n========== 1. マンガ紹介スレッド投稿 (3段階) ==========")
     manga_img = os.path.join("image", "manga", "manga17_01.png")
     
+    # 1. 記事紹介 (親)
     parent_text = """フォッフォッフォ！「売上4億円の人気フィットネスジムが破産！？」と驚いておる者はおらんかの？
 
 「売上があって黒字なら、会社は絶対に安全！」というマネ太の思い込みに喝じゃ！
@@ -121,56 +134,75 @@ def publish_manga_thread():
 実は利益があっても黒字倒産する罠があるのじゃ。解説するぞい！👇
 #会社倒産 #黒字倒産 #マンガで学ぶ"""
 
-    reply_text = """会社が潰れる本当の理由はただ一つ、「手元の現金（キャッシュ）が枯渇するから」じゃよ。
+    # 2. 記事のURL (リプ1)
+    reply1_text = """会社が潰れる本当の理由はただ一つ、「手元の現金（キャッシュ）が枯渇するから」じゃよ。
 
-売上が入るまでの時間差の間に、仕入れや給料の支払いが重なると黒字でも資金ショートで即倒産じゃ！
+売上が入るまでの時間差の間に、仕入れや給料の支払いが重なると手元の現金がなくなって即倒産じゃ！
 
 マンガで学ぶ倒産と現金の仕組みはこちら！👇
 https://okane-no-manabi.jp/manga/17/"""
 
+    # 3. 関連記事の紹介 (リプ2)
+    reply2_text = """▼金利や家計リスクを深く学びたい者は、こちらの住宅ローンコラムも読むのじゃぞい！
+
+【住宅ローン vs 賃貸】一生で得なのはどちら？金利上昇リスクと生涯コストの真実はこちら👇
+https://okane-no-manabi.jp/column/col_038/"""
+
     # 文字数検証
     p_pts = count_twitter_points(parent_text)
-    r_pts = count_twitter_points(reply_text)
-    print(f"📊 マンガ紹介 - 親ポスト: {p_pts}pts, 返信ポスト: {r_pts}pts")
-    if p_pts > 280 or r_pts > 280:
+    r1_pts = count_twitter_points(reply1_text)
+    r2_pts = count_twitter_points(reply2_text)
+    print(f"📊 マンガ紹介 - 親: {p_pts}pts, リプ1: {r1_pts}pts, リプ2: {r2_pts}pts")
+    if p_pts > 280 or r1_pts > 280 or r2_pts > 280:
         print("❌ エラー: 文字数制限(280pts)を超えています。")
         return False
 
     # メディアアップロード
     media_id = upload_media(manga_img)
     if not media_id:
-        print("❌ マンガ紹介画像のアップロードに失敗しました。")
+        print("❌ マンガ画像のアップロードに失敗しました。")
         return False
     print(f"✅ 画像アップロード成功! Media ID: {media_id}")
 
     # 親投稿
-    tweet_id = post_tweet(parent_text, media_id)
-    if not tweet_id:
+    tweet_id_p = post_tweet(parent_text, media_id)
+    if not tweet_id_p:
         print("❌ 親ポストの送信に失敗しました。")
         return False
-    print(f"✅ 親ポスト送信成功! Tweet ID: {tweet_id}")
+    print(f"✅ 親ポスト送信成功! Tweet ID: {tweet_id_p}")
     time.sleep(3)
 
-    # 返信投稿
-    if not post_reply(tweet_id, reply_text):
-        print("❌ 返信ポストの送信に失敗しました。")
+    # リプ1投稿
+    tweet_id_r1 = post_reply(tweet_id_p, reply1_text)
+    if not tweet_id_r1:
+        print("❌ リプライ1の送信に失敗しました。")
         return False
-    print("✅ 返信ポスト送信成功!")
+    print(f"✅ リプライ1送信成功! Reply 1 ID: {tweet_id_r1}")
+    time.sleep(3)
+
+    # リプ2投稿
+    tweet_id_r2 = post_reply(tweet_id_r1, reply2_text)
+    if not tweet_id_r2:
+        print("❌ リプライ2の送信に失敗しました。")
+        return False
+    print(f"✅ リプライ2送信成功! Reply 2 ID: {tweet_id_r2}")
 
     # 履歴記録
+    full_text = f"{parent_text}\n\n[Reply 1]\n{reply1_text}\n\n[Reply 2]\n{reply2_text}"
     log_post_to_history(
         category="manga_promo",
-        text=f"{parent_text}\n\n[Thread Reply]\n{reply_text}",
+        text=full_text,
         media_path=manga_img,
         status="success",
-        tweet_id=tweet_id
+        tweet_id=tweet_id_p
     )
     return True
 
-def publish_note_thread():
-    print("\n========== 2. note紹介スレッド投稿 ==========")
+def publish_note_thread_3step():
+    print("\n========== 2. note紹介スレッド投稿 (3段階) ==========")
     note_img = os.path.join("image", "manga", "manga17_02.png")
 
+    # 1. 記事紹介 (親)
     parent_text = """フォッフォッフォ！会社が潰れるのは「赤字だから」だと思っておらんかの？
 
 実は、利益たっぷりの黒字でも明日突然倒産する「黒字倒産」の罠があるのじゃ！
@@ -178,59 +210,77 @@ def publish_note_thread():
 なぜ人気店が急に破産するのか、今さら聞けない借金と現金の冷酷な仕組みをnoteに書いたぞい！👇
 #黒字倒産 #資金ショート #note"""
 
-    reply_text = """コロナ禍では、多くの企業が補助金や実質無利子・無担保の「ゼロゼロ融資」で延命しておった。
+    # 2. 記事のURL (リプ1)
+    reply1_text = """コロナ禍では、多くの企業が補助金や実質無利子・無担保の「ゼロゼロ融資」で延命しておった。
 
 しかし返済が本格化した今、資金繰りが限界を迎えるコロナ後遺症倒産が激増しておる。
 
 今さら聞けない倒産と現金の仕組みはこちら！👇
 https://note.com/kabu_teacher/n/nf2148d34de0c"""
 
+    # 3. 関連記事の紹介 (リプ2)
+    reply2_text = """▼こちらもおすすめ！
+普通の個人口座がマネーロンダリングの中継ハブに狙われる！？
+口座売買や送金バイトに潜む冷酷な闇の解説記事はこちら👇
+https://note.com/kabu_teacher/n/nfe053ee5b4dd"""
+
     # 文字数検証
     p_pts = count_twitter_points(parent_text)
-    r_pts = count_twitter_points(reply_text)
-    print(f"📊 note紹介 - 親ポスト: {p_pts}pts, 返信ポスト: {r_pts}pts")
-    if p_pts > 280 or r_pts > 280:
+    r1_pts = count_twitter_points(reply1_text)
+    r2_pts = count_twitter_points(reply2_text)
+    print(f"📊 note紹介 - 親: {p_pts}pts, リプ1: {r1_pts}pts, リプ2: {r2_pts}pts")
+    if p_pts > 280 or r1_pts > 280 or r2_pts > 280:
         print("❌ エラー: 文字数制限(280pts)を超えています。")
         return False
 
     # メディアアップロード
     media_id = upload_media(note_img)
     if not media_id:
-        print("❌ note紹介画像のアップロードに失敗しました。")
+        print("❌ note画像のアップロードに失敗しました。")
         return False
     print(f"✅ 画像アップロード成功! Media ID: {media_id}")
 
     # 親投稿
-    tweet_id = post_tweet(parent_text, media_id)
-    if not tweet_id:
+    tweet_id_p = post_tweet(parent_text, media_id)
+    if not tweet_id_p:
         print("❌ 親ポストの送信に失敗しました。")
         return False
-    print(f"✅ 親ポスト送信成功! Tweet ID: {tweet_id}")
+    print(f"✅ 親ポスト送信成功! Tweet ID: {tweet_id_p}")
     time.sleep(3)
 
-    # 返信投稿
-    if not post_reply(tweet_id, reply_text):
-        print("❌ 返信ポストの送信に失敗しました。")
+    # リプ1投稿
+    tweet_id_r1 = post_reply(tweet_id_p, reply1_text)
+    if not tweet_id_r1:
+        print("❌ リプライ1の送信に失敗しました。")
         return False
-    print("✅ 返信ポスト送信成功!")
+    print(f"✅ リプライ1送信成功! Reply 1 ID: {tweet_id_r1}")
+    time.sleep(3)
+
+    # リプ2投稿
+    tweet_id_r2 = post_reply(tweet_id_r1, reply2_text)
+    if not tweet_id_r2:
+        print("❌ リプライ2の送信に失敗しました。")
+        return False
+    print(f"✅ リプライ2送信成功! Reply 2 ID: {tweet_id_r2}")
 
     # 履歴記録
+    full_text = f"{parent_text}\n\n[Reply 1]\n{reply1_text}\n\n[Reply 2]\n{reply2_text}"
     log_post_to_history(
         category="note_promo",
-        text=f"{parent_text}\n\n[Thread Reply]\n{reply_text}",
+        text=full_text,
         media_path=note_img,
         status="success",
-        tweet_id=tweet_id
+        tweet_id=tweet_id_p
     )
     return True
 
 def main():
-    manga_ok = publish_manga_thread()
+    manga_ok = publish_manga_thread_3step()
     time.sleep(5)
-    note_ok = publish_note_thread()
+    note_ok = publish_note_thread_3step()
     
     if manga_ok and note_ok:
-        print("\n🎉 すべてのスレッド投稿（マンガ ＆ note）が正常に完了しました！")
+        print("\n🎉 すべての3段階スレッド投稿（マンガ ＆ note）が正常に完了しました！")
     else:
         print("\n⚠️ 一部の投稿に失敗した可能性があります。ログを確認してください。")
 
