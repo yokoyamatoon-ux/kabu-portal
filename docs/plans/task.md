@@ -231,3 +231,6 @@
 | **229. Verify: Confirm both X threads are successfully posted** | [x] | Run script and verify output. |
 | **230. Implement: Modify scripts/post_x_manga_bankruptcy.py to 3-step thread** | [x] | Modify scripts/post_x_manga_bankruptcy.py for 3-step thread format. |
 | **231. Verify: Re-publish both 3-step threads and verify logs** | [x] | Run script and verify output. |
+| **232. Implement: Create scripts/post_x_manga_bankruptcy_browser.py** | [x] | Create browser-based X post script using post_to_x_browser_v3.py. |
+| **233. Verify: Run browser-based X post script and verify timeline** | [x] | Run script and verify output. |
+| **234. Verify: Confirm both X threads display correctly on timeline** | [x] | Check timeline manually or verify logs. |

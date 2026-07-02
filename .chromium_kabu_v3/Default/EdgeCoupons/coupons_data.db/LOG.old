@@ -1,6 +1,15 @@
-2026/05/20-13:58:45.889 bb8c Reusing MANIFEST D:\Antigravity\Kabu\.chromium_kabu_v3\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
-2026/05/20-13:58:45.889 bb8c Recovering log #88
-2026/05/20-13:58:45.890 bb8c Reusing old log D:\Antigravity\Kabu\.chromium_kabu_v3\Default\EdgeCoupons/coupons_data.db/000088.log 
-2026/05/20-13:58:53.552 beac Level-0 table #92: started
-2026/05/20-13:58:53.579 beac Level-0 table #92: 682665 bytes OK
-2026/05/20-13:58:53.621 beac Delete type=0 #88
+2026/07/02-09:52:57.566 19d4c Reusing MANIFEST D:\Antigravity\Kabu\.chromium_kabu_v3\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/07/02-09:52:57.664 19d4c Recovering log #94
+2026/07/02-09:52:57.665 19d4c Reusing old log D:\Antigravity\Kabu\.chromium_kabu_v3\Default\EdgeCoupons/coupons_data.db/000094.log 
+2026/07/02-09:52:58.527 12538 Level-0 table #98: started
+2026/07/02-09:52:58.627 12538 Level-0 table #98: 683105 bytes OK
+2026/07/02-09:52:58.689 12538 Delete type=0 #94
+2026/07/02-09:52:58.690 12538 Compacting 4@0 + 1@1 files
+2026/07/02-09:52:58.775 12538 Generated table #99@0: 4 keys, 682975 bytes
+2026/07/02-09:52:58.775 12538 Compacted 4@0 + 1@1 files => 682975 bytes
+2026/07/02-09:52:58.840 12538 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/07/02-09:52:58.841 12538 Delete type=2 #86
+2026/07/02-09:52:58.841 12538 Delete type=2 #89
+2026/07/02-09:52:58.841 12538 Delete type=2 #92
+2026/07/02-09:52:58.841 12538 Delete type=2 #95
+2026/07/02-09:52:58.842 12538 Delete type=2 #98

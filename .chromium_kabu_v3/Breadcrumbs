@@ -1,60 +1,68 @@
-0:00:00 Microsoft.BrowserList.AddBrowser
-0:00:00 Browser1 Insert active Tab1 at 0
-0:00:00 Tab1 AddInfobar73
-0:00:00 Tab1 StartNav1 #reload
-0:00:00 Browser1 Insert inactive Tab2 at 1
-0:00:00 Tab2 AddInfobar73
-0:00:00 Browser1 Insert inactive Tab3 at 2
-0:00:00 Tab3 AddInfobar73
-0:00:00 Tab4 StartNav2 #auto_toplevel
-0:00:00 Browser1 Insert active Tab4 at 3
-0:00:00 Tab4 AddInfobar73
-0:00:00 Tab4 FinishNav2
-0:00:00 Tab4 PageLoad
-0:00:00 Tab2 StartNav3 #reload
-0:00:00 Tab3 StartNav4 #reload
-0:00:00 Tab3 RemoveInfobar73
-0:00:00 Tab3 AddInfobar73
-0:00:00 Tab3 FinishNav4
-0:00:00 Tab3 PageLoad
-0:00:00 Tab1 RemoveInfobar73
-0:00:00 Tab1 AddInfobar73
-0:00:00 Tab1 FinishNav1
-0:00:01 Tab2 RemoveInfobar73
-0:00:01 Tab2 AddInfobar73
-0:00:01 Tab2 FinishNav3
+0:00:01 Tab1 StartNav9 #renderer-script #auto_subframe
+0:00:01 Tab2 PageLoad
+0:00:01 Tab1 FinishNav9
 0:00:01 Tab1 PageLoad
-0:00:01 Tab1 StartNav5 #typed
-0:00:01 Tab1 FinishNav5
-0:00:02 Tab2 PageLoad
+0:00:01 Tab6 RemoveInfobar73
+0:00:01 Tab6 AddInfobar73
+0:00:01 Tab6 FinishNav5
+0:00:02 Tab6 StartNav10 #renderer-script #link
+0:00:02 Tab6 FinishNav10
+0:00:02 Microsoft.ENP.Framework.CourtesyEngine.FrequencyCappingAllowed
+0:00:02 Microsoft.Nurturing.Framework.CourtesyEngine.FrequencyCappingAllowed
+0:00:02 Tab6 StartNav11 #renderer-script #auto_subframe
+0:00:02 Tab6 FinishNav11
+0:00:02 Tab6 PageLoad
+0:00:02 Tab6 StartNav12 #renderer-script #auto_subframe
+0:00:02 Tab6 FinishNav12
+0:00:02 Tab6 PageLoad
+0:00:02 Tab4 StartNav13 #reload
 0:00:02 Tab1 PageLoad
-0:00:11 Tab1 StartNav6 #renderer-user #link
-0:00:11 Tab1 FinishNav6
-0:00:11 Tab1 StartNav7 #renderer-user #link
-0:00:11 Tab1 FinishNav7
-0:00:16 Tab1 StartNav8 #typed
-0:00:16 Tab1 RemoveInfobar73
-0:00:16 Tab1 AddInfobar73
-0:00:16 Tab1 FinishNav8
-0:00:16 Tab1 StartNav9 #renderer-script #link
-0:00:16 Tab1 FinishNav9
-0:00:16 Tab1 PageLoad
-0:00:19 Tab1 StartNav10 #renderer-user #link
-0:00:19 Tab1 FinishNav10
-0:00:23 Tab1 StartNav11 #renderer-script #typed
-0:00:23 Tab1 FinishNav11
-0:00:27 Tab1 StartNav12 #typed
-0:00:27 Tab1 FinishNav12
-0:00:28 Tab1 PageLoad
-0:00:30 Tab1 StartNav13 #renderer-user #link
-0:00:30 Tab1 FinishNav13
-0:00:34 Tab1 StartNav14 #renderer-script #typed
-0:00:34 Tab1 FinishNav14
-0:00:38 Tab1 StartNav15 #typed
-0:00:39 Tab1 FinishNav15
-0:00:39 Tab1 PageLoad
-0:00:42 Tab1 StartNav16 #renderer-user #link
-0:00:42 Tab1 FinishNav16
-0:00:47 Tab1 StartNav17 #renderer-script #typed
-0:00:47 Tab1 FinishNav17
-0:00:51 Microsoft.Shutdown.ExitIgnoreUnloadHandlers
+0:00:02 Tab6 PageLoad
+0:00:02 Tab4 RemoveInfobar73
+0:00:02 Tab4 AddInfobar73
+0:00:02 Tab4 FinishNav13
+0:00:02 Tab4 PageLoad
+0:00:02 Tab2 PageLoad
+0:00:05 Tab3 StartNav14 #reload
+0:00:05 Tab3 RemoveInfobar73
+0:00:05 Tab3 AddInfobar73
+0:00:05 Tab3 FinishNav14
+0:00:05 Tab3 PageLoad
+0:00:17 Tab6 StartNav15 #renderer-user #link
+0:00:17 Tab6 FinishNav15
+0:00:17 Tab6 StartNav16 #renderer-user #link
+0:00:17 Tab6 FinishNav16
+0:00:21 Tab6 StartNav17 #typed
+0:00:21 Tab6 RemoveInfobar73
+0:00:21 Tab6 AddInfobar73
+0:00:21 Tab6 FinishNav17
+0:00:21 Widget Closed: LocationBarBubbleDelegateView
+0:00:21 Microsoft.ENP.Framework.CourtesyEngine.FrequencyCappingAllowed
+0:00:21 Microsoft.Nurturing.Framework.CourtesyEngine.FrequencyCappingAllowed
+0:00:21 Tab6 StartNav18 #renderer-script #link
+0:00:21 Tab6 FinishNav18
+0:00:21 Tab6 StartNav19 #renderer-script #auto_subframe
+0:00:21 Tab6 FinishNav19
+0:00:21 Tab6 PageLoad
+0:00:21 Tab6 StartNav20 #renderer-script #auto_subframe
+0:00:21 Tab6 FinishNav20
+0:00:21 Tab6 PageLoad
+0:00:22 Tab6 PageLoad
+0:00:24 Tab6 StartNav21 #renderer-user #link
+0:00:24 Tab6 FinishNav21
+0:00:30 Tab6 StartNav22 #renderer-script #typed
+0:00:30 Tab6 FinishNav22
+0:00:35 Tab6 StartNav23 #typed
+0:00:35 Tab6 FinishNav23
+0:00:35 Tab6 StartNav24 #renderer-script #auto_subframe
+0:00:35 Tab6 FinishNav24
+0:00:35 Tab6 PageLoad
+0:00:35 Tab6 StartNav25 #renderer-script #auto_subframe
+0:00:35 Tab6 FinishNav25
+0:00:35 Tab6 PageLoad
+0:00:35 Tab6 PageLoad
+0:00:38 Tab6 StartNav26 #renderer-user #link
+0:00:38 Tab6 FinishNav26
+0:00:42 Tab6 StartNav27 #renderer-script #typed
+0:00:42 Tab6 FinishNav27
+0:00:47 Microsoft.Shutdown.ExitIgnoreUnloadHandlers
