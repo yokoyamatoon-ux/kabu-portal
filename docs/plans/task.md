@@ -234,3 +234,13 @@
 | **232. Implement: Create scripts/post_x_manga_bankruptcy_browser.py** | [x] | Create browser-based X post script using post_to_x_browser_v3.py. |
 | **233. Verify: Run browser-based X post script and verify timeline** | [x] | Run script and verify output. |
 | **234. Verify: Confirm both X threads display correctly on timeline** | [x] | Check timeline manually or verify logs. |
+| **235. Brainstorm: Explore project context for SpaceX short sell column** | [x] | Explore current columns JSON, previous SpaceX articles, and related structures. |
+| **236. Brainstorm: Ask clarifying questions on SpaceX short sell topic** | [x] | Ask user questions to clarify details, category, and column tone. |
+| **237. Brainstorm: Propose 2-3 approaches** | [x] | Formulate approaches with trade-offs and recommendations. |
+| **238. Brainstorm: Present design sections and get approval** | [x] | Present column content flow, note draft content, and get user approval. |
+| **240. Brainstorm: Transition to implementation** | [x] | Invoke writing-plans to create implementation plan. |
+| **241. Implement: Convert and place Column20260703.png** | [x] | Convert user JPEG to PNG and place in image/ and web-next/ folders. |
+| **242. Implement: Create TDD validation test for col_039** | [x] | Add test script to verify columns.json integrity and assert failure. |
+| **243. Implement: Add col_039 JSON data to columns.json** | [x] | Structure the dialogue/FAQ/metadata and prepend to database, then pass test. |
+| **244. Verify: Build, deploy, and verify live page** | [x] | Rebuild web-next, run deploy_kabu.py, and verify live page URL. |
+
