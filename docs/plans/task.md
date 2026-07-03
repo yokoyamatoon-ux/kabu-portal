@@ -245,4 +245,12 @@
 | **244. Verify: Build, deploy, and verify live page** | [x] | Rebuild web-next, run deploy_kabu.py, and verify live page URL. |
 | **245. Implement: Create X promo post script for col_039** | [x] | Draft parent and reply tweets, create scripts/post_x_col_039_spacex.py. |
 | **246. Verify: Execute X promo post script and verify timeline** | [x] | Run the script to post the thread to X and verify timeline. |
+| **247. Brainstorm: Ask clarifying questions on note.com SpaceX article topic** | [x] | Ask clarifying questions on the new angle for the note article. |
+| **248. Brainstorm: Propose 2-3 approaches for note article** | [x] | Propose 2-3 distinct editorial angles for the note.com draft. |
+| **249. Brainstorm: Present note design sections and get approval** | [x] | Present the section outlines and structural layout for note. |
+| **250. Brainstorm: Write note design doc and transition to implementation** | [x] | Save design to plans and create implementation checklist. |
+| **251. Implement: Write scratch/note_spacex_short_sell.md (note.com draft)** | [x] | Draft a 3,000+ char article complying with rules (no double asterisks). |
+| **252. Verify: Validate note draft compliance locally** | [x] | Run local check to ensure zero double-asterisk issues and formatting limits. |
+| **253. Implement: Upload note.com draft using note-mcp and obtain Draft ID** | [x] | Upload draft via note-mcp wrapper and check auth status. |
+| **254. Verify: Git commit and push note draft to origin/main** | [/] | Commit scratch/note_spacex_short_sell.md and push to remote repository. |
 
