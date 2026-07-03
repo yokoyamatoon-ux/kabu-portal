@@ -252,5 +252,5 @@
 | **251. Implement: Write scratch/note_spacex_short_sell.md (note.com draft)** | [x] | Draft a 3,000+ char article complying with rules (no double asterisks). |
 | **252. Verify: Validate note draft compliance locally** | [x] | Run local check to ensure zero double-asterisk issues and formatting limits. |
 | **253. Implement: Upload note.com draft using note-mcp and obtain Draft ID** | [x] | Upload draft via note-mcp wrapper and check auth status. |
-| **254. Verify: Git commit and push note draft to origin/main** | [/] | Commit scratch/note_spacex_short_sell.md and push to remote repository. |
+| **254. Verify: Git commit and push note draft to origin/main** | [x] | Commit scratch/note_spacex_short_sell.md and push to remote repository. |
 
