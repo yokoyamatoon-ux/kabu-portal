@@ -243,4 +243,6 @@
 | **242. Implement: Create TDD validation test for col_039** | [x] | Add test script to verify columns.json integrity and assert failure. |
 | **243. Implement: Add col_039 JSON data to columns.json** | [x] | Structure the dialogue/FAQ/metadata and prepend to database, then pass test. |
 | **244. Verify: Build, deploy, and verify live page** | [x] | Rebuild web-next, run deploy_kabu.py, and verify live page URL. |
+| **245. Implement: Create X promo post script for col_039** | [x] | Draft parent and reply tweets, create scripts/post_x_col_039_spacex.py. |
+| **246. Verify: Execute X promo post script and verify timeline** | [x] | Run the script to post the thread to X and verify timeline. |
 
