@@ -97,7 +97,11 @@ def main():
         "d:\\Antigravity\\Kabu\\scratch\\note_bubble.md",
         "d:\\Antigravity\\Kabu\\scratch\\note_money_laundering.md",
         "d:\\Antigravity\\Kabu\\scratch\\note_mortgage.md",
-        "d:\\Antigravity\\Kabu\\scratch\\note_bankruptcy.md"
+        "d:\\Antigravity\\Kabu\\scratch\\note_bankruptcy.md",
+        "d:\\Antigravity\\Kabu\\scratch\\note_gpif_history.md",
+        "d:\\Antigravity\\Kabu\\scratch\\note_meme_coin.md",
+        "d:\\Antigravity\\Kabu\\scratch\\note_doge_reform.md",
+        "d:\\Antigravity\\Kabu\\scratch\\note_ice_age_comparison.md"
     ]
     
     print("="*80)
