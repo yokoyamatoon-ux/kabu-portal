@@ -325,7 +325,16 @@
 | **325. Implement: Create TDD validation test for col_043** | [x] | Add test script to verify columns.json integrity. (Verified failure) |
 | **326. Implement: Add col_043 JSON data to columns.json** | [x] | Structure the dialogue/safety warnings and prepend to database. (Test passed) |
 | **327. Verify: Sync data and run local Next.js build** | [x] | Sync updated data and verify that Next.js static builds successfully. |
-| **328. Deploy: Deploy to live server and verify online** | [/] | Run deploy_kabu.py to build and upload all assets to XServer. |
+| **328. Deploy: Deploy to live server and verify online** | [x] | Run deploy_kabu.py to build and upload all assets to XServer. (Live verified 200 OK) |
+| **329. Brainstorm: Explore project context for Ice Age note** | [x] | Checked columns.json database and new input sources. |
+| **330. Brainstorm: Present design sections and get approval** | [x] | Present note section outlines and design to the user. |
+| **331. Implement: Draft scratch/note_ice_age_comparison.md** | [x] | Write the detailed note.com article based on LDP vs Democratic Party support comparison. |
+| **332. Implement: Register and run verify_note_compliance.py** | [x] | Ensure the note draft passes compliance with zero errors or warnings. |
+| **333. Implement: Upload note draft using scratch/upload_ice_age_note.py** | [x] | Upload draft to note.com and retrieve the Draft ID. |
+| **334. Verify: Git commit and push changes to remote main** | [x] | Verified no untracked script files require committing in scripts/. |
+| **335. Implement: Create scripts/post_x_col_043_ice_age_browser.py and execute post** | [x] | Write post script using browser automation and execute it. |
+| **336. Verify: Confirm X thread was successfully posted** | [x] | Verified browser automation completed and post was successful. |
+
 
 
 
