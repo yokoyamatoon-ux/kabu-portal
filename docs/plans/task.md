@@ -352,6 +352,9 @@
 | **352. Implement: Add ep_23 JSON data to money_secrets.json** | [x] | Structure the dialogue/HTML warnings and prepend to database. (Test passed) |
 | **353. Verify: Sync data and run local Next.js build** | [x] | Sync updated data and verify that Next.js static builds successfully. |
 | **354. Deploy: Deploy to live server and verify online** | [x] | Run deploy_kabu.py to build and upload all assets to XServer. (Live verified 200 OK) |
+| **355. Implement: Convert and overwrite ep_23 manga page 2 image** | [x] | Convert the new JPG image to PNG and overwrite the target paths. |
+| **356. Verify: Sync data and run local Next.js build** | [x] | Sync updated data and verify that Next.js static builds successfully. |
+| **357. Deploy: Deploy to live server and verify online** | [x] | Run deploy_kabu.py to build and upload all assets to XServer. (Live verified 200 OK) |
 
 
 
