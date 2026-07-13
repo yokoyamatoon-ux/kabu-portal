@@ -357,3 +357,11 @@
 | **357. Deploy: Deploy to live server and verify online** | [x] | Run deploy_kabu.py to build and upload all assets to XServer. (Live verified 200 OK) |
 | **358. Implement: Create scripts/post_x_ura_023_pump_and_dump_browser.py and execute post** | [x] | Write post script using browser automation and execute it. |
 | **359. Verify: Confirm X thread was successfully posted** | [x] | Verified browser automation completed and post was successful. |
+| **360. Brainstorm: Explore project context for money_secret ep_23 note** | [x] | Checked columns.json database and new input sources. |
+| **361. Brainstorm: Ask clarifying questions on money_secret ep_23 note** | [x] | Clarified target audience and selected Approach 1 (Cognitive biases & investor psychology). |
+| **362. Brainstorm: Propose 2-3 approaches** | [x] | Formulated approaches and got selected angle. |
+| **363. Brainstorm: Present note outlines and get approval** | [x] | Present note section outlines and design to the user. |
+| **364. Implement: Draft scratch/note_pump_and_dump_psychology.md** | [x] | Write the detailed note.com article based on cognitive biases. |
+| **365. Implement: Register and run verify_note_compliance.py** | [x] | Ensure the note draft passes compliance with zero errors or warnings. (Pass) |
+| **366. Implement: Upload note draft using scratch/upload_pump_and_dump_note.py** | [x] | Upload draft to note.com and retrieve the Draft ID. (Upload success, Draft ID: 169823597) |
+| **367. Verify: Git commit and push changes to remote main** | [/] | Commit draft and upload script and push to origin/main. |

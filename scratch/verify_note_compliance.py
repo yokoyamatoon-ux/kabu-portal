@@ -101,7 +101,8 @@ def main():
         "d:\\Antigravity\\Kabu\\scratch\\note_gpif_history.md",
         "d:\\Antigravity\\Kabu\\scratch\\note_meme_coin.md",
         "d:\\Antigravity\\Kabu\\scratch\\note_doge_reform.md",
-        "d:\\Antigravity\\Kabu\\scratch\\note_ice_age_comparison.md"
+        "d:\\Antigravity\\Kabu\\scratch\\note_ice_age_comparison.md",
+        "d:\\Antigravity\\Kabu\\scratch\\note_pump_and_dump_psychology.md"
     ]
     
     print("="*80)
