@@ -364,4 +364,19 @@
 | **364. Implement: Draft scratch/note_pump_and_dump_psychology.md** | [x] | Write the detailed note.com article based on cognitive biases. |
 | **365. Implement: Register and run verify_note_compliance.py** | [x] | Ensure the note draft passes compliance with zero errors or warnings. (Pass) |
 | **366. Implement: Upload note draft using scratch/upload_pump_and_dump_note.py** | [x] | Upload draft to note.com and retrieve the Draft ID. (Upload success, Draft ID: 169823597) |
-| **367. Verify: Git commit and push changes to remote main** | [/] | Commit draft and upload script and push to origin/main. |
+| **367. Verify: Git commit and push changes to remote main** | [x] | Commit draft and upload script and push to origin/main. |
+| **368. Implement: Fix trailing slashes in Layout.jsx** | [x] | Fix /privacy, /disclaimer, /contact links in Layout.jsx. |
+| **369. Implement: Fix trailing slashes in HomePageContent.jsx** | [x] | Fix Link and router.push paths in HomePageContent.jsx. |
+| **370. Implement: Fix trailing slashes in other components** | [x] | Fix routes in ColumnDetailWrapper, ColumnClientShell, BackButton. |
+| **371. Implement: Create generate_sitemap.py script** | [x] | Create python script to rebuild sitemap.xml dynamically from JSON databases. |
+| **372. Implement: Integrate sitemap generation into deploy_kabu.py** | [x] | Edit deploy_kabu.py to execute sitemap builder before Next.js build. |
+| **373. Verify: Run sitemap generation and check web-next/public/sitemap.xml** | [x] | Verify the XML output has trailing slashes and contains col_018 to col_044. |
+| **374. Verify: Run local Next.js build and test** | [x] | Test Next.js build locally to ensure compilation succeeds. |
+| **375. Deploy: Run deploy_kabu.py to deploy the changes** | [x] | Run deploy script to upload the fixed codebase and updated sitemap.xml. |
+| **376. Brainstorm: Explore project context for FX intervention column** | [x] | Check existing columns.json database and rules directory. |
+| **377. Brainstorm: Ask clarifying questions on FX intervention column** | [x] | Ask the user about the desired focus of the new FX intervention column. |
+| **378. Brainstorm: Propose 2-3 approaches** | [x] | Propose angles and structure for the column based on user response. |
+| **379. Brainstorm: Present design sections and get approval** | [x] | Detail the column's JSON fields, dialogue draft, and SEO metadata. |
+| **380. Brainstorm: Write design doc for col_045** | [x] | Create and commit the design markdown file in docs/plans/. |
+| **381. Brainstorm: Transition to implementation of col_045** | [/] | Switch to writing-plans for the step-by-step implementation. |
+
