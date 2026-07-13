@@ -379,4 +379,13 @@
 | **379. Brainstorm: Present design sections and get approval** | [x] | Detail the column's JSON fields, dialogue draft, and SEO metadata. |
 | **380. Brainstorm: Write design doc for col_045** | [x] | Create and commit the design markdown file in docs/plans/. |
 | **381. Brainstorm: Transition to implementation of col_045** | [x] | Switch to writing-plans for the step-by-step implementation. |
+| **382. Implement: Convert and Place Column Eyecatch Image** | [x] | Convert the JPEG to PNG and place it in the correct public and source paths. |
+| **383. Implement: Create validation test script and verify failure** | [x] | Create scratch/test_column_045_data.py and ensure it fails initially. |
+| **384. Implement: Add col_045 JSON data to columns.json and verify test passes** | [x] | Add the data to columns.json and verify the test passes. |
+| **385. Deploy: Rebuild, verify sitemap, and deploy to live server** | [x] | Run the deploy script, check the generated sitemap, and verify the live page. |
+| **386. Brainstorm: Explore project context for FX intervention note** | [x] | Check note.com posting rules and script locations. |
+| **387. Brainstorm: Present note outlines and get approval** | [x] | Design the note's title, hook, summary, and CTA target. |
+| **388. Implement: Draft scratch/note_fx_intervention.md** | [x] | Draft the note article in scratch. |
+| **389. Implement: Verify note draft compliance and upload to note.com** | [x] | Run the validation script and upload the draft using the note-mcp tool. |
+| **390. Verify: Confirm note draft upload success** | [x] | Get draft status and check preview URL. |
 
