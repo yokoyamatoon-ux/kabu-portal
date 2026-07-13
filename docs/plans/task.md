@@ -345,6 +345,13 @@
 | **345. Deploy: Deploy to live server and verify online** | [x] | Run deploy_kabu.py to build and upload all assets to XServer. (Live verified 200 OK) |
 | **346. Implement: Create scripts/post_x_col_044_zentoshin_browser.py and execute post** | [x] | Write post script using browser automation and execute it. |
 | **347. Verify: Confirm X thread was successfully posted** | [x] | Verified browser automation completed and post was successful. |
+| **348. Brainstorm: Explore project context for money_secret ep_23** | [x] | Formulated the story concept and deep-dive analysis plan. |
+| **349. Brainstorm: Present design sections and get approval** | [x] | Presented layout design, character prompt maps, and got user approval. |
+| **350. Implement: Copy and place manga PNG images** | [x] | Copy source PNGs to image/manga/urakane/ and Next.js public directories. |
+| **351. Implement: Create TDD validation test for money_secret ep_23** | [x] | Add test script to verify money_secrets.json integrity and keywords. (Verified failure) |
+| **352. Implement: Add ep_23 JSON data to money_secrets.json** | [x] | Structure the dialogue/HTML warnings and prepend to database. (Test passed) |
+| **353. Verify: Sync data and run local Next.js build** | [x] | Sync updated data and verify that Next.js static builds successfully. |
+| **354. Deploy: Deploy to live server and verify online** | [x] | Run deploy_kabu.py to build and upload all assets to XServer. (Live verified 200 OK) |
 
 
 
