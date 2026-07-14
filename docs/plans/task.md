@@ -397,5 +397,5 @@
 | **397. Brainstorm: Propose 2-3 approaches** | [x] | Propose angles and structure for the column based on user response. |
 | **398. Brainstorm: Present design sections and get approval** | [x] | Detail the column's JSON fields, dialogue draft, and SEO metadata. |
 | **399. Brainstorm: Write design doc for col_046** | [x] | Create and commit the design markdown file in docs/plans/. |
-| **400. Brainstorm: Transition to implementation of col_046** | [/] | Switch to writing-plans for the step-by-step implementation. |
+| **400. Brainstorm: Transition to implementation of col_046** | [x] | Switch to writing-plans for the step-by-step implementation. |
 
