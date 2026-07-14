@@ -398,4 +398,7 @@
 | **398. Brainstorm: Present design sections and get approval** | [x] | Detail the column's JSON fields, dialogue draft, and SEO metadata. |
 | **399. Brainstorm: Write design doc for col_046** | [x] | Create and commit the design markdown file in docs/plans/. |
 | **400. Brainstorm: Transition to implementation of col_046** | [x] | Switch to writing-plans for the step-by-step implementation. |
+| **401. Implement: Create validation test script and verify failure** | [x] | Create scratch/test_column_046_data.py and ensure it fails initially. |
+| **402. Implement: Add col_046 JSON data to columns.json and verify test passes** | [x] | Add the data to columns.json, copy the eyecatch image, and verify the test passes. |
+| **403. Deploy: Rebuild, verify sitemap, and deploy to live server** | [ ] | Run the deploy script, check the generated sitemap, and verify the live page. |
 
