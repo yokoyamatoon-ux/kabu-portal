@@ -388,4 +388,8 @@
 | **388. Implement: Draft scratch/note_fx_intervention.md** | [x] | Draft the note article in scratch. |
 | **389. Implement: Verify note draft compliance and upload to note.com** | [x] | Run the validation script and upload the draft using the note-mcp tool. |
 | **390. Verify: Confirm note draft upload success** | [x] | Get draft status and check preview URL. |
+| **391. Brainstorm: Design X post content and verify points** | [x] | Design the three posts and verify character points count. |
+| **392. Implement: Create scratch/post_x_col_045.py** | [x] | Create script scratch/post_x_col_045.py referencing post_to_x_browser_v3. |
+| **393. Deploy: Execute scratch/post_x_col_045.py using .venv interpreter** | [x] | Run the script to execute the browser-based thread post. |
+| **394. Verify: Check console logs and verify post history log** | [x] | Check that it posted successfully and logged to sns_history.json. |
 
