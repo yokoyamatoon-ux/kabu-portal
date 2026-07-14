@@ -392,4 +392,10 @@
 | **392. Implement: Create scratch/post_x_col_045.py** | [x] | Create script scratch/post_x_col_045.py referencing post_to_x_browser_v3. |
 | **393. Deploy: Execute scratch/post_x_col_045.py using .venv interpreter** | [x] | Run the script to execute the browser-based thread post. |
 | **394. Verify: Check console logs and verify post history log** | [x] | Check that it posted successfully and logged to sns_history.json. |
+| **395. Brainstorm: Explore project context for JGB column** | [x] | Check existing columns.json database and JGB rules. |
+| **396. Brainstorm: Ask clarifying questions on JGB column** | [x] | Ask the user about the desired tone or focus of the JGB column. |
+| **397. Brainstorm: Propose 2-3 approaches** | [x] | Propose angles and structure for the column based on user response. |
+| **398. Brainstorm: Present design sections and get approval** | [x] | Detail the column's JSON fields, dialogue draft, and SEO metadata. |
+| **399. Brainstorm: Write design doc for col_046** | [x] | Create and commit the design markdown file in docs/plans/. |
+| **400. Brainstorm: Transition to implementation of col_046** | [/] | Switch to writing-plans for the step-by-step implementation. |
 
