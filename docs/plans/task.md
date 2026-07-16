@@ -401,4 +401,11 @@
 | **401. Implement: Create validation test script and verify failure** | [x] | Create scratch/test_column_046_data.py and ensure it fails initially. |
 | **402. Implement: Add col_046 JSON data to columns.json and verify test passes** | [x] | Add the data to columns.json, copy the eyecatch image, and verify the test passes. |
 | **403. Deploy: Rebuild, verify sitemap, and deploy to live server** | [x] | Run the deploy script, check the generated sitemap, and verify the live page. |
-
+| **404. Image: Convert and Place Column Eyecatch Image** | [x] | Convert the JPEG to PNG and place it in the correct public and source paths. |
+| **405. Implement: Create validation test script and verify failure** | [x] | Create scratch/test_column_047_data.py and ensure it fails initially. |
+| **406. Implement: Add col_047 JSON data to columns.json and verify test passes** | [x] | Add the data to columns.json and verify the test passes. |
+| **407. Deploy: Rebuild, verify sitemap, and deploy to live server** | [x] | Run the deploy script, check sitemap and verify live page. |
+| **408. Image: Generate and Place Column Eyecatch Image for col_048** | [x] | Generate using AI and place in the correct path. |
+| **409. Implement: Create validation test script and verify failure** | [x] | Create scratch/test_column_048_data.py and ensure it fails initially. |
+| **410. Implement: Add col_048 JSON data to columns.json and verify test passes** | [x] | Add the data to columns.json and verify the test passes. |
+| **411. Deploy: Rebuild, verify sitemap, and deploy to live server** | [x] | Run the deploy script, check sitemap and verify live page. |
