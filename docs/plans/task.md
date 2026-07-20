@@ -409,3 +409,7 @@
 | **409. Implement: Create validation test script and verify failure** | [x] | Create scratch/test_column_048_data.py and ensure it fails initially. |
 | **410. Implement: Add col_048 JSON data to columns.json and verify test passes** | [x] | Add the data to columns.json and verify the test passes. |
 | **411. Deploy: Rebuild, verify sitemap, and deploy to live server** | [x] | Run the deploy script, check sitemap and verify live page. |
+| **412. Image: Generate and Place Column Eyecatch Image for col_049** | [x] | Generate using AI and place in the correct path. |
+| **413. Implement: Create validation test script and verify failure** | [x] | Create scratch/test_column_049_data.py and ensure it fails initially. |
+| **414. Implement: Add col_049 JSON data to columns.json and verify test passes** | [x] | Add the data to columns.json and verify the test passes. |
+| **415. Deploy: Rebuild, verify sitemap, and deploy to live server** | [x] | Run the deploy script, check sitemap and verify live page. |
